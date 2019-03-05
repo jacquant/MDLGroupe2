@@ -68,10 +68,9 @@
                 <version>2.2</version>
                 <configuration>
                     <url>http://localhost:8080/manager/text</url>
-                    <server>TomcatServer</server>
+                    <username>jacquant</username>
+                    <password>hEsociwy</password>
                     <path>/MDL-Groupe2</path>
-                    <username>mdl-std</username>
-                    <password>Feikeng3</password>
                     <update>true</update>
                 </configuration>
             </plugin>
