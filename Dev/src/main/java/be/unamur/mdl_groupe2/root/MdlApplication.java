@@ -1,4 +1,4 @@
-package com.example.demo;
+package be.unamur.mdl_groupe2.root;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

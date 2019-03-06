@@ -1,5 +1,4 @@
-package com.example.demo;
-
+package be.unamur.mdl_groupe2.root;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
