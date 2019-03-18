@@ -1,0 +1,205 @@
+<html>
+ <head>
+ <title>Add Items: Article / State of Art</title>
+ <!--script type="text/javascript" src="js/vue.js"></script-->
+ <link rel="stylesheet" type="text/css" href="main_css.css">
+ </head>
+ <body>
+  
+   			
+					
+ <div id="typePaper" >
+    <h3 style="color:red; text-align:center">Add New articles / State of art</h3>
+   <table align='center'> 
+			 
+			 <tr>
+				<td><label>Type:</label> </td> <td> <input type="button" class="btnsw" value="State of art" onclick="javascript:displaySAForm();" > 
+				<input type="button" class="btnsw" value="Article" onclick="javascript:displayArticleForm();"></td>
+			 </tr>
+	</table>
+
+	 
+	<div id="formarticle" style="display:none;">
+	
+     		<form name="article" >
+		
+		 <table cellspacing="10"> 		 
+			 
+			 <tr>
+				<td><label>Titre:</label> </td> <td><textarea  rows="3" cols="30" name="titre" v-model="titre" placeholder="article titre " /></textarea> </td>
+			 </tr>
+			 <tr>
+				<td><label>Auteur(s):</label> </td> <td><textarea  rows="3" cols="30" name="auteur" v-model="auteur" placeholder="author(s) name (s)" /></textarea> </td>
+			 </tr>
+			 <tr>		
+					<td>Published?</td><td><input type="radio" name="publish" value="Published" >Published
+					<input type="radio" name="publish" value="not-published" >Not published</td>
+			</tr>
+			<tr>
+				<td><label>Article area:</label> </td> <td><textarea  rows="3" cols="30" name="article_area" placeholder="Areas of the articles" /></textarea> </td>
+			 </tr>			
+			 <tr>
+				<td><label>Details:</label> </td> <td><textarea  rows="3" cols="30" name="detail_publish"  placeholder="details" /></textarea> </td>
+			 </tr>
+			<tr>
+				<td><label>Abstract:</label> </td> <td><textarea  rows="5" cols="50" name="abstract"  placeholder="Abstract" /></textarea> </td>
+			 </tr>
+			
+			 <tr> 
+				<td><label>PDF file:</label> </td> <td><input type="file" name="pdffile" value="Attach"  /> </td>
+			 </tr>
+			 <tr> 
+				<td><label>Video URL:</label> </td> <td><input type="text" name="urlvideo" size="40" placeholder="url video youtube" /> </td>
+			 </tr>
+			  <tr>
+				<td><label>References:</label> </td>
+						<td width="100%">
+							<div id="tableauRef">
+						
+						
+						   </div>
+						</td>
+				<td>				
+				
+					<input type="button" name="addreference" class="btn1" value="Add Reference" onclick="javascript:openFormRef();" >
+								
+		
+				</td>
+			</tr> 
+		</table>
+       		<br/>
+        <button class="btncss" type="button" v-on:click="add_article()" style="margin-left:400px;">Add Item</button>
+	 </form>
+	</div>
+
+	
+	
+	<div id="formSA" style="display:none;">   
+	
+      <form name="stateofart">	
+	  
+		<div id="">
+		       <table>
+			 		 <tr><td>Add contribution:</td><td><input type="checkbox" name="contribution" value="Yes" checked> Yes</td></tr>
+					 <tr><td> </td><td><input type="checkbox" name="contribution" value="No"> No</td></tr>
+					 <tr><td> </td><td><input type="checkbox" name="contribution" value="NA"> Under my supervision</td></tr>
+				</table>
+		</div>
+		
+		 <table cellspacing="10"> 		 
+			  <tr>
+				<td><label>Titre:</label> </td> <td colspan="2"><textarea  rows="3" cols="30" name="titre" v-model="titre" placeholder="article titre " /></textarea> </td>
+			 </tr>
+			 <tr>
+				<td><label>Auteur(s):</label> </td> <td colspan="2"><textarea  rows="3" cols="30" name="auteur" v-model="auteur" placeholder="author(s) name (s)" /></textarea> </td>
+			 </tr>
+			 <tr>		
+					<td>Published?</td><td colspan="2"><input type="radio" name="publish" value="Published" >Published
+					<input type="radio" name="publish" value="not-published" >Not published</td>
+			</tr>
+			<tr>
+				<td><label>Article area:</label> </td> <td colspan="2"><textarea  rows="3" cols="30" name="article_area" placeholder="Areas of the articles" /></textarea> </td>
+			 </tr>			
+			 <tr>
+				<td><label>Details:</label> </td> <td colspan="2"><textarea  rows="3" cols="30" name="detail_publish"  placeholder="details" /></textarea> </td>
+			 </tr>
+			<tr>
+				<td><label>Abstract:</label> </td> <td colspan="2"><textarea  rows="5" cols="50" name="abstract"  placeholder="Abstract" /></textarea> </td>
+			 </tr>
+			 <tr>
+				<td><label>References:</label> </td>
+						<td width="100%">
+							<div id="tableauRef">
+						
+						
+						   </div>
+						</td>
+				<td>				
+				
+					<input type="button" name="addcreterion" class="btn1" value="Add Criterion" onclick="javascript:openFormC();" ><br/><br/>
+					<input type="button" name="addreference" class="btn1" value="Add Reference" onclick="javascript:openFormRef();" >
+								
+		
+				</td>
+				<!--form to add criterion -->
+					<div id="idCriterion" style="display:none;"> 							
+							<h3 style="color:green;">Add criterion	<input type="button" name="" style="float:right; margin-right:2px;" value="Close" onclick="javascript:closeFormC()";></h3>
+								<label>Criterion:</label><input type="text" id="criterion" name="criterionName" size="20" placeholder="Criterion" /> 
+								<input type="button" name="" onclick="javascript:addCriterion();" value="Add" >							
+					</div>	
+				<!--form to add references -->
+					<div id="idReference" style="display:none;"> 							
+							<h3 style="color:green;">Add Reference	<input type="button" name="" style="float:right; margin-right:2px;" value="Close" onclick="javascript:closeFormRef()";></h3>
+								<label>Reference:</label><input type="text" id="reference" name="reference" size="30" placeholder="Reference" /><br/>
+								<br/>
+								<label>Criterion:</label><br/>
+								<script>
+                                    var itemsC=criterion.split(",");
+									for (var i = 0; i < itemsC.length; i++) {
+										</script><input name="criterion" type="checkbox"><script>document.write(itemsC[i]); </script>
+										
+									<script>
+								
+									}
+									
+									
+								</script>
+									<br/>
+								
+								<input type="button" name="" onclick="javascript:addRef();" value="Add" >	
+								<br/>								
+					</div>	
+					
+			 </tr>
+			 <tr> 
+				<td><label>PDF file:</label> </td> <td colspan="2"><input type="file" name="pdffile" value="Attach"  /> </td>
+			 </tr>
+			 <tr> 
+				<td><label>Video URL:</label> </td> <td colspan="2"><input type="text" name="urlvideo" size="40" placeholder="url video youtube" /> </td>
+			 </tr>
+		</table>
+        
+		<br/>
+        <button class="btncss" type="button" v-on:click="add_article()" style="margin-left:400px;">Add Item</button>
+		
+	
+	</form>
+  </div>
+  
+<script>
+	
+	var criterion="",reference="";
+	
+	function displayArticleForm(){
+	    document.getElementById("formSA").style.display="none";
+		document.getElementById("formarticle").style.display="block";
+	}
+	
+	function displaySAForm(){
+		document.getElementById("formarticle").style.display="none";
+		document.getElementById("formSA").style.display="block";
+	}
+	
+	function closeFormC(){
+		document.getElementById("idCriterion").style.display="none";
+	}
+	function openFormC(){
+		document.getElementById("idCriterion").style.display="block";
+	}
+	
+	function openFormRef(){
+		document.getElementById("idReference").style.display="block";
+	}
+	function closeFormRef(){
+		document.getElementById("idReference").style.display="none";
+	}
+	
+	function addCriterion(){
+		criterion+=document.getElementById("criterion").value+",";
+		document.getElementById("criterion").value="";
+		//alert("criteres:"+criterion);
+	}
+</script>
+	
+	</body>
+</html>
