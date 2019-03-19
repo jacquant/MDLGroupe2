@@ -40,7 +40,7 @@ table {
     float: left;
 }
 .search{
-     padding: 6px;
+  padding: 6px;
   border: none;
   margin-top: 20px;
   margin-right: 16px;
@@ -55,13 +55,10 @@ table {
 }
 .select2{
     width: 4%;
-     height: 23px;
+    height: 23px;
     
     
 }
 .bloc6{
     margin-left:-3.5%;
     }
-.search-btn{
-    background-color:orange; 
-}
