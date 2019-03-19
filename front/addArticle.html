@@ -1,7 +1,7 @@
 <html>
  <head>
  <title>Add Items: Article / State of Art</title>
- <!--script type="text/javascript" src="js/vue.js"></script-->
+ <script type="text/javascript" src="vue.js"></script>
  <link rel="stylesheet" type="text/css" href="main_css.css">
  </head>
  <body>
@@ -109,10 +109,14 @@
 			 <tr>
 				<td><label>References:</label> </td>
 						<td width="100%">
-							<div id="tableauRef">
+							<table border="1">
+						      <tr><th>EA</th>
+							  
+							  <div v-for ="tableauRef">
+									{{ message}}
+								</div>
 						
-						
-						   </div>
+						   </table>
 						</td>
 				<td>				
 				
@@ -130,22 +134,7 @@
 				<!--form to add references -->
 					<div id="idReference" style="display:none;"> 							
 							<h3 style="color:green;">Add Reference	<input type="button" name="" style="float:right; margin-right:2px;" value="Close" onclick="javascript:closeFormRef()";></h3>
-								<label>Reference:</label><input type="text" id="reference" name="reference" size="30" placeholder="Reference" /><br/>
-								<br/>
-								<label>Criterion:</label><br/>
-								<script>
-                                    var itemsC=criterion.split(",");
-									for (var i = 0; i < itemsC.length; i++) {
-										</script><input name="criterion" type="checkbox"><script>document.write(itemsC[i]); </script>
-										
-									<script>
-								
-									}
-									
-									
-								</script>
-									<br/>
-								
+								<label>Reference:</label><input type="text" id="reference" name="reference" size="30" placeholder="Reference" />
 								<input type="button" name="" onclick="javascript:addRef();" value="Add" >	
 								<br/>								
 					</div>	
@@ -167,7 +156,7 @@
   </div>
   
 <script>
-	
+	var nbre=0,cpt=0;
 	var criterion="",reference="";
 	
 	function displayArticleForm(){
@@ -184,21 +173,45 @@
 		document.getElementById("idCriterion").style.display="none";
 	}
 	function openFormC(){
+	     if(cpt==0) nbre=prompt("Number of Criterions");
 		document.getElementById("idCriterion").style.display="block";
 	}
 	
 	function openFormRef(){
+	if(cpt==0)alert("You must add criterions first");
+		else{
 		document.getElementById("idReference").style.display="block";
+		}
 	}
 	function closeFormRef(){
 		document.getElementById("idReference").style.display="none";
 	}
 	
-	function addCriterion(){
-		criterion+=document.getElementById("criterion").value+",";
-		document.getElementById("criterion").value="";
+	function addCriterion(){	  
+	   var tabRef=document.getElementById("tableauRef");
+	   var criterion=document.getElementById("criterion").value;
+	   
+		tabRef.innerHTML= tabRef.innerHTML+"<th>"+criterion+"</th>";
+		cpt=cpt+1;
+		if(cpt==nbre)tabRef.innerHTML=tabRef.innerHTML+"</tr>";
 		//alert("criteres:"+criterion);
 	}
+	function addRef(){
+	    
+			var tabRef=document.getElementById("tableauRef");
+			var ref=document.getElementById("reference").value;
+			tabRef.innerHTML= tabRef.innerHTML+"<tr><td>"+ref+"</td>";
+			for(i=0;i<nbre;i++) tabRef.innerHTML= tabRef.innerHTML+"<td><input type='checkbox' name='checkcriterion'></td>";
+			tabRef.innerHTML= tabRef.innerHTML+"</tr>";
+			//alert("criteres:"+criterion);
+		
+	}
+	
+	new Vue({
+		el: "#tableauRef",
+		data: {message:""}
+	})
+
 </script>
 	
 	</body>
