@@ -6,18 +6,22 @@
     </head>
     
     <body>
-        <table  width="100%" hieght="100%" valign="top">
-            <tr ><td class="td1">
-                <div class="top">
+        <table   valign="top">
+            <tr  ><td>
+                <div class="top" >
                     
-                    <a href="signup.html">sign up</a>
-                    <a href="#">contact us</a>
-                    <img src="LogoSiteWebMDL.png" alt="Logo ReSearch" style="width: 50px;float:left;" />
+                    <a href="signup.html">Sign up</a>
+                    <a href="#">Contact us</a>
+                    
+                    
+                </div>
+                <div style="float:left;">
+                    <img src="LogoSiteWebMDL.png" alt="Logo ReSearch" style="width: 50px; " />
                 </div>
                 </td></tr>
             
             <tr><td>
-                <p> site name</p>
+                <p> ReSearch</p>
                 </td></tr>
             
             <tr><td>
@@ -140,6 +144,21 @@
   <option value="Article Number">Article Number</option>
 </select>
                 </div>
+                
+                 <div id="idbloc66" class="bloc6" hidden>
+                     <select class="select2">
+                          <option value="AND"> AND</option>
+                          <option value="OR">OR</option>
+                          <option value="NOT">NOT</option>
+                     </select>
+                    <input type="text"> in
+<select class="select1">
+  <option value="Metadata Only">Metadata Only</option>
+  <option value="Document Title">Document Title</option>
+  <option value="Author Keywords">Author Keywords</option>
+  <option value="Article Number">Article Number</option>
+</select>
+                </div>
                 </td></tr>
             
             
@@ -162,9 +181,10 @@
 		
 		<script> 
 /****** script to add new input line*****/
+    
 	function addNewLine() {
-		var bloc=document.getElementById("idbloc6");		
-		bloc.innerHTML=bloc.innerHTML+"<br/>"+bloc.innerHTML;  //add new input line		
+        var addbloc=document.getElementById("idbloc66");
+         document.getElementById("idbloc6").innerHTML=document.getElementById("idbloc6").innerHTML+addbloc.removeAttribute("hidden").innerHTML+"<br><br/>";  //add new input line		
 	}
 /************* open the research result page ***********/	
 	function openResearchResult(){

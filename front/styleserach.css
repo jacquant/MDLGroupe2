@@ -13,9 +13,7 @@ table {
   border-bottom: 1px solid #ddd;
   border:none;
 }
-.td1{
-     text-align: right;
-}
+
 
 .top {
   overflow: hidden;
@@ -37,6 +35,9 @@ table {
 .top a.active {
   background-color: #2196F3;
   color: white;
+}
+.top img {
+    float: left;
 }
 .search{
      padding: 6px;
