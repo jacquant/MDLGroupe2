@@ -1,6 +1,6 @@
 <html>
  <head>
- <title>Result page- classic</title>
+ <title>Result page - matrice</title>
  <!--script type="text/javascript" src="js/vue.js"></script-->
  <link rel="stylesheet" type="text/css" href="main_css.css">
  <link rel="stylesheet" type="text/css" href="listderoulante.css">
@@ -71,11 +71,15 @@
 		<div id="result" style="width:100%; margin-left:30px">
 			<h3 style="color:red;">Research result (xxx)</h3>
 			<br/>
-			<a href="articlepage.html"> <img src="iconA.png" width="20px" align="center"> xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</a><br/><br/>
-			<a href="articlepage.html"> <img src="iconA.png" width="20px" align="center"> xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</a><br/><br/>
-			<a href="articlepage.html"> <img src="iconA.png" width="20px" align="center"> xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</a><br/><br/>
-			<a href="articlepage.html"> <img src="iconA.png" width="20px" align="center"> xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</a><br/><br/>
-			<a href="articlepage.html"> <img src="iconA.png" width="20px" align="center"> xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</a><br/><br/>
+			<div>Title of the state of art: xxxxxxx</div>	<br/>
+			
+			<table cellpadding="5px" border="1">
+				<tr style="background-color:lightgrey;"><th>References</th><th>Criteria 1</th><th>Criteria 2</th><th>Criteria 3</th></tr>
+				<tr><td>ref 1</td><td>v</td><td>v</td><td>x</td></tr>
+				<tr><td>ref 2</td><td>v</td><td>v</td><td>v</td></tr>
+				<tr><td>ref 3</td><td>v</td><td>v</td><td>x</td></tr>
+			</table>
+			
 		</div>
     </td>
 	<td valign="top"  width="20%" >
@@ -116,7 +120,7 @@
 	// visual page opened
 	
 	function OpenVisualPage(){
-		window.open("DWork/visual.html");
+		window.open("visual.html");
 	}
 	function OpenClassicPage(){
 		window.open("resultpage.html");
