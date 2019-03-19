@@ -1,0 +1,53 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+table{
+  
+  border-collapse: collapse;
+}
+.img2{
+    width: 270px;
+    margin-left: 25%;
+    margin-top: 15%;
+}
+.img1{
+    margin-left: 25%;
+}
+.top {
+  overflow: hidden;
+  background-color: #e9e9e9;
+}
+.top a {
+  float: right;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+.top a:hover {
+  background-color: #ddd;
+  color: black;
+}
+.top a.active {
+  background-color: #2196F3;
+  color: white;
+}
+.top input[type=text] {
+  float: left;
+  padding: 6px;
+  border: none;
+  margin-top: 20px;
+  margin-right: 16px;
+  font-size: 17px;
+  border: 1px solid #ccc;
+  width: 80%;
+  margin: 0;
+}
+.top button{
+    
+    height: 33px;
+}
+

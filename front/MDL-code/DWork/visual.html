@@ -1,0 +1,114 @@
+<html>
+<head>
+ <title>Visualization page</title>
+ <link rel="stylesheet" type="text/css" href="../main_css.css">
+ <link rel="stylesheet" type="text/css" href="../listderoulante.css">
+</head>
+ <body> 
+<table border="1" width="100%" height="100%">
+     <tr>
+        <td colspan="3"  height="100%">
+            <div class="top">
+                <input type="text" placeholder="Search.." name="search">
+                <button type="submit">Ok</button>
+                <a href="signup.html">sign up</a>
+            </div>
+            
+                
+                 
+            
+            
+        </td>
+    </tr>
+    <tr>
+        <td rowspan="2" width="20%" valign="top">
+		
+		     <div class="menu" valign="top">
+	
+		<button class="accordion">Filters Menu</button>
+		
+		    <div class="panel"><b> Article/State of art</b> <br/>
+				Author:<br/><input type="text" class="" placeholder="author name" style="margin-bottom:5px;"size="20">
+				 
+				<div class="">
+					Title:<br/> <input type="text" class="" placeholder="title" size="20"><br/>
+					Other Details:<br/> <input type="text" class="" placeholder="Other details" size="20"><br/>
+					Pubished Year:<br/><input type="text" class="" placeholder="year 1" size="3" maxlength="4"> - <input type="text" class="" size="3" maxlength="4" placeholder="year 2"><br/>
+				    <input type="radio" name="typeItem" class="">Article <input type="radio" name="typeItem" class="" >State of art
+				</div>
+				 <br/>
+				<div class=""><b>Criteria on State of art</b> <br/>
+					<input type="checkbox" class="">critere1 <input type="checkbox" class="" >critere2
+					<br/><input type="checkbox" class="">critere3 <input type="checkbox" class="">critere4
+				</div>			
+		
+			</div>
+			
+			
+	    </div>
+		
+		
+		
+		
+		</td>
+        
+        <td colspan="2" valign="top">
+            <div class="vue1">
+            <link rel="stylesheet" href="stylevisual.css">
+              
+                 <button type="button" class="btn">Author</button>
+        
+                 <button type="button" class="btn">Title</button>
+        
+                 <button type="button" class="btn">...</button>
+        
+                <p>Visualization graph of words</p>
+                <img class="img1" src="graph.jpg" width="60%" height="40%">
+           
+            
+             </div>
+        </td>
+    
+    </tr>
+    
+     <tr>
+       
+        <td valign="top" width="40%"> <div class="vue2">
+            <link rel=stylesheet href="stylevisual.css">
+            <form>
+                <p>Pie chart</p>
+                <img class="img2" src="pie_chart.png">
+            </form>
+            
+        </div></td>
+        <td valign="top">
+            <div class="vue3">
+            <form>
+                <p>Cloud of words </p>
+                <img src="cloud.png">
+            </form>
+        </div>
+         </td>
+    </tr>
+</table>
+</div> 
+
+<script> 
+/****** script pour la gestion du panel d'expansion*****/
+	var acc = document.getElementsByClassName("accordion");
+	var i;
+
+	for (i = 0; i < acc.length; i++) {
+		acc[i].addEventListener("click", function() {
+			this.classList.toggle("active");
+			var panel = this.nextElementSibling;
+			if (panel.style.maxHeight){
+				panel.style.maxHeight = null;
+			} else {
+				panel.style.maxHeight = panel.scrollHeight + "px";
+			} 
+		});
+	}
+</script>
+</body>
+</html>
