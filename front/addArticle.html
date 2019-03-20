@@ -1,7 +1,7 @@
 <html>
  <head>
  <title>Add Items: Article / State of Art</title>
- <script type="text/javascript" src="vue.js"></script>
+ <!--script type="text/javascript" src="vue.js"></script-->
  <link rel="stylesheet" type="text/css" href="main_css.css">
  <link rel="stylesheet" href="StaticSearchHistory.css">
  
@@ -60,19 +60,19 @@
 				<td><label>Video URL:</label> </td> <td><input type="text" name="urlvideo" size="40" placeholder="url video youtube" /> </td>
 			 </tr>
 			  <tr>
-				<td><label>References:</label> </td>
-						<td width="100%">
-							<div id="tableauRef">
-						
+				<td><label>References:(one per line)</label> </td>
+						<td width="100%" colspan="2">
+							<div id="tableauRefxx">
+						<textarea  rows="20" cols="60" name="ref"  placeholder="Paste your References here One per line" /></textarea> 
 						
 						   </div>
 						</td>
-				<td>				
+				<!--td>				
 				
 					<input type="button" name="addreference" class="btn1" value="Add Reference" onclick="javascript:openFormRef();" >
 								
 		
-				</td>
+				</td-->
 			</tr> 
 		</table>
        		<br/>
@@ -117,18 +117,16 @@
 			 <tr>
 				<td><label>References:</label> </td>
 						<td width="100%">
-							<table border="1">
-						      <tr><th>EA</th>
+							<table border="1" id ="tableauRef">
+						     
 							  
-							  <div v-for ="tableauRef">
-									{{ message}}
-								</div>
+							  
 						
 						   </table>
 						</td>
 				<td>				
-				
-					<input type="button" name="addcreterion" class="btn1" value="Add Criterion" onclick="javascript:openFormC();" ><br/><br/>
+			
+			<input type="button" name="addcreterion" class="btn1" value="Add Criterion" onclick="javascript:openFormC();" ><br/><br/>
 					<input type="button" name="addreference" class="btn1" value="Add Reference" onclick="javascript:openFormRef();" >
 								
 		
@@ -164,8 +162,11 @@
   </div>
   
 <script>
-	var nbre=0,cpt=0;
+	var nbre=0,nbreRef,cpt=0, cptRef=0;
 	var criterion="",reference="";
+	var valtab="<tr><th>State of art</th>";   
+	var tabRef=document.getElementById("tableauRef");
+	
 	
 	function displayArticleForm(){
 	    document.getElementById("formSA").style.display="none";
@@ -181,14 +182,19 @@
 		document.getElementById("idCriterion").style.display="none";
 	}
 	function openFormC(){
-	     if(cpt==0) nbre=prompt("Number of Criterions");
-		document.getElementById("idCriterion").style.display="block";
+	     if(cpt==0) {
+				
+					nbre=prompt("Enter the Number of Criterions (Number > 0)");
+					
+			 }
+		 document.getElementById("idCriterion").style.display="block";
 	}
 	
 	function openFormRef(){
 	if(cpt==0)alert("You must add criterions first");
 		else{
-		document.getElementById("idReference").style.display="block";
+		     if(cptRef==0) nbreRef=prompt("Number of References");
+			document.getElementById("idReference").style.display="block";
 		}
 	}
 	function closeFormRef(){
@@ -196,29 +202,33 @@
 	}
 	
 	function addCriterion(){	  
-	   var tabRef=document.getElementById("tableauRef");
+	
 	   var criterion=document.getElementById("criterion").value;
-	   
-		tabRef.innerHTML= tabRef.innerHTML+"<th>"+criterion+"</th>";
+	    valtab+= "<th>"+criterion+"</th>";
 		cpt=cpt+1;
-		if(cpt==nbre)tabRef.innerHTML=tabRef.innerHTML+"</tr>";
-		//alert("criteres:"+criterion);
+		if(cpt==nbre){
+			valtab+="</tr>";
+			//alert("var tab: "+valtab);
+			document.getElementById("idCriterion").style.display="none";
+		}
+		document.getElementById("criterion").value="";
+		//tabRef.innerHTML+=valtab;
 	}
-	function addRef(){
-	    
-			var tabRef=document.getElementById("tableauRef");
+	function addRef(){	    
 			var ref=document.getElementById("reference").value;
-			tabRef.innerHTML= tabRef.innerHTML+"<tr><td>"+ref+"</td>";
-			for(i=0;i<nbre;i++) tabRef.innerHTML= tabRef.innerHTML+"<td><input type='checkbox' name='checkcriterion'></td>";
-			tabRef.innerHTML= tabRef.innerHTML+"</tr>";
-			//alert("criteres:"+criterion);
-		
+			valtab+= "<tr><td>"+ref+"</td>";
+			cptRef=cptRef+1;
+			for(i=0;i<nbre;i++) valtab+="<td align='center'><input type='checkbox' name='checkcriterion'></td>";
+			valtab+="</tr>";
+			tabRef.innerHTML=valtab;
+			if(cptRef==nbreRef){					
+					document.getElementById("idReference").style.display="none";
+				}
+				document.getElementById("reference").value="";
+				
 	}
 	
-	new Vue({
-		el: "#tableauRef",
-		data: {message:""}
-	})
+	
 
 </script>
 	
