@@ -36,14 +36,14 @@ table{
   color: white;
 }
 .top input[type=text] {
-  float: left;
+ 
   padding: 6px;
   border: none;
-  margin-top: 20px;
+  margin-bottom:20px; 
   margin-right: 16px;
   font-size: 17px;
   border: 1px solid #ccc;
-  width: 80%;
+  width: 70%;
   margin: 0;
 }
 .top button{
