@@ -23,5 +23,5 @@ public class LiteratureReview extends Article{
 
     public String [] authorization = {"ModificationAccepted","ModificationAcceptedUnderSupervision","NoModification"};
 
-    public int [][] matriceref = new [numberRef+1][numberCriteria+1];
+    public String [][] matriceref = new String [numberRef+1][numberCriteria+1];
 }
