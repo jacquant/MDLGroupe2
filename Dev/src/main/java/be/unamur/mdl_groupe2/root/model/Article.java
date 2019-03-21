@@ -20,14 +20,7 @@ public class Article {
     public Boolean published;
 
     public String abstractArticle;
-
-    private String fileName;
-
-    private String fileType;
-
-    @Lob
-    private byte[] data;
-
+    
     public DBFile pdfFiles;
 
     public String videoUrl;
