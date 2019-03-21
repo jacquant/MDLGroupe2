@@ -61,7 +61,7 @@
         
     }	
 
-#personalP,#searchResult{
+#personalP,#searchResult,#searchID{
         width: 90%;
 		height:100%;      
         background-color: #FFFFFF;
