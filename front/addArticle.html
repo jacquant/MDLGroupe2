@@ -88,9 +88,9 @@
 	  
 		<div id="">
 		       <table>
-			 		 <tr><td>Add contribution:</td><td><input type="checkbox" name="contribution" value="Yes" checked> Yes</td></tr>
-					 <tr><td> </td><td><input type="checkbox" name="contribution" value="No"> No</td></tr>
-					 <tr><td> </td><td><input type="checkbox" name="contribution" value="NA"> Under my supervision</td></tr>
+			 		 <tr><td>Add contribution:</td><td><input type="radio" name="contribution" value="Yes" checked> Yes</td></tr>
+					 <tr><td> </td><td><input type="radio" name="contribution" value="No"> No</td></tr>
+					 <tr><td> </td><td><input type="radio" name="contribution" value="NA"> Under my supervision</td></tr>
 				</table>
 		</div>
 		
@@ -164,6 +164,9 @@
 <script>
 	var nbre=0,nbreRef,cpt=0, cptRef=0;
 	var criterion="",reference="";
+	var theCreterion=[];
+	var theRef=[];
+	
 	var valtab="<tr><th>State of art</th>";   
 	var tabRef=document.getElementById("tableauRef");
 	
@@ -204,20 +207,27 @@
 	function addCriterion(){	  
 	
 	   var criterion=document.getElementById("criterion").value;
+	   if(criterion!=""){
+	   theCreterion.push(criterion);
 	    valtab+= "<th>"+criterion+"</th>";
-		cpt=cpt+1;
+		cpt=cpt+1;		
 		if(cpt==nbre){
 			valtab+="</tr>";
-			//alert("var tab: "+valtab);
 			document.getElementById("idCriterion").style.display="none";
 		}
 		document.getElementById("criterion").value="";
 		//tabRef.innerHTML+=valtab;
+	  }
+	  else{
+			alert("The criterion must not be null");
+	  }
 	}
 	function addRef(){	    
 			var ref=document.getElementById("reference").value;
-			valtab+= "<tr><td>"+ref+"</td>";
-			cptRef=cptRef+1;
+		 if(ref!=""){
+			theRef.push(ref);
+		     valtab+= "<tr><td>"+ref+"</td>";
+			cptRef=cptRef+1;			
 			for(i=0;i<nbre;i++) valtab+="<td align='center'><input type='checkbox' name='checkcriterion'></td>";
 			valtab+="</tr>";
 			tabRef.innerHTML=valtab;
@@ -225,7 +235,12 @@
 					document.getElementById("idReference").style.display="none";
 				}
 				document.getElementById("reference").value="";
-				
+					
+		} 
+		else{
+			alert("The reference must not be null");
+	   }
+		
 	}
 	
 	
