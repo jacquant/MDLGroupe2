@@ -3,6 +3,7 @@ package be.unamur.mdl_groupe2.root.model;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 
 public class Article {
     @Id
@@ -20,7 +21,14 @@ public class Article {
 
     public String abstractArticle;
 
-    public String pdffiles;
+    private String fileName;
+
+    private String fileType;
+
+    @Lob
+    private byte[] data;
+
+    public DBFile pdfFiles;
 
     public String videoUrl;
 
