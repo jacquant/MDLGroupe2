@@ -7,7 +7,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "user")
-public class User {
+public class User extends Visitor{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
