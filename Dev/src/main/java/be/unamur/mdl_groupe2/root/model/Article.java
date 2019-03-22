@@ -10,25 +10,76 @@ public class Article {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    public String author;
-    public String title;
+    private String author;
+    private String title;
 
-    public String [] domaine;
+    private String [] domaine;
 
-    public String [] tag;
+    private String [] tag;
 
-    public Boolean published;
+    private Boolean published;
 
-    public String abstractArticle;
+    private String abstractArticle;
     
-    public DBFile pdfFiles;
+    private DBFile pdfFiles;
 
-    public String videoUrl;
+    private String videoUrl;
 
-    public String ref;
+    private String ref;
 
-    public String journal;
+    private String journal;
 
-    public String publisher;
+    private String publisher;
 
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String [] getDomaine() {return domaine ;}
+
+    public void setDomaine(String[] domaine) {this.domaine = domaine; }
+
+    public String [] getTag() {return tag ;}
+
+    public void setTag(String[] domaine) {this.tag = tag; }
+
+    public Boolean getPublished() {return published; }
+
+    public void setPublished(Boolean published) {this.published = published;}
+
+    public String getAbstractArticle(){return abstractArticle;}
+
+    public void setAbstractArticle(String abstractArticle) {this.abstractArticle = abstractArticle; }
+
+    public DBFile getPdfFiles(){return pdfFiles; }
+
+    public void setPdfFiles(DBFile pdfFiles){this.pdfFiles=pdfFiles; }
+
+    public String getVideoUrl(){return videoUrl; }
+
+    public void setVideoUrl(String videoUrl){this.videoUrl=videoUrl; }
+
+    public String getRef() { return ref; }
+
+    public void setRef(String ref) { this.ref = ref; }
+
+    public String getJournal() { return journal; }
+
+    public void setJournal(String journal) { this.journal = journal; }
+
+    public String getPublisher() { return publisher; }
+
+    public void setPublisher(String publisher) { this.publisher = publisher; }
 }

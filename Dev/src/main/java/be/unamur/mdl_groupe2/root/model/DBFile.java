@@ -29,5 +29,5 @@ public class DBFile {
         this.data = data;
     }
 
-    // Getters and Setters (Omitted for brevity)
+
 }

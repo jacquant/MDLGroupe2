@@ -14,8 +14,6 @@ public class Author{
 
     private String username;
 
-    private String password;
-
     private String surname;
 
     private String firstName;
@@ -42,14 +40,6 @@ public class Author{
 
     public void setUsername(String username) {
         this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public String getSurname() {

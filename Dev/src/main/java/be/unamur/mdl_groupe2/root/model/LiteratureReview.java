@@ -9,19 +9,43 @@ public class LiteratureReview extends Article{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    public int numberRef;
+    private int numberRef;
 
-    public int getNumberRef() {
+    private int getNumberRef() {
         return numberRef;
     }
 
-    public int numberCriteria;
+    private int numberCriteria;
 
-    public int getNumberCriteria() {
+    private int getNumberCriteria() {
         return numberCriteria;
     }
 
-    public String [] authorization = {"ModificationAccepted","ModificationAcceptedUnderSupervision","NoModification"};
+    private String [] authorization = {"ModificationAccepted","ModificationAcceptedUnderSupervision","NoModification"};
 
-    public String [][] matriceref = new String [numberRef+1][numberCriteria+1];
+    private String [][] matriceref = new String [numberRef+1][numberCriteria+1];
+
+    public void setNumberRef(int numberRef) {
+        this.numberRef = numberRef;
+    }
+
+    public void setNumberCriteria(int numberCriteria) {
+        this.numberCriteria = numberCriteria;
+    }
+
+    public String[] getAuthorization() {
+        return authorization;
+    }
+
+    public void setAuthorization(String[] authorization) {
+        this.authorization = authorization;
+    }
+
+    public String[][] getMatriceref() {
+        return matriceref;
+    }
+
+    public void setMatriceref(String[][] matriceref) {
+        this.matriceref = matriceref;
+    }
 }
