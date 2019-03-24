@@ -13,17 +13,18 @@
             
          <div class="topnav">
              <a href="signin.html">Sign in</a>
-             <a href="#signup">Contact us</a>
+             <a href="ContactUs.html">Contact us</a>
+             <a class="active" href="StaticSearchPage.html">Home</a>
              
              
         </div> 
         
-        <img src="LogoSiteWebMDL.png" alt="Logo ReSearch" style="margin-left: 500px ; margin-top: 50px" />
+        <img src="LogoSiteWebMDL.png" alt="Logo ReSearch" style="margin-left: 42% ; margin-top: 4%" />
         
         <div id="searchbar">
-            <form action="" style="margin-left: 300px">
+            <form action="" style="margin-left: 28%">
                 <input class="champ" type="text" placeholder="What would you like to search ?"/>
-                <button type="submit" style="height: 40px ;margin-left: 2.5px">Ok</button>
+                <button type="submit" onclick="javascript:openResearchResult();"; style="height: 40px ;margin-left: 0.3%">Ok</button>
             </form>
             
         </div>
@@ -35,6 +36,14 @@
         
         <a href="StaticSearchHistory.html" style="margin-left: 10%">Research history </a>
         </div>
+        
+<script>
+
+    function openResearchResult(){
+        window.open("resultpage.html","_self");
+    }
+    
+</script>
        
     </body>
     

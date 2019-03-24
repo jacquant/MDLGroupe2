@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>static advanced search</title>
+        <title>ReSearch - Advanced Search</title>
         <link rel="stylesheet" href="styleserach.css">
         <link rel="stylesheet" href="stylesignup.css">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -24,15 +24,17 @@
                 </td></tr>
             
             <tr><td>
-                <h3>ReSearch</h3> 
+                <div>
+                    <a href="StaticSearchPage.html" class="previous round">&#8249;</a>
+                    <p>Back</p>
+                </div>
                 </td></tr>
             
             <tr><td>
-                <div >
-                <input type="text" placeholder="What would you like to search ?" name="search" class="search"> 
-                    <button type="submit" onclick="javascript:openResearchResult();"; height: 10%;>Ok</button>
-                </div>
+                <h3>Advanced Search</h3>
+                <br>
                 </td></tr>
+            
             
             <tr><td>
                 <div>
@@ -181,12 +183,9 @@
             
             <tr><td>
                
-                   <button type="submit" onclick="addNewLine();" >Add new line</button>
-             
-			 <a href="search.html">
-                <button type="submit" >Reset all</button>
-			 </a>
-                <button class="w3-button w3-orange" style="width: 8%">Search</button>
+                <button type="submit" onclick="addNewLine();" >Add new line</button>
+                <button type="reset" onclick="resetPage();">Reset all</button>
+                <button type="submit" onclick="javascript:openResearchResult();" class="w3-button w3-orange" style="width: 8%">Search</button>
                 </td></tr>
             <tr><td></td></tr>
             <tr><td></td></tr>
@@ -215,6 +214,12 @@
         
 
 	}
+            
+/************* Reset the page *************/
+    function resetPage() {
+        window.open("search.html", "_self");
+    }        
+    
 /************* open the research result page ***********/	
 	function openResearchResult(){
 		window.open("resultpage.html","_self");
