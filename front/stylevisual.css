@@ -32,7 +32,7 @@ table{
   color: black;
 }
 .top a.active {
-  background-color: #2196F3;
+  background-color: #333;
   color: white;
 }
 .top input[type=text] {
