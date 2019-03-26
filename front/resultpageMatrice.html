@@ -4,20 +4,18 @@
  <!--script type="text/javascript" src="js/vue.js"></script-->
  <link rel="stylesheet" type="text/css" href="main_css.css">
  <link rel="stylesheet" type="text/css" href="listderoulante.css">
+  <link rel="stylesheet" type="text/css" href="tabs.css" />
+  <link rel="stylesheet" href="StaticSearchHistory.css">
  </head>
  <body> 
- 
- <div id="searchResult">
-    
-		<div>SITE NAME  </div> 
-		
-		<div>
+ <div class="topnav">
+      <div>
 		 <ul id="menu-accordeon" style="float:right; margin-right:10px;">
 			<li><a href="signin.html">Sign in</a>
 				<ul>
 					<li><a href="signup.html"><img src="login.png" width="40px"></a></li>
 					<li><a href="personal_page.html"><img src="settings.png" width="40px"></a></li>
-					<li><a href="addArticle.html"><img src="plus.png" width="40px"></a></li>
+					<li><a href="addetatdelart.html"><img src="plus.png" width="40px"></a></li>
          
 				</ul>
 			</li>
@@ -25,49 +23,24 @@
 		
 		<!--input type="button" value="Sign In" style="float:right; margin-right:10px;" -->
 	</div>
+             <a class="active" href="StaticSearchPage.html">Home</a>
+             
+            <img src="LogoSiteWebMDL.png" alt="Logo ReSearch" style="width: 50px"  />
+        </div> 
+ <div id="searchResult">
+    
+		<div>SITE NAME  </div> 
+		
+
 		
 	
 	<div class="return"><a href="resultpage.html"> <img src="return-button.png" width="50px"></a></div>
 	
-	<div class="wrap">
-		<div class="search">
-			<input type="text" class="searchTerm" placeholder="What are you looking for?">
-			<input type="button" class="searchButton" value="OK">
-				<i class="fa fa-search"></i>
-			</button>
-		</div>
-	</div>
 	
  <table  style="margin-top:30px; width:100%;">
     <tr>
-	 <td width="15%" valign="top" >
+	 <td width="80%" valign="top" >
  
-        <div class="menu" valign="top">
-	
-		<button class="accordion">Filters Menu</button>
-		
-		    <div class="panel"><b> Article/State of art</b> <br/>
-				Author:<br/><input type="text" class="" placeholder="author name" style="margin-bottom:5px;"size="20">
-				 
-				<div class="">
-					Title:<br/> <input type="text" class="" placeholder="title" size="20"><br/>
-					Other Details:<br/> <input type="text" class="" placeholder="Other details" size="20"><br/>
-					Pubished Year:<br/><input type="text" class="" placeholder="year 1" size="3" maxlength="4"> - <input type="text" class="" size="3" maxlength="4" placeholder="year 2"><br/>
-				    <input type="radio" name="typeItem" class="">Article <input type="radio" name="typeItem" class="" >State of art
-				</div>
-				 <br/>
-				<div class=""><b>Criteria on State of art</b> <br/>
-					<input type="checkbox" class="">critere1 <input type="checkbox" class="" >critere2
-					<br/><input type="checkbox" class="">critere3 <input type="checkbox" class="">critere4
-				</div>			
-		
-			</div>
-			
-			
-	    </div>
-	 </td>
-   
-     <td valign="top" width="65%">
 		<div id="result" style="width:100%; margin-left:30px">
 			<h3 style="color:red;">Research result (1385)</h3>
 			<br/>
@@ -123,7 +96,7 @@
 		window.location.replace("visual.html");
 	}
 	function OpenClassicPage(){
-		window.location.replace("resultpage.html");
+		window.location.replace("etatdelart.html");
 	}
 	function OpenMatricePage(){
 		window.location.replace("resultpageMatrice.html");

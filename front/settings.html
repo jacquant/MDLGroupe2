@@ -22,29 +22,34 @@
        </td> 
    </tr>
    
+    <tr><td colspan="2">
+      <input type="button" class="btnsw" value="Edit Password" onclick="javascript:displayEditPwdForm();">
+	   <input type="button" class="btnsw" value="Edit Email" onclick="javascript:displayEditEmailForm();">
+	    <input type="button" class="btnsw" value="Edit Profil" onclick="javascript:displayEditProfilForm();"></td>
+	   </td>
+	  </td>
+   </td></tr>
+   
+   
+   
   <tr>
-    <td>
-		<div id="passwordEdit">
+    <td colspan="2">
+		<div id="passwordEdit" style="display:none">
 			<h3 >Edit password:</h3>     	
 		
 			<input type="password" name="oldpwd" id="" placeholder="old password" style="margin-bottom:10px;"/> 
 			<input type="password" name="newpwd" id="newpwd" placeholder="new password"  style="margin-bottom:10px;" />
 			<input type="password" name="newpwdbis" id="newpwdbis" placeholder="confirm new password" onkeypress="javascript:pressPwd(event);" style="margin-bottom:10px;" /> 	
-			<br/>
-			<button class="btncss" id="updatePwd" type="button" onclick="javascript:updatePwd();" style="margin-left:100px;">OK</button>
+			
+			<button class="btncss" id="updatePwd" type="button" onclick="javascript:updatePwd();">OK</button>
 		</div>
-	</td> 
-   
-    <td>
-		<div id="emailEdit">
-			<h3 >Edit email address:</h3>     	
-		
-			<input type="text" name="newemail" placeholder="new email " /> 
-			<br/><button class="btncss" type="button" v-on:click="change_email()" style="margin-left:100px;">OK</button>
-		    <br/>
-			<h3>Adding new email address:</h3>   	
-			<input type="text" name="otheremail" placeholder="other email " /> 
-			<br/><button class="btncss" type="button" v-on:click="add_email()" style="margin-left:100px;">OK</button>
+	
+		<div id="emailEdit" style="display:none">
+			Edit email address:
+			<input type="text" name="newemail" placeholder="new email " size="25" /> 	
+		   
+			<br/><br/>New email address:  	
+			<input type="text" name="otheremail" size="25" placeholder="other email " /> <button class="btncss" type="button"  onclick="javascript:add_email();" >OK</button>
 		</div>
 	</td> 
    </tr>
@@ -56,8 +61,30 @@
 
 <script>
 
+
+
  var input3=document.getElementById("newpwdbis");
  
+ //function to display editPwd form
+ function displayEditPwdForm(){
+     document.getElementById("passwordEdit").style.display="block";
+	  document.getElementById("emailEdit").style.display="none";
+	  document.getElementById("profillEdit").style.display="none";
+ }
+ 
+  //function to display EmailForm
+ function displayEditEmailForm(){
+     document.getElementById("emailEdit").style.display="block";
+    document.getElementById("passwordEdit").style.display="none";	 
+    document.getElementById("profillEdit").style.display="none";
+ }
+ 
+  //function to display EditProfilForm
+ function displayEditProfilForm(){
+    document.getElementById("profillEdit").style.display="block";
+	 document.getElementById("passwordEdit").style.display="none";
+	  document.getElementById("emailEdit").style.display="none";
+ }
 function pressPwd(e){
  if(e.key=='Enter')	updatePwd();
 }

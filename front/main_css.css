@@ -45,8 +45,8 @@
         padding: 20px;
     }
 #passwordEdit, #emailEdit,#favoris{
-        width: 250px;
-		height: 250px;
+        width: 300px;
+		height: 150px;
         border: 1px solid #CCCCCC;
         background-color: #FFFFFF;
         margin: auto;
@@ -69,6 +69,7 @@
 		 border: 1px solid #CCCCCC;
         margin-top: 10px;
         padding: 20px;
+		
     }
 	
 #idCriterion{
@@ -168,7 +169,20 @@
   padding: 0 2px;
   background-color: white;
   max-height: 0;
-  overflow: hidden;
+  overflow: visible;
   transition: max-height 0.2s ease-out;
   margin-top:5px;
+}
+
+
+.previous {
+    float: left;
+    margin-left: 5%;
+    margin-top: 0.6%;
+    background-color: #f1f1f1;
+    color: black;
+}
+
+.round {
+    border-radius: 100%
 }

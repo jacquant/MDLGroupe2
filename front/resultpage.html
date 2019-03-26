@@ -8,40 +8,32 @@
  </head>
  <body> 
      <div class="topnav">
-             <ul id="menu-accordeon" style="float:right; margin-right:10px;">
+      <div>
+		 <ul id="menu-accordeon" style="float:right; margin-right:10px;">
 			<li><a href="signin.html">Sign in</a>
 				<ul>
-					<li><a href="signup.html"><img src="login.png" width="40px" margin-top:5px;></a></li>
+					<li><a href="signup.html"><img src="login.png" width="40px"></a></li>
 					<li><a href="personal_page.html"><img src="settings.png" width="40px"></a></li>
-					<li><a href="addArticle.html"><img src="plus.png" width="40px"></a></li>
+					<li><a href="addetatdelart.html"><img src="plus.png" width="40px"></a></li>
          
 				</ul>
 			</li>
 		</ul>
 		
+		<!--input type="button" value="Sign In" style="float:right; margin-right:10px;" -->
+	</div>
              <a class="active" href="StaticSearchPage.html">Home</a>
              
             <img src="LogoSiteWebMDL.png" alt="Logo ReSearch" style="width: 50px"  />
         </div>  
  
  <div id="searchResult">
-    
-		
-		
 		
 		
 	
-	<div class="return"><a href=""> <img src="return-button.png" width="50px"></a></div>
+	            <div class="return"><a href="StaticSearchPage.html"> <img src="return-button.png" width="50px"></a></div>
 	
-	<div class="wrap">
-		<div class="search">
-			<input type="text" class="searchTerm" placeholder="What are you looking for?">
-			<input type="button" class="searchButton" value="OK">
-				<i class="fa fa-search"></i>
-			</button>
-		</div>
-	</div>
-	
+
  <table  style="margin-top:30px; width:100%;">
     <tr>
 	 <td width="15%" valign="top" >
@@ -71,23 +63,23 @@
 	    </div>
 	 </td>
    
-     <td valign="top" width="65%">
+     <td valign="top" width="55%">
 		<div id="result" style="width:100%; margin-left:30px">
 			<h3 style="color:red;">Research result (xxx)</h3>
 			<br/>
-			<a href="articlepage.html"> <img src="iconA.png" width="20px" align="center"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</a><br/><br/>
-			<a href="articlepage.html"> <img src="iconA.png" width="20px" align="center"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</a><br/><br/>
-			<a href="articlepage.html"> <img src="iconA.png" width="20px" align="center"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</a><br/><br/>
-			<a href="articlepage.html"> <img src="iconA.png" width="20px" align="center"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</a><br/><br/>
-			<a href="articlepage.html"> <img src="iconA.png" width="20px" align="center"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</a><br/><br/>
+			<a href="etatdelart.html"> <img src="iconA.png" width="20px" align="center"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</a><br/><br/>
+			<a href="etatdelart.html"> <img src="iconA.png" width="20px" align="center"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</a><br/><br/>
+			<a href="etatdelart.html"> <img src="iconA.png" width="20px" align="center"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</a><br/><br/>
+			<a href="etatdelart.html"> <img src="iconA.png" width="20px" align="center"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</a><br/><br/>
+			<a href="etatdelart.html"> <img src="iconA.png" width="20px" align="center"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</a><br/><br/>
 		</div>
     </td>
-	<td valign="top"  width="20%" >
+	<td valign="top"  width="30%" >
  
-		<div class="switchbutton" style=" float:right; margin-right:5px; margin-top:5px;">
-				<input type="button" class="btnsw" onclick="javascript:OpenClassicPage();" value="Classic" >
+		<div class="switchbutton" style=" float:right; margin-right:50px; margin-top:5px;">
+				
 				<input type="button" class="btnsw" onclick="javascript:OpenVisualPage();" value="Visual">
-				<input type="button" class="btnsw" onclick="javascript:OpenMatricePage();" value="Matrice">
+				
 
 		</div>
 	</td>
@@ -106,14 +98,19 @@
 	var i;
 
 	for (i = 0; i < acc.length; i++) {
+	    
 		acc[i].addEventListener("click", function() {
+		     
 			this.classList.toggle("active");
+			
 			var panel = this.nextElementSibling;
+			panel.style.overflow="hidden";
 			if (panel.style.maxHeight){
 				panel.style.maxHeight = null;
 			} else {
 				panel.style.maxHeight = panel.scrollHeight + "px";
 			} 
+			
 		});
 	}
 
@@ -123,12 +120,7 @@
 		window.location.replace("visual.html");
 		
 	}
-	function OpenClassicPage(){
-		window.location.replace("resultpage.html");
-	}
-	function OpenMatricePage(){
-		window.location.replace("resultpageMatrice.html");
-	}
+	
 </script>
 </body>
 </html>
