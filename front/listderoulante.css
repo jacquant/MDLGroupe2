@@ -14,16 +14,14 @@ overflow:hidden;
   text-align: center;
 }
 #menu-accordeon li {       
-   margin-bottom:2px;
+   margin-top:10px;
    box-shadow: 3px 3px 3px #999;
-   border:solid 1px green;
+  
 }
 #menu-accordeon li li {
    max-height:0;
    overflow: hidden;
-   transition: all .5s;
-   border-radius:0;
-   
+   transition: all .5s;   
    box-shadow: none;
    border:none;
    margin:0;
@@ -32,8 +30,8 @@ overflow:hidden;
   display:block;
   text-decoration: none;
   color: black;
-  padding: 8px 0;
-  font-family: verdana;
+  padding: 3px 0;
+ 
   font-size:1.2em
       
 }
@@ -48,7 +46,7 @@ overflow:hidden;
   
 }
 #menu-accordeon ul li:last-child {
-   border-radius: 0 0 6px 6px;
+  
    border:none;
 }
 #menu-accordeon li:hover li {

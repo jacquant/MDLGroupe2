@@ -20,30 +20,22 @@
   backround-color:#EEE;
 }
 </style>
- <script type="text/javascript">
 
-function loadit( element)
-{
-
-	var tabs=document.getElementById('tabs').getElementsByTagName("a");
-	for (var i=0; i < tabs.length; i++)
-	{
-		if(tabs[i].href == element.href){
-			tabs[i].className="selected";
-			  //alert(tabs[i].href);
-				$("#tabbis").load(tabs[i].href);
-			}
-		else
-			tabs[i].className="";
-	}
-}
-
-
-</script>
  </head>
  <body> 
+ 
+ <ul id="menu-accordeon" style="float:right; margin-right:10px;">
+			<li><a href="signin.html">Sign in</a>
+				<ul>
+					<li><a href="signup.html"><img src="login.png" width="30px"></a></li>
+					<li><a href="personal_page.html"><img src="settings.png" width="30px"></a></li>
+					<li><a href="addetatdelart.html"><img src="plus.png" width="30px"></a></li>
+         
+				</ul>
+			</li>
+		</ul>
      <div class="topnav">
-             <a href="signin.html">Sign in</a>
+            
              <a class="active" href="StaticSearchPage.html">Home</a>
              
             <img src="LogoSiteWebMDL.png" alt="Logo ReSearch" style="width: 50px"  />
@@ -62,7 +54,7 @@ function loadit( element)
 	</div>
 
 	<div class="" style=" float:left; margin-left:50px; margin-top:20px;">				
-				<input type="button" class="btnsw" onclick="javascript:OpenClassicPage();" value="Classic">
+				<input type="button" class="btnswActive" onclick="javascript:OpenClassicPage();" value="Classic">
 				<input type="button" class="btnsw" onclick="javascript:OpenVisualPage();" value="Visual">
 				<input type="button" class="btnsw" onclick="javascript:OpenMatricePage();" value="Matrice">
 			
@@ -103,9 +95,9 @@ function loadit( element)
 
 	<div id="tabs">
 		<ul>
-			<li><a href="relatedArticles.html" class="selected" target="mainFrame"  onclick="loadit(this)" >Related articles</a></li>
-			<li><a href="videoArticle.html" target="mainFrame"  onclick="loadit(this)" >Video</a></li>
-			<li><a href="commentsArticle.html" target="mainFrame" onclick="loadit(this)" >Comments</a></li>
+			<li><a href="relatedArticles.html" class="selected" target="mainFrame"  onclick="loadit(this);" >Related articles</a></li>
+			<li><a href="videoArticle.html" target="mainFrame"  onclick="loadit(this);" >Video</a></li>
+			<li><a href="commentsArticle.html" target="mainFrame" onclick="loadit(this);" >Comments</a></li>
 	    </ul>
 	</div>
 	<div id="tabbis">
@@ -121,6 +113,28 @@ function loadit( element)
  </div>
 </div>
 </body>
+
+ <script type="text/javascript">
+
+function loadit( element)
+{
+
+	var tabs=document.getElementById('tabs').getElementsByTagName("a");
+	for (var i=0; i < tabs.length; i++)
+	{
+		if(tabs[i].href == element.href){
+			tabs[i].className="selected";
+			  alert(tabs[i].href);
+				$("#tabbis").load(tabs[i].href);
+			}
+		else
+			tabs[i].className="";
+	}
+}
+
+
+</script>
+
 <script type="text/javascript"> 
 /****** script pour la gestion du panel d'expansion*****/
 	var acc = document.getElementsByClassName("accordion");

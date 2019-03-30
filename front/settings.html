@@ -15,7 +15,7 @@
    
     <tr>
 	   <td>
-         <h3> <u>User name:</u>   </h3>
+         <h4> <u>User name:</u>   </h4>
        </td>
 	   <td>
          
@@ -35,7 +35,7 @@
   <tr>
     <td colspan="2">
 		<div id="passwordEdit" style="display:none">
-			<h3 >Edit password:</h3>     	
+			<h5 >Edit password:</h5>     	
 		
 			<input type="password" name="oldpwd" id="" placeholder="old password" style="margin-bottom:10px;"/> 
 			<input type="password" name="newpwd" id="newpwd" placeholder="new password"  style="margin-bottom:10px;" />
@@ -45,11 +45,29 @@
 		</div>
 	
 		<div id="emailEdit" style="display:none">
+		<h5>Add new email:</h5>
 			Edit email address:
 			<input type="text" name="newemail" placeholder="new email " size="25" /> 	
 		   
 			<br/><br/>New email address:  	
 			<input type="text" name="otheremail" size="25" placeholder="other email " /> <button class="btncss" type="button"  onclick="javascript:add_email();" >OK</button>
+		</div>
+		
+		<div id="profillEdit" style="display:none">
+			<h5>Edit Profil:</h5>     	
+		
+			First Name:
+			<input type="text" name="firstname" placeholder="first name " size="25" /> 	
+		   
+			<br/><br/>Last Name:  	
+			<input type="text" name="lastname" size="25" placeholder="last name " />
+			<br/><br/>Title:  	
+			<input type="text" name="title" size="25" placeholder="your title" />
+			<br/><br/>Organization:  	
+			<input type="text" name="organization" size="25" placeholder="your organization" />
+
+			<button class="btncss" type="button"  onclick="javascript:edit_profil();" >OK</button>
+		
 		</div>
 	</td> 
    </tr>
