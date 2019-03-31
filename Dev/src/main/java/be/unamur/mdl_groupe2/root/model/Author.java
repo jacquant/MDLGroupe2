@@ -1,12 +1,20 @@
 package be.unamur.mdl_groupe2.root.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "author")
+@Table(name = "authors")
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Author{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -50,11 +58,11 @@ public class Author{
         this.surname = surname;
     }
 
-    public String getFirstname() {
+    public String getFirstName() {
         return firstName;
     }
 
-    public void setFirstname(String firstName) {
+    public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
@@ -88,10 +96,5 @@ public class Author{
 
     public void setEmailContact(String emailContact) {
         this.emailContact = emailContact;
-    }
-
-    @Bean
-    public BCryptPasswordEncoder encoder() {
-        return new BCryptPasswordEncoder();
     }
 }

@@ -1,35 +1,52 @@
 package be.unamur.mdl_groupe2.root.model;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import lombok.Data;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
+import lombok.NonNull;
 
-public class LiteratureReview extends Article{
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+
+@Entity
+@Table(name = "literatureReviews")
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class LiteratureReview {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private int numberRef;
+    @ManyToOne
+    @JoinColumn(name = "article", nullable = false)
+    private Article article;
 
-    private int getNumberRef() {
+    @NonNull
+    @NotNull
+    private Integer numberRef;
+
+    private Integer numberCriteria;
+
+    private String[] authorization;
+
+    private String[][] matriceref;
+
+    public Integer getNumberRef() {
         return numberRef;
     }
 
-    private int numberCriteria;
-
-    private int getNumberCriteria() {
-        return numberCriteria;
-    }
-
-    private String [] authorization = {"ModificationAccepted","ModificationAcceptedUnderSupervision","NoModification"};
-
-    private String [][] matriceref = new String [numberRef+1][numberCriteria+1];
-
-    public void setNumberRef(int numberRef) {
+    public void setNumberRef(Integer numberRef) {
         this.numberRef = numberRef;
     }
 
-    public void setNumberCriteria(int numberCriteria) {
+    public Integer getNumberCriteria() {
+        return numberCriteria;
+    }
+
+    public void setNumberCriteria(Integer numberCriteria) {
         this.numberCriteria = numberCriteria;
     }
 

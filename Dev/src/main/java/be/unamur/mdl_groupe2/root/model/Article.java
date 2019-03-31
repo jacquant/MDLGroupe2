@@ -1,27 +1,36 @@
 package be.unamur.mdl_groupe2.root.model;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Lob;
+import lombok.*;
 
+import javax.persistence.*;
+import java.util.Set;
+
+@Entity
+@Table(name = "article")
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Article {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private String author;
+
     private String title;
 
-    private String [] domaine;
+    private String[] domain;
 
-    private String [] tag;
+    private String[] tag;
 
     private Boolean published;
 
     private String abstractArticle;
-    
-    private DBFile pdfFiles;
+
+    @OneToMany(mappedBy = "article", cascade = CascadeType.ALL)
+    private Set<LiteratureReview> literatureReviews;
+    // private DBFile pdfFiles;
 
     private String videoUrl;
 
@@ -47,39 +56,76 @@ public class Article {
         this.title = title;
     }
 
-    public String [] getDomaine() {return domaine ;}
+    public String[] getDomain() {
+        return domain;
+    }
 
-    public void setDomaine(String[] domaine) {this.domaine = domaine; }
+    public void setDomain(String[] domain) {
+        this.domain = domain;
+    }
 
-    public String [] getTag() {return tag ;}
+    public String[] getTag() {
+        return tag;
+    }
 
-    public void setTag(String[] domaine) {this.tag = tag; }
+    public void setTag(String[] domaine) {
+        this.tag = tag;
+    }
 
-    public Boolean getPublished() {return published; }
+    public Boolean getPublished() {
+        return published;
+    }
 
-    public void setPublished(Boolean published) {this.published = published;}
+    public void setPublished(Boolean published) {
+        this.published = published;
+    }
 
-    public String getAbstractArticle(){return abstractArticle;}
+    public String getAbstractArticle() {
+        return abstractArticle;
+    }
 
-    public void setAbstractArticle(String abstractArticle) {this.abstractArticle = abstractArticle; }
+    public void setAbstractArticle(String abstractArticle) {
+        this.abstractArticle = abstractArticle;
+    }
 
-    public DBFile getPdfFiles(){return pdfFiles; }
+    /*
+        public DBFile getPdfFiles() {
+            return pdfFiles;
+        }
 
-    public void setPdfFiles(DBFile pdfFiles){this.pdfFiles=pdfFiles; }
+        public void setPdfFiles(DBFile pdfFiles) {
+            this.pdfFiles = pdfFiles;
+        }
+    */
+    public String getVideoUrl() {
+        return videoUrl;
+    }
 
-    public String getVideoUrl(){return videoUrl; }
+    public void setVideoUrl(String videoUrl) {
+        this.videoUrl = videoUrl;
+    }
 
-    public void setVideoUrl(String videoUrl){this.videoUrl=videoUrl; }
+    public String getRef() {
+        return ref;
+    }
 
-    public String getRef() { return ref; }
+    public void setRef(String ref) {
+        this.ref = ref;
+    }
 
-    public void setRef(String ref) { this.ref = ref; }
+    public String getJournal() {
+        return journal;
+    }
 
-    public String getJournal() { return journal; }
+    public void setJournal(String journal) {
+        this.journal = journal;
+    }
 
-    public void setJournal(String journal) { this.journal = journal; }
+    public String getPublisher() {
+        return publisher;
+    }
 
-    public String getPublisher() { return publisher; }
-
-    public void setPublisher(String publisher) { this.publisher = publisher; }
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
+    }
 }
