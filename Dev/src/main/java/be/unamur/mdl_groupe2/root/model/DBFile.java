@@ -13,8 +13,7 @@ import javax.persistence.*;
 @Data
 public class DBFile {
     @Id
-    @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "uuid2")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
 
     private String fileName;
