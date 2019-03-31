@@ -1,7 +1,9 @@
 package be.unamur.mdl_groupe2.root.repository;
 
-import be.unamur.mdl_groupe2.root.model.User;
+import be.unamur.mdl_groupe2.root.model.Visitor;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface VisitorRepository extends JpaRepository<User, Long> {
+@Repository
+public interface VisitorRepository extends JpaRepository<Visitor, Long> {
 }
