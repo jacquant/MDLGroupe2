@@ -2,10 +2,10 @@
  <head>
  <title>State of Art page</title>
  <!--script type="text/javascript" src="js/vue.js"></script-->
- <link rel="stylesheet" type="text/css" href="main_css.css">
- <link rel="stylesheet" type="text/css" href="listderoulante.css">
- <link rel="stylesheet" type="text/css" href="tabs.css" />
-  <link rel="stylesheet" href="StaticSearchHistory.css">
+	 <link href="../style/main_css.css" rel="stylesheet" type="text/css">
+	 <link href="../style/listderoulante.css" rel="stylesheet" type="text/css">
+	 <link href="../style/tabs.css" rel="stylesheet" type="text/css"/>
+	 <link href="../search/StaticSearchHistory.css" rel="stylesheet">
   
  <style> 
  .legal
@@ -25,24 +25,25 @@
  <body> 
  
  <ul id="menu-accordeon" style="float:right; margin-right:10px;">
-			<li><a href="signin.html">Sign in</a>
+	 <li><a href="../sign/signin.html">Sign in</a>
 				<ul>
-					<li><a href="signup.html"><img src="login.png" width="30px"></a></li>
-					<li><a href="personal_page.html"><img src="settings.png" width="30px"></a></li>
-					<li><a href="addetatdelart.html"><img src="plus.png" width="30px"></a></li>
+					<li><a href="../sign/signup.html"><img src="../assets/login.png" width="30px"></a></li>
+					<li><a href="../personal_page.html"><img src="../settings/settings.png" width="30px"></a></li>
+					<li><a href="addetatdelart.html"><img src="../assets/plus.png" width="30px"></a></li>
          
 				</ul>
 			</li>
 		</ul>
      <div class="topnav">
-            
-             <a class="active" href="StaticSearchPage.html">Home</a>
-             
-            <img src="LogoSiteWebMDL.png" alt="Logo ReSearch" style="width: 50px"  />
+
+		 <a class="active" href="../search/StaticSearchPage.html">Home</a>
+
+		 <img alt="Logo ReSearch" src="../assets/LogoSiteWebMDL.png" style="width: 50px"/>
         </div> 
  
  <div id="searchResult">
-	<div class="return"><a href="resultpage.html"> <img src="return-button.png" width="50px"></a></div>
+	 <div class="return"><a href="../search/resultpage.html"> <img src="../assets/return-button.png" width="50px"></a>
+	 </div>
 	
 	<div class="wrap" >
 		<div class="search">
@@ -68,9 +69,11 @@
 			<h4 style="">State of Art</h4>
 			
 			<div>Title : ..........</div>	<br/>
-			<div><b>Abstract</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="">PDF</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Nb References:</b>808 
+			<div><b>Abstract</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="">PDF</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Nb References:</b>808
 
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="favoris.png" width="3%"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="partage.png"> </div>	<br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../assets/favoris.png" width="3%"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img
+						src="../assets/partage.png"></div>
+			<br/>
 			<div style="border:1px solid black; width:80%;"><textarea name="abstract" rows="15" cols="105" readonly></textarea></div>	
 			
 		</div>
@@ -95,8 +98,9 @@
 
 	<div id="tabs">
 		<ul>
-			<li><a href="relatedArticles.html" class="selected" target="mainFrame"  onclick="loadit(this);" >Related articles</a></li>
-			<li><a href="videoArticle.html" target="mainFrame"  onclick="loadit(this);" >Video</a></li>
+			<li><a class="selected" href="relatedArticles.html" onclick="loadit(this);" target="mainFrame">Related
+				articles</a></li>
+			<li><a href="videoArticle.html" onclick="loadit(this);" target="mainFrame">Video</a></li>
 			<li><a href="commentsArticle.html" target="mainFrame" onclick="loadit(this);" >Comments</a></li>
 	    </ul>
 	</div>
