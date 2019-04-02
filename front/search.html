@@ -15,8 +15,7 @@
                     
                     <a href="signin.html">Sign in</a>
                     <a href="StaticSearchPage.html">Home</a>
-                    
-                    
+                       
                 </div>
                 <div style="float:left;">
                     <img src="LogoSiteWebMDL.png" alt="Logo ReSearch" style="width: 50px; " />
@@ -123,64 +122,40 @@
                 </td></tr>
             
             <tr><td>
-                <div>
-                    <input type="text" class="in">
-                    <select class="select2">
+               <table   id="myTable" >
+                   <tr id="myRow">
+                     <td>
+                         <div>
+                    <button onclick="myFunction()">New field</button>
+                    <input type="text" class="">
+                    <select class="">
                           <option value="AND"> AND</option>
                           <option value="OR">OR</option>
                           <option value="NOT">NOT</option>
                      </select>
-                    <input type="text" class="in">
-                    in
-<select class="select1">
+                    <input type="text" class="">
+                        </div>
+                    </td>
+                       
+                    <td>
+                        <div>
+                    in 
+<select class="">
   <option value="Metadata Only">Metadata Only</option>
   <option value="Document Title">Document Title</option>
   <option value="Author Keywords">Author Keywords</option>
   <option value="Article Number">Article Number</option>
 </select>
-                </div>
-                </td></tr>
-            <tr><td>
-                 <div id="idbloc6" class="bloc6">
-                     <select class="select2">
-                          <option value="AND"> AND</option>
-                          <option value="OR">OR</option>
-                          <option value="NOT">NOT</option>
-                     </select>
-                    <input type="text" class="in">
-                     <select class="select2">
-                          <option value="AND"> AND</option>
-                          <option value="OR">OR</option>
-                          <option value="NOT">NOT</option>
-                     </select>
-                      <input type="text" class="in">
-                     in
-<select class="select1">
-  <option value="Metadata Only">Metadata Only</option>
-  <option value="Document Title">Document Title</option>
-  <option value="Author Keywords">Author Keywords</option>
-  <option value="Article Number">Article Number</option>
-</select>
-                </div>
-                
-                 <div id="idbloc66" class="bloc6" hidden>
-                     <select class="select2">
-                          <option value="AND"> AND</option>
-                          <option value="OR">OR</option>
-                          <option value="NOT">NOT</option>
-                     </select>
-                    <input type="text" class="in"> in
-<select class="select1">
-  <option value="Metadata Only">Metadata Only</option>
-  <option value="Document Title">Document Title</option>
-  <option value="Author Keywords">Author Keywords</option>
-  <option value="Article Number">Article Number</option>
-</select>
-                </div>
+                      </div>
+                    </td>
+                    <td>
+          <button onclick="FunDelete()">X</button>
+                    </td>
+                 </tr>
+             </table>
                 </td></tr>
             
-            
-            
+       
             <tr><td>
                
                 <button type="submit" onclick="addNewLine();" >Add new line</button>
@@ -197,28 +172,48 @@
 </div>
 
 	
-		<script> 
-/****** script to add new input line*****/
-    
+		<script>
+            
+/****** script to add new input line*****/  
 	function addNewLine() {
 
-	  var varb="<div style=' margin-top:8px;'><select style=' width: 4.5%;height: 23px;'><option value='AND'> AND </option><option value='OR'>OR</option><option value='NOT'>NOT</option>"+
-                     "</select> <input type='text'class='in'> <select class='select2'>                          <option value='AND'> AND</option>                          <option value='OR'>OR</option>"+
-                          "<option value='NOT'>NOT</option>                     </select>                      <input type='text'class='in'> in <select style='width: 11%;height: 23px;'>  <option value='Metadata Only'>Metadata Only</option>"+
+	  var table = document.getElementById("myTable");
+  var row = table.insertRow(-1);
+  var cell1 = row.insertCell(0);
+  var cell2 = row.insertCell(1);
+  var cell3 = row.insertCell(2);
+  cell1.innerHTML = "<button onclick='myFunction()'>New field</button> <input type='text'class='in'> <select><option value='AND'> AND </option><option value='OR'>OR</option><option value='NOT'>NOT</option>"+
+                     "</select> <input type='text'class='in'>";
+  cell2.innerHTML = "in <select><option value='Metadata Only'>Metadata Only</option>"+
 					 "<option value='Document Title'>Document Title</option><option value='Author Keywords'>Author Keywords</option>"+
-					"<option value='Article Number'>Article Number</option></select></div>";
-					
-        var bloc=document.getElementById("idbloc6");		
-        bloc.innerHTML=bloc.innerHTML+varb;        
+					"<option value='Article Number'>Article Number</option></select>";
+  cell3.innerHTML = "<button onclick='FunDelete()'>X</button>"
 
 	}
+            
+ /************* Add New Field *************/ 
+   function myFunction() {
+  var row = document.getElementById("myRow");
+  len = row.cells.length;
+  var x = row.insertCell(len-2);
+  x.innerHTML = "<select><option value='AND'>AND</option><option value='OR'>OR</option><option value='NOT'>NOT</option> </select> <input type='text' >";
+}
+            
+ /************* Delete Field *************/
+  function FunDelete() {
+  var row = document.getElementById("myRow");
+  console.log(row.cells.length);    
+  if(row.cells.length >= 4){     
+    row.deleteCell(1);
+  }
+}          
             
 /************* Reset the page *************/
     function resetPage() {
         window.open("search.html", "_self");
     }        
     
-/************* open the research result page ***********/	
+/************* open the research result page ***********/
 	function openResearchResult(){
 		window.open("resultpage.html","_self");
    }
