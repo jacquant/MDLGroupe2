@@ -7,12 +7,7 @@
                         <v-card class="elevation-1 pa-3">
                             <v-card-text>
                                 <div class="layout column align-center">
-                                    <img
-                                            src="/static/m.png"
-                                            alt="Vue Material Admin"
-                                            width="120"
-                                            height="120"
-                                    />
+                                    <img src="/static/logo.jpg" alt="Vue Material Admin" width="120" height="120">
                                     <h1 class="flex my-4 primary--text">Add new Email</h1>
                                 </div>
                                 <v-form>
@@ -62,7 +57,7 @@
     };
 </script>
 <style scoped lang="css">
-    #login {
+    #editemail {
         height: 50%;
         width: 100%;
         position: absolute;
