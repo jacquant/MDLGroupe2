@@ -100,7 +100,14 @@ export default [
         import(/* webpackChunkName: "routes" */
             `@/views/editpassword.vue`)
   },
-
+    {
+        path: "/addstateofart",
+        meta: { breadcrumb: true },
+        name: "addstateofart",
+        component: () =>
+            import(/* webpackChunkName: "routes" */
+                `@/views/addstateofart.vue`)
+    },
   {
     path: "/personalpage",
     meta: { breadcrumb: true },
@@ -111,14 +118,15 @@ export default [
   },
 
   {
-    path: "/media",
-    meta: {},
-    name: "Media",
-    props: route => ({ type: route.query.type }),
-    component: () =>
-      import(/* webpackChunkName: "routes" */
-      `@/views/Media.vue`)
-  },
+        path: "/media",
+        meta: {},
+        name: "Media",
+        props: route => ({ type: route.query.type }),
+        component: () =>
+            import(/* webpackChunkName: "routes" */
+                `@/views/Media.vue`)
+    },
+
   {
     path: "/chat",
     meta: {
