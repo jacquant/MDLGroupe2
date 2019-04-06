@@ -6,9 +6,8 @@ import java.util.List;
 import java.util.Map;
 
 public class AdvancedSearchService {
-    public List<Article> AdvancedSearchService(Map<String, String> params) {
+    public AdvancedSearchService(Map<String, String> params) {
 
         //TODO
-        return null;
     }
 }

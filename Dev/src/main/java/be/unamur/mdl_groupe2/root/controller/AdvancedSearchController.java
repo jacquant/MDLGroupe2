@@ -19,6 +19,8 @@ public class AdvancedSearchController {
     /* <!-- URL avec deux paramètres nommés 'lang' et 'admin', et ayant pour valeur respectivement 'fr' et 'true' --> /page.jsp?lang=fr&admin=true*/
     public List<Article> AdvancedSearchController(@RequestParam Map<String, String> params) {
 
-        return new AdvancedSearchService(params);
+        new AdvancedSearchService(params);
+        //TODO
+        return null;
     }
 }
