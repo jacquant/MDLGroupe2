@@ -40,6 +40,16 @@ public class Article {
 
     private String publisher;
 
+    private int metric;
+
+    public int getMetric() {
+        return metric;
+    }
+
+    public void setMetric(int metric) {
+        this.metric = metric;
+    }
+
     public String getAuthor() {
         return author;
     }
