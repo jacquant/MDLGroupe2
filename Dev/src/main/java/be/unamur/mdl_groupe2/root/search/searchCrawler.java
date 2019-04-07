@@ -1,8 +1,10 @@
 package be.unamur.mdl_groupe2.root.search;
 
+import be.unamur.mdl_groupe2.root.controller.ArticleController;
 import be.unamur.mdl_groupe2.root.exception.MetricNotAvailableException;
 import be.unamur.mdl_groupe2.root.exception.NotAuthorizedException;
 import be.unamur.mdl_groupe2.root.model.Article;
+import be.unamur.mdl_groupe2.root.repository.ArticleRepository;
 import org.springframework.scheduling.annotation.Scheduled;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -29,8 +31,7 @@ public class SearchCrawler {
     }
 
     private int getMetricsFromPlateform(Article article) {
-
-
+        //TODO
         return 0;
     }
 
