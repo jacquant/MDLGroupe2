@@ -5,7 +5,13 @@ import be.unamur.mdl_groupe2.root.exception.MetricNotAvailableException;
 import be.unamur.mdl_groupe2.root.exception.NotAuthorizedException;
 import be.unamur.mdl_groupe2.root.model.Article;
 import be.unamur.mdl_groupe2.root.repository.ArticleRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ImportResource;
 import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -15,24 +21,34 @@ import java.net.URL;
     This class is in charge to explore and update the information for ranking.
     The searchCrawler need to be called once a day.
  */
+
 public class SearchCrawler {
 
-    @Scheduled(cron = "0 0 3")
-    public void SearchCrawler() {/*
-        List<Article> lists = ArticleController.findAll();
+    @Autowired
+    private ArticleRepository repository;
 
-        for( Article article : lists){
+    @Scheduled(cron = "0 0 3")
+    public void SearchCrawler() {
+
+        for (Article article : repository.findAll()) {
             try {
-                ArticleController.SetMetric(getMetricsFromWeb(article));
+                article.setMetric(getMetricsFromWeb(article));
             } catch (MetricNotAvailableException | NotAuthorizedException e) {
-                ArticleController.SetMetric(getMetricsFromPlateform(article));
+                article.setMetric(getMetricsFromPlateform(article));
             }
-        }*/
+        }
     }
 
     private int getMetricsFromPlateform(Article article) {
-        //TODO
-        return 0;
+        int i = 0;
+        for (Article allArticle : repository.findAll()) {
+            for(String ref : allArticle.getBibliography()){
+                if (ref.equals(article.getRef())){
+                    i++;
+                }
+            }
+        }
+        return i;
     }
 
     private int getMetricsFromWeb(Article article) throws MetricNotAvailableException, NotAuthorizedException {

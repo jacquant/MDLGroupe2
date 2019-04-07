@@ -22,6 +22,7 @@ public class ArticleController {
         this.articleRepository = articleRepository;
     }
 
+
     @PostMapping("/articles")
     public Article create(@RequestBody Article article) {
         return articleRepository.save(article);
