@@ -8,7 +8,16 @@
                             <v-card-text>
                                 <div class="layout column align-center">
                                     <img src="/static/logo.jpg" alt="Vue Material Admin" width="120" height="120">
-                                    <h1 class="flex my-4 primary--text">Add new Email</h1>
+                                </div>
+                                <div style="margin-top: 10px;">
+                                    <v-card-actions>
+                                        <v-btn block color="" @click="editpwd" class="btn" >Edit password</v-btn>
+                                        <v-btn block color="" @click="editmail"  class="active_btn">Add email</v-btn>
+                                        <v-btn block color="" @click="editprofile"  class="btn">Edit profile</v-btn>
+                                    </v-card-actions>
+                                </div>
+                                <div class="layout column align-center">
+                                    <h3 class="flex my-4 primary--text">Add email</h3>
                                 </div>
                                 <v-form>
                                     <v-text-field
@@ -25,8 +34,7 @@
 
                                 <v-spacer></v-spacer>
                                 <v-btn block color="primary" @click="login" :loading="loading"
-                                >Edit</v-btn
-                                >
+                                >Validate</v-btn>
                             </v-card-actions>
                         </v-card>
                     </v-flex>
@@ -47,12 +55,25 @@
         }),
 
         methods: {
-            login() {
+            editpwd() {
                 this.loading = true;
                 setTimeout(() => {
-                    this.$router.push("/dashboard");
+                    this.$router.push("/editpassword");
                 }, 1000);
-            }
+            },
+
+            editmail() {
+                this.loading = true;
+                setTimeout(() => {
+                    this.$router.push("/editemail");
+                }, 1000);
+            },
+            editprofile() {
+                this.loading = true;
+                setTimeout(() => {
+                    this.$router.push("/editprofil");
+                }, 1000);
+            },
         }
     };
 </script>
@@ -66,4 +87,13 @@
         content: "";
         z-index: 0;
     }
+    .active_btn{
+        width:145px;
+        background-color: deepskyblue;
+        color: red;
+    }
+    .btn{
+        width:145px;
+    }
+
 </style>

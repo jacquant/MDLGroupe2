@@ -68,7 +68,19 @@
 
 
                                 </div>
-                                    PDF File:<v-text-field append-icon="" name="pdffile" label="" type="text" v-model="pdffile"></v-text-field>
+                                    <v-card-actions> PDF File:<v-text-field
+                                            append-icon=""
+                                            name="file_url"
+                                            label="upload file here"
+                                            type="text"
+
+                                    ></v-text-field>
+                                        <upload-btn icon>
+                                    :fileChangedCallback="fileChanged"
+                                        <template slot="icon">
+                                            <v-icon>add</v-icon>
+                                        </template>
+                                </upload-btn> </v-card-actions>
 
                                     <v-text-field  name="videourl" label="Youtube Video Url" type="text" v-model="videourl"></v-text-field>
 
@@ -92,6 +104,7 @@
 
 
 <script>
+    import UploadButton from 'vuetify-upload-button'
     export default {
         data: () => ({
             loading: false,
@@ -107,7 +120,14 @@
                 setTimeout(() => {
                     this.$router.push("/editprofil");
                 }, 1000);
+            },
+            fileChanged (file) {
+                // handle file here. File will be an object.
+                // If multiple prop is true, it will return an object array of files.
             }
+        },
+        components: {
+            'upload-btn': UploadButton
         }
     };
 </script>
