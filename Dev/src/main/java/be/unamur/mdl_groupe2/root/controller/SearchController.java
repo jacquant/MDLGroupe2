@@ -1,12 +1,10 @@
 package be.unamur.mdl_groupe2.root.controller;
 
 import be.unamur.mdl_groupe2.root.model.Article;
-import be.unamur.mdl_groupe2.root.search.SearchType;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
 import java.util.List;
 
 @RestController
