@@ -40,6 +40,34 @@ public class Article {
 
     private String publisher;
 
+    private int metric;
+
+    private String[] bibliography;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String[] getBibliography() {
+        return bibliography;
+    }
+
+    public void setBibliography(String[] bibliography) {
+        this.bibliography = bibliography;
+    }
+
+    public int getMetric() {
+        return metric;
+    }
+
+    public void setMetric(int metric) {
+        this.metric = metric;
+    }
+
     public String getAuthor() {
         return author;
     }

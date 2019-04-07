@@ -1,12 +1,9 @@
 package be.unamur.mdl_groupe2.root.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "files")
@@ -14,6 +11,7 @@ import javax.persistence.*;
 public class DBFile {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Size(max=100)
     private String id;
 
     private String fileName;
