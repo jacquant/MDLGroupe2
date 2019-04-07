@@ -9,4 +9,13 @@ import java.util.List;
 
 public class SimpleSearchService {
 
+    public SimpleSearchService(String v) {
+        //TODO
+    }
+
+    private String[] ParseResearchRequest(String v){
+        //TODO
+
+        return new String[0];
+    }
 }
