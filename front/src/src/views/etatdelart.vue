@@ -8,9 +8,9 @@
             <v-card-actions>
 
                 <v-spacer></v-spacer>
-                <v-btn block color="" @click="classic" :loading="loading">Classic</v-btn>
-                <v-btn block color="" @click="visual" :loading="loading">Visual</v-btn>
-                <v-btn block color="" @click="matrice" :loading="loading">Matrice</v-btn>
+                <v-btn  color="" @click="classic"  class="active_btn">Classic</v-btn>
+                <v-btn  color="" @click="visual"  class="btn">Visual</v-btn>
+                <v-btn  color="" @click="matrice"  class="btn">Matrice</v-btn>
             </v-card-actions>
             <h2 class="flex my-4 primary--text">State of art</h2>
             <h4 class="">Title:</h4>
@@ -46,7 +46,7 @@
             classic () {
                 this.loading = true;
                 setTimeout(() => {
-                    this.$router.push('/classic');
+                    this.$router.push('/etatdelart');
                 }, 1000);
             },
 
@@ -60,7 +60,7 @@
             matrice () {
                 this.loading = true;
                 setTimeout(() => {
-                    this.$router.push('/matrice');
+                    this.$router.push('/result_page_matrice');
                 }, 1000);
             }
         }
@@ -70,5 +70,13 @@
 <style scoped lang="css">
     #textarea {
         margin-top: 10px;
+    }
+    .active_btn{
+        width:40px;
+        background-color: deepskyblue;
+        color: red;
+    }
+    .btn{
+        width:40px;
     }
 </style>

@@ -116,7 +116,22 @@ export default [
         import(/* webpackChunkName: "routes" */
             `@/views/personalpage.vue`)
   },
-
+    {
+        path: "/result_page",
+        meta: { breadcrumb: true },
+        name: "result_page",
+        component: () =>
+            import(/* webpackChunkName: "routes" */
+                `@/views/result_page.vue`)
+    },
+    {
+        path: "/result_page_matrice",
+        meta: { breadcrumb: true },
+        name: "result_page_matrice",
+        component: () =>
+            import(/* webpackChunkName: "routes" */
+                `@/views/result_page_matrice.vue`)
+    },
   {
         path: "/media",
         meta: {},
