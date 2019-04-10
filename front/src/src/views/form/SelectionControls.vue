@@ -33,7 +33,11 @@
                 <v-container fluid class="pa-0">
                   <v-layout row wrap>
                     <v-flex xs12>
-                      <v-subheader class="pa-0">Multple Selected : [{{ colors.toString() }}]</v-subheader>
+                      <v-subheader class="pa-0"
+                        >Multple Selected : [{{
+                          colors.toString()
+                        }}]</v-subheader
+                      >
                     </v-flex>
                     <v-flex xs12 sm4 md4>
                       <v-checkbox
@@ -134,17 +138,28 @@
                       ></v-checkbox>
                     </v-flex>
                   </v-layout>
-                </v-container>                
+                </v-container>
               </div>
               <div class="text-mixed  mt-3">
                 <v-subheader class="pa-0">Inline with a textfield</v-subheader>
                 <v-layout align-center class="ma-0">
-                  <v-checkbox v-model="includeFiles" hide-details class="shrink mr-2"></v-checkbox>
+                  <v-checkbox
+                    v-model="includeFiles"
+                    hide-details
+                    class="shrink mr-2"
+                  ></v-checkbox>
                   <v-text-field label="Include files"></v-text-field>
                 </v-layout>
                 <v-layout align-center class="ma-0">
-                  <v-checkbox v-model="enabled" hide-details class="shrink mr-2"></v-checkbox>
-                  <v-text-field label="I only work if you check the box" :disabled="!enabled"></v-text-field>
+                  <v-checkbox
+                    v-model="enabled"
+                    hide-details
+                    class="shrink mr-2"
+                  ></v-checkbox>
+                  <v-text-field
+                    label="I only work if you check the box"
+                    :disabled="!enabled"
+                  ></v-text-field>
                 </v-layout>
               </div>
             </div>
@@ -156,17 +171,37 @@
               <div class="basic">
                 <v-subheader class="pa-0">Default vertical </v-subheader>
                 <v-radio-group v-model="radio1" :mandatory="false">
-                  <v-radio label="Primary" color="primary" value="radio-1"></v-radio>
-                  <v-radio label="Success" color="success" value="radio-2"></v-radio>
+                  <v-radio
+                    label="Primary"
+                    color="primary"
+                    value="radio-1"
+                  ></v-radio>
+                  <v-radio
+                    label="Success"
+                    color="success"
+                    value="radio-2"
+                  ></v-radio>
                   <v-radio label="Info" color="info" value="radio-3"></v-radio>
                 </v-radio-group>
               </div>
               <div class="basic">
                 <v-subheader class="pa-0">Horizontal </v-subheader>
                 <v-radio-group v-model="radio2" :mandatory="false" row>
-                  <v-radio label="Radio 1" value="radio-1" color="pink"></v-radio>
-                  <v-radio label="Radio 2" value="radio-2" color="secondary"></v-radio>
-                  <v-radio label="Radio 3" value="radio-3" color="teal"></v-radio>
+                  <v-radio
+                    label="Radio 1"
+                    value="radio-1"
+                    color="pink"
+                  ></v-radio>
+                  <v-radio
+                    label="Radio 2"
+                    value="radio-2"
+                    color="secondary"
+                  ></v-radio>
+                  <v-radio
+                    label="Radio 3"
+                    value="radio-3"
+                    color="teal"
+                  ></v-radio>
                 </v-radio-group>
               </div>
             </div>
@@ -174,15 +209,22 @@
           <v-widget title="Switches" class="mt-3">
             <div slot="widget-content">
               <div class="basic">
-                <v-subheader class="pa-0">Default value: {{s1}} </v-subheader>
-                  <v-switch :label="s1 ? 'On': 'Off'" v-model="s1"></v-switch>
+                <v-subheader class="pa-0">Default value: {{ s1 }} </v-subheader>
+                <v-switch :label="s1 ? 'On' : 'Off'" v-model="s1"></v-switch>
               </div>
               <div class="basic">
-                <v-subheader class="pa-0">Custom text value:  {{s2}} </v-subheader>
-                <v-switch value="Yes" :label="s2 ? 'Yes': 'No'" v-model="s2" color="success"></v-switch>
+                <v-subheader class="pa-0"
+                  >Custom text value: {{ s2 }}
+                </v-subheader>
+                <v-switch
+                  value="Yes"
+                  :label="s2 ? 'Yes' : 'No'"
+                  v-model="s2"
+                  color="success"
+                ></v-switch>
               </div>
             </div>
-          </v-widget>          
+          </v-widget>
         </v-flex>
       </v-layout>
     </v-container>
@@ -190,12 +232,12 @@
 </template>
 
 <script>
-import VWidget from '@/components/VWidget';
+import VWidget from "@/components/VWidget";
 export default {
   components: {
     VWidget
   },
-  data () {
+  data() {
     return {
       includeFiles: false,
       enabled: false,
@@ -211,15 +253,12 @@ export default {
       radio5: false,
       s1: false,
       s2: false,
-      ex7: 'red',
-      ex8: 'primary',      
-      colors: ['red', 'indigo', 'orange', 'primary']      
-
+      ex7: "red",
+      ex8: "primary",
+      colors: ["red", "indigo", "orange", "primary"]
     };
   },
-  computed: {
-  },  
-  methods: {
-  }
+  computed: {},
+  methods: {}
 };
 </script>

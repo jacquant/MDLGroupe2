@@ -78,18 +78,17 @@ export default [
     meta: { breadcrumb: true },
     name: "editemail",
     component: () =>
-        import(/* webpackChunkName: "routes" */
-            `@/views/editemail.vue`)
+      import(/* webpackChunkName: "routes" */
+      `@/views/editemail.vue`)
   },
-
 
   {
     path: "/editprofil",
     meta: { breadcrumb: true },
     name: "editprofil",
     component: () =>
-        import(/* webpackChunkName: "routes" */
-            `@/views/editprofil.vue`)
+      import(/* webpackChunkName: "routes" */
+      `@/views/editprofil.vue`)
   },
 
   {
@@ -97,50 +96,50 @@ export default [
     meta: { breadcrumb: true },
     name: "editpassword",
     component: () =>
-        import(/* webpackChunkName: "routes" */
-            `@/views/editpassword.vue`)
+      import(/* webpackChunkName: "routes" */
+      `@/views/editpassword.vue`)
   },
-    {
-        path: "/addstateofart",
-        meta: { breadcrumb: true },
-        name: "addstateofart",
-        component: () =>
-            import(/* webpackChunkName: "routes" */
-                `@/views/addstateofart.vue`)
-    },
+  {
+    path: "/addstateofart",
+    meta: { breadcrumb: true },
+    name: "addstateofart",
+    component: () =>
+      import(/* webpackChunkName: "routes" */
+      `@/views/addstateofart.vue`)
+  },
   {
     path: "/personalpage",
     meta: { breadcrumb: true },
     name: "personalpage",
     component: () =>
-        import(/* webpackChunkName: "routes" */
-            `@/views/personalpage.vue`)
+      import(/* webpackChunkName: "routes" */
+      `@/views/personalpage.vue`)
   },
-    {
-        path: "/result_page",
-        meta: { breadcrumb: true },
-        name: "result_page",
-        component: () =>
-            import(/* webpackChunkName: "routes" */
-                `@/views/result_page.vue`)
-    },
-    {
-        path: "/result_page_matrice",
-        meta: { breadcrumb: true },
-        name: "result_page_matrice",
-        component: () =>
-            import(/* webpackChunkName: "routes" */
-                `@/views/result_page_matrice.vue`)
-    },
   {
-        path: "/media",
-        meta: {},
-        name: "Media",
-        props: route => ({ type: route.query.type }),
-        component: () =>
-            import(/* webpackChunkName: "routes" */
-                `@/views/Media.vue`)
-    },
+    path: "/result_page",
+    meta: { breadcrumb: true },
+    name: "result_page",
+    component: () =>
+      import(/* webpackChunkName: "routes" */
+      `@/views/result_page.vue`)
+  },
+  {
+    path: "/result_page_matrice",
+    meta: { breadcrumb: true },
+    name: "result_page_matrice",
+    component: () =>
+      import(/* webpackChunkName: "routes" */
+      `@/views/result_page_matrice.vue`)
+  },
+  {
+    path: "/media",
+    meta: {},
+    name: "Media",
+    props: route => ({ type: route.query.type }),
+    component: () =>
+      import(/* webpackChunkName: "routes" */
+      `@/views/Media.vue`)
+  },
 
   {
     path: "/chat",

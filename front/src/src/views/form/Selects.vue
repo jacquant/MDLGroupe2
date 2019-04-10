@@ -29,7 +29,7 @@
                       v-model="e2"
                       label="Select"
                       item-text="country"
-                      item-value="abbr"                      
+                      item-value="abbr"
                       class="input-group--focused"
                     ></v-select>
                   </v-flex>
@@ -43,7 +43,7 @@
                       v-model="e3"
                       :error-messages="['Please select an option']"
                       item-text="country"
-                      item-value="abbr"     
+                      item-value="abbr"
                     ></v-select>
                   </v-flex>
                   <v-flex xs6>
@@ -56,7 +56,7 @@
                       :items="countries"
                       v-model="e5"
                       item-text="country"
-                      item-value="abbr"                           
+                      item-value="abbr"
                     ></v-select>
                   </v-flex>
                   <v-flex xs6>
@@ -69,7 +69,7 @@
                       v-model="e6"
                       append-icon="map"
                       item-text="country"
-                      item-value="abbr"                           
+                      item-value="abbr"
                     ></v-select>
                   </v-flex>
                   <v-flex xs6>
@@ -82,7 +82,7 @@
                       v-model="e7"
                       autocomplete
                       item-text="country"
-                      item-value="abbr"                           
+                      item-value="abbr"
                     ></v-select>
                   </v-flex>
                 </v-layout>
@@ -106,8 +106,8 @@
                       label="Select"
                       multi-line
                       item-text="country"
-                      item-value="abbr"     
-                      return-object                      
+                      item-value="abbr"
+                      return-object
                     ></v-select>
                   </v-flex>
                   <v-flex xs6>
@@ -140,7 +140,10 @@
                       :items="items"
                       item-text="country"
                       item-value="country"
-                      :rules="[() => select.length > 0 || 'You must choose at least one']"
+                      :rules="[
+                        () =>
+                          select.length > 0 || 'You must choose at least one'
+                      ]"
                       :search-input.sync="search"
                       v-model="select"
                     ></v-select>
@@ -157,8 +160,8 @@
                       v-model="multi4"
                       multi-line
                       item-text="country"
-                      item-value="abbr"      
-                      return-object                     
+                      item-value="abbr"
+                      return-object
                     >
                       <template slot="selection" slot-scope="data">
                         <v-chip
@@ -168,10 +171,12 @@
                           :selected="data.selected"
                           :key="JSON.stringify(data.item.abbr)"
                         >
-                          <v-avatar class="accent">{{ data.item.abbr.slice(0, 1).toUpperCase() }}</v-avatar>
+                          <v-avatar class="accent">{{
+                            data.item.abbr.slice(0, 1).toUpperCase()
+                          }}</v-avatar>
                           {{ data.item.country }}
                         </v-chip>
-                      </template>                    
+                      </template>
                     </v-select>
                   </v-flex>
                   <v-flex xs6>
@@ -186,8 +191,8 @@
                       v-model="multi3"
                       multi-line
                       item-text="country"
-                      item-value="abbr"      
-                      return-object                     
+                      item-value="abbr"
+                      return-object
                     >
                       <template slot="selection" slot-scope="data">
                         <v-chip
@@ -196,65 +201,69 @@
                           :selected="data.selected"
                           :key="JSON.stringify(data.item.abbr)"
                         >
-                          <v-avatar class="accent">{{ data.item.abbr.slice(0, 1).toUpperCase() }}</v-avatar>
+                          <v-avatar class="accent">{{
+                            data.item.abbr.slice(0, 1).toUpperCase()
+                          }}</v-avatar>
                           {{ data.item.country }}
                         </v-chip>
-                      </template>                    
+                      </template>
                     </v-select>
                   </v-flex>
                 </v-layout>
               </v-container>
             </div>
           </v-widget>
-        </v-flex>        
+        </v-flex>
       </v-layout>
     </v-container>
   </div>
 </template>
 
 <script>
-import VWidget from '@/components/VWidget';
-import Countries  from '@/api/country';
+import VWidget from "@/components/VWidget";
+import Countries from "@/api/country";
 export default {
   components: {
     VWidget
   },
-  data () {
+  data() {
     return {
       loading: false,
       items: [],
       search: null,
-      select: [],      
+      select: [],
       e1: null,
       e2: null,
       e3: null,
-      e4: null,      
-      e5: null,      
-      e6: null,      
-      e7: null,  
+      e4: null,
+      e5: null,
+      e6: null,
+      e7: null,
       multi1: [],
-      multi2: [],    
-      multi3: [],    
-      multi4: [],    
-      multi5: [],    
+      multi2: [],
+      multi3: [],
+      multi4: [],
+      multi5: [],
       countries: Countries
     };
   },
-  computed: {
-  },  
+  computed: {},
   watch: {
-    search (val) {
+    search(val) {
       val && this.querySelections(val);
     }
   },
   methods: {
-    querySelections (v) {
+    querySelections(v) {
       console.log(v);
       this.loading = true;
       // Simulated ajax query
       setTimeout(() => {
         this.items = this.countries.filter(e => {
-          return (e.country || '').toLowerCase().indexOf((v || '').toLowerCase()) > -1;
+          return (
+            (e.country || "").toLowerCase().indexOf((v || "").toLowerCase()) >
+            -1
+          );
         });
         this.loading = false;
       }, 500);

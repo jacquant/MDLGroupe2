@@ -1,4 +1,4 @@
-  <template>
+<template>
   <v-layout row class="align-center layout px-4 pt-4 app--page-header">
     <!--div class="page-header-left">
       <h3 class="pr-3">{{title}}</h3>
@@ -11,23 +11,23 @@
         <v-icon class="text--secondary">refresh</v-icon>
       </v-btn>
     </div-->
-  </v-layout>  
+  </v-layout>
 </template>
 
 <script>
-import menu from '@/api/menu';
+import menu from "@/api/menu";
 export default {
-  data () {
+  data() {
     return {
-      title: ''
+      title: ""
     };
   },
   computed: {
-    breadcrumbs: function () {
+    breadcrumbs: function() {
       let breadcrumbs = [];
       menu.forEach(item => {
         if (item.items) {
-          let child =  item.items.find(i => {
+          let child = item.items.find(i => {
             return i.component === this.$route.name;
           });
           if (child) {
@@ -43,7 +43,7 @@ export default {
         }
       });
       return breadcrumbs;
-    },    
+    }
   }
 };
 </script>
