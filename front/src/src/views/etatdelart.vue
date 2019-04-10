@@ -12,21 +12,101 @@
                 <v-btn  color="" @click="visual"  class="btn">Visual</v-btn>
                 <v-btn  color="" @click="matrice"  class="btn">Matrice</v-btn>
             </v-card-actions>
-            <h2 class="flex my-4 primary--text">State of art</h2>
-            <h4 class="">Title:</h4>
-            <h3 class="">Abstract  <a href="" class="">PDF</a>  Nb Referernces: (8881)</h3>
+
+            <table  style="margin-top:10px; width:100%; padding:10px; ">
+                <tr>
+
+                    <td valign="top" width="70%">
+                        <div id="result" style="width:100%; margin-left:30px">
+
+            <h2  style="vertical-align: top; color:blue;">State of art</h2>
+                            <h3 class=""> <b>Title: Le passage de Lorem Ipsum standard, utilisé depuis 1500 </b></h3>
+                <br/> <h3 class="">Abstract &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="" class="">PDF</a>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                Nb Referernces: (8881) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                            <a href="" target="_blank" class=""><img src="../assets/favoris.png" width="3%"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                <a href="" target="_blank" class=""><img src="../assets/partage.png"></a>
+
+
+
+            </h3>
 
             <div id="textarea">
 
                             <v-text-field
                                     label="abstract"
                                     textarea
-                                    rows="20"
-                                    cols="30"
+                                    rows="10"
+                                    cols="25"
                                     v-model="abstract"
                             ></v-text-field>
 
             </div>
+                        </div>
+                    </td>
+                    <td valign="top"  width="20%" >
+
+                        <div style="border:1px solid black; margin-top:5px; ">
+                            <div style="margin-top:10px; margin-left:5px;">
+                                <b><u> Author(s):</u></b> .......	<br/><br/>
+                                <b><u> Published:</u></b> ........	<br/><br/>
+                                <b><u> Rate:</u></b> ....	<br/><br/>
+                                <br/>
+
+                            </div>
+
+                        </div>
+                    </td>
+                </tr></table>
+
+            <template>
+                <div>
+                    <v-tabs
+                            v-model="active"
+                            color="cyan"
+                            dark
+                            slider-color="yellow"
+                    >
+
+                        <v-tab   ripple>
+                            Related articles
+                        </v-tab>
+
+                        <v-tab   ripple>
+                            Video
+                        </v-tab>
+                        <v-tab   ripple>
+                            Comments
+                        </v-tab>
+
+                        <v-tab-item >
+                            <v-card flat>
+                                <v-card-text>{{ relatedArticle }}</v-card-text>
+                            </v-card>
+                        </v-tab-item>
+
+                        <v-tab-item >
+                            <v-card flat>
+                                <v-card-text>{{ video }}</v-card-text>
+                            </v-card>
+                        </v-tab-item>
+
+                        <v-tab-item >
+                            <v-card flat>
+                                <v-card-text>{{ comments }}</v-card-text>
+                            </v-card>
+                        </v-tab-item>
+
+
+
+                    </v-tabs>
+
+                    <div class="text-xs-center mt-3">
+                        <v-btn @click="next">next tab</v-btn>
+                    </div>
+                </div>
+            </template>
 
         </v-container>
     </div>
@@ -34,13 +114,15 @@
 
 <script>
     export default {
-        data: () => ({
-            loading: false,
-            model: {
-                username: '',
-                password: ''
+        data () {
+            return {
+                active: null,
+                relatedArticle: ' Related articles here',
+                comments: ' Comments here',
+                video: ' video  here'
             }
-        }),
+
+        },
 
         methods: {
             classic () {
@@ -62,14 +144,21 @@
                 setTimeout(() => {
                     this.$router.push('/result_page_matrice');
                 }, 1000);
+            },
+            next () {
+                const active = parseInt(this.active)
+                this.active = (active < 2 ? active + 1 : 0)
             }
-        }
+        },
+
+
+
 
     };
 </script>
 <style scoped lang="css">
     #textarea {
-        margin-top: 10px;
+        margin-top: 20px;
     }
     .active_btn{
         width:40px;

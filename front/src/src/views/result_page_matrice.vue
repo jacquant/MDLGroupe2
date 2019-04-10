@@ -3,7 +3,7 @@
         <v-container grid-list-xl fluid>
             <!--v-layout row wrap>
                 <div style="float:left;">
-                    <img src="/static/logo.jpg" alt="Vue Material Admin" width="120" height="120">
+                    <img src="/static/logo.jpg" alt="Research" width="120" height="120">
                 </div>
             </v-layout-->
 
@@ -44,16 +44,55 @@
 <script>
 
     export default {
-        data: () => ({
-            loading: false,
-            model: {
-                username: '',
-                password: ''
-            },
+
+/*
+        data() {
+            return {
+
+                headers: [
+                    {
+                        text: 'References',
+                        align: 'left',
+                        sortable: false,
+                        value: 'name'
+                    },
+                    {text: 'Criteria1', value: 'Criteria1'},
+                    {text: 'Criteria2', value: 'Criteria2'},
+                    {text: 'Criteria3', value: 'Criteria3'},
+                    {text: 'Criteria4', value: 'Criteria4'}
+                ],
+
+                results: [
+                    {
+                        name: 'Ref1',
+                        Criteria1: v,
+                        Criteria2: v,
+                        Criteria3: x,
+                        Criteria4: x,
+
+                    },
+                    {
+                        name: 'Ref2',
+                        Criteria1: v,
+                        Criteria2: x,
+                        Criteria3: v,
+                        Criteria4: v,
+
+                    },
+                    {
+                        name: 'Ref3',
+                        Criteria1: v,
+                        Criteria2: x,
+                        Criteria3: x,
+                        Criteria4: v,
+
+                    },
+
+                ]
 
 
-
-        }),
+            }
+        },*/
 
         methods: {
             classic () {
@@ -83,59 +122,8 @@
 
     };
 
-    /*
-    new Vue({
-        el: "#table_matrice",
-        data() {
-            return {
-
-                    headers: [
-                        {
-                            text: 'References',
-                            align: 'left',
-                            sortable: false,
-                            value: 'name'
-                        },
-                        {text: 'Criteria1', value: 'Criteria1'},
-                        {text: 'Criteria2', value: 'Criteria2'},
-                        {text: 'Criteria3', value: 'Criteria3'},
-                        {text: 'Criteria4', value: 'Criteria4'}
-                    ],
-
-                    results: [
-                        {
-                            name: 'Ref1',
-                            Criteria1: v,
-                            Criteria2: v,
-                            Criteria3: x,
-                            Criteria4: x,
-
-                        },
-                        {
-                            name: 'Ref2',
-                            Criteria1: v,
-                            Criteria2: x,
-                            Criteria3: v,
-                            Criteria4: v,
-
-                        },
-                        {
-                            name: 'Ref3',
-                            Criteria1: v,
-                            Criteria2: x,
-                            Criteria3: x,
-                            Criteria4: v,
-
-                        },
-
-                    ]
 
 
-            }
-        }
-    });
-
-     */
 </script>
 <style scoped lang="css">
 

@@ -1,13 +1,15 @@
 <template>
     <v-app id="addstateofart" class="primary">
-        <v-content>
+        <v-content
             <v-container fluid fill-height>
                 <v-layout align-center justify-center>
+
                     <v-flex xs12 sm8 md4 lg4>
-                        <v-card class="elevation-1 pa-3">
+
+                        <v-card class="elevation-1 pa-3" style="width:140%">
                             <v-card-text>
                                 <div class="layout column align-center">
-                                    <img src="/static/logo.jpg" alt="Vue Material Admin" width="120" height="120">
+                                    <img src="/static/logo.jpg" alt="Research" width="120" height="120">
                                     <h1 class="flex my-4 primary--text">Add state of art</h1>
                                 </div>
                                 <v-form>
@@ -90,12 +92,13 @@
                             <v-card-actions>
 
                                 <v-spacer></v-spacer>
-                                <v-btn block color="primary" @click="login" :loading="loading"
+                                <v-btn  width="50px" color="primary" @click="login" :loading="loading"
                                 >Add</v-btn
                                 >
                             </v-card-actions>
                         </v-card>
                     </v-flex>
+
                 </v-layout>
             </v-container>
         </v-content>
