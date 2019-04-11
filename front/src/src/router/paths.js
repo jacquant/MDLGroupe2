@@ -75,7 +75,7 @@ export default [
 
   {
     path: "/editemail",
-    meta: { breadcrumb: true },
+    meta: {},
     name: "editemail",
     component: () =>
       import(/* webpackChunkName: "routes" */
@@ -114,6 +114,24 @@ export default [
     component: () =>
       import(/* webpackChunkName: "routes" */
       `@/views/personalpage.vue`)
+  },
+
+  {
+    path: "/StaticSearchHistory",
+    meta: { breadcrumb: true },
+    name: "StaticSearchHistory",
+    component: () =>
+        import(/* webpackChunkName: "routes" */
+            `@/views/StaticSearchHistory.vue`)
+  },
+
+  {
+    path: "/contactus",
+    meta: { breadcrumb: true },
+    name: "contactus",
+    component: () =>
+        import(/* webpackChunkName: "routes" */
+            `@/views/contactus.vue`)
   },
   {
     path: "/result_page",

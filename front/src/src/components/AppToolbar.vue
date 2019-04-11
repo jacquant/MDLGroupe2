@@ -12,12 +12,14 @@
     </v-text-field>
     <v-spacer></v-spacer>
     <v-toolbar-items>
-      <v-btn flat href="mailto:wangqiangshen@gmail.com">
-        Hire Me
+
+      <v-btn flat @click="contactus" class="">
+        Contact Us
       </v-btn>
     </v-toolbar-items>
 
-    <v-btn icon href="https://github.com/tookit/vue-material-admin">
+
+    <v-btn icon href="">
       <v-icon class="fa-2x">fa-github</v-icon>
     </v-btn>
     <v-btn icon @click="handleFullScreen()">
@@ -119,7 +121,15 @@ export default {
     },
     handleFullScreen() {
       Util.toggleFullScreen();
-    }
+    },
+
+    contactus() {
+      this.loading = true;
+      setTimeout(() => {
+        this.$router.push("../contactus");
+      }, 1000);
+    },
+
   }
 };
 </script>
