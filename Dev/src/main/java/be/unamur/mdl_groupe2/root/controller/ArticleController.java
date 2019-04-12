@@ -35,11 +35,9 @@ public class ArticleController {
     }
 
     @GetMapping("/articles/{author}")
-    @Query(value = "SELECT* FROM article WHERE author=?1")
-    public List<Article> findArticleWriteBy(Long id) {
-        return null;
+    public List<Article> findArticleWriteBy(Long id){
+        return this.articleRepository.findArticleWriteBy(id);
     }
-
 
     @GetMapping("/articles/{article_id}")
     public Article findByArticleId(@PathVariable("article_id") Long articleId) {
