@@ -3,6 +3,7 @@ package be.unamur.mdl_groupe2.root.model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -16,7 +17,8 @@ public class Article {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String author;
+    //List of author's id
+    private List<Long> author;
 
     private String title;
 
@@ -68,11 +70,12 @@ public class Article {
         this.metric = metric;
     }
 
-    public String getAuthor() {
+    public List<Long> getAuthor() {
+
         return author;
     }
 
-    public void setAuthor(String author) {
+    public void setAuthor(List<Long> author) {
         this.author = author;
     }
 

@@ -4,6 +4,7 @@ package be.unamur.mdl_groupe2.root.controller;
 import be.unamur.mdl_groupe2.root.model.Article;
 import be.unamur.mdl_groupe2.root.repository.ArticleRepository;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,13 @@ public class ArticleController {
     public List<Article> findAll() {
         return articleRepository.findAll();
     }
+
+    @GetMapping("/articles/{author}")
+    @Query(value = "SELECT* FROM article WHERE author=?1")
+    public List<Article> findArticleWriteBy(Long id) {
+        return null;
+    }
+
 
     @GetMapping("/articles/{article_id}")
     public Article findByArticleId(@PathVariable("article_id") Long articleId) {
