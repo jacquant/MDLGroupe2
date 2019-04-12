@@ -9,14 +9,15 @@ import java.util.Map;
 public class AdvancedSearchService {
 
     @Autowired
-    private final ArticleRepository articleRepository;
+    private final ArticleRepository searchRepository=null ;
 
     public AdvancedSearchService(Map<String, String> params){
+
 
         params.forEach((k, v) -> {
             switch (k) {
                 case "author":
-
+                    //TODO
                     break;
                 case "title":
                     //TODO

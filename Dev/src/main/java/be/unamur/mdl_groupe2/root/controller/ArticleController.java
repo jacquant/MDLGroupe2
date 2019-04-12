@@ -39,6 +39,17 @@ public class ArticleController {
         return this.articleRepository.findArticleWriteBy(id);
     }
 
+    @GetMapping("/articles/{title}")
+    public List<Article> findArticleWithTitle(String title){
+        return this.articleRepository.findArticleWithTitle(title);
+    }
+
+    @GetMapping("/articles/{tag}")
+    public List<Article> findArticleWithTag(String tag){
+        return this.articleRepository.findArticleWithTitle(tag);
+    }
+
+
     @GetMapping("/articles/{article_id}")
     public Article findByArticleId(@PathVariable("article_id") Long articleId) {
         return articleRepository.getOne(articleId);
