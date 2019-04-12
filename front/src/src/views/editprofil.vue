@@ -40,30 +40,30 @@
                     name="firstname"
                     label="First Name"
                     type="text"
-                    v-model="model.username"
+                    v-model="model.firstname"
                   ></v-text-field>
                   <v-text-field
                     append-icon="person"
                     name="lastname"
                     label="Last Name"
                     type="text"
-                    v-model="model.username"
+                    v-model="model.lastname"
                   ></v-text-field>
                   <v-text-field
                     append-icon=""
                     name="title"
                     label="Title"
                     type="text"
-                    v-model="model.username"
+                    v-model="model.title"
                   ></v-text-field>
                   <v-text-field
                     append-icon=""
                     name="organisation"
                     label="organisation"
                     type="text"
-                    v-model="model.username"
+                    v-model="model.organisation"
                   ></v-text-field>
-                  <v-text-field
+                  <!--v-text-field
                     append-icon="lock"
                     name="password"
                     label="Password"
@@ -78,12 +78,12 @@
                     id="password"
                     type="password"
                     v-model="model.password_bis"
-                  ></v-text-field>
+                  ></v-text-field-->
                 </v-form>
               </v-card-text>
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn block color="primary" @click="login" :loading="loading"
+                <v-btn block color="primary" @click="editprofilValidate"
                   >Validate</v-btn
                 >
               </v-card-actions>
@@ -100,12 +100,16 @@ export default {
   data: () => ({
     loading: false,
     model: {
-      username: "",
-      password: ""
+
     }
   }),
 
   methods: {
+    editprofilValidate() {
+
+    },
+
+
     editpwd() {
       this.loading = true;
       setTimeout(() => {

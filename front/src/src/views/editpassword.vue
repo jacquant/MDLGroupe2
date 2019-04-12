@@ -37,7 +37,7 @@
                     label="Old Password"
                     id="oldpassword"
                     type="password"
-                    v-model="model.password"
+                    v-model="model.oldpassword"
                   ></v-text-field>
                   <v-text-field
                     append-icon="lock"
@@ -45,7 +45,7 @@
                     label="New Password"
                     id="newpassword"
                     type="password"
-                    v-model="model.password"
+                    v-model="model.newpassword"
                   ></v-text-field>
                   <v-text-field
                     append-icon="lock"
@@ -53,13 +53,13 @@
                     label="Confirm New Password"
                     id="newpasswordbis"
                     type="password"
-                    v-model="model.password"
+                    v-model="model.newpasswordbis"
                   ></v-text-field>
                 </v-form>
               </v-card-text>
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn block color="primary" @click="login" :loading="loading"
+                <v-btn block color="primary" @click="editpasswordValidate"
                   >Validate</v-btn
                 >
               </v-card-actions>
@@ -76,12 +76,16 @@ export default {
   data: () => ({
     loading: false,
     model: {
-      username: "",
-      password: ""
+
     }
   }),
 
   methods: {
+
+    editpasswordValidate(){
+
+    },
+
     editpwd() {
       this.loading = true;
       setTimeout(() => {

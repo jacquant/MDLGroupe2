@@ -36,13 +36,13 @@
                     name="email"
                     label="Edit Email"
                     type="text"
-                    v-model="model.username"
+                    v-model="model.email"
                   ></v-text-field>
                 </v-form>
               </v-card-text>
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn block color="primary" @click="login" :loading="loading"
+                <v-btn block color="primary" @click="editmailValidate"
                   >Validate</v-btn
                 >
               </v-card-actions>
@@ -57,34 +57,39 @@
 <script>
 export default {
   data: () => ({
-    loading: false,
-    model: {
-      username: "",
-      password: ""
-    }
+      loading: false,
+      model: {
+
+      }
   }),
 
   methods: {
-    editpwd() {
-      this.loading = true;
-      setTimeout(() => {
-        this.$router.push("/editpassword");
-      }, 1000);
+      editmailValidate() {
+
     },
 
-    editmail() {
-      this.loading = true;
-      setTimeout(() => {
-        this.$router.push("/editemail");
-      }, 1000);
-    },
-    editprofile() {
-      this.loading = true;
-      setTimeout(() => {
-        this.$router.push("/editprofil");
-      }, 1000);
-    }
+      editpwd() {
+          this.loading = true;
+          setTimeout(() => {
+              this.$router.push("/editpassword");
+          }, 1000);
+      },
+
+      editmail() {
+          this.loading = true;
+          setTimeout(() => {
+              this.$router.push("/editemail");
+          }, 1000);
+      },
+      editprofile() {
+          this.loading = true;
+          setTimeout(() => {
+              this.$router.push("/editprofil");
+          }, 1000);
+      }
   }
+
+
 };
 </script>
 <style scoped lang="css">

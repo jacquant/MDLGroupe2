@@ -35,7 +35,7 @@
               </v-card-text>
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn block color="primary" @click="login" :loading="loading"
+                <v-btn block color="primary" @click="login"
                   >Login</v-btn
                 >
               </v-card-actions>

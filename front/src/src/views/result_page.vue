@@ -21,42 +21,43 @@
             <div class="menu" valign="top">
               <button class="accordion">Filters Menu <---</button>
               <div class="panel">
-                <v-card-actions>
-                  Author(s):<br />
+                <v-card-actions style="vertical-align: top;">
+                  Author(s):
                   <v-text-field
                     label="Author(s) here"
                     name="author"
+                    v-model="model.author"
                   ></v-text-field>
                 </v-card-actions>
                 <v-card-actions>
-                  Title:<br />
-                  <v-text-field label="Title here" name="title"></v-text-field>
+                  Title:
+                  <v-text-field label="Title here" name="title"   v-model="model.title"></v-text-field>
                 </v-card-actions>
-                <v-card-actions>
-                  Others details:<br />
+                <v-card-actions >
+                  Others details:
                   <v-text-field
                     label="details here"
                     name="detail"
+                    v-model="model.detail"
                   ></v-text-field>
                 </v-card-actions>
 
-                Pubished Year:<br /><input
-                  type="text"
-                  style="border-color:blue;"
-                  placeholder="year 1"
-                  size="3"
-                  maxlength="4"
-                />
-                -
-                <input
-                  type="text"
-                  style="border-color:blue;"
-                  size="3"
-                  maxlength="4"
-                  placeholder="year 2"
-                /><br />
+                <v-card-actions>
+                Pubished Year:
+                   <v-text-field
+                        label=""
+                        name="year1"
+                        v-model="model.year1"
+                ></v-text-field>
 
-                <br />
+                <v-text-field
+                        label=""
+                        name="year2"
+                        v-model="model.year2"
+                ></v-text-field>
+
+                  </v-card-actions>
+
                 <div class="">
                   <b>Criteria on State of art</b> <br />
                   <input type="checkbox" class="" />critere1
@@ -193,7 +194,7 @@ for (i = 0; i < acc.length; i++) {
     max-height: 0;
     overflow: visible;
     transition: max-height 0.2s ease-out;
-    margin-top:5px;
+
 }
 
 

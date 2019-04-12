@@ -42,7 +42,7 @@
                   textarea
                   rows="10"
                   cols="25"
-                  v-model="abstract"
+                  v-model="model.abstract"
                 ></v-text-field>
               </div>
             </div>
