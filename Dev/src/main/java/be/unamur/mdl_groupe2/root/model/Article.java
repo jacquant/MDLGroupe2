@@ -18,7 +18,7 @@ public class Article {
     private Long id;
 
     //List of author's id
-    private List<Long> author;
+    private Long[] author;
 
     private String title;
 
@@ -70,12 +70,12 @@ public class Article {
         this.metric = metric;
     }
 
-    public List<Long> getAuthor() {
+    public Long[] getAuthor() {
 
         return author;
     }
 
-    public void setAuthor(List<Long> author) {
+    public void setAuthor(Long[] author) {
         this.author = author;
     }
 
