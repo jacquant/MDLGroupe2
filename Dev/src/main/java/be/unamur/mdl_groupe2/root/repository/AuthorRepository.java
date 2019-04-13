@@ -9,6 +9,7 @@ import java.util.List;
 
 @Repository
 public interface AuthorRepository extends JpaRepository<Author, Long> {
-    @Query(value = "SELECT u FROM author u WHERE u.name=?1")
+
+    @Query(value = "SELECT u FROM authors u WHERE u.surname=?1")
     List<Author> findAuthorId(String name);
 }

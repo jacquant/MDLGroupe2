@@ -49,7 +49,6 @@ public class ArticleController {
         return this.articleRepository.findArticleWithTitle(tag);
     }
 
-
     @GetMapping("/articles/{article_id}")
     public Article findByArticleId(@PathVariable("article_id") Long articleId) {
         return articleRepository.getOne(articleId);
