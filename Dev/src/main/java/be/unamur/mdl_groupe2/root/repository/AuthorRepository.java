@@ -11,6 +11,7 @@ import java.util.List;
 public interface AuthorRepository extends JpaRepository<Author, Long> {
 
     //TODO protect against SQL injection
-    //@Query(value = "SELECT u FROM Authors u WHERE u.surname=?1")
-    //List<Author> findAuthorId(String surname);
+    @Query(value = "SELECT u FROM Author u WHERE u.surname=?1")
+    List<Author> findAuthorId(String surname);
 }
+
