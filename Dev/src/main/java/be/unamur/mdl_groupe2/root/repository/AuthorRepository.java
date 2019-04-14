@@ -12,6 +12,15 @@ public interface AuthorRepository extends JpaRepository<Author, Long> {
 
     //TODO protect against SQL injection
     @Query(value = "SELECT u FROM Author u WHERE u.surname=?1")
-    List<Author> findAuthorId(String surname);
+    List<Author> findAuthorIdWithSurname(String surname);
+
+    //TODO protect against SQL injection
+    @Query(value = "SELECT u FROM Author u WHERE u.firstName=?1")
+    List<Author> findAuthorIdWithFirstName(String surname);
+
+    //TODO protect against SQL injection
+    @Query(value = "SELECT u FROM Author u WHERE u.firstName=?1 OR u.surname=?1")
+    List<Author> findAuthorIdWithFirstNameorSurname(String surname);
+
 }
 

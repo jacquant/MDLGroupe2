@@ -31,7 +31,13 @@ public class AuthorController {
     }
 
     @GetMapping("/authors/{surname}")
-    public List<Author> getAuthorByName(@PathVariable("surname") String surname) {return authorRepository.findAuthorId(surname);}
+    public List<Author> getAuthorBySurname(@PathVariable("surname") String surname) {return authorRepository.findAuthorIdWithSurname(surname);}
+
+    @GetMapping("/authors/{firstName}")
+    public List<Author> getAuthorByFirstname(@PathVariable("surname") String firstName) {return authorRepository.findAuthorIdWithFirstName(firstName);}
+
+    @GetMapping("/authors/{name}")
+    public List<Author> getAuthorByName(@PathVariable("name") String name) {return authorRepository.findAuthorIdWithFirstNameorSurname(name);}
 
     @PutMapping("/authors/{author_id}")
     public Author update(@PathVariable("author_id") Long authorId, @RequestBody Author authorObject) {

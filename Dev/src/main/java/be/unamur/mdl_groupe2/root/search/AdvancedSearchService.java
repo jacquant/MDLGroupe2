@@ -2,6 +2,8 @@ package be.unamur.mdl_groupe2.root.search;
 
 import be.unamur.mdl_groupe2.root.repository.ArticleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import be.unamur.mdl_groupe2.root.controller.AuthorController;
+import be.unamur.mdl_groupe2.root.controller.ArticleController;
 
 import java.util.Map;
 
