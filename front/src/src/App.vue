@@ -2,8 +2,8 @@
   <div id="appRoot">
     <template v-if="!$route.meta.public">
       <v-app id="inspire" class="app">
-        <app-drawer class="app--drawer"></app-drawer>
-        <app-toolbar class="app--toolbar"></app-toolbar>
+        <app-drawer class="app--drawer"></app-drawer>/*pour afficher ou pas le drawer à gauche*/
+        <app-toolbar class="app--toolbar"></app-toolbar> /*pour la barre d'entete contenant la barre de recherche*/
         <v-content>
           <!-- Page Header -->
           <page-header v-if="$route.meta.breadcrumb"></page-header>

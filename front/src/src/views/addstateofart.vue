@@ -79,13 +79,12 @@
                                         </table>
                                 </div>
 
-                                    <v-card-actions> PDF File:
-                                        <v-text-field
+                                    <!--v-text-field
                                             append-icon=""
                                             name="file_url"
                                             label="upload file here"
                                             type="text"
-                                            v-model="model.file_url"
+                                            v-model="file_url"
                                     ></v-text-field>
                                         <template>
                                             <upload-btn icon
@@ -94,8 +93,18 @@
                                                 <v-icon>add</v-icon>
                                              </template>
                                              </upload-btn>
-                                        </template>
+                                        </template-->
+                                        <template>
+                                            <div class="container">
+                                                <div class="large-12 medium-12 small-12 cell">
+                                                    <label>File
+                                                        <input type="file" id="file" ref="file" v-on:change="handleFileUpload(event)"/>
 
+                                                    </label>
+
+                                                </div>
+                                            </div>
+                                        </template>
                                     </v-card-actions>
 
                                     <v-text-field  name="videourl" label="Youtube Video Url" type="text" v-model="model.videourl"></v-text-field>
@@ -134,13 +143,23 @@
 
             },
 
-            fileChanged: function(file) {
-                // handle file here. File will be an object.
-                // If multiple prop is true, it will return an object array of files.
-                //alert(file.name);
-                //this.file_url.value=file.name;
-                alert( file.fileName);
+            handleFileUpload(event){
+                /*
+                var input = event.target;
+                var dataURL;
+                var reader = new FileReader();
+                reader.onload = function(){
+                    dataURL =  reader.readAsDataURL(input.this.file);
+
+                };
+              */
+                this.file = this.$refs.file.files[0];
+
+                //alert(dataURL);
             },
+
+
+
 
             createTable: function ()
     {
