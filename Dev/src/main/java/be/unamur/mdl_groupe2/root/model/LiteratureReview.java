@@ -12,7 +12,7 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Table(name = "literatureReviews")
 @Data
-@Builder
+/*@Builder*/
 @NoArgsConstructor
 @AllArgsConstructor
 public class LiteratureReview {
