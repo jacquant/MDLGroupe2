@@ -42,7 +42,9 @@ public class SearchCrawler {
         for (Article article : repository.findAll()) {
             long score = 0;
             for(Article articleref : article.getBibliography()) {
-                score = score + articleref.getPagerankscore()/articleref.getMetric();
+                int metrics = articleref.getMetric();
+                if (metrics != 0)
+                    score = score + articleref.getPagerankscore()/ metrics;
             }
             article.setPagerankscore(score);
         }
