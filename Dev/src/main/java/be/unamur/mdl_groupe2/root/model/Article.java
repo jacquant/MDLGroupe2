@@ -46,6 +46,10 @@ public class Article {
 
     private String[] bibliography;
 
+    private Boolean modification;
+
+    private Boolean modificationUnderSupervision;
+
     public Long getId() {
         return id;
     }
@@ -158,5 +162,21 @@ public class Article {
 
     public void setPublisher(String publisher) {
         this.publisher = publisher;
+    }
+
+    public Boolean getModification() {
+        return modification;
+    }
+
+    public void setModification(Boolean modification) {
+        this.modification = modification;
+    }
+
+    public Boolean getModificationUnderSupervision() {
+        return modificationUnderSupervision;
+    }
+
+    public void setModificationUnderSupervision(Boolean modificationUnderSupervision) {
+        this.modificationUnderSupervision = modificationUnderSupervision;
     }
 }
