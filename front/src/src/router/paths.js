@@ -107,13 +107,14 @@ export default [
       import(/* webpackChunkName: "routes" */
       `@/views/addstateofart.vue`)
   },
+ 
   {
-    path: "/personalpage",
+    path: "/visual",
     meta: { breadcrumb: true },
-    name: "personalpage",
+    name: "visual",
     component: () =>
       import(/* webpackChunkName: "routes" */
-      `@/views/personalpage.vue`)
+      `@/views/visual.vue`)
   },
 
   {
