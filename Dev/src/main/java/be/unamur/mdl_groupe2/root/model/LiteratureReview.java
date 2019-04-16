@@ -10,7 +10,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "literatureReviews")
+/*@Table(name = "literatureReviews")*/
 @Data
 /*@Builder*/
 @NoArgsConstructor
