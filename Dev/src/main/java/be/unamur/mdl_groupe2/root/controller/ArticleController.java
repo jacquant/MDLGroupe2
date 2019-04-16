@@ -71,8 +71,8 @@ public class ArticleController {
         article.setTag(articleObject.getTag());
         article.setJournal(articleObject.getJournal());
         article.setPublisher(articleObject.getPublisher());
-        article.setModification(articleObject.getModification());
-        article.setModificationUnderSupervision(articleObject.getModificationUnderSupervision());
+        article.setAuthorizedContribution(articleObject.getAuthorizedContribution());
+        article.setContributionUnderSupervision(articleObject.getContributionUnderSupervision());
         return articleRepository.save(article);
     }
 

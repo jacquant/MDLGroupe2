@@ -46,9 +46,9 @@ public class Article {
 
     private String[] bibliography;
 
-    private Boolean modification;
+    private Boolean authorizedContribution;
 
-    private Boolean modificationUnderSupervision;
+    private Boolean contributionUnderSupervision;
 
     public Long getId() {
         return id;
@@ -164,19 +164,19 @@ public class Article {
         this.publisher = publisher;
     }
 
-    public Boolean getModification() {
-        return modification;
+    public Boolean getAuthorizedContribution() {
+        return authorizedContribution;
     }
 
-    public void setModification(Boolean modification) {
-        this.modification = modification;
+    public void setAuthorizedContribution(Boolean authorizedContribution) {
+        this.authorizedContribution = authorizedContribution;
     }
 
-    public Boolean getModificationUnderSupervision() {
-        return modificationUnderSupervision;
+    public Boolean getContributionUnderSupervision() {
+        return contributionUnderSupervision;
     }
 
-    public void setModificationUnderSupervision(Boolean modificationUnderSupervision) {
-        this.modificationUnderSupervision = modificationUnderSupervision;
+    public void setContributionUnderSupervision(Boolean contributionUnderSupervision) {
+        this.contributionUnderSupervision = contributionUnderSupervision;
     }
 }
