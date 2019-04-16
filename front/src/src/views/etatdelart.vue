@@ -1,7 +1,6 @@
 <template>
   <div id="etatdelart">
     <v-container grid-list-xl fluid>
-      <v-layout row wrap> </v-layout>
 
       <v-card-actions>
         <v-spacer></v-spacer>
@@ -12,41 +11,41 @@
 
       <table style="margin-top:10px; width:100%; padding:10px; ">
         <tr>
-          <td valign="top" width="70%">
-            <div id="result" style="width:100%; margin-left:30px">
-              <h2 style="vertical-align: top; color:blue;">State of art</h2>
-              <h3 class="">
-                <b
-                  >Title: Le passage de Lorem Ipsum standard, utilisé depuis
-                  1500
-                </b>
-              </h3>
-              <br />
-              <h3 class="">
-                Abstract &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="" class="">PDF</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Nb
-                Referernces: (8881) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-                <a href="" target="_blank" class=""
-                  ><img src="../assets/favoris.png" width="3%"/></a
-                >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <td valign="top" width="70%">
+                <div id="result" style="width:100%; margin-left:30px">
+                    <h2 style="vertical-align: top; color:blue;">State of art</h2>
+                    <h3>
+                        <b>Title: Le passage de Lorem Ipsum standard, utilisé depuis 1500 </b>
+                    </h3>
+                    <br />
+                    <h3>
+                        Abstract &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="" class="">PDF</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Nb
+                        Referernces: (8881) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-                <a href="" target="_blank" class=""
-                  ><img src="../assets/partage.png"
-                /></a>
-              </h3>
+                        <a href="" target="_blank" class=""
+                        ><img src="../assets/favoris.png" width="3%"/></a
+                        >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-              <div id="textarea">
-                <v-text-field
-                  label="abstract"
-                  textarea
-                  rows="10"
-                  cols="25"
-                  v-model="model.abstract"
-                ></v-text-field>
-              </div>
-            </div>
-          </td>
+                        <a href="" target="_blank" class=""
+                        ><img src="../assets/partage.png"
+                        /></a>
+                    </h3>
+
+                    <div id="textarea">
+                        <v-text-field
+                                label="abstract"
+                                name="abstract"
+                                textarea
+                                rows="10"
+                                cols="25"
+                                v-model="abstract"
+                        ></v-text-field>
+                    </div>
+                </div>
+            </td>
+
           <td valign="top" width="20%">
             <div style="border:1px solid black; margin-top:5px; ">
               <div style="margin-top:10px; margin-left:5px;">
@@ -98,6 +97,7 @@
           </div>
         </div>
       </template>
+
     </v-container>
   </div>
 </template>
