@@ -16,6 +16,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.List;
 
 /*
     This class is in charge to explore and update the information for ranking.
@@ -37,13 +38,22 @@ public class SearchCrawler {
                 article.setMetric(getMetricsFromPlateform(article));
             }
         }
+
+        for (Article article : repository.findAll()) {
+            long score = 0;
+            for(Article articleref : article.getBibliography()) {
+                score = score + articleref.getPagerankscore()/articleref.getMetric();
+            }
+            article.setPagerankscore(score);
+        }
     }
 
     private int getMetricsFromPlateform(Article article) {
         int i = 0;
         for (Article allArticle : repository.findAll()) {
-            for(String ref : allArticle.getBibliography()){
-                if (ref.equals(article.getRef())){
+
+            for(Article articlebiblo: allArticle.getBibliography()){
+                if (article.getRef().equals(article.getRef())){
                     i++;
                 }
             }

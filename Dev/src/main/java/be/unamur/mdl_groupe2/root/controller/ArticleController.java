@@ -94,4 +94,5 @@ public class ArticleController {
         return  articleObject.getAuthorizedContribution();
     }
 
+
 }

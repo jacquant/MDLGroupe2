@@ -45,11 +45,13 @@ public class Article {
 
     private int metric;
 
-    private String[] bibliography;
+    private List<Article> bibliography;
 
     private Boolean authorizedContribution;
 
     private Boolean contributionUnderSupervision;
+
+    private Long pagerankscore;
 
     public Long getId() {
         return id;
@@ -59,11 +61,11 @@ public class Article {
         this.id = id;
     }
 
-    public String[] getBibliography() {
+    public List<Article> getBibliography() {
         return bibliography;
     }
 
-    public void setBibliography(String[] bibliography) {
+    public void setBibliography(List<Article> bibliography) {
         this.bibliography = bibliography;
     }
 
@@ -179,5 +181,13 @@ public class Article {
 
     public void setContributionUnderSupervision(Boolean contributionUnderSupervision) {
         this.contributionUnderSupervision = contributionUnderSupervision;
+    }
+
+    public Long getPagerankscore() {
+        return pagerankscore;
+    }
+
+    public void setPagerankscore(Long pagerankscore) {
+        this.pagerankscore = pagerankscore;
     }
 }
