@@ -13,7 +13,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-public class Article extends LiteratureReview {
+public class Article {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

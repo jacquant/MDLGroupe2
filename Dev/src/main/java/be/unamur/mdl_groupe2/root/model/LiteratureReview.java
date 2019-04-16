@@ -15,7 +15,7 @@ import javax.validation.constraints.NotNull;
 /*@Builder*/
 @NoArgsConstructor
 @AllArgsConstructor
-public class LiteratureReview {
+public class LiteratureReview extends Article {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
