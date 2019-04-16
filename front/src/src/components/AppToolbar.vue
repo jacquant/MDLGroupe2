@@ -19,9 +19,6 @@
     </v-toolbar-items>
 
 
-    <v-btn icon href="">
-      <v-icon class="fa-2x">fa-github</v-icon>
-    </v-btn>
     <v-btn icon @click="handleFullScreen()">
       <v-icon>fullscreen</v-icon>
     </v-btn>
