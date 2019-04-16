@@ -89,4 +89,9 @@ public class ArticleController {
         return articleRepository.save(article);
     }
 
+    @GetMapping("article/{article_id}")
+    public Boolean Contribution(@PathVariable("article_id")Long articleID, @RequestBody Article articleObject){
+        return  articleObject.getAuthorizedContribution();
+    }
+
 }
