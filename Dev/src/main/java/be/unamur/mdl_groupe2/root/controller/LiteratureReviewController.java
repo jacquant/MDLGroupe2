@@ -10,6 +10,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.InheritanceType;
 import java.util.List;
 import java.util.HashMap;
 import java.util.Map;
@@ -19,7 +20,8 @@ import static org.springframework.http.ResponseEntity.ok;
 
 @RestController
 @RequestMapping("/api")
-public class LiteratureReviewController {
+
+public class LiteratureReviewController{
 
     private final LiteratureReviewRepository literatureReviewRepository;
 
