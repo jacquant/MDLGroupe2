@@ -127,6 +127,30 @@ export default {
       }, 1000);
     },
 
+    getQuickSearch() {
+
+      var request = new XMLHttpRequest()
+
+      // Modifier le deuxième argument en fct de ce qu'on veut récup
+      request.open('GET', '', true)
+      request.onload = function() {
+        // Begin accessing JSON data here
+        var data = JSON.parse(this.response)
+
+        if (request.status >= 200 && request.status < 400) {
+          data.forEach(movie => {
+            //Same here (idem commentaire ligne 134)
+            console.log(movie.title)
+          })
+        } else {
+          console.log('error')
+        }
+      }
+
+      request.send()
+
+    }
+
   }
 };
 </script>

@@ -21,6 +21,7 @@
 
 <script>
     export default {
+
         data: () => ({
             loading: false,
             model: {}
@@ -33,9 +34,38 @@
                 setTimeout(() => {
                     this.$router.push("../etatdelart");
                 }, 1000);
+            },
+
+            getEtatDeLart() {
+
+                var request = new XMLHttpRequest()
+
+                // Modify the second argument (=link) to stick to the data we want to get
+
+                request.open('GET', '', true)
+                request.onload = function() {
+                    // Begin accessing JSON data here
+                    var data = JSON.parse(this.response)
+
+                    if (request.status >= 200 && request.status < 400) {
+
+                        // / ! \ Modifier en fct du back-end !!
+                        data.forEach(movie => {
+                            console.log(movie.title)
+                        })
+                    } else {
+                        console.log('error')
+                    }
+                }
+
+                request.send()
+
             }
 
         }
+
+
+
     };
 </script>
 <style scoped lang="css">
