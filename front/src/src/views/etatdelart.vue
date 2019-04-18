@@ -22,7 +22,7 @@
                     <h3>
                         Abstract &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <a href="" class="">PDF</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Nb
-                        Referernces: (8881) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        References: (8881) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
                         <a href="" target="_blank" class=""
                         ><img src="../assets/favoris.png" width="3%"/></a
@@ -109,7 +109,7 @@ export default {
       active: null,
       relatedArticle: " Related articles here",
       comments: " Comments here",
-      video: " video  here"
+      video: " Video  here"
     };
   },
 

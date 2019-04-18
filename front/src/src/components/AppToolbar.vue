@@ -70,6 +70,8 @@
       </v-list>
     </v-menu>
   </v-toolbar>
+
+
 </template>
 <script>
 import NotificationList from "@/components/widgets/list/NotificationList";

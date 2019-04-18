@@ -72,11 +72,14 @@
               </e-chart>
             </div>
           </v-widget>
-        </v-flex> 
+        </v-flex>
       </v-layout>
+      <div id="sigma-container"></div>
     </v-container>
   </div>
 </template>
+
+
 
 <script>
 import API from "@/api";
@@ -95,13 +98,16 @@ import BoxChart from "@/components/widgets/chart/BoxChart";
 import ChatWindow from "@/components/chat/ChatWindow";
 import CircleStatistic from "@/components/widgets/statistic/CircleStatistic";
 import LinearStatistic from "@/components/widgets/statistic/LinearStatistic";
+
+
+
 export default {
     data() {
     return {
       active: null,
       relatedArticle: " Related articles here",
       comments: " Comments here",
-      video: " video  here"
+      video: " Video  here"
     };
   },
 
@@ -252,6 +258,9 @@ components: {
   }
   
 };
+
+
+
 </script>
 <style scoped lang="css">
 #textarea {
