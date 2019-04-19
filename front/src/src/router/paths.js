@@ -135,6 +135,14 @@ export default [
             `@/views/contactus.vue`)
   },
   {
+    path: "/personalpage",
+    meta: { breadcrumb: true },
+    name: "personalpage",
+    component: () =>
+        import(/* webpackChunkName: "routes" */
+            `@/views/personalpage.vue`)
+  },
+  {
     path: "/result_page",
     meta: { breadcrumb: true },
     name: "result_page",
