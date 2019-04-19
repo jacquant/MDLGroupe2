@@ -1,8 +1,8 @@
 package be.unamur.mdl_groupe2.root.search;
 
-import be.unamur.mdl_groupe2.root.controller.ArticleController;
-import be.unamur.mdl_groupe2.root.model.Article;
-import be.unamur.mdl_groupe2.root.repository.ArticleRepository;
+import be.unamur.mdl_groupe2.root.api.article.ArticleController;
+import be.unamur.mdl_groupe2.root.models.article.Article;
+import be.unamur.mdl_groupe2.root.repositories.ArticleRepository;
 import org.springframework.data.domain.Sort;
 
 import java.util.List;
