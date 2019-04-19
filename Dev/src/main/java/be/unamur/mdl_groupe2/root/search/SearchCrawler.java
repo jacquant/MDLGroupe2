@@ -1,16 +1,12 @@
 package be.unamur.mdl_groupe2.root.search;
 
-import be.unamur.mdl_groupe2.root.controller.ArticleController;
 import be.unamur.mdl_groupe2.root.exception.MetricNotAvailableException;
 import be.unamur.mdl_groupe2.root.exception.NotAuthorizedException;
-import be.unamur.mdl_groupe2.root.model.Article;
-import be.unamur.mdl_groupe2.root.repository.ArticleRepository;
+import be.unamur.mdl_groupe2.root.models.article.Article;
+import be.unamur.mdl_groupe2.root.models.articleRef.ArticleRef;
+import be.unamur.mdl_groupe2.root.repositories.ArticleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ImportResource;
 import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -37,13 +33,26 @@ public class SearchCrawler {
                 article.setMetric(getMetricsFromPlateform(article));
             }
         }
+
+        for (Article article : repository.findAll()) {
+            long score = 0;
+            for (ArticleRef articleRef : article.getBibliography()) {
+                Article article_1 = articleRef.getArticle();
+                int metrics = article_1.getMetric();
+                if (metrics != 0)
+                    score = score + article_1.getPagerankscore() / metrics;
+            }
+            article.setPagerankscore(score);
+        }
     }
 
     private int getMetricsFromPlateform(Article article) {
         int i = 0;
         for (Article allArticle : repository.findAll()) {
-            for(String ref : allArticle.getBibliography()){
-                if (ref.equals(article.getRef())){
+
+            for (ArticleRef articleRefBiblo : allArticle.getBibliography()) {
+                Article articleRef = articleRefBiblo.getArticle();
+                if (articleRef.getRef().equals(article.getRef())) {
                     i++;
                 }
             }

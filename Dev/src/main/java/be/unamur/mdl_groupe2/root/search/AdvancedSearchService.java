@@ -1,11 +1,18 @@
 package be.unamur.mdl_groupe2.root.search;
 
+import be.unamur.mdl_groupe2.root.repositories.ArticleRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import java.util.Map;
 
 
 public class AdvancedSearchService {
 
+    @Autowired
+    private final ArticleRepository searchRepository=null ;
+
     public AdvancedSearchService(Map<String, String> params){
+
 
         params.forEach((k, v) -> {
             switch (k) {
@@ -16,6 +23,12 @@ public class AdvancedSearchService {
                     //TODO
                     break;
                 case "keywords":
+                    //TODO
+                    break;
+                case "index":
+                    //TODO
+                    break;
+                case "number":
                     //TODO
                     break;
                 //TODO other case
