@@ -12,7 +12,9 @@ import java.util.Scanner;
 
 public class Synonymes {
 
-    public static HashMap<String, String[]> getSyno(String texte) {
+    public static HashMap<String, String[]> getSyno(String texte) throws FileNotFoundException {
+
+        texte = Synonymes.removeStopWords(texte);
 
         HashMap<String, String[]> synonymes = new HashMap<String, String[]>();
 
