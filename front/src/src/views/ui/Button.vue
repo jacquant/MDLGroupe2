@@ -26,7 +26,7 @@
           <v-widget title="Depressed button" class="mt-3">
             <div slot="widget-content">
               <div>
-                <v-btn color="success" depressed="">Success</v-btn>
+                <v-btn color="success" depressed>Success</v-btn>
                 <v-btn color="error" depressed>Error</v-btn>
                 <v-btn color="warning" depressed>Warning</v-btn>
                 <v-btn color="info" depressed>Info</v-btn>
@@ -36,7 +36,7 @@
           <v-widget title="Outline button" class="mt-3">
             <div slot="widget-content">
               <div>
-                <v-btn color="success" outline="">Success</v-btn>
+                <v-btn color="success" outline>Success</v-btn>
                 <v-btn color="error" outline>Error</v-btn>
                 <v-btn color="warning" outline>Warning</v-btn>
                 <v-btn color="info" outline>Info</v-btn>
@@ -76,9 +76,7 @@
                   :loading="loading"
                   @click.native="loader = 'loading'"
                   :disabled="loading"
-                >
-                  Accept Terms
-                </v-btn>
+                >Accept Terms</v-btn>
 
                 <v-btn
                   :loading="loading3"
@@ -300,18 +298,10 @@
                   <v-flex xs12 sm6 class="py-2">
                     <p>Text Options</p>
                     <v-btn-toggle v-model="text">
-                      <v-btn flat value="left">
-                        Left
-                      </v-btn>
-                      <v-btn flat value="center">
-                        Center
-                      </v-btn>
-                      <v-btn flat value="right">
-                        Right
-                      </v-btn>
-                      <v-btn flat value="justify">
-                        Justify
-                      </v-btn>
+                      <v-btn flat value="left">Left</v-btn>
+                      <v-btn flat value="center">Center</v-btn>
+                      <v-btn flat value="right">Right</v-btn>
+                      <v-btn flat value="justify">Justify</v-btn>
                     </v-btn-toggle>
                   </v-flex>
                   <v-flex xs12 sm6 class="py-2">

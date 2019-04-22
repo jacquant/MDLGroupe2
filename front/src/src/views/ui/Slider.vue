@@ -21,7 +21,7 @@
                   </div>
                 </div>
               </div>
-              <v-subheader>Concreate step (Drag the slider) </v-subheader>
+              <v-subheader>Concreate step (Drag the slider)</v-subheader>
               <div class="container">
                 <div class="layout column">
                   <div class="flex">
@@ -37,18 +37,12 @@
                   </div>
                 </div>
               </div>
-              <v-subheader>With Icon </v-subheader>
+              <v-subheader>With Icon</v-subheader>
               <div class="container">
                 <div class="layout column">
                   <div class="flex">
-                    <v-slider
-                      prepend-icon="volume_up"
-                      v-model="media1"
-                    ></v-slider>
-                    <v-slider
-                      prepend-icon="volume_down"
-                      v-model="media2"
-                    ></v-slider>
+                    <v-slider prepend-icon="volume_up" v-model="media1"></v-slider>
+                    <v-slider prepend-icon="volume_down" v-model="media2"></v-slider>
                   </div>
                 </div>
               </div>
@@ -56,16 +50,8 @@
               <div class="container">
                 <div class="layout column">
                   <div class="flex">
-                    <v-slider
-                      :label="ex1.label"
-                      v-model="ex1.val"
-                      :color="ex1.color"
-                    ></v-slider>
-                    <v-slider
-                      :label="ex2.label"
-                      v-model="ex2.val"
-                      :track-color="ex2.color"
-                    ></v-slider>
+                    <v-slider :label="ex1.label" v-model="ex1.val" :color="ex1.color"></v-slider>
+                    <v-slider :label="ex2.label" v-model="ex2.val" :track-color="ex2.color"></v-slider>
                     <v-slider
                       :label="ex3.label"
                       v-model="ex3.val"

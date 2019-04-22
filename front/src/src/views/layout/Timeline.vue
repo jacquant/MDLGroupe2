@@ -21,7 +21,7 @@
                   </div>
                   <div class="timeline-point">
                     <v-avatar>
-                      <img src="/static/avatar/me.jpeg" alt="" />
+                      <img src="/static/avatar/me.jpeg" alt>
                     </v-avatar>
                   </div>
                   <div class="timeline-detail">
@@ -36,7 +36,7 @@
                         <v-container grid-list-md>
                           <div class="layout row align-center ma-0">
                             <v-avatar class="mx-auto" color="info">
-                              <img src="/static/avatar/a1.jpg" />
+                              <img src="/static/avatar/a1.jpg">
                             </v-avatar>
                             <div class="text-center flex ml-2">
                               <div class="subheading">John Doe</div>
@@ -60,8 +60,7 @@
                 <li class="timeline-block">
                   <div class="timeline-content">
                     <v-card>
-                      <v-card-media src="/static/bg/5.jpg" height="200px">
-                      </v-card-media>
+                      <v-card-media src="/static/bg/5.jpg" height="200px"></v-card-media>
                       <v-card-title primary-title>
                         <div>
                           <div class="headline">Top western road trips</div>
@@ -72,10 +71,7 @@
                   </div>
                   <div class="timeline-point">
                     <v-avatar>
-                      <img
-                        src="https://randomuser.me/api/portraits/men/1.jpg"
-                        alt=""
-                      />
+                      <img src="https://randomuser.me/api/portraits/men/1.jpg" alt>
                     </v-avatar>
                   </div>
                   <div class="timeline-detail">
@@ -90,21 +86,17 @@
         <v-flex sm12>
           <v-widget title="Basic Usage" contentBg="white">
             <div slot="widget-content">
-              <ol
-                class="timeline timeline-activity timeline-point-sm timeline-content-right"
-              >
-                <li
-                  class="timeline-block"
-                  v-for="(item, index) in activity"
-                  :key="index"
-                >
+              <ol class="timeline timeline-activity timeline-point-sm timeline-content-right">
+                <li class="timeline-block" v-for="(item, index) in activity" :key="index">
                   <div class="timeline-point">
                     <v-circle dot large :color="item.color"></v-circle>
                   </div>
                   <div class="timeline-content">
-                    <time datetime="2018" class="caption">{{
+                    <time datetime="2018" class="caption">
+                      {{
                       item.timeString
-                    }}</time>
+                      }}
+                    </time>
                     <div v-html="item.text"></div>
                   </div>
                 </li>

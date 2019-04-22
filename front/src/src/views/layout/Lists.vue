@@ -6,12 +6,7 @@
           <v-widget title="Default">
             <div slot="widget-content">
               <v-list>
-                <v-list-tile
-                  avatar
-                  v-for="item in users"
-                  :key="item.title"
-                  @click="handleClick"
-                >
+                <v-list-tile avatar v-for="item in users" :key="item.title" @click="handleClick">
                   <v-list-tile-action>
                     <v-icon color="pink">star</v-icon>
                   </v-list-tile-action>
@@ -19,7 +14,7 @@
                     <v-list-tile-title v-text="item.name"></v-list-tile-title>
                   </v-list-tile-content>
                   <v-list-tile-avatar>
-                    <img :src="item.avatar" />
+                    <img :src="item.avatar">
                   </v-list-tile-avatar>
                 </v-list-tile>
               </v-list>
@@ -29,20 +24,17 @@
             <div slot="widget-content">
               <v-list two-line subheader>
                 <v-subheader inset>Folders</v-subheader>
-                <v-list-tile
-                  avatar
-                  v-for="item in folders"
-                  :key="item.title"
-                  @click="handleClick"
-                >
+                <v-list-tile avatar v-for="item in folders" :key="item.title" @click="handleClick">
                   <v-list-tile-avatar>
                     <v-icon :class="[item.iconClass]">{{ item.icon }}</v-icon>
                   </v-list-tile-avatar>
                   <v-list-tile-content>
                     <v-list-tile-title>{{ item.title }}</v-list-tile-title>
-                    <v-list-tile-sub-title>{{
+                    <v-list-tile-sub-title>
+                      {{
                       item.subtitle
-                    }}</v-list-tile-sub-title>
+                      }}
+                    </v-list-tile-sub-title>
                   </v-list-tile-content>
                   <v-list-tile-action>
                     <v-btn icon ripple>
@@ -51,20 +43,17 @@
                   </v-list-tile-action>
                 </v-list-tile>
                 <v-subheader inset>Files</v-subheader>
-                <v-list-tile
-                  v-for="item in files"
-                  :key="item.title"
-                  avatar
-                  @click="handleClick"
-                >
+                <v-list-tile v-for="item in files" :key="item.title" avatar @click="handleClick">
                   <v-list-tile-avatar>
                     <v-icon :class="[item.iconClass]">{{ item.icon }}</v-icon>
                   </v-list-tile-avatar>
                   <v-list-tile-content>
                     <v-list-tile-title>{{ item.title }}</v-list-tile-title>
-                    <v-list-tile-sub-title>{{
+                    <v-list-tile-sub-title>
+                      {{
                       item.subtitle
-                    }}</v-list-tile-sub-title>
+                      }}
+                    </v-list-tile-sub-title>
                   </v-list-tile-content>
                   <v-list-tile-action>
                     <v-btn icon ripple>
@@ -79,25 +68,19 @@
             <div slot="widget-content">
               <v-list three-line>
                 <template v-for="(item, index) in chats">
-                  <v-subheader v-if="item.header" :key="item.header">{{
+                  <v-subheader v-if="item.header" :key="item.header">
+                    {{
                     item.header
-                  }}</v-subheader>
-                  <v-divider
-                    v-else-if="item.divider"
-                    :inset="item.inset"
-                    :key="index"
-                  ></v-divider>
+                    }}
+                  </v-subheader>
+                  <v-divider v-else-if="item.divider" :inset="item.inset" :key="index"></v-divider>
                   <v-list-tile avatar v-else :key="item.title" href="#">
                     <v-list-tile-avatar>
-                      <img :src="item.avatar" />
+                      <img :src="item.avatar">
                     </v-list-tile-avatar>
                     <v-list-tile-content>
-                      <v-list-tile-title
-                        v-html="item.title"
-                      ></v-list-tile-title>
-                      <v-list-tile-sub-title
-                        v-html="item.subtitle"
-                      ></v-list-tile-sub-title>
+                      <v-list-tile-title v-html="item.title"></v-list-tile-title>
+                      <v-list-tile-sub-title v-html="item.subtitle"></v-list-tile-sub-title>
                     </v-list-tile-content>
                   </v-list-tile>
                 </template>
@@ -113,17 +96,13 @@
                 <v-list-tile avatar>
                   <v-list-tile-content>
                     <v-list-tile-title>Profile photo</v-list-tile-title>
-                    <v-list-tile-sub-title
-                      >Change your Google+ profile photo</v-list-tile-sub-title
-                    >
+                    <v-list-tile-sub-title>Change your Google+ profile photo</v-list-tile-sub-title>
                   </v-list-tile-content>
                 </v-list-tile>
                 <v-list-tile avatar>
                   <v-list-tile-content>
                     <v-list-tile-title>Show your status</v-list-tile-title>
-                    <v-list-tile-sub-title
-                      >Your status is visible to everyone</v-list-tile-sub-title
-                    >
+                    <v-list-tile-sub-title>Your status is visible to everyone</v-list-tile-sub-title>
                   </v-list-tile-content>
                 </v-list-tile>
               </v-list>
@@ -136,9 +115,7 @@
                   </v-list-tile-action>
                   <v-list-tile-content>
                     <v-list-tile-title>Notifications</v-list-tile-title>
-                    <v-list-tile-sub-title
-                      >Allow notifications</v-list-tile-sub-title
-                    >
+                    <v-list-tile-sub-title>Allow notifications</v-list-tile-sub-title>
                   </v-list-tile-content>
                 </v-list-tile>
                 <v-list-tile avatar>
@@ -147,9 +124,7 @@
                   </v-list-tile-action>
                   <v-list-tile-content>
                     <v-list-tile-title>Sound</v-list-tile-title>
-                    <v-list-tile-sub-title
-                      >Hangouts message</v-list-tile-sub-title
-                    >
+                    <v-list-tile-sub-title>Hangouts message</v-list-tile-sub-title>
                   </v-list-tile-content>
                 </v-list-tile>
                 <v-list-tile avatar>
@@ -158,9 +133,7 @@
                   </v-list-tile-action>
                   <v-list-tile-content>
                     <v-list-tile-title>Video sounds</v-list-tile-title>
-                    <v-list-tile-sub-title
-                      >Hangouts video call</v-list-tile-sub-title
-                    >
+                    <v-list-tile-sub-title>Hangouts video call</v-list-tile-sub-title>
                   </v-list-tile-content>
                 </v-list-tile>
                 <v-list-tile avatar>
@@ -169,9 +142,7 @@
                   </v-list-tile-action>
                   <v-list-tile-content>
                     <v-list-tile-title>Invites</v-list-tile-title>
-                    <v-list-tile-sub-title
-                      >Notify when receiving invites</v-list-tile-sub-title
-                    >
+                    <v-list-tile-sub-title>Notify when receiving invites</v-list-tile-sub-title>
                   </v-list-tile-content>
                 </v-list-tile>
               </v-list>
@@ -184,19 +155,19 @@
                 <v-list-tile>
                   <v-list-tile-content>
                     <v-list-tile-title>Content filtering</v-list-tile-title>
-                    <v-list-tile-sub-title
-                      >Set the content filtering level to restrict appts that
-                      can be downloaded</v-list-tile-sub-title
-                    >
+                    <v-list-tile-sub-title>
+                      Set the content filtering level to restrict appts that
+                      can be downloaded
+                    </v-list-tile-sub-title>
                   </v-list-tile-content>
                 </v-list-tile>
                 <v-list-tile>
                   <v-list-tile-content>
                     <v-list-tile-title>Password</v-list-tile-title>
-                    <v-list-tile-sub-title
-                      >Require password for purchase or use password to restrict
-                      purchase</v-list-tile-sub-title
-                    >
+                    <v-list-tile-sub-title>
+                      Require password for purchase or use password to restrict
+                      purchase
+                    </v-list-tile-sub-title>
                   </v-list-tile-content>
                 </v-list-tile>
               </v-list>
@@ -209,10 +180,10 @@
                   </v-list-tile-action>
                   <v-list-tile-content @click="notifications = !notifications">
                     <v-list-tile-title>Notifications</v-list-tile-title>
-                    <v-list-tile-sub-title
-                      >Notify me about updates to apps or games that I
-                      downloaded</v-list-tile-sub-title
-                    >
+                    <v-list-tile-sub-title>
+                      Notify me about updates to apps or games that I
+                      downloaded
+                    </v-list-tile-sub-title>
                   </v-list-tile-content>
                 </v-list-tile>
                 <v-list-tile href="javascript:;">
@@ -221,10 +192,10 @@
                   </v-list-tile-action>
                   <v-list-tile-content @click="sound = !sound">
                     <v-list-tile-title>Sound</v-list-tile-title>
-                    <v-list-tile-sub-title
-                      >Auto-update apps at any time. Data charges may
-                      apply</v-list-tile-sub-title
-                    >
+                    <v-list-tile-sub-title>
+                      Auto-update apps at any time. Data charges may
+                      apply
+                    </v-list-tile-sub-title>
                   </v-list-tile-content>
                 </v-list-tile>
                 <v-list-tile href="javascript:;">
@@ -233,27 +204,19 @@
                   </v-list-tile-action>
                   <v-list-tile-content @click="widgets = !widgets">
                     <v-list-tile-title>Auto-add widgets</v-list-tile-title>
-                    <v-list-tile-sub-title
-                      >Automatically add home screen
-                      widgets</v-list-tile-sub-title
-                    >
+                    <v-list-tile-sub-title>
+                      Automatically add home screen
+                      widgets
+                    </v-list-tile-sub-title>
                   </v-list-tile-content>
                 </v-list-tile>
               </v-list>
             </div>
           </v-widget>
           <v-widget title="Long dark list with scroll" class="mt-3">
-            <div
-              slot="widget-content"
-              style="max-height: 250px; overflow-y: scroll"
-            >
+            <div slot="widget-content" style="max-height: 250px; overflow-y: scroll">
               <v-list dense dark>
-                <v-list-tile
-                  avatar
-                  v-for="item in allUsers"
-                  :key="item.title"
-                  @click="handleClick"
-                >
+                <v-list-tile avatar v-for="item in allUsers" :key="item.title" @click="handleClick">
                   <v-list-tile-action>
                     <v-icon color="pink">star</v-icon>
                   </v-list-tile-action>
@@ -261,7 +224,7 @@
                     <v-list-tile-title v-text="item.name"></v-list-tile-title>
                   </v-list-tile-content>
                   <v-list-tile-avatar>
-                    <img :src="item.avatar" />
+                    <img :src="item.avatar">
                   </v-list-tile-avatar>
                 </v-list-tile>
               </v-list>
@@ -284,11 +247,7 @@
                       <v-list-tile-title>{{ item.title }}</v-list-tile-title>
                     </v-list-tile-content>
                   </v-list-tile>
-                  <v-list-tile
-                    v-for="subItem in item.items"
-                    :key="subItem.title"
-                    href="#"
-                  >
+                  <v-list-tile v-for="subItem in item.items" :key="subItem.title" href="#">
                     <v-list-tile-content>
                       <v-list-tile-title>{{ subItem.title }}</v-list-tile-title>
                     </v-list-tile-content>
@@ -322,7 +281,7 @@
               </v-layout>
             </v-card-media>
             <v-list two-line>
-              <v-list-tile href="">
+              <v-list-tile href>
                 <v-list-tile-action>
                   <v-icon color="indigo">phone</v-icon>
                 </v-list-tile-action>
@@ -368,9 +327,7 @@
                 </v-list-tile-action>
                 <v-list-tile-content>
                   <v-list-tile-title>1400 Main Street</v-list-tile-title>
-                  <v-list-tile-sub-title
-                    >Orlando, FL 79938</v-list-tile-sub-title
-                  >
+                  <v-list-tile-sub-title>Orlando, FL 79938</v-list-tile-sub-title>
                 </v-list-tile-content>
               </v-list-tile>
             </v-list>

@@ -10,9 +10,7 @@
             <v-card-title class="pb-0">
               <h4>Basic card with `purple` background</h4>
             </v-card-title>
-            <v-card-text>
-              {{ cardText }}
-            </v-card-text>
+            <v-card-text>{{ cardText }}</v-card-text>
             <v-card-actions>
               <v-btn flat small>Link</v-btn>
             </v-card-actions>
@@ -23,9 +21,7 @@
             <v-card-title class="pb-0">
               <h4>Basic card with `teal` background</h4>
             </v-card-title>
-            <v-card-text>
-              {{ cardText }}
-            </v-card-text>
+            <v-card-text>{{ cardText }}</v-card-text>
             <v-card-actions>
               <v-btn flat small>Link</v-btn>
             </v-card-actions>
@@ -36,9 +32,7 @@
             <v-card-title class="pb-0">
               <h4>Basic</h4>
             </v-card-title>
-            <v-card-text>
-              {{ cardText }}
-            </v-card-text>
+            <v-card-text>{{ cardText }}</v-card-text>
             <v-card-actions>
               <v-btn flat small>Link</v-btn>
             </v-card-actions>
@@ -52,14 +46,10 @@
         <v-flex lg4 sm12>
           <v-card>
             <v-card-media src="/static/bg/8.jpg" height="250">
-              <h2 class="white--text pa-3">
-                Card with image
-              </h2>
+              <h2 class="white--text pa-3">Card with image</h2>
             </v-card-media>
             <v-card-text>
-              <div>
-                {{ cardText }}
-              </div>
+              <div>{{ cardText }}</div>
             </v-card-text>
             <v-divider></v-divider>
             <v-card-actions>
@@ -70,17 +60,13 @@
         <v-flex lg4 sm12>
           <v-card>
             <v-card-media src="/static/nature/n3.jpeg" height="250">
-              <h2 class="white--text pa-3">
-                Card with image
-              </h2>
+              <h2 class="white--text pa-3">Card with image</h2>
             </v-card-media>
             <v-card-text>
               <v-avatar size="64px" class="right mt-56">
-                <img src="/static/avatar/man_2.jpg" alt="" />
+                <img src="/static/avatar/man_2.jpg" alt>
               </v-avatar>
-              <div>
-                {{ cardText }}
-              </div>
+              <div>{{ cardText }}</div>
             </v-card-text>
             <v-divider></v-divider>
             <v-card-actions>
@@ -91,17 +77,13 @@
         <v-flex lg4 sm12>
           <v-card>
             <v-card-media src="/static/nature/n4.jpeg" height="250">
-              <h2 class="white--text pa-3">
-                Card with image
-              </h2>
+              <h2 class="white--text pa-3">Card with image</h2>
             </v-card-media>
             <v-card-text>
               <v-btn icon fab color="red" dark class="right mt-45">
                 <v-icon>favorite</v-icon>
               </v-btn>
-              <div>
-                {{ cardText }}
-              </div>
+              <div>{{ cardText }}</div>
             </v-card-text>
             <v-divider></v-divider>
             <v-card-actions>
@@ -121,9 +103,7 @@
                 <v-card-title class="pb-0">
                   <h3>Basic card with `purple` background</h3>
                 </v-card-title>
-                <v-card-text>
-                  {{ cardText }}
-                </v-card-text>
+                <v-card-text>{{ cardText }}</v-card-text>
                 <v-card-actions>
                   <v-btn flat small>Link</v-btn>
                 </v-card-actions>
@@ -134,9 +114,7 @@
                 <v-card-title class="pb-0">
                   <h3>Basic card with `purple` background</h3>
                 </v-card-title>
-                <v-card-text>
-                  {{ cardText }}
-                </v-card-text>
+                <v-card-text>{{ cardText }}</v-card-text>
                 <v-card-actions>
                   <v-btn flat small>Link</v-btn>
                 </v-card-actions>
@@ -147,9 +125,7 @@
                 <v-card-title class="pb-0">
                   <h3>Basic card with `purple` background</h3>
                 </v-card-title>
-                <v-card-text>
-                  {{ cardText }}
-                </v-card-text>
+                <v-card-text>{{ cardText }}</v-card-text>
                 <v-card-actions>
                   <v-btn flat small>Link</v-btn>
                 </v-card-actions>
@@ -180,8 +156,11 @@ export default {
 };
 </script>
 <style lang="stylus" scoped>
-.mt-45
-  margin-top: -45px
-.mt-56
-  margin-top: -56px
+.mt-45 {
+  margin-top: -45px;
+}
+
+.mt-56 {
+  margin-top: -56px;
+}
 </style>

@@ -3,12 +3,10 @@
     <v-toolbar class="elevation-0 transparent media-toolbar">
       <v-btn-toggle>
         <v-btn flat>
-          <v-icon color="primary">cloud_upload</v-icon>
-          &nbsp;Upload
+          <v-icon color="primary">cloud_upload</v-icon>&nbsp;Upload
         </v-btn>
         <v-btn flat>
-          <v-icon color="primary">folder</v-icon>
-          &nbsp; Add Folder
+          <v-icon color="primary">folder</v-icon>&nbsp; Add Folder
         </v-btn>
       </v-btn-toggle>
       <v-spacer></v-spacer>
@@ -37,36 +35,21 @@
               >
                 <v-card flat tile>
                   <v-card-media height="150px">
-                    <v-icon size="135" class="mx-auto" color="indigo"
-                      >folder</v-icon
-                    >
+                    <v-icon size="135" class="mx-auto" color="indigo">folder</v-icon>
                   </v-card-media>
                   <v-divider></v-divider>
-                  <v-card-title>
-                    {{ item.name }}
-                  </v-card-title>
+                  <v-card-title>{{ item.name }}</v-card-title>
                 </v-card>
               </v-flex>
-              <v-flex
-                lg4
-                sm12
-                xs12
-                class="pa-2"
-                v-for="(item, index) in files"
-                :key="index"
-              >
+              <v-flex lg4 sm12 xs12 class="pa-2" v-for="(item, index) in files" :key="index">
                 <a @click="showDetail(item)" class="d-flex">
                   <v-card flat tile>
                     <v-card-media height="150px" width="150px">
-                      <img :src="item.path" alt="" v-if="isImage(item)" />
-                      <v-icon class="mx-auto" size="135" v-else
-                        >insert_drive_file</v-icon
-                      >
+                      <img :src="item.path" alt v-if="isImage(item)">
+                      <v-icon class="mx-auto" size="135" v-else>insert_drive_file</v-icon>
                     </v-card-media>
                     <v-divider></v-divider>
-                    <v-card-title>
-                      {{ item.fileName }}
-                    </v-card-title>
+                    <v-card-title>{{ item.fileName }}</v-card-title>
                   </v-card>
                 </a>
               </v-flex>
@@ -88,9 +71,7 @@
                     <div class="layout row">
                       <div class="flex">{{ item.fileName }}</div>
                       <v-spacer></v-spacer>
-                      <div class="caption">
-                        {{ item ? formateDate(item.ctime) : "" }}
-                      </div>
+                      <div class="caption">{{ item ? formateDate(item.ctime) : "" }}</div>
                     </div>
                   </div>
                 </v-list-tile-content>
@@ -174,14 +155,16 @@ export default {
 };
 </script>
 <style lang="stylus" scoped>
-.media
-  &-cotent--wrap
-
-  &-menu
-    min-width: 260px
-    border-right: 1px solid #eee
+.media {
+  &-cotent--wrap, &-menu {
+    min-width: 260px;
+    border-right: 1px solid #eee;
     min-height: calc(100vh - 50px - 64px);
-  &-detail
-    min-width:300px
-    border-left:1px solid #eee
+  }
+
+  &-detail {
+    min-width: 300px;
+    border-left: 1px solid #eee;
+  }
+}
 </style>

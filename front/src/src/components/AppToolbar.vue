@@ -7,7 +7,10 @@
       solo-inverted
       prepend-icon="search"
       label="Search"
+      name="Search"
       class="hidden-sm-and-down"
+      v-model="searchedInput"
+      v-on:keyup="validateResearch"
     >
     </v-text-field>
     <v-spacer></v-spacer>
@@ -19,9 +22,6 @@
     </v-toolbar-items>
 
 
-    <v-btn icon href="">
-      <v-icon class="fa-2x">fa-github</v-icon>
-    </v-btn>
     <v-btn icon @click="handleFullScreen()">
       <v-icon>fullscreen</v-icon>
     </v-btn>
@@ -73,6 +73,8 @@
       </v-list>
     </v-menu>
   </v-toolbar>
+
+
 </template>
 <script>
 import NotificationList from "@/components/widgets/list/NotificationList";
@@ -86,10 +88,12 @@ export default {
     items: [
       {
         icon: "account_circle",
-        href: "#",
+        href: "",
+
         title: "Profile",
         click: e => {
-          console.log(e);
+            //this.$router.push("../personnalpage");
+          window.getApp.$emit("APP_PERSONAL_PAGE");
         }
       },
       {
@@ -97,7 +101,7 @@ export default {
         href: "#",
         title: "Settings",
         click: e => {
-          console.log(e);
+          window.getApp.$emit("APP_SETTINGS");
         }
       },
       {
@@ -116,6 +120,15 @@ export default {
     }
   },
   methods: {
+    validateResearch: function(e) {
+      if (e.keyCode === 13) {
+        var inputedText=this.searchedInput; // la variable inputedText contient la phrase entrée dans la barre de recherche
+        //alert(inputedText);
+
+      }
+      this.log += e.key;
+    },
+
     handleDrawerToggle() {
       window.getApp.$emit("APP_DRAWER_TOGGLED");
     },
@@ -129,6 +142,31 @@ export default {
         this.$router.push("../contactus");
       }, 1000);
     },
+
+
+    getQuickSearch() {
+
+      var request = new XMLHttpRequest()
+
+      // Modifier le deuxième argument en fct de ce qu'on veut récup
+      request.open('GET', '', true)
+      request.onload = function() {
+        // Begin accessing JSON data here
+        var data = JSON.parse(this.response)
+
+        if (request.status >= 200 && request.status < 400) {
+          data.forEach(movie => {
+            //Same here (idem commentaire ligne 134)
+            console.log(movie.title)
+          })
+        } else {
+          console.log('error')
+        }
+      }
+
+      request.send()
+
+    }
 
   }
 };

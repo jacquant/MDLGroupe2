@@ -119,7 +119,7 @@
                       v-model="multi2"
                       tags
                       chips
-                      multiple=""
+                      multiple
                       label="Select"
                       class="input-group--focused"
                       item-text="country"
@@ -171,9 +171,11 @@
                           :selected="data.selected"
                           :key="JSON.stringify(data.item.abbr)"
                         >
-                          <v-avatar class="accent">{{
+                          <v-avatar class="accent">
+                            {{
                             data.item.abbr.slice(0, 1).toUpperCase()
-                          }}</v-avatar>
+                            }}
+                          </v-avatar>
                           {{ data.item.country }}
                         </v-chip>
                       </template>
@@ -201,9 +203,11 @@
                           :selected="data.selected"
                           :key="JSON.stringify(data.item.abbr)"
                         >
-                          <v-avatar class="accent">{{
+                          <v-avatar class="accent">
+                            {{
                             data.item.abbr.slice(0, 1).toUpperCase()
-                          }}</v-avatar>
+                            }}
+                          </v-avatar>
                           {{ data.item.country }}
                         </v-chip>
                       </template>

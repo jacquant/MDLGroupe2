@@ -23,12 +23,7 @@
                     <v-subheader>Normal with hint text/label</v-subheader>
                   </v-flex>
                   <v-flex xs8>
-                    <v-text-field
-                      name="input-1"
-                      label="Label Text"
-                      color="primary"
-                      id="testing"
-                    ></v-text-field>
+                    <v-text-field name="input-1" label="Label Text" color="primary" id="testing"></v-text-field>
                   </v-flex>
                 </v-layout>
                 <v-layout row>
@@ -50,12 +45,7 @@
                     <v-subheader>Normal with input text + label</v-subheader>
                   </v-flex>
                   <v-flex xs8>
-                    <v-text-field
-                      name="input-3"
-                      label="Label Text"
-                      color="pink"
-                      value="Input text"
-                    ></v-text-field>
+                    <v-text-field name="input-3" label="Label Text" color="pink" value="Input text"></v-text-field>
                   </v-flex>
                 </v-layout>
                 <v-layout row>
@@ -63,17 +53,12 @@
                     <v-subheader>Single</v-subheader>
                   </v-flex>
                   <v-flex xs8>
-                    <v-text-field
-                      name="input-3"
-                      label="Label Text"
-                      value="Input text"
-                      disabled
-                    ></v-text-field>
+                    <v-text-field name="input-3" label="Label Text" value="Input text" disabled></v-text-field>
                   </v-flex>
                 </v-layout>
                 <v-layout row>
                   <v-flex xs4>
-                    <v-subheader>Single line (no hint) </v-subheader>
+                    <v-subheader>Single line (no hint)</v-subheader>
                   </v-flex>
                   <v-flex xs8>
                     <v-text-field
@@ -87,7 +72,7 @@
                 </v-layout>
                 <v-layout row>
                   <v-flex xs4>
-                    <v-subheader>Multiline </v-subheader>
+                    <v-subheader>Multiline</v-subheader>
                   </v-flex>
                   <v-flex xs8>
                     <v-text-field
@@ -101,7 +86,7 @@
                 </v-layout>
                 <v-layout row>
                   <v-flex xs4>
-                    <v-subheader>Character counter </v-subheader>
+                    <v-subheader>Character counter</v-subheader>
                   </v-flex>
                   <v-flex xs8>
                     <v-text-field
@@ -116,7 +101,7 @@
                 </v-layout>
                 <v-layout row>
                   <v-flex xs4>
-                    <v-subheader>Append icon </v-subheader>
+                    <v-subheader>Append icon</v-subheader>
                   </v-flex>
                   <v-flex xs8>
                     <v-text-field
@@ -129,7 +114,7 @@
                 </v-layout>
                 <v-layout row>
                   <v-flex xs4>
-                    <v-subheader>Prepend icon </v-subheader>
+                    <v-subheader>Prepend icon</v-subheader>
                   </v-flex>
                   <v-flex xs8>
                     <v-text-field
@@ -145,11 +130,7 @@
                     <v-subheader>Prefix for dollar currency</v-subheader>
                   </v-flex>
                   <v-flex xs8>
-                    <v-text-field
-                      label="Amount"
-                      value="10.00"
-                      prefix="$"
-                    ></v-text-field>
+                    <v-text-field label="Amount" value="10.00" prefix="$"></v-text-field>
                   </v-flex>
                 </v-layout>
                 <v-layout row>
@@ -157,11 +138,7 @@
                     <v-subheader>Suffix for weight</v-subheader>
                   </v-flex>
                   <v-flex xs8>
-                    <v-text-field
-                      label="Weight"
-                      value="28.00"
-                      suffix="lbs"
-                    ></v-text-field>
+                    <v-text-field label="Weight" value="28.00" suffix="lbs"></v-text-field>
                   </v-flex>
                 </v-layout>
                 <v-layout row>
@@ -169,11 +146,7 @@
                     <v-subheader>Suffix for email domain</v-subheader>
                   </v-flex>
                   <v-flex xs8>
-                    <v-text-field
-                      label="Email address"
-                      value="example"
-                      suffix="@gmail.com"
-                    ></v-text-field>
+                    <v-text-field label="Email address" value="example" suffix="@gmail.com"></v-text-field>
                   </v-flex>
                 </v-layout>
                 <v-layout row>
@@ -181,12 +154,7 @@
                     <v-subheader>Suffix for time zone</v-subheader>
                   </v-flex>
                   <v-flex xs8>
-                    <v-text-field
-                      label="Label Text"
-                      value="12:30:00"
-                      type="time"
-                      suffix="PST"
-                    ></v-text-field>
+                    <v-text-field label="Label Text" value="12:30:00" type="time" suffix="PST"></v-text-field>
                   </v-flex>
                 </v-layout>
                 <v-layout row>
@@ -194,11 +162,7 @@
                     <v-subheader>Input with mask</v-subheader>
                   </v-flex>
                   <v-flex xs8>
-                    <v-text-field
-                      label="Credit Card"
-                      mask="credit-card"
-                      value="4444444444444444"
-                    ></v-text-field>
+                    <v-text-field label="Credit Card" mask="credit-card" value="4444444444444444"></v-text-field>
                   </v-flex>
                 </v-layout>
               </v-container>

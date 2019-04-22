@@ -5,13 +5,11 @@
         <v-flex lg6>
           <v-card class="mb-4">
             <v-toolbar color="teal" dark flat dense cad>
-              <v-toolbar-title class="subheading"
-                >Payment Form with validation</v-toolbar-title
-              >
+              <v-toolbar-title class="subheading">Payment Form with validation</v-toolbar-title>
               <v-spacer></v-spacer>
             </v-toolbar>
             <v-divider></v-divider>
-            <v-card-text class="">
+            <v-card-text class>
               <payment-form></payment-form>
             </v-card-text>
           </v-card>
@@ -21,7 +19,7 @@
               <v-spacer></v-spacer>
             </v-toolbar>
             <v-divider></v-divider>
-            <v-card-text class="">
+            <v-card-text class>
               <shipment-form></shipment-form>
             </v-card-text>
           </v-card>

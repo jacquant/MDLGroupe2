@@ -6,20 +6,16 @@
           <v-widget title="Expand">
             <div slot="widget-content">
               <v-expansion-panel expand>
-                <v-expansion-panel-content
-                  v-for="(item, i) in 5"
-                  :key="i"
-                  :value="item === 2"
-                >
+                <v-expansion-panel-content v-for="(item, i) in 5" :key="i" :value="item === 2">
                   <div slot="header">Item</div>
                   <v-card>
-                    <v-card-text class="grey lighten-3"
-                      >Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                    <v-card-text class="grey lighten-3">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                       sed do eiusmod tempor incididunt ut labore et dolore magna
                       aliqua. Ut enim ad minim veniam, quis nostrud exercitation
                       ullamco laboris nisi ut aliquip ex ea commodo
-                      consequat.</v-card-text
-                    >
+                      consequat.
+                    </v-card-text>
                   </v-card>
                 </v-expansion-panel-content>
               </v-expansion-panel>
@@ -33,13 +29,13 @@
                 <v-expansion-panel-content v-for="(item, i) in 5" :key="i">
                   <div slot="header">Item</div>
                   <v-card>
-                    <v-card-text
-                      >Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                    <v-card-text>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                       sed do eiusmod tempor incididunt ut labore et dolore magna
                       aliqua. Ut enim ad minim veniam, quis nostrud exercitation
                       ullamco laboris nisi ut aliquip ex ea commodo
-                      consequat.</v-card-text
-                    >
+                      consequat.
+                    </v-card-text>
                   </v-card>
                 </v-expansion-panel-content>
               </v-expansion-panel>
@@ -53,38 +49,32 @@
                 <v-layout row wrap>
                   <v-flex xs12 lg5 mb-3>
                     <v-expansion-panel popout>
-                      <v-expansion-panel-content
-                        v-for="(item, i) in 5"
-                        :key="i"
-                      >
+                      <v-expansion-panel-content v-for="(item, i) in 5" :key="i">
                         <div slot="header">Item</div>
                         <v-card>
-                          <v-card-text
-                            >Lorem ipsum dolor sit amet, consectetur adipiscing
+                          <v-card-text>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
                             elit, sed do eiusmod tempor incididunt ut labore et
                             dolore magna aliqua. Ut enim ad minim veniam, quis
                             nostrud exercitation ullamco laboris nisi ut aliquip
-                            ex ea commodo consequat.</v-card-text
-                          >
+                            ex ea commodo consequat.
+                          </v-card-text>
                         </v-card>
                       </v-expansion-panel-content>
                     </v-expansion-panel>
                   </v-flex>
                   <v-flex xs12 lg5 offset-lg2>
                     <v-expansion-panel inset>
-                      <v-expansion-panel-content
-                        v-for="(item, i) in 5"
-                        :key="i"
-                      >
+                      <v-expansion-panel-content v-for="(item, i) in 5" :key="i">
                         <div slot="header">Item</div>
                         <v-card>
-                          <v-card-text
-                            >Lorem ipsum dolor sit amet, consectetur adipiscing
+                          <v-card-text>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
                             elit, sed do eiusmod tempor incididunt ut labore et
                             dolore magna aliqua. Ut enim ad minim veniam, quis
                             nostrud exercitation ullamco laboris nisi ut aliquip
-                            ex ea commodo consequat.</v-card-text
-                          >
+                            ex ea commodo consequat.
+                          </v-card-text>
                         </v-card>
                       </v-expansion-panel-content>
                     </v-expansion-panel>

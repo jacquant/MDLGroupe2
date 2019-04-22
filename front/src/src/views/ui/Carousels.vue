@@ -6,11 +6,7 @@
           <v-widget title="Basic Usage">
             <div slot="widget-content">
               <v-carousel>
-                <v-carousel-item
-                  v-for="(item, i) in items"
-                  :src="item.src"
-                  :key="i"
-                ></v-carousel-item>
+                <v-carousel-item v-for="(item, i) in items" :src="item.src" :key="i"></v-carousel-item>
               </v-carousel>
             </div>
           </v-widget>
@@ -19,12 +15,7 @@
           <v-widget title="Hide Controls">
             <div slot="widget-content">
               <v-carousel hide-controls hide-delimiters>
-                <v-carousel-item
-                  v-for="(item, i) in items"
-                  :src="item.src"
-                  :key="i"
-                >
-                </v-carousel-item>
+                <v-carousel-item v-for="(item, i) in items" :src="item.src" :key="i"></v-carousel-item>
               </v-carousel>
             </div>
           </v-widget>

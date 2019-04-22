@@ -13,24 +13,21 @@
             </v-toolbar>
             <v-divider></v-divider>
             <v-card-text>
-              <v-alert type="success" dismissible v-model="alert">
-                This is a success alert.
-              </v-alert>
-              <v-alert type="info" :value="true">
-                This is a info alert.
-              </v-alert>
-              <v-alert type="warning" :value="true">
-                This is a warning alert.
-              </v-alert>
-              <v-alert type="error" :value="true">
-                This is a error alert.
-              </v-alert>
-              <v-alert color="success" icon="new_releases" :value="true">
-                This is a success alert with a custom icon.
-              </v-alert>
-              <v-alert outline color="info" icon="info" :value="true">
-                This is an info alert with outline
-              </v-alert>
+              <v-alert type="success" dismissible v-model="alert">This is a success alert.</v-alert>
+              <v-alert type="info" :value="true">This is a info alert.</v-alert>
+              <v-alert type="warning" :value="true">This is a warning alert.</v-alert>
+              <v-alert type="error" :value="true">This is a error alert.</v-alert>
+              <v-alert
+                color="success"
+                icon="new_releases"
+                :value="true"
+              >This is a success alert with a custom icon.</v-alert>
+              <v-alert
+                outline
+                color="info"
+                icon="info"
+                :value="true"
+              >This is an info alert with outline</v-alert>
             </v-card-text>
           </v-card>
         </v-flex>

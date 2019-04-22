@@ -25,17 +25,21 @@
         >
           <v-card-text>
             <v-layout>
-              <v-flex class="caption" xs8="xs8"
-                ><span v-if="key !== 'shades'">{{ key }}&nbsp;</span
-                ><span v-if="key2 !== 'base'">{{
+              <v-flex class="caption" xs8="xs8">
+                <span v-if="key !== 'shades'">{{ key }}&nbsp;</span>
+                <span v-if="key2 !== 'base'">
+                  {{
                   key2.replace(/(.*)(\d)/, "$1-$2")
-                }}</span></v-flex
-              >
-              <v-flex class="text-xs-right" xs4="xs4"
-                ><span v-if="subColor !== 'transparent'">{{
+                  }}
+                </span>
+              </v-flex>
+              <v-flex class="text-xs-right" xs4="xs4">
+                <span v-if="subColor !== 'transparent'">
+                  {{
                   subColor.toUpperCase()
-                }}</span></v-flex
-              >
+                  }}
+                </span>
+              </v-flex>
             </v-layout>
           </v-card-text>
         </v-card>
@@ -98,24 +102,30 @@ export default {
 </script>
 
 <style lang="stylus">
-#colors-page
-  .flex
-    margin: 1rem 0
+#colors-page {
+  .flex {
+    margin: 1rem 0;
+  }
 
-  .card
-    color: #fff
-    font-weight: 500
-    letter-spacing: .5px
-    padding: 1rem
-    border-radius: 0
+  .card {
+    color: #fff;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    padding: 1rem;
+    border-radius: 0;
 
-    .card__text
-      h3
-        color: #fff
-        align-self: flex-start
-        font-size: 1.5rem
-        margin: 0
+    .card__text {
+      h3 {
+        color: #fff;
+        align-self: flex-start;
+        font-size: 1.5rem;
+        margin: 0;
+      }
+    }
+  }
 
-  .card__text
-    padding: 0
+  .card__text {
+    padding: 0;
+  }
+}
 </style>

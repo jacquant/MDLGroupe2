@@ -127,7 +127,7 @@ export default {
   },
   data: () => ({
     mini: false,
-    drawer: true,
+    drawer: false,
     menus: menu,
     scrollSettings: {
       maxScrollbarLength: 160
@@ -138,7 +138,7 @@ export default {
       return true;
     },
     computeLogo() {
-      return "/static/m.png";
+      return "static/logo.jpg";
     },
 
     sideToolbarColor() {
