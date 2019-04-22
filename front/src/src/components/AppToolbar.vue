@@ -122,8 +122,8 @@ export default {
   methods: {
     validateResearch: function(e) {
       if (e.keyCode === 13) {
-        var inputedText=this.searchedInput; // la variable inputedText contient la phrase entrée dans la barre de recherche
-        //alert(inputedText);
+        var inputedText = this.searchedInput; // la variable inputedText contient la phrase entrée dans la barre de recherche
+        alert(inputedText);
 
       }
       this.log += e.key;
@@ -146,25 +146,25 @@ export default {
 
     getQuickSearch() {
 
-      var request = new XMLHttpRequest()
+      var request = new XMLHttpRequest();
 
       // Modifier le deuxième argument en fct de ce qu'on veut récup
-      request.open('GET', '', true)
+      request.open('GET', '/api/synonym', true);
       request.onload = function() {
         // Begin accessing JSON data here
-        var data = JSON.parse(this.response)
+        var data = JSON.parse(this.response);
 
         if (request.status >= 200 && request.status < 400) {
-          data.forEach(movie => {
-            //Same here (idem commentaire ligne 134)
-            console.log(movie.title)
-          })
+          data.forEach(word => {
+            //Same here (idem commentaire ligne 152)
+            console.log(word);
+          });
         } else {
           console.log('error')
         }
-      }
+      };
 
-      request.send()
+      request.send();
 
     }
 
