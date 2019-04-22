@@ -71,7 +71,7 @@
                                         <td valign="top">
 
                                             <div class="scrollable">
-                                                <table id="myTable"  border="1" name="reference" v-model="model.reference">
+                                                <table id="myTable"  border="1" name="reference">
                                                 </table>
                                             </div>
                                         </td>
@@ -105,7 +105,6 @@
                                                 </div>
                                             </div>
                                         </template>
-                                    </v-card-actions>
 
                                     <v-text-field  name="videourl" label="Youtube Video Url" type="text" v-model="model.videourl"></v-text-field>
 
@@ -197,9 +196,6 @@
 </script>
 
 <style scoped lang="css">
-    .radiobtn {
-
-    }
     .btn {
         width:45px;
     }

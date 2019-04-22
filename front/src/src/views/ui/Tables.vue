@@ -35,30 +35,18 @@
               >
                 <template slot="items" slot-scope="props">
                   <td>
-                    <v-checkbox
-                      primary
-                      hide-details
-                      v-model="props.selected"
-                    ></v-checkbox>
+                    <v-checkbox primary hide-details v-model="props.selected"></v-checkbox>
                   </td>
                   <td>
                     <v-avatar size="32">
-                      <img :src="props.item.avatar" alt="" />
+                      <img :src="props.item.avatar" alt>
                     </v-avatar>
                   </td>
                   <td>{{ props.item.name }}</td>
                   <td>{{ props.item.email }}</td>
                   <td>{{ props.item.phone }}</td>
                   <td>
-                    <v-btn
-                      depressed
-                      outline
-                      icon
-                      fab
-                      dark
-                      color="primary"
-                      small
-                    >
+                    <v-btn depressed outline icon fab dark color="primary" small>
                       <v-icon>edit</v-icon>
                     </v-btn>
                     <v-btn depressed outline icon fab dark color="pink" small>

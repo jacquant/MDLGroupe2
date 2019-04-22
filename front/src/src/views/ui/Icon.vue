@@ -4,29 +4,19 @@
       <v-layout row wrap>
         <v-flex 12>
           <v-tabs v-model="selectedTab" color="grey lighten-3">
-            <v-tab ripple href="#tab-1">
-              Matrial Icons
-            </v-tab>
-            <v-tab ripple href="#tab-2">
-              Font Awesome
-            </v-tab>
+            <v-tab ripple href="#tab-1">Matrial Icons</v-tab>
+            <v-tab ripple href="#tab-2">Font Awesome</v-tab>
             <v-tabs-items v-model="selectedTab">
               <v-tab-item id="tab-1">
                 <v-card flat>
                   <v-card-text>
                     <ul class="demo-icons-list">
                       <li v-for="(item, index) in material" :key="index">
-                        <i class="icon material-icons"> {{ item.ligature }}</i>
+                        <i class="icon material-icons">{{ item.ligature }}</i>
                       </li>
                     </ul>
                     <div class="text-sm-center">
-                      <v-btn
-                        href="https://material.io/icons/"
-                        color="primary"
-                        large
-                        depressed
-                        >More</v-btn
-                      >
+                      <v-btn href="https://material.io/icons/" color="primary" large depressed>More</v-btn>
                     </div>
                   </v-card-text>
                 </v-card>
@@ -45,8 +35,7 @@
                         color="primary"
                         large
                         depressed
-                        >More</v-btn
-                      >
+                      >More</v-btn>
                     </div>
                   </v-card-text>
                 </v-card>

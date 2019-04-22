@@ -1,6 +1,6 @@
 <template>
   <div id="pageDashboard">
-    <v-img v-bind:position="centerX" src=static/logo.jpg height="400" contain="true" alt="Logo ReSearch"  />
+    <v-img v-bind:position="centerX" src=static/logo.jpg height="400" contain="true" alt="Logo ReSearch" />
     <v-container grid-list-xl fluid>
       <v-layout row wrap>
         <v-flex lg8 sm12 xs12>
@@ -28,8 +28,7 @@
                 ]"
                 height="400px"
                 width="100%"
-              >
-              </e-chart>
+              ></e-chart>
             </div>
           </v-widget>
         </v-flex>
@@ -59,8 +58,7 @@
                 ]"
                 height="400px"
                 width="100%"
-              >
-              </e-chart>
+              ></e-chart>
             </div>
           </v-widget>
         </v-flex>
@@ -87,7 +85,6 @@ import ChatWindow from "@/components/chat/ChatWindow";
 import CircleStatistic from "@/components/widgets/statistic/CircleStatistic";
 import LinearStatistic from "@/components/widgets/statistic/LinearStatistic";
 export default {
-
   components: {
     VWidget,
     MiniStatistic,

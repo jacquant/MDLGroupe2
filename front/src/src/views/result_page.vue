@@ -5,7 +5,7 @@
                 <div style="float:left; vertical-align: top;">
                     <img src="/static/logo.jpg" alt="Reseach" width="120" height="120">
                 </div>
-            </v-layout-->
+      </v-layout-->
 
       <!--v-card-actions>
 
@@ -13,13 +13,13 @@
                 <v-btn  color="" @click="classic"  class="btn">Classic</v-btn>
                 <v-btn  color="" @click="visual"  class="btn">Visual</v-btn>
                 <v-btn  color="" @click="matrice"  class="btn">Matrice</v-btn>
-            </v-card-actions-->
+      </v-card-actions-->
 
       <table style=" position: absolute; width:100%; " cellspacing="10">
         <tr>
           <td width="15%" valign="top">
             <div class="menu" valign="top">
-              <button class="accordion">Filters Menu <---</button>
+              <button class="accordion">Filters Menu</button>
               <div class="panel">
                 <v-card-actions style="vertical-align: top;">
                   Author(s):
@@ -43,37 +43,26 @@
                   Title:
                   <v-text-field label="Title here" name="title"   v-model="title" ></v-text-field>
                 </v-card-actions>
-                <v-card-actions >
+                <v-card-actions>
                   Others details:
-                  <v-text-field
-                    label="details here"
-                    name="detail"
-                    v-model="detail"
-                  ></v-text-field>
+                  <v-text-field label="details here" name="detail" v-model="model.detail"></v-text-field>
                 </v-card-actions>
 
                 <v-card-actions>
-                Pubished Year:
-                   <v-text-field
-                        label=""
-                        name="year1"
-                        v-model="year1"
-                ></v-text-field>
+                  Pubished Year:
+                  <v-text-field label name="year1" v-model="model.year1"></v-text-field>
 
-                <v-text-field
-                        label=""
-                        name="year2"
-                        v-model="year2"
-                ></v-text-field>
+                  <v-text-field label name="year2" v-model="model.year2"></v-text-field>
+                </v-card-actions>
 
-                  </v-card-actions>
-
-                <div class="">
-                  <b>Criteria on State of art</b> <br />
-                  <input type="checkbox" class="" name="critere" />critere1
-                  <input type="checkbox" class=""  name="critere" />critere2 <br />
-                  <input type="checkbox"  class=""  name="critere"  />critere3
-                  <input type="checkbox" class=""  name="critere"/>critere4
+                <div class>
+                  <b>Criteria on State of art</b>
+                  <br>
+                  <input type="checkbox" class>critere1
+                  <input type="checkbox" class>critere2
+                  <br>
+                  <input type="checkbox" class>critere3
+                  <input type="checkbox" class>critere4
                 </div>
               </div>
             </div>
@@ -126,24 +115,37 @@
               </template>
                    <!--a href="#/etatdelart">
                 <img align="center" src="../assets/iconA.png" width="20px" />
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                do</a
-              ><br /><br />
+              <h2 class="flex my-4 primary--text">Research Result (88888)</h2>
+              <br>
+
               <a href="#/etatdelart">
-                <img align="center" src="../assets/iconA.png" width="20px" />
+                <img align="center" src="../assets/iconA.png" width="20px">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                do</a
-              ><br /><br />
+                do
+              </a>
+              <br>
+              <br>
               <a href="#/etatdelart">
-                <img align="center" src="../assets/iconA.png" width="20px" />
+                <img align="center" src="../assets/iconA.png" width="20px">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                do</a
-              ><br /><br />
+                do
+              </a>
+              <br>
+              <br>
               <a href="#/etatdelart">
-                <img align="center" src="../assets/iconA.png" width="20px" />
+                <img align="center" src="../assets/iconA.png" width="20px">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                do</a
-              ><br /><br />
+                do
+              </a>
+              <br>
+              <br>
+              <a href="#/etatdelart">
+                <img align="center" src="../assets/iconA.png" width="20px">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                do
+              </a>
+              <br>
+              <br>
               <a href="#/etatdelart">
                 <img align="center" src="../assets/iconA.png" width="20px" />
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo</a><br /><br /-->
@@ -257,52 +259,51 @@ for (i = 0; i < acc.length; i++) {
 
 </script>
 <style scoped lang="css">
-.active_btn{
-    width:40px;
-    background-color: deepskyblue;
-    color: red;
+.active_btn {
+  width: 40px;
+  background-color: deepskyblue;
+  color: red;
 }
-.btn{
-    width:40px;
+.btn {
+  width: 40px;
 }
 
 .accordion {
-    background-color: #eee;
-    color: #444;
-    cursor: pointer;
-    padding: 5px;
-    width: 100%;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 17px;
-    transition: 0.4s;
-    font-weight:bold;
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 5px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 17px;
+  transition: 0.4s;
+  font-weight: bold;
 }
 
-.active, .accordion:hover {
-    background-color: #ccc;
+.active,
+.accordion:hover {
+  background-color: #ccc;
 }
 
 .panel {
-    padding: 0 2px;
-    background-color: white;
-    max-height: 0;
-    overflow: visible;
-    transition: max-height 0.2s ease-out;
-
+  padding: 0 2px;
+  background-color: white;
+  max-height: 0;
+  overflow: visible;
+  transition: max-height 0.2s ease-out;
 }
 
-
 .previous {
-    float: left;
-    margin-left: 5%;
-    margin-top: 0.6%;
-    background-color: #f1f1f1;
-    color: black;
+  float: left;
+  margin-left: 5%;
+  margin-top: 0.6%;
+  background-color: #f1f1f1;
+  color: black;
 }
 
 .round {
-    border-radius: 100%
+  border-radius: 100%;
 }
 </style>

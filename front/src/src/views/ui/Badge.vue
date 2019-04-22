@@ -26,8 +26,7 @@
                 <v-badge left>
                   <span slot="badge">2</span>
                   <span>Examples</span>
-                </v-badge>
-                &nbsp;&nbsp;
+                </v-badge>&nbsp;&nbsp;
                 <v-badge color="green">
                   <v-icon slot="badge" dark small>list</v-icon>
                   <span>Lists</span>
@@ -42,16 +41,11 @@
               <div class="text-xs-center">
                 <v-badge left color="purple">
                   <v-icon slot="badge" dark small>layers</v-icon>
-                  <span>
-                    MDI icon
-                  </span>
-                </v-badge>
-                &nbsp;&nbsp;
+                  <span>MDI icon</span>
+                </v-badge>&nbsp;&nbsp;
                 <v-badge color="orange">
                   <v-icon slot="badge" dark small>fa fa-apple</v-icon>
-                  <span>
-                    Font Awesome icon
-                  </span>
+                  <span>Font Awesome icon</span>
                 </v-badge>
               </div>
             </div>

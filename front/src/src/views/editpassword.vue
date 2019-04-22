@@ -7,24 +7,13 @@
             <v-card class="elevation-1 pa-3">
               <v-card-text>
                 <div class="layout column align-center">
-                  <img
-                    src="/static/logo.jpg"
-                    alt="Research"
-                    width="120"
-                    height="120"
-                  />
+                  <img src="/static/logo.jpg" alt="Research" width="120" height="120">
                 </div>
                 <div style="margin-top: 10px;">
                   <v-card-actions>
-                    <v-btn block color="" @click="editpwd" class="active_btn"
-                      >Edit password</v-btn
-                    >
-                    <v-btn block color="" @click="editmail" class="btn"
-                      >Add email</v-btn
-                    >
-                    <v-btn block color="" @click="editprofile" class="btn"
-                      >Edit profile</v-btn
-                    >
+                    <v-btn block color @click="editpwd" class="active_btn">Edit password</v-btn>
+                    <v-btn block color @click="editmail" class="btn">Add email</v-btn>
+                    <v-btn block color @click="editprofile" class="btn">Edit profile</v-btn>
                   </v-card-actions>
                 </div>
                 <div class="layout column align-center">
@@ -59,9 +48,7 @@
               </v-card-text>
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn block color="primary" @click="editpasswordValidate"
-                  >Validate</v-btn
-                >
+                <v-btn block color="primary" @click="editpasswordValidate">Validate</v-btn>
               </v-card-actions>
             </v-card>
           </v-flex>
@@ -75,16 +62,11 @@
 export default {
   data: () => ({
     loading: false,
-    model: {
-
-    }
+    model: {}
   }),
 
   methods: {
-
-    editpasswordValidate(){
-
-    },
+    editpasswordValidate() {},
 
     editpwd() {
       this.loading = true;
@@ -110,20 +92,20 @@ export default {
 </script>
 <style scoped lang="css">
 #editpassword {
-    height: 50%;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    content: "";
-    z-index: 0;
+  height: 50%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  z-index: 0;
 }
-.active_btn{
-    width:145px;
-    background-color: deepskyblue;
-    color: red;
+.active_btn {
+  width: 145px;
+  background-color: deepskyblue;
+  color: red;
 }
-.btn{
-    width:145px;
+.btn {
+  width: 145px;
 }
 </style>

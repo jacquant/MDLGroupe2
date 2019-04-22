@@ -5,21 +5,21 @@
                 <div style="float:left;">
                     <img src="/static/logo.jpg" alt="Research" width="120" height="120">
                 </div>
-            </v-layout-->
+      </v-layout-->
 
       <v-card-actions>
         <v-spacer></v-spacer>
-        <v-btn color="" @click="classic" class="btn">Classic</v-btn>
-        <v-btn color="" @click="visual" class="btn">Visual</v-btn>
-        <v-btn color="" @click="matrice" class="active_btn">Matrice</v-btn>
+        <v-btn color @click="classic" class="btn">Classic</v-btn>
+        <v-btn color @click="visual" class="btn">Visual</v-btn>
+        <v-btn color @click="matrice" class="active_btn">Matrice</v-btn>
       </v-card-actions>
       <h2 class="flex my-4 primary--text">Result page - Matrice</h2>
-      <h3 class="">
+      <h3 class>
         <u>Title:</u> Lorem ipsum dolor sit amet, consectetur adipiscing elit
       </h3>
 
       <div id="table_matrice">
-        <br />
+        <br>
         <table cellpadding="5px" border="1" style="font-size:24px;">
           <tr style="background-color:lightgrey;">
             <th>References</th>
@@ -54,7 +54,7 @@
                             :items-per-page="5"
                             class="elevation-1"
                     ></v-data-table>
-                </template-->
+        </template-->
       </div>
     </v-container>
   </div>
@@ -136,13 +136,12 @@ export default {
 };
 </script>
 <style scoped lang="css">
-
-.active_btn{
-    width:40px;
-    background-color: deepskyblue;
-    color: red;
+.active_btn {
+  width: 40px;
+  background-color: deepskyblue;
+  color: red;
 }
-.btn{
-    width:40px;
+.btn {
+  width: 40px;
 }
 </style>

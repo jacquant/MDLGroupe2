@@ -1,15 +1,15 @@
 <template>
   <div id="visual">
-      <v-card-actions>
-        <v-spacer></v-spacer>
-        <v-btn color="" @click="classic" class="btn">Classic</v-btn>
-        <v-btn color="" @click="visual" class="active_btn">Visual</v-btn>
-        <v-btn color="" @click="matrice" class="btn">Matrice</v-btn>
-      </v-card-actions>
-      <v-card-actions>
-          <v-btn type="button" class="btn">Author</v-btn>
-          <v-btn type="button" class="btn">Title</v-btn> 
-      </v-card-actions>
+    <v-card-actions>
+      <v-spacer></v-spacer>
+      <v-btn color @click="classic" class="btn">Classic</v-btn>
+      <v-btn color @click="visual" class="active_btn">Visual</v-btn>
+      <v-btn color @click="matrice" class="btn">Matrice</v-btn>
+    </v-card-actions>
+    <v-card-actions>
+      <v-btn type="button" class="btn">Author</v-btn>
+      <v-btn type="button" class="btn">Title</v-btn>
+    </v-card-actions>
     <v-container grid-list-xl fluid>
       <v-layout row wrap>
         <v-flex lg8 sm12 xs12>
@@ -37,8 +37,7 @@
                 ]"
                 height="400px"
                 width="100%"
-              >
-              </e-chart>
+              ></e-chart>
             </div>
           </v-widget>
         </v-flex>
@@ -68,8 +67,7 @@
                 ]"
                 height="400px"
                 width="100%"
-              >
-              </e-chart>
+              ></e-chart>
             </div>
           </v-widget>
         </v-flex>
@@ -99,10 +97,8 @@ import ChatWindow from "@/components/chat/ChatWindow";
 import CircleStatistic from "@/components/widgets/statistic/CircleStatistic";
 import LinearStatistic from "@/components/widgets/statistic/LinearStatistic";
 
-
-
 export default {
-    data() {
+  data() {
     return {
       active: null,
       relatedArticle: " Related articles here",
@@ -131,10 +127,10 @@ export default {
       setTimeout(() => {
         this.$router.push("/result_page_matrice");
       }, 1000);
-    },
+    }
   },
-  
-components: {
+
+  components: {
     VWidget,
     MiniStatistic,
     ChatWindow,
@@ -256,22 +252,18 @@ components: {
       return API.getLocation;
     }
   }
-  
 };
-
-
-
 </script>
 <style scoped lang="css">
 #textarea {
-    margin-top: 20px;
+  margin-top: 20px;
 }
-.active_btn{
-    width:40px;
-    background-color: deepskyblue;
-    color: red;
+.active_btn {
+  width: 40px;
+  background-color: deepskyblue;
+  color: red;
 }
-.btn{
-    width:40px;
+.btn {
+  width: 40px;
 }
 </style>
