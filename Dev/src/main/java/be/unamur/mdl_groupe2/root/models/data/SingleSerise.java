@@ -2,11 +2,7 @@ package be.unamur.mdl_groupe2.root.models.data;
 
 import lombok.*;
 
-import java.util.*;
 import java.math.BigDecimal;
-import javax.persistence.*;
-
-import io.swagger.annotations.ApiModelProperty;
 
 @Data
 public class SingleSerise {
