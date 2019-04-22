@@ -31,13 +31,22 @@ public class AuthorController {
     }
 
     @GetMapping("/authors/{surname}")
-    public List<Author> getAuthorBySurname(@PathVariable("surname") String surname) {return authorRepository.findAuthorIdWithSurname(surname);}
+    public List<Author> getAuthorBySurname(@PathVariable("surname") String surname) {
+        List<Long> list_id = authorRepository.findAuthorIdWithSurname(surname);
+        return authorRepository.findAllById(list_id);
+    }
 
     @GetMapping("/authors/{firstName}")
-    public List<Author> getAuthorByFirstname(@PathVariable("surname") String firstName) {return authorRepository.findAuthorIdWithFirstName(firstName);}
+    public List<Author> getAuthorByFirstname(@PathVariable("surname") String firstName) {
+        List<Long> list_id = authorRepository.findAuthorIdWithFirstName(firstName);
+        return authorRepository.findAllById(list_id);
+    }
 
     @GetMapping("/authors/{name}")
-    public List<Author> getAuthorByName(@PathVariable("name") String name) {return authorRepository.findAuthorIdWithFirstNameorSurname(name);}
+    public List<Author> getAuthorByName(@PathVariable("name") String name) {
+        List<Long> list_id = authorRepository.findAuthorIdWithFirstNameorSurname(name);
+        return authorRepository.findAllById(list_id);
+    }
 
     @PutMapping("/authors/{author_id}")
     public Author update(@PathVariable("author_id") Long authorId, @RequestBody Author authorObject) {
@@ -51,13 +60,11 @@ public class AuthorController {
         return authorRepository.save(author);
     }
 
-
     @DeleteMapping("/authors/{author_id}")
     public List<Author> delete(@PathVariable("author_id") Long authorId) {
         authorRepository.deleteById(authorId);
         return authorRepository.findAll();
     }
-
 
     @GetMapping("/authors/{author_id}")
     public Author findByAuthorId(@PathVariable("author_id") Long authorId) {
