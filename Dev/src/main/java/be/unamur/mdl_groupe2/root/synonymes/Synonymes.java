@@ -5,30 +5,29 @@ import rita.RiWordNet;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 
 
 public class Synonymes {
 
-    public static HashMap<String, String[]> getSyno(String texte) throws FileNotFoundException {
+    public static List<String> getSyno(String texte) throws FileNotFoundException {
 
         texte = Synonymes.removeStopWords(texte);
-
-        HashMap<String, String[]> synonymes = new HashMap<String, String[]>();
-
+        List<String> synonymes = new ArrayList<String>();
         List<String> texteArray = Synonymes.StringToStringArray(texte);
+        String[] synonymesTab;
 
         RiWordNet rw = new RiWordNet("/Users/maximevanspeybroeck/Documents/MDLGroupe2/Dev/src/main/java/be/unamur/mdl_groupe2/root/synonymes/WordNet-3.0");
         rw.randomizeResults(false);
 
         for(int i=0;i<texteArray.size();i++) {
-            synonymes.put(texteArray.get(i), rw.getSynset(texteArray.get(i), "n"));
+            synonymesTab = rw.getSynset(texteArray.get(i), "n");
+            for(int j=0;j<synonymesTab.length;j++) {
+                synonymes.add(synonymesTab[j]);
+            }
         }
-
         return synonymes;
-
     }
 
     public static List<String> StringToStringArray(String texte) {
