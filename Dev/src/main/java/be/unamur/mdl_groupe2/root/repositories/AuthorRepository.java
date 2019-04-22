@@ -11,16 +11,16 @@ import java.util.List;
 public interface AuthorRepository extends JpaRepository<Author, Long> {
 
     //TODO protect against SQL injection
-    @Query(value = "SELECT u FROM Author u WHERE u.surname=?1")
-    List<Author> findAuthorIdWithSurname(String surname);
+    @Query(value = "SELECT id FROM Author u WHERE u.surname=?1")
+    List<Long> findAuthorIdWithSurname(String surname);
 
     //TODO protect against SQL injection
-    @Query(value = "SELECT u FROM Author u WHERE u.firstName=?1")
-    List<Author> findAuthorIdWithFirstName(String surname);
+    @Query(value = "SELECT id FROM Author u WHERE u.firstName=?1")
+    List<Long> findAuthorIdWithFirstName(String surname);
 
     //TODO protect against SQL injection
-    @Query(value = "SELECT u FROM Author u WHERE u.firstName=?1 OR u.surname=?1")
-    List<Author> findAuthorIdWithFirstNameorSurname(String surname);
+    @Query(value = "SELECT id FROM Author u WHERE u.firstName=?1 OR u.surname=?1")
+    List<Long> findAuthorIdWithFirstNameorSurname(String surname);
 
 }
 
