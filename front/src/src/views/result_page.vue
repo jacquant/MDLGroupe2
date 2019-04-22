@@ -23,22 +23,32 @@
               <div class="panel">
                 <v-card-actions style="vertical-align: top;">
                   Author(s):
-                  <v-text-field
+                  <!--v-text-field
                     label="Author(s) here"
                     name="author"
                     v-model="model.author"
-                  ></v-text-field>
+                  ></v-text-field-->
+                  <v-select
+                          name="author"
+                          v-model="authors"
+                          :items="itemsAuthor"
+                          attach
+                          chips
+                          label="Select Author(s)"
+                          multiple
+
+                  ></v-select>
                 </v-card-actions>
                 <v-card-actions>
                   Title:
-                  <v-text-field label="Title here" name="title"   v-model="model.title"></v-text-field>
+                  <v-text-field label="Title here" name="title"   v-model="title" ></v-text-field>
                 </v-card-actions>
                 <v-card-actions >
                   Others details:
                   <v-text-field
                     label="details here"
                     name="detail"
-                    v-model="model.detail"
+                    v-model="detail"
                   ></v-text-field>
                 </v-card-actions>
 
@@ -47,35 +57,74 @@
                    <v-text-field
                         label=""
                         name="year1"
-                        v-model="model.year1"
+                        v-model="year1"
                 ></v-text-field>
 
                 <v-text-field
                         label=""
                         name="year2"
-                        v-model="model.year2"
+                        v-model="year2"
                 ></v-text-field>
 
                   </v-card-actions>
 
                 <div class="">
                   <b>Criteria on State of art</b> <br />
-                  <input type="checkbox" class="" />critere1
-                  <input type="checkbox" class="" />critere2 <br /><input
-                    type="checkbox"
-                    class=""
-                  />critere3 <input type="checkbox" class="" />critere4
+                  <input type="checkbox" class="" name="critere" />critere1
+                  <input type="checkbox" class=""  name="critere" />critere2 <br />
+                  <input type="checkbox"  class=""  name="critere"  />critere3
+                  <input type="checkbox" class=""  name="critere"/>critere4
                 </div>
               </div>
             </div>
           </td>
 
           <td valign="top" width="80%">
+            <h2 class="flex my-4 primary--text">Research Result (88888)</h2>
+            <br />
             <div id="listResult" valign="top">
-              <h2 class="flex my-4 primary--text">Research Result (88888)</h2>
-              <br />
+              <v-list one-line>
+                <template v-for="(item, index) in items">
+                  <v-subheader
+                          v-if="item.header"
+                          :key="item.header"
+                  >
+                    {{ item.header }}
+                  </v-subheader>
 
-              <a href="#/etatdelart">
+                  <v-divider
+                          v-else-if="item.divider"
+                          :key="index"
+                          :inset="item.inset"
+                  ></v-divider>
+
+                  <v-list-tile
+                          v-else
+                          :key="item.id"
+                          avatar
+                          @click='selectTrack(item.id)'
+
+                  >
+                    <!--v-list-tile-avatar>
+                      <img :src="item.avatar">
+                    </v-list-tile-avatar-->
+
+                    <v-list-tile-content>
+                      <v-list-tile-title v-html="item.title"></v-list-tile-title>
+                    </v-list-tile-content>
+                  </v-list-tile>
+                </template>
+              </v-list>
+
+              <template>
+                <div class="text-xs-center">
+                  <v-pagination
+                          v-model="page"
+                          :length="4"
+                  ></v-pagination>
+                </div>
+              </template>
+                   <!--a href="#/etatdelart">
                 <img align="center" src="../assets/iconA.png" width="20px" />
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                 do</a
@@ -97,9 +146,7 @@
               ><br /><br />
               <a href="#/etatdelart">
                 <img align="center" src="../assets/iconA.png" width="20px" />
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                do</a
-              ><br /><br />
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo</a><br /><br /-->
             </div>
           </td>
         </tr>
@@ -112,9 +159,49 @@
 export default {
   data: () => ({
     loading: false,
+    page:1,
+    itemsAuthor: ['author1', 'author2', 'author3', 'author4','author5'],
+
+
+    items: [
+
+      {
+        //avatar: '../assets/iconA.png',
+        id:1,
+        title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo',
+        },
+      { divider: true, inset: true },
+      {
+        //avatar: '../assets/iconA.png',
+        id:2,
+        title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo',
+      },
+      { divider: true, inset: true },
+      {
+        //avatar: '../assets/iconA.png',
+        id:3,
+        title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo',
+      },
+      {
+        //avatar: '../assets/iconA.png',
+        id:4,
+        title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo',
+      },
+      {
+        //avatar: '../assets/iconA.png',
+        id:5,
+        title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo',
+      },
+      {
+        //avatar: '../assets/iconA.png',
+        id:6,
+        title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo',
+      }
+    ],
     model: {
       username: "",
-      password: ""
+      password: "",
+
     }
   }),
 
@@ -138,9 +225,16 @@ export default {
       setTimeout(() => {
         this.$router.push("/result_page_matrice");
       }, 1000);
+    },
+    selectTrack(Id){
+      setTimeout(() => {
+        this.$router.push("/etatdelart?id="+Id);
+      }, 1000);
     }
   }
 };
+
+
 
 /****** script pour la gestion du panel d'expansion*****/
 var acc = document.getElementsByClassName("accordion");
@@ -159,6 +253,8 @@ for (i = 0; i < acc.length; i++) {
     }
   });
 }
+
+
 </script>
 <style scoped lang="css">
 .active_btn{

@@ -105,6 +105,7 @@
 <script>
 export default {
   data() {
+
     return {
       active: null,
       relatedArticle: " Related articles here",
