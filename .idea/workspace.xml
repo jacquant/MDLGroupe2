@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1665df2b-97e4-4167-b215-4f27df40fb8b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/src/components/AppToolbar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/src/components/AppToolbar.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/src/views/result_page_matrice.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/src/views/result_page_matrice.vue" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -19,8 +19,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/front/src/src/router/paths.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1394">
+            <state relative-caret-position="-1478">
               <caret line="82" column="31" selection-start-line="82" selection-start-column="31" selection-end-line="82" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/front/src/src/views/result_page_matrice.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="78" column="18" selection-start-line="78" selection-start-column="18" selection-end-line="78" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -52,11 +61,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/front/src/src/components/AppToolbar.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="783">
-              <caret line="157" column="15" selection-start-line="157" selection-start-column="15" selection-end-line="157" selection-end-column="22" />
+            <state relative-caret-position="2312">
+              <caret line="136" column="6" selection-start-line="136" selection-start-column="6" selection-end-line="136" selection-end-column="6" />
+              <folding>
+                <element signature="e#2104#2178#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -73,8 +85,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/front/src/src/views/etatdelart.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2023">
-              <caret line="119" column="16" selection-start-line="119" selection-start-column="16" selection-end-line="119" selection-end-column="16" />
+            <state relative-caret-position="324">
+              <caret line="141" column="47" selection-start-line="141" selection-start-column="28" selection-end-line="141" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -112,6 +124,7 @@
         <option value="$PROJECT_DIR$/front/src/src/views/jsnetworkx.js" />
         <option value="$PROJECT_DIR$/front/src/src/views/visual.vue" />
         <option value="$PROJECT_DIR$/front/src/src/components/AppToolbar.vue" />
+        <option value="$PROJECT_DIR$/front/src/src/views/result_page_matrice.vue" />
       </list>
     </option>
   </component>
@@ -229,15 +242,18 @@
       <workItem from="1555489854764" duration="10025000" />
       <workItem from="1555575236134" duration="14263000" />
       <workItem from="1555934132237" duration="6147000" />
-      <workItem from="1555940409383" duration="2837000" />
+      <workItem from="1555940409383" duration="5030000" />
+      <workItem from="1555952868267" duration="6000" />
+      <workItem from="1555960210861" duration="4289000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50077000" />
+    <option name="totallyTimeSpent" value="56565000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="270" y="73" width="1349" height="925" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24485126" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -365,20 +381,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/front/src/src/views/jsnetworkx.js" />
     <entry file="file://$PROJECT_DIR$/JSNetworkX/jsnetworkx.js" />
-    <entry file="file://$PROJECT_DIR$/front/src/src/router/paths.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1394">
-          <caret line="82" column="31" selection-start-line="82" selection-start-column="31" selection-end-line="82" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front/src/src/views/Dashboard.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1173">
-          <caret line="69" column="8" selection-start-line="69" selection-start-column="8" selection-end-line="69" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/front/src/src/views/result_page.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3672">
@@ -400,13 +402,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front/src/src/views/etatdelart.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2023">
-          <caret line="119" column="16" selection-start-line="119" selection-start-column="16" selection-end-line="119" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/front/src/src/views/visual.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1377">
@@ -416,8 +411,39 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/front/src/src/components/AppToolbar.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="783">
-          <caret line="157" column="15" selection-start-line="157" selection-start-column="15" selection-end-line="157" selection-end-column="22" />
+        <state relative-caret-position="2312">
+          <caret line="136" column="6" selection-start-line="136" selection-start-column="6" selection-end-line="136" selection-end-column="6" />
+          <folding>
+            <element signature="e#2104#2178#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front/src/src/views/Dashboard.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1173">
+          <caret line="69" column="8" selection-start-line="69" selection-start-column="8" selection-end-line="69" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front/src/src/views/etatdelart.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="141" column="47" selection-start-line="141" selection-start-column="28" selection-end-line="141" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front/src/src/router/paths.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1478">
+          <caret line="82" column="31" selection-start-line="82" selection-start-column="31" selection-end-line="82" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front/src/src/views/result_page_matrice.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="78" column="18" selection-start-line="78" selection-start-column="18" selection-end-line="78" selection-end-column="18" />
         </state>
       </provider>
     </entry>
