@@ -1,22 +1,22 @@
 <template>
-  <div id="pageDashboard">
+  <div id="pageDashboard" width="100%">
     <v-img v-bind:position="centerX" src=static/logo.jpg height="250" contain="true" alt="Logo ReSearch" />
     <br>
+
+  <div style="margin-right: 100px; margin-left: 100px; width:80%;" >
     <v-text-field 
       flat
       solo-inverted
       prepend-icon="search"
-      width="40"
       label=""
+
       name="Search"
-      class="hidden-sm-and-down"
       v-model="searchedInput"
       v-on:keyup="validateResearch"
-      
-
     >
     </v-text-field>
-  </div>
+    </div>
+    </div>
 </template>
 
 <script>
@@ -164,11 +164,26 @@ export default {
     validateResearch: function(e) {
       if (e.keyCode === 13) {
         var inputedText = this.searchedInput; // la variable inputedText contient la phrase entrée dans la barre de recherche
-       // alert(inputedText);
-       // getQuickSearch(inputedText);
-        appel_ajax(inputedText);
+        // alert(inputedText);
+        // getQuickSearch(inputedText);
+        //appel_ajax(inputedText);
+        /*
+        setTimeout(() => {
+          this.$router.push("/result_page");
+        }, 1000);
+      }*/
+
+        this.$router.push({
+          name: 'result_page',
+          params: {data: 15},
+            //query: {...},
+            //moreData: {foo: 1}
+        })
       }
       this.log += e.key;
+    },
+    logout: function() {
+      window.location.href = '/auth/logout'
     },
 
      resultpage: function() {
@@ -186,15 +201,11 @@ function appel_ajax(param){
  // On défini ce qu'on va faire quand on aura la réponse
  xhr.onreadystatechange = function(){
    // On ne fait quelque chose que si on a tout reçu et que le serveur est ok
-   //if(xhr.status < 400 && xhr.status >= 200){
+   if(xhr.status < 400 && xhr.status >= 200) {
      //Ici sera afficher le résultat de notre script PHP ajax.php  alert(xhr.responseText);
      //alert(xhr.responseText);
-     //alert(param);
-      xhr.responseText;
-     
-      
-   
-  // }
+
+   }
  }
 
  var url = "http://mdl-std02.info.fundp.ac.be:8181/MdlGroupe2-test/api/QuickSearch?keyword="+param;
@@ -219,4 +230,9 @@ function getXhr(){
  }
  return xhr
 }
+</script>
+
+
+<style scoped lang="css">
+
 </script>

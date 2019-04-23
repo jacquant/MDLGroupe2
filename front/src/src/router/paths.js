@@ -172,6 +172,7 @@ export default [
   },
   {
     path: "/result_page",
+
     meta: { breadcrumb: true },
     name: "result_page",
     component: () =>

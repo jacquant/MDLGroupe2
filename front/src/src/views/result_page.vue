@@ -162,6 +162,7 @@ export default {
   data: () => ({
     loading: false,
     page:1,
+
     itemsAuthor: ['author1', 'author2', 'author3', 'author4','author5'],
 
 
@@ -170,7 +171,7 @@ export default {
       {
         //avatar: '../assets/iconA.png',
         id:1,
-        title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo',
+        title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo ',
         },
       { divider: true, inset: true },
       {
@@ -201,7 +202,7 @@ export default {
       }
     ],
     model: {
-      username: "",
+      //id1:this.$route.params.data,
       password: "",
 
     }
@@ -209,6 +210,7 @@ export default {
 
   methods: {
     classic() {
+
       this.loading = true;
       setTimeout(() => {
         this.$router.push("/etatdelart");
@@ -229,6 +231,7 @@ export default {
       }, 1000);
     },
     selectTrack(Id){
+
       setTimeout(() => {
         this.$router.push("/etatdelart?id="+Id);
       }, 1000);

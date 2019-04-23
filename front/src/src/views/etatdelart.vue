@@ -73,38 +73,40 @@
         </tr>
       </table>
 
-      <template>
-        <div>
-          <v-tabs v-model="active" color="cyan" dark slider-color="yellow">
-            <v-tab ripple>Related articles</v-tab>
+        <template>
+            <v-tabs
+                    color="cyan"
+                    dark
+                    icons-and-text
+            >
+                <v-tabs-slider color="yellow"></v-tabs-slider>
 
-            <v-tab ripple>Video</v-tab>
-            <v-tab ripple>Comments</v-tab>
+                <v-tab href="#tab-1">
+                    Related Articles
 
-            <v-tab-item>
-              <v-card flat>
-                <v-card-text>{{ relatedArticle }}</v-card-text>
-              </v-card>
-            </v-tab-item>
+                </v-tab>
 
-            <v-tab-item>
-              <v-card flat>
-                <v-card-text>{{ video }}</v-card-text>
-              </v-card>
-            </v-tab-item>
+                <v-tab href="#tab-2">
+                    Video
 
-            <v-tab-item>
-              <v-card flat>
-                <v-card-text>{{ comments }}</v-card-text>
-              </v-card>
-            </v-tab-item>
-          </v-tabs>
+                </v-tab>
 
-          <div class="text-xs-center mt-3">
-            <v-btn @click="next">next tab</v-btn>
-          </div>
-        </div>
-      </template>
+                <v-tab href="#tab-3">
+                    Comments
+
+                </v-tab>
+
+                <v-tab-item
+                        v-for="i in 3"
+                        :key="i"
+                        :value="'tab-' + i"
+                >
+                    <v-card flat>
+                        <v-card-text>{{ text[i-1] }}</v-card-text>
+                    </v-card>
+                </v-tab-item>
+            </v-tabs>
+        </template>
     </v-container>
   </div>
 </template>
@@ -113,12 +115,11 @@
 export default {
   data() {
 
-    return {
-      active: null,
-      relatedArticle: " Related articles here",
-      comments: " Comments here",
-      video: " Video  here"
-    };
+      return {
+
+
+          text:["Related articles here","video here","comments here"]
+      }
   },
 
   methods: {
@@ -142,10 +143,7 @@ export default {
         this.$router.push("/result_page_matrice");
       }, 1000);
     },
-    next() {
-      const active = parseInt(this.active);
-      this.active = active < 2 ? active + 1 : 0;
-    }
+
   }
 };
 </script>
