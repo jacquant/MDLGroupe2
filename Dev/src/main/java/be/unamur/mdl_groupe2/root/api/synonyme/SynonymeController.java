@@ -8,7 +8,7 @@ import java.io.FileNotFoundException;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/QuickSearch/{requete}")
+@RequestMapping("/api/Synonyme/{requete}")
 public class SynonymeController {
 
     @RequestMapping(method = RequestMethod.GET)
