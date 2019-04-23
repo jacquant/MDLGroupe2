@@ -1,5 +1,5 @@
 <template>
-  <div id="result_page">
+  <div id="result_page_matrice">
     <v-container grid-list-xl fluid>
       <!--v-layout row wrap>
                 <div style="float:left;">
@@ -60,27 +60,56 @@
   </div>
 </template>
 
-<script type="text/x-template" id="grid-template">
-<table>
-    <thead>
-      <tr>
-        <th v-for="key in columns"
-          onclick="sortBy(key)"
-          class="{ active: sortKey == key }">
-          {{ key, capitalize }}
-          <span class="arrow" class="sortOrders[key] > 0 ? 'asc' : 'dsc'">
-          </span>
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr v-for="entry in filteredHeroes">
-        <td v-for="key in columns">
-          {{entry[key]}}
-        </td>
-      </tr>
-    </tbody>
-  </table>
+<script>
+export default {
+ /*
+       data() {
+           return {
+
+               headers: [
+                   {
+                       text: 'References',
+                       align: 'left',
+                       sortable: false,
+                       value: 'name'
+                   },
+                   {text: 'Criteria1', value: 'Criteria1'},
+                   {text: 'Criteria2', value: 'Criteria2'},
+                   {text: 'Criteria3', value: 'Criteria3'},
+                   {text: 'Criteria4', value: 'Criteria4'}
+               ],
+
+               results: [
+                   {
+                       name: 'Ref1',
+                       Criteria1: v,
+                       Criteria2: v,
+                       Criteria3: x,
+                       Criteria4: x,
+
+                   },
+                   {
+                       name: 'Ref2',
+                       Criteria1: v,
+                       Criteria2: x,
+                       Criteria3: v,
+                       Criteria4: v,
+
+                   },
+                   {
+                       name: 'Ref3',
+                       Criteria1: v,
+                       Criteria2: x,
+                       Criteria3: x,
+                       Criteria4: v,
+
+                   },
+
+               ]
+
+
+           }
+       },*/
 
   methods: {
     classic() {

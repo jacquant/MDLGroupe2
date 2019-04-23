@@ -123,8 +123,9 @@ export default {
     validateResearch: function(e) {
       if (e.keyCode === 13) {
         var inputedText = this.searchedInput; // la variable inputedText contient la phrase entrée dans la barre de recherche
-        alert(inputedText);
-
+       // alert(inputedText);
+       // getQuickSearch(inputedText);
+        appel_ajax(inputedText);
       }
       this.log += e.key;
     },
@@ -144,25 +145,27 @@ export default {
     },
 
 
-    getQuickSearch() {
+    getQuickSearch(param) {
 
       var request = new XMLHttpRequest();
+     
+      var url = "http://mdl-std02.info.fundp.ac.be:8181/MdlGroupe2-test/api/QuickSearch?keyword="+param;
 
       // Modifier le deuxième argument en fct de ce qu'on veut récup
-      request.open('GET', '/api/synonym', true);
+      request.open('GET', url, true);
       request.onload = function() {
         // Begin accessing JSON data here
         var data = JSON.parse(this.response);
 
         if (request.status >= 200 && request.status < 400) {
-          data.forEach(word => {
+          //data.forEach(word => {
             //Same here (idem commentaire ligne 152)
-            console.log(word);
-          });
+           // console.log(word);
+         // });
         } else {
           console.log('error')
         }
-      };
+      }
 
       request.send();
 
@@ -170,4 +173,41 @@ export default {
 
   }
 };
+
+function appel_ajax(param){
+   
+ var xhr = getXhr();
+ // On défini ce qu'on va faire quand on aura la réponse
+ xhr.onreadystatechange = function(){
+   // On ne fait quelque chose que si on a tout reçu et que le serveur est ok
+   if(xhr.status < 400 && xhr.status >= 200){
+     //Ici sera afficher le résultat de notre script PHP ajax.php  alert(xhr.responseText);
+     //alert(xhr.responseText);
+     alert(param);
+     //xhr.responseText;
+   }
+ }
+ var param1 =param;
+ var url = "http://mdl-std02.info.fundp.ac.be:8181/MdlGroupe2-test/api/QuickSearch?keyword="+param1;
+ xhr.open("GET",url,true) ;
+ xhr.send(null);
+}
+
+function getXhr(){
+ var xhr = null;
+ if(window.XMLHttpRequest) // Firefox et autres
+   xhr = new XMLHttpRequest();
+ else if(window.ActiveXObject){ // Internet Explorer
+   try {
+     xhr = new ActiveXObject("Msxml2.XMLHTTP");
+   } catch (e) {
+     xhr = new ActiveXObject("Microsoft.XMLHTTP");
+   }
+ }
+ else { // XMLHttpRequest non supporté par le navigateur
+   alert("Votre navigateur ne supporte pas les objets XMLHTTPRequest...");
+   xhr = false;
+ }
+ return xhr
+}
 </script>
