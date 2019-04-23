@@ -1,5 +1,5 @@
 <template>
-  <div id="result_page_matrice">
+  <div id="result_page">
     <v-container grid-list-xl fluid>
       <!--v-layout row wrap>
                 <div style="float:left; vertical-align: top;">
