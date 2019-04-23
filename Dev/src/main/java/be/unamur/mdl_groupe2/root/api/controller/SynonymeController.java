@@ -1,4 +1,4 @@
-package be.unamur.mdl_groupe2.root.controller;
+package be.unamur.mdl_groupe2.root.api.controller;
 
 
 import be.unamur.mdl_groupe2.root.synonymes.Synonymes;
