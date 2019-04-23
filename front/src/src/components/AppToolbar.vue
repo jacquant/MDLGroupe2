@@ -1,30 +1,21 @@
 <template>
   <v-toolbar color="primary" fixed dark app>
     <v-toolbar-title class="ml-0 pl-3"> </v-toolbar-title>
-    <v-toolbar-side-icon @click.stop="handleDrawerToggle"></v-toolbar-side-icon>
-    <v-text-field
-      flat
-      solo-inverted
-      prepend-icon="search"
-      label="Search"
-      name="Search"
-      class="hidden-sm-and-down"
-      v-model="searchedInput"
-      v-on:keyup="validateResearch"
-    >
-    </v-text-field>
+    
     <v-spacer></v-spacer>
     <v-toolbar-items>
 
       <v-btn flat @click="contactus" class="">
         Contact Us
       </v-btn>
+
+      <v-btn flat @click="dashboard" class="">
+        Home
+      </v-btn>
     </v-toolbar-items>
 
 
-    <v-btn icon @click="handleFullScreen()">
-      <v-icon>fullscreen</v-icon>
-    </v-btn>
+    
     <v-menu
       offset-y
       origin="center center"
@@ -32,13 +23,7 @@
       :nudge-bottom="14"
       transition="scale-transition"
     >
-      <v-btn icon flat slot="activator">
-        <v-badge color="red" overlap>
-          <span slot="badge">3</span>
-          <v-icon medium>notifications</v-icon>
-        </v-badge>
-      </v-btn>
-      <notification-list></notification-list>
+      
     </v-menu>
     <v-menu
       offset-y
@@ -144,6 +129,13 @@ export default {
       }, 1000);
     },
 
+    dashboard() {
+      this.loading = true;
+      setTimeout(() => {
+        this.$router.push("../dashboard");
+      }, 1000);
+    },
+
 
     getQuickSearch(param) {
 
@@ -174,40 +166,5 @@ export default {
   }
 };
 
-function appel_ajax(param){
-   
- var xhr = getXhr();
- // On défini ce qu'on va faire quand on aura la réponse
- xhr.onreadystatechange = function(){
-   // On ne fait quelque chose que si on a tout reçu et que le serveur est ok
-   if(xhr.status < 400 && xhr.status >= 200){
-     //Ici sera afficher le résultat de notre script PHP ajax.php  alert(xhr.responseText);
-     //alert(xhr.responseText);
-     alert(param);
-     //xhr.responseText;
-   }
- }
- var param1 =param;
- var url = "http://mdl-std02.info.fundp.ac.be:8181/MdlGroupe2-test/api/QuickSearch?keyword="+param1;
- xhr.open("GET",url,true) ;
- xhr.send(null);
-}
 
-function getXhr(){
- var xhr = null;
- if(window.XMLHttpRequest) // Firefox et autres
-   xhr = new XMLHttpRequest();
- else if(window.ActiveXObject){ // Internet Explorer
-   try {
-     xhr = new ActiveXObject("Msxml2.XMLHTTP");
-   } catch (e) {
-     xhr = new ActiveXObject("Microsoft.XMLHTTP");
-   }
- }
- else { // XMLHttpRequest non supporté par le navigateur
-   alert("Votre navigateur ne supporte pas les objets XMLHTTPRequest...");
-   xhr = false;
- }
- return xhr
-}
 </script>
