@@ -11,7 +11,7 @@
       name="Search"
       class="hidden-sm-and-down"
       v-model="searchedInput"
-      v-on:keyup="resultpage"
+      v-on:keyup="validateResearch"
       
 
     >
@@ -190,16 +190,14 @@ function appel_ajax(param){
      //Ici sera afficher le résultat de notre script PHP ajax.php  alert(xhr.responseText);
      //alert(xhr.responseText);
      //alert(param);
-     //xhr.responseText;
+      xhr.responseText;
      
-      setTimeout(() => {
-        this.$router.push("../result_page");
-      }, 1000);
+      
    
   // }
  }
- var param1 =param;
- var url = "http://mdl-std02.info.fundp.ac.be:8181/MdlGroupe2-test/api/QuickSearch?keyword="+param1;
+
+ var url = "http://mdl-std02.info.fundp.ac.be:8181/MdlGroupe2-test/api/QuickSearch?keyword="+param;
  xhr.open("GET",url,true) ;
  xhr.send(null);
 }
