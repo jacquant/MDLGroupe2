@@ -695,5 +695,15 @@ export default [
         /* webpackChunkName: "routes" */
         `@/views/widgets/List.vue`
       )
+  },
+  {
+    path: "/advancedSearch",
+    meta: { breadcrumb: true },
+    name: "AdvancedSearch",
+    component: () =>
+      import(
+        /* webpackChunkName: "routes" */
+        `@/views/AdvancedSearch.vue`
+      )
   }
 ];

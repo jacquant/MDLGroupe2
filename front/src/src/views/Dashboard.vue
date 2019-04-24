@@ -12,9 +12,10 @@
 
       name="Search"
       v-model="searchedInput"
-      v-on:keyup="validateResearch"
+      v-on:keyup.enter="validateResearch"
     >
     </v-text-field>
+    <v-btn outline color="indigo" @click="advancedSearch">Advanced Search</v-btn>
     </div>
     </div>
 </template>
@@ -36,6 +37,8 @@ import BoxChart from "@/components/widgets/chart/BoxChart";
 import ChatWindow from "@/components/chat/ChatWindow";
 import CircleStatistic from "@/components/widgets/statistic/CircleStatistic";
 import LinearStatistic from "@/components/widgets/statistic/LinearStatistic";
+import axios from "axios";
+
 export default {
   components: {
     VWidget,
@@ -162,24 +165,30 @@ export default {
 
   methods:{
     validateResearch: function(e) {
-      if (e.keyCode === 13) {
-        var inputedText = this.searchedInput; // la variable inputedText contient la phrase entrée dans la barre de recherche
-        // alert(inputedText);
-        // getQuickSearch(inputedText);
-        //appel_ajax(inputedText);
-        /*
-        setTimeout(() => {
-          this.$router.push("/result_page");
-        }, 1000);
-      }*/
+      var inputedText = this.searchedInput; // la variable inputedText contient la phrase entrée dans la barre de recherche
 
-        this.$router.push({
-          name: 'result_page',
-          params: {data: 15},
-            //query: {...},
-            //moreData: {foo: 1}
-        })
-      }
+      axios.get("http://mdl-std02.info.fundp.ac.be:8181/MdlGroupe2-test/api/QuickSearch?keyword="+inputedText)
+      .then(function(response){
+        alert(response.data.name);
+      })
+      .catch(function(error){
+        console.log(error);
+      })
+
+      // getQuickSearch(inputedText);
+      //appel_ajax(inputedText);
+      /*
+      setTimeout(() => {
+        this.$router.push("/result_page");
+      }, 1000);
+    }*/
+
+      this.$router.push({
+        name: 'result_page',
+        params: {data: 15},
+          //query: {...},
+          //moreData: {foo: 1}
+      })
       this.log += e.key;
     },
     logout: function() {
@@ -191,7 +200,14 @@ export default {
       setTimeout(() => {
         this.$router.push("/result_page");
       }, 1000);
-    }
+    },
+
+    advancedSearch() {
+      this.loading = true;
+      setTimeout(() => {
+        this.$router.push("../advancedSearch");
+      }, 1000);
+    },
   }
 };
 

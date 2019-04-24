@@ -8,6 +8,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@csnext/cli-plugin-pwa": "^0.0.9",
     "axios": "^0.18.0",
     "font-awesome": "^4.7.0",
     "lodash.truncate": "^4.4.2",
