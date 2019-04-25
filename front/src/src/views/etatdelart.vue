@@ -112,6 +112,7 @@
 </template>
 
 <script>
+    var id,title,author,the_abstract;
 export default {
   data() {
 
@@ -128,35 +129,51 @@ export default {
   methods: {
 
       getTitle() {
-          this.abstract=this.$route.params.abstract;
-          return this.$route.params.title;
+          this.abstract=this.$route.query.abstract;
+
+          id=this.$route.query.id;
+          title=this.$route.query.title;
+          author=this.$route.query.author;
+          the_abstract=this.abstract;
+
+          return this.$route.query.title;
       },
       getAuthor() {
-          return this.$route.params.author;
+          return this.$route.query.author;
       },
       getPublish() {
-          return this.$route.params.id;
+          return this.$route.query.id;
       },
-    classic() {
-      this.loading = true;
-      setTimeout(() => {
-        this.$router.push("/etatdelart");
-      }, 1000);
-    },
+      classic() {
 
-    visual() {
-      this.loading = true;
-      setTimeout(() => {
-        this.$router.push("/visual");
-      }, 1000);
-    },
+          this.loading = true;
+          setTimeout(() => {
+              this.$router.push({
+                  path: '/etatdelart',
+                  query: {id: id,title:title,author:author,the_abstract:the_abstract},
+                  //query: {...},
+                  //moreData: {foo: 1}
+              })}, 1000);
+      },
 
-    matrice() {
-      this.loading = true;
-      setTimeout(() => {
-        this.$router.push("/result_page_matrice");
-      }, 1000);
-    },
+      visual() {
+          this.loading = true;
+          setTimeout(() => {
+              this.$router.push("/visual");
+          }, 1000);
+      },
+
+
+      matrice() {
+          this.loading = true;
+          setTimeout(() => {
+              this.$router.push({
+                  path: '/result_page_matrice',
+                  query: {id: id,title:title,author:author,the_abstract:the_abstract},
+                  //query: {...},
+                  //moreData: {foo: 1}
+              })}, 1000);
+      },
 
   }
 };

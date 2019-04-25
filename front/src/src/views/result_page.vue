@@ -69,7 +69,7 @@
           </td>
 
           <td valign="top" width="80%">
-            <h2 class="flex my-4 primary--text">Research Result ({{numberfound()}})</h2>
+            <h2 class="flex my-4 primary--text">Research Result ({{searchfound()}})</h2>
             <br />
             <div id="listResult" valign="top">
               <v-list one-line  >
@@ -158,6 +158,8 @@
 </template>
 
 <script>
+    var id,title,author,abstract;
+
 export default {
   data: () => ({
     loading: false,
@@ -166,44 +168,7 @@ export default {
 
     itemsAuthor: ['author1', 'author2', 'author3', 'author4','author5'],
       items: [],
-/*
-     items: [
 
-
-          {
-              //avatar: '../assets/iconA.png',
-              id:1,
-              title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo ',
-          },
-          { divider: true, inset: true },
-          {
-              //avatar: '../assets/iconA.png',
-              id:2,
-              title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo',
-          },
-          { divider: true, inset: true },
-          {
-              //avatar: '../assets/iconA.png',
-              id:3,
-              title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo',
-          },
-          {
-              //avatar: '../assets/iconA.png',
-              id:4,
-              title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo',
-          },
-          {
-              //avatar: '../assets/iconA.png',
-              id:5,
-              title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo',
-          },
-          {
-              //avatar: '../assets/iconA.png',
-              id:6,
-              title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo',
-          }
-      ],
-*/
       model: {
          //items:this.$route.params.data,
 
@@ -212,16 +177,87 @@ export default {
 
   methods: {
 
-    numberfound() {
-        this.items=this.$route.params.data;
-       return this.$route.params.data.length;
+    searchfound() {
+       var inputedText=this.$route.query.data;
+       var thedata;
+        //var thedata2=28;
+        const axios = require('axios');
+
+// Make a request for a user with a given ID
+        axios.get('http://mdl-std02.info.fundp.ac.be:8181/MdlGroupe2-test/api/QuickSearch?keyword='+inputedText)
+            .then(function (response) {
+                // handle success
+                //thedata=response;
+                console.log(response);
+            })
+            .catch(function (error) {
+                // handle error
+                console.log(error);
+            })
+            .then(function () {
+                // always executed
+            });
+
+        thedata= [
+
+            {
+                //avatar: '../assets/iconA.png',
+                id:1,
+                author:"Emmanuel AGOSSOU",
+                title: 'Lorem ipsum25662 dolor sit amet, consectetur adipiscing elit, seddo ',
+                abstract: 'Voici le abstact 1 ',
+            },
+
+            {
+                //avatar: '../assets/iconA.png',
+                id:2,
+                author:"Paul LIYA, LOKo Ray",
+                title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo',
+                abstract: 'Voici le abstact 2',
+            },
+
+            {
+                //avatar: '../assets/iconA.png',
+                id:3,
+                author:"Rowlins,J",
+                title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo',
+                abstract: 'Voici le abstact 3',
+            },
+            {
+                //avatar: '../assets/iconA.png',
+                id:4,
+                author:"Paul LIYA",
+                title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo',
+                abstract: 'Voici le abstact 4',
+            },
+            {
+                //avatar: '../assets/iconA.png',
+                id:5,
+                author:"Emmanuel AGOSSOU",
+                title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo',
+                abstract: 'Voici le abstact 5',
+            },
+            {
+                //avatar: '../assets/iconA.png',
+                id:6,
+                author:"LAFONT Jane",
+                title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo',
+                abstract: 'Voici le abstact 6',
+            }
+        ];
+  this.items=thedata;
+       return this.items.length;
     },
     classic() {
 
       this.loading = true;
-      setTimeout(() => {
-        this.$router.push("/etatdelart");
-      }, 1000);
+        setTimeout(() => {
+            this.$router.push({
+                path: '/etatdelart',
+                query: {id: id,title:title,author:author,abstract:abstract},
+                //query: {...},
+                //moreData: {foo: 1}
+            })}, 1000);
     },
 
     visual() {
@@ -233,20 +269,24 @@ export default {
 
     matrice() {
       this.loading = true;
-      setTimeout(() => {
-        this.$router.push("/result_page_matrice");
-      }, 1000);
+        setTimeout(() => {
+            this.$router.push({
+                path: '/result_page_matrice',
+                query: {id: id,title:title,author:author,abstract:abstract},
+                //query: {...},
+                //moreData: {foo: 1}
+            })}, 1000);
     },
     selectTrack(item){
-      var id=item.id;
-      var title=item.title;
-      var author=item.author;
-        var abstract=item.abstract;
+      id=item.id;
+       title=item.title;
+      author=item.author;
+        abstract=item.abstract;
 
         setTimeout(() => {
             this.$router.push({
-                name: 'etatdelart',
-                params: {id: id,title:title,author:author,abstract:abstract},
+                path: '/etatdelart',
+                query: {id: id,title:title,author:author,abstract:abstract},
                 //query: {...},
                 //moreData: {foo: 1}
             })}, 1000);
@@ -255,6 +295,7 @@ export default {
     }
   }
 };
+
 
 
 

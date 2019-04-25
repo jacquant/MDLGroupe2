@@ -165,77 +165,12 @@ export default {
 
         var inputedText = this.searchedInput; // la variable inputedText contient la phrase entrée dans la barre de recherche
 
-      var thedata;
-      //var thedata2=28;
-        const axios = require('axios');
 
-// Make a request for a user with a given ID
-        axios.get('http://mdl-std02.info.fundp.ac.be:8181/MdlGroupe2-test/api/QuickSearch?keyword='+inputedText)
-                .then(function (response) {
-                  // handle success
-                  //thedata=response;
-                  console.log(response);
-                })
-                .catch(function (error) {
-                  // handle error
-                  console.log(error);
-                })
-                .then(function () {
-                  // always executed
-                });
-
-        thedata= [
-
-          {
-            //avatar: '../assets/iconA.png',
-            id:1,
-              author:"Emmanuel AGOSSOU",
-            title: 'Lorem ipsum25662 dolor sit amet, consectetur adipiscing elit, seddo ',
-              abstract: 'Voici le abstact 1 ',
-          },
-
-          {
-            //avatar: '../assets/iconA.png',
-            id:2,
-              author:"Paul LIYA, LOKo Ray",
-            title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo',
-              abstract: 'Voici le abstact 2',
-          },
-
-          {
-            //avatar: '../assets/iconA.png',
-            id:3,
-              author:"Rowlins,J",
-            title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo',
-              abstract: 'Voici le abstact 3',
-          },
-          {
-            //avatar: '../assets/iconA.png',
-            id:4,
-              author:"Paul LIYA",
-            title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo',
-              abstract: 'Voici le abstact 4',
-          },
-          {
-            //avatar: '../assets/iconA.png',
-            id:5,
-              author:"Emmanuel AGOSSOU",
-            title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo',
-              abstract: 'Voici le abstact 5',
-          },
-          {
-            //avatar: '../assets/iconA.png',
-            id:6,
-              author:"LAFONT Jane",
-            title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo',
-              abstract: 'Voici le abstact 6',
-          }
-        ];
 
             setTimeout(() => {
         this.$router.push({
-          name: 'result_page',
-          params: {data: thedata},
+          path: '/result_page',
+          query: {data: inputedText},
             //query: {...},
             //moreData: {foo: 1}
         })}, 1000);
