@@ -69,11 +69,11 @@
           </td>
 
           <td valign="top" width="80%">
-            <h2 class="flex my-4 primary--text">Research Result (88888)</h2>
+            <h2 class="flex my-4 primary--text">Research Result ({{numberfound()}})</h2>
             <br />
             <div id="listResult" valign="top">
-              <v-list one-line>
-                <template v-for="(item, index) in items">
+              <v-list one-line  >
+                <template  v-for="(item, index) in items">
                   <v-subheader
                           v-if="item.header"
                           :key="item.header"
@@ -91,7 +91,7 @@
                           v-else
                           :key="item.id"
                           avatar
-                          @click='selectTrack(item.id)'
+                          @click='selectTrack(item)'
 
                   >
                     <!--v-list-tile-avatar>
@@ -163,52 +163,59 @@ export default {
     loading: false,
     page:1,
 
+
     itemsAuthor: ['author1', 'author2', 'author3', 'author4','author5'],
+      items: [],
+/*
+     items: [
 
 
-    items: [
-
-      {
-        //avatar: '../assets/iconA.png',
-        id:1,
-        title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo ',
-        },
-      { divider: true, inset: true },
-      {
-        //avatar: '../assets/iconA.png',
-        id:2,
-        title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo',
-      },
-      { divider: true, inset: true },
-      {
-        //avatar: '../assets/iconA.png',
-        id:3,
-        title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo',
-      },
-      {
-        //avatar: '../assets/iconA.png',
-        id:4,
-        title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo',
-      },
-      {
-        //avatar: '../assets/iconA.png',
-        id:5,
-        title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo',
-      },
-      {
-        //avatar: '../assets/iconA.png',
-        id:6,
-        title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo',
-      }
-    ],
-    model: {
-      //id1:this.$route.params.data,
-      password: "",
+          {
+              //avatar: '../assets/iconA.png',
+              id:1,
+              title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo ',
+          },
+          { divider: true, inset: true },
+          {
+              //avatar: '../assets/iconA.png',
+              id:2,
+              title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo',
+          },
+          { divider: true, inset: true },
+          {
+              //avatar: '../assets/iconA.png',
+              id:3,
+              title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo',
+          },
+          {
+              //avatar: '../assets/iconA.png',
+              id:4,
+              title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo',
+          },
+          {
+              //avatar: '../assets/iconA.png',
+              id:5,
+              title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo',
+          },
+          {
+              //avatar: '../assets/iconA.png',
+              id:6,
+              title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo',
+          }
+      ],
+*/
+      model: {
+         //items:this.$route.params.data,
 
     }
   }),
 
   methods: {
+
+    numberfound() {
+        this.items=this.$route.params.data;
+       return this.$route.params.data.length;
+    },
     classic() {
 
       this.loading = true;
@@ -230,11 +237,21 @@ export default {
         this.$router.push("/result_page_matrice");
       }, 1000);
     },
-    selectTrack(Id){
+    selectTrack(item){
+      var id=item.id;
+      var title=item.title;
+      var author=item.author;
+        var abstract=item.abstract;
 
-      setTimeout(() => {
-        this.$router.push("/etatdelart?id="+Id);
-      }, 1000);
+        setTimeout(() => {
+            this.$router.push({
+                name: 'etatdelart',
+                params: {id: id,title:title,author:author,abstract:abstract},
+                //query: {...},
+                //moreData: {foo: 1}
+            })}, 1000);
+
+
     }
   }
 };

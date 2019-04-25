@@ -14,7 +14,7 @@
             <div id="result" style="width:100%; margin-left:30px">
               <h2 style="vertical-align: top; color:blue;">State of art</h2>
               <h3>
-                <b>Title: Le passage de Lorem Ipsum standard, utilisé depuis 1500</b>
+                <b>Title: {{getTitle()}}</b>
               </h3>
               <br>
               <h3>
@@ -51,14 +51,14 @@
           <td valign="top" width="20%">
             <div style="border:1px solid black; margin-top:5px; ">
               <div style="margin-top:10px; margin-left:5px;">
-                <b>
-                  <u>Author(s):</u>
-                </b> .......
+
+                    <b><u>Author(s):</u> </b> {{getAuthor()}}
+
                 <br>
                 <br>
-                <b>
-                  <u>Published:</u>
-                </b> ........
+
+                    <b> <u>Published:</u></b>{{getPublish()}}
+
                 <br>
                 <br>
                 <b>
@@ -121,8 +121,22 @@ export default {
           text:["Related articles here","video here","comments here"]
       }
   },
+    model: {
+
+    },
 
   methods: {
+
+      getTitle() {
+          this.abstract=this.$route.params.abstract;
+          return this.$route.params.title;
+      },
+      getAuthor() {
+          return this.$route.params.author;
+      },
+      getPublish() {
+          return this.$route.params.id;
+      },
     classic() {
       this.loading = true;
       setTimeout(() => {
