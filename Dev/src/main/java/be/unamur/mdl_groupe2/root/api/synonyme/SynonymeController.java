@@ -8,13 +8,11 @@ import java.io.FileNotFoundException;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/Synonyme/{requete}")
+@RequestMapping("/api")
 public class SynonymeController {
 
-    @RequestMapping(method = RequestMethod.GET)
-    public List<String> getSynonymesAPI(@PathVariable(value="requete") final String pRequete) throws FileNotFoundException {
-
-        return Synonymes.getSyno(pRequete);
-
+    @GetMapping("Synonyme")
+    public List<String> synonymes(@RequestParam(value="keyword",required = true)String request) throws FileNotFoundException {
+        return Synonymes.getSyno(request);
     }
 }
