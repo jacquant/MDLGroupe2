@@ -7,7 +7,6 @@
             </v-btn>
             <v-flex xs12 md19>
               <v-card-actions>
-                  
                         <v-text-field label=""></v-text-field>
                         <v-select outline label="operator" :items="items"></v-select>
                         <v-text-field label=""></v-text-field>
@@ -29,13 +28,12 @@
                          </v-card-actions>                     
                     </span>
               </span>
-            
             </v-flex>
             <v-btn fab dark small color="red" @click="add">
                 <v-icon dark>add</v-icon>
             </v-btn>
         </v-layout>
-        <v-btn color="warning" dark>search</v-btn>
+        <v-btn color="warning" @click="Search" dark>search</v-btn>
      </v-container>
   </div>
 </template>
@@ -94,7 +92,13 @@ export default {
         if(this.test > 1){
             this.test -= 1
         }
-    }
+    },
+    Search() {
+      this.loading = true;
+      setTimeout(() => {
+        this.$router.push("../result_page");
+      }, 1000);
+    },
   }
 };
 
