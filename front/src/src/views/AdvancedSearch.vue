@@ -1,21 +1,42 @@
 <template>
   <div id="advancedSearch" width="100%">
-      <v-btn fab dark small color="primary" @click="remove">
-          <v-icon dark>remove</v-icon>
-      </v-btn>
-      <v-flex>
-      <span v-for="item in test">
-        <span v-if="item > 1">
-            <v-select outline label="Logic" :items="items">
-            </v-select>
-        </span>
-        <v-text-field label="search"></v-text-field>
-      </span>
-      </v-flex>
+     <v-container>
+         <v-layout row >
+            <v-btn fab dark small color="primary" @click="remove">
+                <v-icon dark>remove</v-icon>
+            </v-btn>
+            <v-flex xs12 md19>
+              <v-card-actions>
+                  
+                        <v-text-field label=""></v-text-field>
+                        <v-select outline label="operator" :items="items"></v-select>
+                        <v-text-field label=""></v-text-field>
+                        in
+                        <v-select outline label="operator" :items="items2"></v-select>
+              </v-card-actions>
+              <span v-for="item in test">
+                  
+                    <span v-if="item > 1">
+                         <v-card-actions>
+                             
+                        <v-select outline label="operator" :items="items"></v-select>
+                        <v-text-field label=""></v-text-field> 
+                        <v-select outline label="operator" :items="items"></v-select>
+                        <v-text-field label=""></v-text-field> 
+                         in
+                        <v-select outline label="operator" :items="items2"></v-select>
 
-      <v-btn fab dark small color="red" @click="add">
-          <v-icon dark>add</v-icon>
-      </v-btn>
+                         </v-card-actions>                     
+                    </span>
+              </span>
+            
+            </v-flex>
+            <v-btn fab dark small color="red" @click="add">
+                <v-icon dark>add</v-icon>
+            </v-btn>
+        </v-layout>
+        <v-btn color="warning" dark>search</v-btn>
+     </v-container>
   </div>
 </template>
 
@@ -43,7 +64,8 @@ export default {
     color: Material,
     selectedTab: "tab-1",
     test: 1,
-    items:["AND", "OR", "NOT"]
+    items:["AND", "OR", "NOT"],
+    items2:["AAA", "TTT", "ZZZ"]
   }),
   computed: {
     activity() {
@@ -69,7 +91,7 @@ export default {
     },
     
     remove:function(){
-        if(this.test > 3){
+        if(this.test > 1){
             this.test -= 1
         }
     }

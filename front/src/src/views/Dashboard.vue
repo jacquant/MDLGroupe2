@@ -169,7 +169,7 @@ export default {
 
       axios.get("http://mdl-std02.info.fundp.ac.be:8181/MdlGroupe2-test/api/QuickSearch?keyword="+inputedText)
       .then(function(response){
-        alert(response.data.name);
+        console.log(response);
       })
       .catch(function(error){
         console.log(error);
