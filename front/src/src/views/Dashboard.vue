@@ -16,6 +16,9 @@
     >
     </v-text-field>
     </div>
+    <div class="text-xs-center">
+      <v-btn outline color="indigo" @click="advancedSearch" >Advanced Search</v-btn>
+    </div>
     </div>
 </template>
 
@@ -177,6 +180,12 @@ export default {
 
 
       this.log += e.key;
+    },
+    advancedSearch() {
+      this.loading = true;
+      setTimeout(() => {
+        this.$router.push("../AdvancedSearch");
+      }, 1000);
     },
 
   }
