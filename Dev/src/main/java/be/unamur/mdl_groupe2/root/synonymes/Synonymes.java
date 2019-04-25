@@ -17,7 +17,7 @@ public class Synonymes {
        List<String> texteArray = Synonymes.StringToStringArray(texte);
        String[] synonymesTab;
 
-       RiWordNet rw = new RiWordNet("/src/main/java/be/unamur/mdl_groupe2/root/synonymes/WordNet-3.0");
+       RiWordNet rw = new RiWordNet("./src/main/java/be/unamur/mdl_groupe2/root/synonymes/WordNet-3.0");
        rw.randomizeResults(false);
 
        for(int i=0;i<texteArray.size();i++) {
@@ -41,7 +41,7 @@ public class Synonymes {
     public static String removeStopWords(String texte) throws FileNotFoundException {
 
         List<String> ls = new ArrayList<String>();
-        File file = new File("/src/main/java/be/unamur/mdl_groupe2/root/synonymes/stopWords.txt");
+        File file = new File("./src/main/java/be/unamur/mdl_groupe2/root/synonymes/stopWords.txt");
         Scanner input = new Scanner(file);
 
         while (input.hasNext()) {
