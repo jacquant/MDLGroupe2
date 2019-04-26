@@ -32,10 +32,11 @@
                           name="author"
                           v-model="authors"
                           :items="itemsAuthor"
-                          attach
+                         
                           chips
                           label="Select Author(s)"
                           multiple
+                          width="200px"
 
                   ></v-select>
                 </v-card-actions>
@@ -166,7 +167,7 @@ export default {
     page:1,
 
 
-    itemsAuthor: ['author1', 'author2', 'author3', 'author4','author5'],
+    itemsAuthor: [],
       items: [],
 
       model: {
@@ -188,7 +189,7 @@ export default {
             .then(function (response) {
                 // handle success
                 //thedata=response;
-                alert("la réponse:"+response);
+              console.log("la réponse:"+response);
             })
             .catch(function (error) {
                 // handle error
@@ -245,9 +246,16 @@ export default {
                 abstract: 'Voici le abstact 6',
             }
         ];
+
+
   this.items=thedata;
-       return this.items.length;
+  var taille=this.items.length;
+      for (i = 0; i < taille; i++) {
+        this.itemsAuthor[i] = this.items[i].author;
+      }
+       return taille;
     },
+
     classic() {
 
       this.loading = true;

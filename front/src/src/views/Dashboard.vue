@@ -15,7 +15,7 @@
       v-on:keyup.enter="validateResearch"
     >
     </v-text-field>
-    <v-btn outline color="indigo" @click="advancedSearch">Advanced Search</v-btn>
+
     </div>
     <div class="text-xs-center">
       <v-btn outline color="indigo" @click="advancedSearch" >Advanced Search</v-btn>
