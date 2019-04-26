@@ -188,7 +188,7 @@ export default {
             .then(function (response) {
                 // handle success
                 //thedata=response;
-                console.log(response);
+                alert("la réponse:"+response);
             })
             .catch(function (error) {
                 // handle error
