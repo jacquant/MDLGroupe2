@@ -171,6 +171,7 @@ export default {
 
         var inputedText = this.searchedInput; // la variable inputedText contient la phrase entrée dans la barre de recherche
 
+        
 
 
             setTimeout(() => {

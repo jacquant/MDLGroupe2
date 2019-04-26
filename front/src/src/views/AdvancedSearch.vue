@@ -7,23 +7,23 @@
             </v-btn>
             <v-flex xs12 md19>
               <v-card-actions>
-                        <v-text-field label=""></v-text-field>
-                        <v-select outline label="operator" :items="items"></v-select>
-                        <v-text-field label=""></v-text-field>
+                        <v-text-field label="" v-model="payload0.searchLine.field1"></v-text-field>
+                        <v-select outline label="operator" :items="items" v-model="payload0.searchLine.op"></v-select>
+                        <v-text-field label="" v-model="payload0.searchLine.field2"></v-text-field>
                         in
-                        <v-select outline label="operator" :items="items2"></v-select>
+                        <v-select outline label="operator" :items="items2" v-model="payload0.searchLine.in"></v-select>
               </v-card-actions>
-              <span v-for="item in test">
+              <span v-for="item in payload">
                   
-                    <span v-if="item > 1">
+                    <span>
                          <v-card-actions>
                              
-                        <v-select outline label="operator" :items="items"></v-select>
-                        <v-text-field label=""></v-text-field> 
-                        <v-select outline label="operator" :items="items"></v-select>
-                        <v-text-field label=""></v-text-field> 
+                        <v-select outline label="operator" :items="items" v-model="item.criterion"></v-select>
+                        <v-text-field label="" v-model="item.searchLine.field1"></v-text-field> 
+                        <v-select outline label="operator" :items="items" v v-model="item.searchLine.op"></v-select>
+                        <v-text-field label="" v-model="item.searchLine.field2"></v-text-field> 
                          in
-                        <v-select outline label="operator" :items="items2"></v-select>
+                        <v-select outline label="operator" :items="items2" v-model="item.searchLine.in"></v-select>
 
                          </v-card-actions>                     
                     </span>
@@ -63,7 +63,16 @@ export default {
     selectedTab: "tab-1",
     test: 1,
     items:["AND", "OR", "NOT"],
-    items2:["AAA", "TTT", "ZZZ"]
+    items2:["AAA", "TTT", "ZZZ"],
+    payload0: { "searchLine":{
+            "field1": "",
+            "op": "AND",
+            "field2": "",
+            "in":""
+        },
+        "criterion":"empty"
+    },
+    payload:[]
   }),
   computed: {
     activity() {
@@ -85,16 +94,29 @@ export default {
     },
 
     add:function(){
-        this.test += 1
+        var added = {}
+        added["searchLine"] = {
+            "field1": "",
+            "op": "AND",
+            "field2" : "",
+            "in": ""
+        }
+        added["criterion"] = "AND" 
+
+        this.payload.push(added)
     },
     
     remove:function(){
-        if(this.test > 1){
-            this.test -= 1
+        if(this.payload.length > 0){
+            this.payload.splice(-1,1)
         }
     },
     Search() {
       this.loading = true;
+
+      var query = this.payload.unshift(this.payload0)
+
+      //axios
       setTimeout(() => {
         this.$router.push("../result_page");
       }, 1000);
