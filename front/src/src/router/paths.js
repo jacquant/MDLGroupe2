@@ -172,6 +172,7 @@ export default [
   },
   {
     path: "/result_page",
+
     meta: { breadcrumb: true },
     name: "result_page",
     component: () =>
@@ -693,6 +694,16 @@ export default [
       import(
         /* webpackChunkName: "routes" */
         `@/views/widgets/List.vue`
+      )
+  },
+  {
+    path: "/advancedSearch",
+    meta: { breadcrumb: true },
+    name: "AdvancedSearch",
+    component: () =>
+      import(
+        /* webpackChunkName: "routes" */
+        `@/views/AdvancedSearch.vue`
       )
   }
 ];
