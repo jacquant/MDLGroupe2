@@ -7,8 +7,7 @@
           :events="fcEvents"
           @dayClick="handleDayClick"
           @eventClick="handleEventClick"
-        >
-        </full-calendar>
+        ></full-calendar>
       </v-flex>
     </v-layout>
     <v-dialog v-model="dialog" width="650">

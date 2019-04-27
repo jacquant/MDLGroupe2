@@ -1,30 +1,21 @@
 <template>
   <v-toolbar color="primary" fixed dark app>
     <v-toolbar-title class="ml-0 pl-3"> </v-toolbar-title>
-    <v-toolbar-side-icon @click.stop="handleDrawerToggle"></v-toolbar-side-icon>
-    <v-text-field
-      flat
-      solo-inverted
-      prepend-icon="search"
-      label="Search"
-      class="hidden-sm-and-down"
-    >
-    </v-text-field>
+    
     <v-spacer></v-spacer>
     <v-toolbar-items>
 
       <v-btn flat @click="contactus" class="">
         Contact Us
       </v-btn>
+
+      <v-btn flat @click="dashboard" class="">
+        Home
+      </v-btn>
     </v-toolbar-items>
 
 
-    <v-btn icon href="">
-      <v-icon class="fa-2x">fa-github</v-icon>
-    </v-btn>
-    <v-btn icon @click="handleFullScreen()">
-      <v-icon>fullscreen</v-icon>
-    </v-btn>
+    
     <v-menu
       offset-y
       origin="center center"
@@ -32,13 +23,7 @@
       :nudge-bottom="14"
       transition="scale-transition"
     >
-      <v-btn icon flat slot="activator">
-        <v-badge color="red" overlap>
-          <span slot="badge">3</span>
-          <v-icon medium>notifications</v-icon>
-        </v-badge>
-      </v-btn>
-      <notification-list></notification-list>
+      
     </v-menu>
     <v-menu
       offset-y
@@ -73,6 +58,8 @@
       </v-list>
     </v-menu>
   </v-toolbar>
+
+
 </template>
 <script>
 import NotificationList from "@/components/widgets/list/NotificationList";
@@ -86,10 +73,12 @@ export default {
     items: [
       {
         icon: "account_circle",
-        href: "#",
+        href: "",
+
         title: "Profile",
         click: e => {
-          console.log(e);
+            //this.$router.push("../personnalpage");
+          window.getApp.$emit("APP_PERSONAL_PAGE");
         }
       },
       {
@@ -97,7 +86,7 @@ export default {
         href: "#",
         title: "Settings",
         click: e => {
-          console.log(e);
+          window.getApp.$emit("APP_SETTINGS");
         }
       },
       {
@@ -116,6 +105,16 @@ export default {
     }
   },
   methods: {
+    validateResearch: function(e) {
+      if (e.keyCode === 13) {
+        var inputedText = this.searchedInput; // la variable inputedText contient la phrase entrée dans la barre de recherche
+       // alert(inputedText);
+       // getQuickSearch(inputedText);
+        appel_ajax(inputedText);
+      }
+      this.log += e.key;
+    },
+
     handleDrawerToggle() {
       window.getApp.$emit("APP_DRAWER_TOGGLED");
     },
@@ -130,6 +129,42 @@ export default {
       }, 1000);
     },
 
+    dashboard() {
+      this.loading = true;
+      setTimeout(() => {
+        this.$router.push("../dashboard");
+      }, 1000);
+    },
+
+
+    getQuickSearch(param) {
+
+      var request = new XMLHttpRequest();
+     
+      var url = "http://mdl-std02.info.fundp.ac.be:8181/MdlGroupe2-test/api/QuickSearch?keyword="+param;
+
+      // Modifier le deuxième argument en fct de ce qu'on veut récup
+      request.open('GET', url, true);
+      request.onload = function() {
+        // Begin accessing JSON data here
+        var data = JSON.parse(this.response);
+
+        if (request.status >= 200 && request.status < 400) {
+          //data.forEach(word => {
+            //Same here (idem commentaire ligne 152)
+           // console.log(word);
+         // });
+        } else {
+          console.log('error')
+        }
+      }
+
+      request.send();
+
+    }
+
   }
 };
+
+
 </script>

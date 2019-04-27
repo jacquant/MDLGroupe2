@@ -7,32 +7,26 @@
             <div slot="widget-content">
               <v-subheader>Left Align</v-subheader>
               <v-tabs>
-                <v-tab v-for="n in 3" :key="n"> Item {{ n }} </v-tab>
+                <v-tab v-for="n in 3" :key="n">Item {{ n }}</v-tab>
               </v-tabs>
               <v-subheader>Right Align</v-subheader>
               <v-tabs right>
-                <v-tab v-for="n in 3" :key="n"> Item {{ n }} </v-tab>
+                <v-tab v-for="n in 3" :key="n">Item {{ n }}</v-tab>
               </v-tabs>
               <v-subheader>Center Align</v-subheader>
               <v-tabs centered>
-                <v-tab v-for="n in 3" :key="n"> Item {{ n }} </v-tab>
+                <v-tab v-for="n in 3" :key="n">Item {{ n }}</v-tab>
               </v-tabs>
               <v-subheader>With menu</v-subheader>
               <v-tabs centered>
-                <v-tab v-for="n in 3" :key="n"> Item {{ n }} </v-tab>
+                <v-tab v-for="n in 3" :key="n">Item {{ n }}</v-tab>
                 <v-menu left bottom class="tabs__div" v-if="more.length">
                   <a class="tabs__item" slot="activator">
                     more
                     <v-icon>arrow_drop_down</v-icon>
                   </a>
                   <v-list class="grey lighten-3">
-                    <v-list-tile
-                      v-for="item in more"
-                      :key="item"
-                      @click="handleClick"
-                    >
-                      {{ item }}
-                    </v-list-tile>
+                    <v-list-tile v-for="item in more" :key="item" @click="handleClick">{{ item }}</v-list-tile>
                   </v-list>
                 </v-menu>
               </v-tabs>
@@ -77,9 +71,7 @@
                 </v-btn>
                 <v-tabs color="cyan" slot="extension" v-model="tab" grow>
                   <v-tabs-slider color="yellow"></v-tabs-slider>
-                  <v-tab v-for="item in items" :key="item">
-                    {{ item }}
-                  </v-tab>
+                  <v-tab v-for="item in items" :key="item">{{ item }}</v-tab>
                 </v-tabs>
               </v-toolbar>
               <v-tabs-items v-model="tab">
@@ -90,7 +82,7 @@
                 </v-tab-item>
               </v-tabs-items>
               <v-subheader>Mixed with toolbar2</v-subheader>
-              <v-toolbar tabs color="purple" dark="">
+              <v-toolbar tabs color="purple" dark>
                 <v-toolbar-side-icon></v-toolbar-side-icon>
                 <v-toolbar-title>Page title</v-toolbar-title>
                 <v-spacer></v-spacer>
@@ -100,12 +92,7 @@
                 <v-btn icon>
                   <v-icon>more_vert</v-icon>
                 </v-btn>
-                <v-tabs
-                  v-model="tabs"
-                  fixed-tabs
-                  color="transparent"
-                  slot="extension"
-                >
+                <v-tabs v-model="tabs" fixed-tabs color="transparent" slot="extension">
                   <v-tabs-slider></v-tabs-slider>
                   <v-tab href="#mobile-tabs-5-1" class="primary--text">
                     <v-icon>phone</v-icon>

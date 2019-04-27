@@ -16,10 +16,7 @@
                     <v-container grid-list-md>
                       <v-layout wrap>
                         <v-flex xs12 sm6 md4>
-                          <v-text-field
-                            label="Legal first name"
-                            required
-                          ></v-text-field>
+                          <v-text-field label="Legal first name" required></v-text-field>
                         </v-flex>
                         <v-flex xs12 sm6 md4>
                           <v-text-field
@@ -39,18 +36,10 @@
                           <v-text-field label="Email" required></v-text-field>
                         </v-flex>
                         <v-flex xs12>
-                          <v-text-field
-                            label="Password"
-                            type="password"
-                            required
-                          ></v-text-field>
+                          <v-text-field label="Password" type="password" required></v-text-field>
                         </v-flex>
                         <v-flex xs12 sm6>
-                          <v-select
-                            label="Age"
-                            required
-                            :items="['0-17', '18-29', '30-54', '54+']"
-                          ></v-select>
+                          <v-select label="Age" required :items="['0-17', '18-29', '30-54', '54+']"></v-select>
                         </v-flex>
                         <v-flex xs12 sm6>
                           <v-select
@@ -77,18 +66,8 @@
                   </v-card-text>
                   <v-card-actions>
                     <v-spacer></v-spacer>
-                    <v-btn
-                      color="blue darken-1"
-                      flat
-                      @click.native="basic.dialog = false"
-                      >Close</v-btn
-                    >
-                    <v-btn
-                      color="blue darken-1"
-                      flat
-                      @click.native="basic.dialog = false"
-                      >Save</v-btn
-                    >
+                    <v-btn color="blue darken-1" flat @click.native="basic.dialog = false">Close</v-btn>
+                    <v-btn color="blue darken-1" flat @click.native="basic.dialog = false">Save</v-btn>
                   </v-card-actions>
                 </v-card>
               </v-dialog>
@@ -113,9 +92,7 @@
                     <v-toolbar-title>Settings</v-toolbar-title>
                     <v-spacer></v-spacer>
                     <v-toolbar-items>
-                      <v-btn dark flat @click.native="dialog = false"
-                        >Save</v-btn
-                      >
+                      <v-btn dark flat @click.native="dialog = false">Save</v-btn>
                     </v-toolbar-items>
                   </v-toolbar>
                   <v-list three-line subheader>
@@ -123,19 +100,19 @@
                     <v-list-tile avatar>
                       <v-list-tile-content>
                         <v-list-tile-title>Content filtering</v-list-tile-title>
-                        <v-list-tile-sub-title
-                          >Set the content filtering level to restrict apps that
-                          can be downloaded</v-list-tile-sub-title
-                        >
+                        <v-list-tile-sub-title>
+                          Set the content filtering level to restrict apps that
+                          can be downloaded
+                        </v-list-tile-sub-title>
                       </v-list-tile-content>
                     </v-list-tile>
                     <v-list-tile avatar>
                       <v-list-tile-content>
                         <v-list-tile-title>Password</v-list-tile-title>
-                        <v-list-tile-sub-title
-                          >Require password for purchase or use password to
-                          restrict purchase</v-list-tile-sub-title
-                        >
+                        <v-list-tile-sub-title>
+                          Require password for purchase or use password to
+                          restrict purchase
+                        </v-list-tile-sub-title>
                       </v-list-tile-content>
                     </v-list-tile>
                   </v-list>
@@ -144,16 +121,14 @@
                     <v-subheader>General</v-subheader>
                     <v-list-tile avatar>
                       <v-list-tile-action>
-                        <v-checkbox
-                          v-model="fullscreen.notifications"
-                        ></v-checkbox>
+                        <v-checkbox v-model="fullscreen.notifications"></v-checkbox>
                       </v-list-tile-action>
                       <v-list-tile-content>
                         <v-list-tile-title>Notifications</v-list-tile-title>
-                        <v-list-tile-sub-title
-                          >Notify me about updates to apps or games that I
-                          downloaded</v-list-tile-sub-title
-                        >
+                        <v-list-tile-sub-title>
+                          Notify me about updates to apps or games that I
+                          downloaded
+                        </v-list-tile-sub-title>
                       </v-list-tile-content>
                     </v-list-tile>
                     <v-list-tile avatar>
@@ -162,10 +137,10 @@
                       </v-list-tile-action>
                       <v-list-tile-content>
                         <v-list-tile-title>Sound</v-list-tile-title>
-                        <v-list-tile-sub-title
-                          >Auto-update apps at any time. Data charges may
-                          apply</v-list-tile-sub-title
-                        >
+                        <v-list-tile-sub-title>
+                          Auto-update apps at any time. Data charges may
+                          apply
+                        </v-list-tile-sub-title>
                       </v-list-tile-content>
                     </v-list-tile>
                     <v-list-tile avatar>
@@ -174,10 +149,10 @@
                       </v-list-tile-action>
                       <v-list-tile-content>
                         <v-list-tile-title>Auto-add widgets</v-list-tile-title>
-                        <v-list-tile-sub-title
-                          >Automatically add home screen
-                          widgets</v-list-tile-sub-title
-                        >
+                        <v-list-tile-sub-title>
+                          Automatically add home screen
+                          widgets
+                        </v-list-tile-sub-title>
                       </v-list-tile-content>
                     </v-list-tile>
                   </v-list>
@@ -189,11 +164,7 @@
         <v-flex xl4>
           <v-widget title="Scrollable Dialog">
             <div slot="widget-content">
-              <v-dialog
-                v-model="scrollable.dialog"
-                scrollable
-                max-width="300px"
-              >
+              <v-dialog v-model="scrollable.dialog" scrollable max-width="300px">
                 <v-btn color="primary" dark slot="activator">Open Dialog</v-btn>
                 <v-card>
                   <v-card-title>Select Country</v-card-title>
@@ -210,10 +181,7 @@
                       <v-radio label="Benin" value="benin"></v-radio>
                       <v-radio label="Bhutan" value="bhutan"></v-radio>
                       <v-radio label="Bolivia" value="bolivia"></v-radio>
-                      <v-radio
-                        label="Bosnia and Herzegovina"
-                        value="bosnia"
-                      ></v-radio>
+                      <v-radio label="Bosnia and Herzegovina" value="bosnia"></v-radio>
                       <v-radio label="Botswana" value="botswana"></v-radio>
                       <v-radio label="Brazil" value="brazil"></v-radio>
                       <v-radio label="Brunei" value="brunei"></v-radio>
@@ -229,14 +197,8 @@
                       color="blue darken-1"
                       flat
                       @click.native="scrollable.dialog = false"
-                      >Close</v-btn
-                    >
-                    <v-btn
-                      color="blue darken-1"
-                      flat
-                      @click.native="scrollable.dialog = false"
-                      >Save</v-btn
-                    >
+                    >Close</v-btn>
+                    <v-btn color="blue darken-1" flat @click.native="scrollable.dialog = false">Save</v-btn>
                   </v-card-actions>
                 </v-card>
               </v-dialog>

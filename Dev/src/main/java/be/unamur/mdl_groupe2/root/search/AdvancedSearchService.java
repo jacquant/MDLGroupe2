@@ -30,13 +30,6 @@ public class AdvancedSearchService {
                 case "keywords":
                     articleRepository.findArticleWithTag(v);
                     break;
-                case "index":
-                    //TODO
-                    break;
-                case "number":
-                    //TODO
-                    break;
-                //TODO other case
                 default:
                     new SimpleSearchService(v);
                     break;

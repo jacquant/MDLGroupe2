@@ -9,8 +9,7 @@
                 <v-chip color="indigo" text-color="white">
                   <v-avatar>
                     <v-icon>account_circle</v-icon>
-                  </v-avatar>
-                  Ranee
+                  </v-avatar>Ranee
                 </v-chip>
                 <v-chip color="orange" text-color="white">
                   Premium
@@ -21,14 +20,12 @@
                   <v-icon right>cake</v-icon>
                 </v-chip>
                 <v-chip color="green" text-color="white">
-                  <v-avatar class="green darken-4">1</v-avatar>
-                  Years
+                  <v-avatar class="green darken-4">1</v-avatar>Years
                 </v-chip>
                 <v-chip close v-model="chip1" color="teal" text-color="white">
                   <v-avatar>
                     <v-icon>check_circle</v-icon>
-                  </v-avatar>
-                  Confirmed
+                  </v-avatar>Confirmed
                 </v-chip>
               </div>
             </div>
@@ -82,18 +79,13 @@
                     <div class="text-xs-center">
                       <v-chip close>
                         <v-avatar>
-                          <img
-                            src="https://randomuser.me/api/portraits/men/35.jpg"
-                            alt="trevor"
-                          />
-                        </v-avatar>
-                        Trevor Hansen
+                          <img src="https://randomuser.me/api/portraits/men/35.jpg" alt="trevor">
+                        </v-avatar>Trevor Hansen
                       </v-chip>
                     </div>
                     <div class="text-xs-center">
                       <v-chip>
-                        <v-avatar class="teal">A</v-avatar>
-                        ANZ Bank
+                        <v-avatar class="teal">A</v-avatar>ANZ Bank
                       </v-chip>
                     </div>
                   </v-flex>
@@ -109,18 +101,13 @@
                 tags
                 solo
                 prepend-icon="filter_list"
-                append-icon=""
+                append-icon
                 clearable
                 v-model="chips"
               >
                 <template slot="selection" slot-scope="data">
-                  <v-chip
-                    close
-                    @input="remove(data.item)"
-                    :selected="data.selected"
-                  >
-                    <strong>{{ data.item }}</strong
-                    >&nbsp;
+                  <v-chip close @input="remove(data.item)" :selected="data.selected">
+                    <strong>{{ data.item }}</strong>&nbsp;
                     <span>(interest)</span>
                   </v-chip>
                 </template>

@@ -10,7 +10,7 @@
                   <v-icon dark>account_circle</v-icon>
                 </v-avatar>
                 <v-avatar>
-                  <img src="/static/avatar/me.jpeg" alt="John" />
+                  <img src="/static/avatar/me.jpeg" alt="John">
                 </v-avatar>
                 <v-badge overlap>
                   <span slot="badge">3</span>
@@ -34,29 +34,21 @@
               <v-layout justify-center column class="ma-0">
                 <v-subheader>Today</v-subheader>
                 <v-expansion-panel popout>
-                  <v-expansion-panel-content
-                    hide-actions
-                    v-for="(message, i) in messages"
-                    :key="i"
-                  >
+                  <v-expansion-panel-content hide-actions v-for="(message, i) in messages" :key="i">
                     <v-layout align-center row spacer slot="header">
                       <v-flex xs4 sm2 md1>
                         <v-avatar size="36px" slot="activator">
-                          <img
-                            src="/static/avatar/me.jpeg"
-                            alt=""
-                            v-if="message.avatar"
-                          />
-                          <v-icon :color="message.color" v-else>{{
+                          <img src="/static/avatar/me.jpeg" alt v-if="message.avatar">
+                          <v-icon :color="message.color" v-else>
+                            {{
                             message.icon
-                          }}</v-icon>
+                            }}
+                          </v-icon>
                         </v-avatar>
                       </v-flex>
                       <v-flex sm5 md3 hidden-xs-only>
-                        <strong v-html="message.name" />
-                        <span class="grey--text" v-if="message.total"
-                          >&nbsp;({{ message.total }})</span
-                        >
+                        <strong v-html="message.name"/>
+                        <span class="grey--text" v-if="message.total">&nbsp;({{ message.total }})</span>
                       </v-flex>
                       <v-flex no-wrap xs5 sm3>
                         <v-chip
@@ -65,16 +57,10 @@
                           :color="`${message.color} lighten-4`"
                           class="ml-0"
                           v-if="message.new"
-                          >{{ message.new }} new</v-chip
-                        >
-                        <strong v-html="message.title" />
+                        >{{ message.new }} new</v-chip>
+                        <strong v-html="message.title"/>
                       </v-flex>
-                      <v-flex
-                        class="grey--text"
-                        ellipsis
-                        hidden-sm-and-down
-                        v-if="message.excerpt"
-                      >
+                      <v-flex class="grey--text" ellipsis hidden-sm-and-down v-if="message.excerpt">
                         &mdash;
                         {{ message.excerpt }}
                       </v-flex>
@@ -95,30 +81,12 @@
               <v-container grid-list-md>
                 <v-layout row wrap>
                   <v-flex xs12 sm6 md4>
-                    <v-slider
-                      v-model="slider"
-                      :min="16"
-                      :max="256"
-                      label="Size"
-                      thumb-label
-                    ></v-slider>
+                    <v-slider v-model="slider" :min="16" :max="256" label="Size" thumb-label></v-slider>
                     <v-switch label="Tile" v-model="tile"></v-switch>
                   </v-flex>
-                  <v-flex
-                    xs12
-                    sm6
-                    md8
-                    text-xs-center
-                    layout
-                    align-center
-                    justify-center
-                  >
-                    <v-avatar
-                      :tile="tile"
-                      :size="avatarSize"
-                      class="grey lighten-4"
-                    >
-                      <img src="/static/avatar/me.jpeg" alt="avatar" />
+                  <v-flex xs12 sm6 md8 text-xs-center layout align-center justify-center>
+                    <v-avatar :tile="tile" :size="avatarSize" class="grey lighten-4">
+                      <img src="/static/avatar/me.jpeg" alt="avatar">
                     </v-avatar>
                   </v-flex>
                 </v-layout>

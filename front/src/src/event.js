@@ -17,6 +17,18 @@ export default [
     }
   },
   {
+    name: "APP_PERSONAL_PAGE",
+    callback: function() {
+      this.$router.push({ path: "/personalpage" });
+    }
+  },
+  {
+    name: "APP_SETTINGS",
+    callback: function() {
+      this.$router.push({ path: "/editpassword" });
+    }
+  },
+  {
     name: "APP_PAGE_LOADED",
     callback: function() {}
   },

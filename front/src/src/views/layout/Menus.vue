@@ -15,65 +15,41 @@
                       :nudge-right="nudge.right"
                       :nudge-top="nudge.top"
                     >
-                      <v-btn slot="activator" dark color="primary">
-                        Menu Offset Bottom
-                      </v-btn>
+                      <v-btn slot="activator" dark color="primary">Menu Offset Bottom</v-btn>
                       <v-list>
-                        <v-list-tile
-                          v-for="(item, key) in items"
-                          :key="key"
-                          @click="handleClick"
-                        >
-                          <v-list-tile-title>{{
+                        <v-list-tile v-for="(item, key) in items" :key="key" @click="handleClick">
+                          <v-list-tile-title>
+                            {{
                             item.title
-                          }}</v-list-tile-title>
+                            }}
+                          </v-list-tile-title>
                         </v-list-tile>
                       </v-list>
                     </v-menu>
                     <v-menu offset-y top>
-                      <v-btn slot="activator" dark color="primary">
-                        Menu Offset Top
-                      </v-btn>
+                      <v-btn slot="activator" dark color="primary">Menu Offset Top</v-btn>
                       <v-list>
-                        <v-list-tile
-                          v-for="(item, key) in items"
-                          :key="key"
-                          @click="handleClick"
-                        >
-                          <v-list-tile-title>{{
+                        <v-list-tile v-for="(item, key) in items" :key="key" @click="handleClick">
+                          <v-list-tile-title>
+                            {{
                             item.title
-                          }}</v-list-tile-title>
+                            }}
+                          </v-list-tile-title>
                         </v-list-tile>
                       </v-list>
                     </v-menu>
                   </v-flex>
                   <v-flex xs12>
-                    <v-slider
-                      label="Top offset"
-                      :max="50"
-                      v-model="nudge.top"
-                    ></v-slider>
+                    <v-slider label="Top offset" :max="50" v-model="nudge.top"></v-slider>
                   </v-flex>
                   <v-flex xs12>
-                    <v-slider
-                      label="Bottom offset"
-                      :max="50"
-                      v-model="nudge.bottom"
-                    ></v-slider>
+                    <v-slider label="Bottom offset" :max="50" v-model="nudge.bottom"></v-slider>
                   </v-flex>
                   <v-flex xs12>
-                    <v-slider
-                      label="Left offset"
-                      :max="50"
-                      v-model="nudge.left"
-                    ></v-slider>
+                    <v-slider label="Left offset" :max="50" v-model="nudge.left"></v-slider>
                   </v-flex>
                   <v-flex xs12>
-                    <v-slider
-                      label="Right offset"
-                      :max="50"
-                      v-model="nudge.right"
-                    ></v-slider>
+                    <v-slider label="Right offset" :max="50" v-model="nudge.right"></v-slider>
                   </v-flex>
                 </v-layout>
               </v-container>
