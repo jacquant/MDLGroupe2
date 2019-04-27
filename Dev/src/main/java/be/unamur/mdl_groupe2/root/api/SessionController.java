@@ -21,7 +21,7 @@ import be.unamur.mdl_groupe2.root.models.user.*;
 import static be.unamur.mdl_groupe2.root.models.response.OperationResponse.*;
 
 /*
-This is a dummy rest controller, for the purpose of documentation (/session) path is map to a filter
+This is a dummy rest synonyme, for the purpose of documentation (/session) path is map to a filter
  - This will only be invoked if security is disabled
  - If Security is enabled then SessionFilter.java is invoked
  - Enabling and Disabling Security is done at config/applicaton.properties 'security.ignored=/**'
