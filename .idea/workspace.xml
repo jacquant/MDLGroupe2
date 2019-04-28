@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1665df2b-97e4-4167-b215-4f27df40fb8b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/src/views/result_page_matrice.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/src/views/result_page_matrice.vue" afterDir="false" />
-    </list>
+    <list default="true" id="1665df2b-97e4-4167-b215-4f27df40fb8b" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -253,7 +250,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="270" y="73" width="1349" height="925" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24485126" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
