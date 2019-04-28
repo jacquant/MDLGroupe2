@@ -1,5 +1,5 @@
 <template>
-  <div id="result_page_matrice">
+  <div id="result_page">
     <v-container grid-list-xl fluid>
       <!--v-layout row wrap>
                 <div style="float:left; vertical-align: top;">
@@ -32,10 +32,11 @@
                           name="author"
                           v-model="authors"
                           :items="itemsAuthor"
-                          attach
+                         
                           chips
                           label="Select Author(s)"
                           multiple
+                          width="200px"
 
                   ></v-select>
                 </v-card-actions>
@@ -69,11 +70,11 @@
           </td>
 
           <td valign="top" width="80%">
-            <h2 class="flex my-4 primary--text">Research Result (88888)</h2>
+            <h2 class="flex my-4 primary--text">Research Result ({{searchfound()}})</h2>
             <br />
             <div id="listResult" valign="top">
-              <v-list one-line>
-                <template v-for="(item, index) in items">
+              <v-list one-line  >
+                <template  v-for="(item, index) in items">
                   <v-subheader
                           v-if="item.header"
                           :key="item.header"
@@ -91,7 +92,7 @@
                           v-else
                           :key="item.id"
                           avatar
-                          @click='selectTrack(item.id)'
+                          @click='selectTrack(item)'
 
                   >
                     <!--v-list-tile-avatar>
@@ -158,61 +159,113 @@
 </template>
 
 <script>
+    var id,title,author,abstract;
+
 export default {
   data: () => ({
     loading: false,
     page:1,
-    itemsAuthor: ['author1', 'author2', 'author3', 'author4','author5'],
 
 
-    items: [
+    itemsAuthor: [],
+      items: [],
 
-      {
-        //avatar: '../assets/iconA.png',
-        id:1,
-        title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo',
-        },
-      { divider: true, inset: true },
-      {
-        //avatar: '../assets/iconA.png',
-        id:2,
-        title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo',
-      },
-      { divider: true, inset: true },
-      {
-        //avatar: '../assets/iconA.png',
-        id:3,
-        title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo',
-      },
-      {
-        //avatar: '../assets/iconA.png',
-        id:4,
-        title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo',
-      },
-      {
-        //avatar: '../assets/iconA.png',
-        id:5,
-        title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo',
-      },
-      {
-        //avatar: '../assets/iconA.png',
-        id:6,
-        title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo',
-      }
-    ],
-    model: {
-      username: "",
-      password: "",
+      model: {
+         //items:this.$route.params.data,
 
     }
   }),
 
   methods: {
+
+    searchfound() {
+       var inputedText=this.$route.query.data;
+       var thedata;
+        //var thedata2=28;
+        const axios = require('axios');
+
+// Make a request for a user with a given ID
+        axios.get('http://mdl-std02.info.fundp.ac.be:8181/MdlGroupe2-test/api/QuickSearch?keyword='+inputedText)
+            .then(function (response) {
+                // handle success
+                //thedata=response;
+              console.log("la réponse:"+response);
+            })
+            .catch(function (error) {
+                // handle error
+                console.log(error);
+            })
+            .then(function () {
+                // always executed
+            });
+
+        thedata= [
+
+            {
+                //avatar: '../assets/iconA.png',
+                id:1,
+                author:"Emmanuel AGOSSOU",
+                title: 'Lorem ipsum25662 dolor sit amet, consectetur adipiscing elit, seddo ',
+                abstract: 'Voici le abstact 1 ',
+            },
+
+            {
+                //avatar: '../assets/iconA.png',
+                id:2,
+                author:"Paul LIYA, LOKo Ray",
+                title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo',
+                abstract: 'Voici le abstact 2',
+            },
+
+            {
+                //avatar: '../assets/iconA.png',
+                id:3,
+                author:"Rowlins,J",
+                title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo',
+                abstract: 'Voici le abstact 3',
+            },
+            {
+                //avatar: '../assets/iconA.png',
+                id:4,
+                author:"Paul LIYA",
+                title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo',
+                abstract: 'Voici le abstact 4',
+            },
+            {
+                //avatar: '../assets/iconA.png',
+                id:5,
+                author:"Emmanuel AGOSSOU",
+                title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo',
+                abstract: 'Voici le abstact 5',
+            },
+            {
+                //avatar: '../assets/iconA.png',
+                id:6,
+                author:"LAFONT Jane",
+                title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo',
+                abstract: 'Voici le abstact 6',
+            }
+        ];
+
+
+  this.items=thedata;
+  var taille=this.items.length;
+      for (i = 0; i < taille; i++) {
+        this.itemsAuthor[i] = this.items[i].author;
+      }
+       return taille;
+    },
+
     classic() {
+
       this.loading = true;
-      setTimeout(() => {
-        this.$router.push("/etatdelart");
-      }, 1000);
+        setTimeout(() => {
+            this.$router.push({
+                path: '/etatdelart',
+                query: {id: id,title:title,author:author,abstract:abstract},
+                //query: {...},
+                //moreData: {foo: 1}
+            })}, 1000);
     },
 
     visual() {
@@ -224,17 +277,33 @@ export default {
 
     matrice() {
       this.loading = true;
-      setTimeout(() => {
-        this.$router.push("/result_page_matrice");
-      }, 1000);
+        setTimeout(() => {
+            this.$router.push({
+                path: '/result_page_matrice',
+                query: {id: id,title:title,author:author,abstract:abstract},
+                //query: {...},
+                //moreData: {foo: 1}
+            })}, 1000);
     },
-    selectTrack(Id){
-      setTimeout(() => {
-        this.$router.push("/etatdelart?id="+Id);
-      }, 1000);
+    selectTrack(item){
+      id=item.id;
+       title=item.title;
+      author=item.author;
+        abstract=item.abstract;
+
+        setTimeout(() => {
+            this.$router.push({
+                path: '/etatdelart',
+                query: {id: id,title:title,author:author,abstract:abstract},
+                //query: {...},
+                //moreData: {foo: 1}
+            })}, 1000);
+
+
     }
   }
 };
+
 
 
 

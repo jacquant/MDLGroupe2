@@ -14,7 +14,7 @@
             <div id="result" style="width:100%; margin-left:30px">
               <h2 style="vertical-align: top; color:blue;">State of art</h2>
               <h3>
-                <b>Title: Le passage de Lorem Ipsum standard, utilisé depuis 1500</b>
+                <b>Title: {{getTitle()}}</b>
               </h3>
               <br>
               <h3>
@@ -51,14 +51,14 @@
           <td valign="top" width="20%">
             <div style="border:1px solid black; margin-top:5px; ">
               <div style="margin-top:10px; margin-left:5px;">
-                <b>
-                  <u>Author(s):</u>
-                </b> .......
+
+                    <b><u>Author(s):</u> </b> {{getAuthor()}}
+
                 <br>
                 <br>
-                <b>
-                  <u>Published:</u>
-                </b> ........
+
+                    <b> <u>Published:</u></b>{{getPublish()}}
+
                 <br>
                 <br>
                 <b>
@@ -73,79 +73,108 @@
         </tr>
       </table>
 
-      <template>
-        <div>
-          <v-tabs v-model="active" color="cyan" dark slider-color="yellow">
-            <v-tab ripple>Related articles</v-tab>
+        <template>
+            <v-tabs
+                    color="cyan"
+                    dark
+                    icons-and-text
+            >
+                <v-tabs-slider color="yellow"></v-tabs-slider>
 
-            <v-tab ripple>Video</v-tab>
-            <v-tab ripple>Comments</v-tab>
+                <v-tab href="#tab-1">
+                    Related Articles
 
-            <v-tab-item>
-              <v-card flat>
-                <v-card-text>{{ relatedArticle }}</v-card-text>
-              </v-card>
-            </v-tab-item>
+                </v-tab>
 
-            <v-tab-item>
-              <v-card flat>
-                <v-card-text>{{ video }}</v-card-text>
-              </v-card>
-            </v-tab-item>
+                <v-tab href="#tab-2">
+                    Video
 
-            <v-tab-item>
-              <v-card flat>
-                <v-card-text>{{ comments }}</v-card-text>
-              </v-card>
-            </v-tab-item>
-          </v-tabs>
+                </v-tab>
 
-          <div class="text-xs-center mt-3">
-            <v-btn @click="next">next tab</v-btn>
-          </div>
-        </div>
-      </template>
+                <v-tab href="#tab-3">
+                    Comments
+
+                </v-tab>
+
+                <v-tab-item
+                        v-for="i in 3"
+                        :key="i"
+                        :value="'tab-' + i"
+                >
+                    <v-card flat>
+                        <v-card-text>{{ text[i-1] }}</v-card-text>
+                    </v-card>
+                </v-tab-item>
+            </v-tabs>
+        </template>
     </v-container>
   </div>
 </template>
 
 <script>
+    var id,title,author,the_abstract;
 export default {
   data() {
 
-    return {
-      active: null,
-      relatedArticle: " Related articles here",
-      comments: " Comments here",
-      video: " Video  here"
-    };
+      return {
+
+
+          text:["Related articles here","video here","comments here"]
+      }
   },
+    model: {
+
+    },
 
   methods: {
-    classic() {
-      this.loading = true;
-      setTimeout(() => {
-        this.$router.push("/etatdelart");
-      }, 1000);
-    },
 
-    visual() {
-      this.loading = true;
-      setTimeout(() => {
-        this.$router.push("/visual");
-      }, 1000);
-    },
+      getTitle() {
+          this.abstract=this.$route.query.abstract;
 
-    matrice() {
-      this.loading = true;
-      setTimeout(() => {
-        this.$router.push("/result_page_matrice");
-      }, 1000);
-    },
-    next() {
-      const active = parseInt(this.active);
-      this.active = active < 2 ? active + 1 : 0;
-    }
+          id=this.$route.query.id;
+          title=this.$route.query.title;
+          author=this.$route.query.author;
+          the_abstract=this.abstract;
+
+          return this.$route.query.title;
+      },
+      getAuthor() {
+          return this.$route.query.author;
+      },
+      getPublish() {
+          return this.$route.query.id;
+      },
+      classic() {
+
+          this.loading = true;
+          setTimeout(() => {
+              this.$router.push({
+                  path: '/etatdelart',
+                  query: {id: id,title:title,author:author,the_abstract:the_abstract},
+                  //query: {...},
+                  //moreData: {foo: 1}
+              })}, 1000);
+      },
+
+      visual() {
+          this.loading = true;
+          setTimeout(() => {
+              this.$router.push("/visual");
+          }, 1000);
+      },
+
+
+      matrice() {
+          this.loading = true;
+          setTimeout(() => {
+              this.$router.push({
+                  path: '/result_page_matrice',
+                  query: {id: id,title:title,author:author,the_abstract:the_abstract},
+                  //query: {...},
+                  //moreData: {foo: 1}
+              })}, 1000);
+      },
+
   }
 };
 </script>
