@@ -15,7 +15,7 @@
       </v-card-actions>
       <h2 class="flex my-4 primary--text">Result page - Matrice</h2>
       <h3>
-          <b><u>Title:</u> {{getTitle()}}</b>
+        <b><u>Title:</u> {{getTitle()}}</b>
       </h3>
 
       <div id="table_matrice">
@@ -61,109 +61,92 @@
 </template>
 
 <script>
-    var id,title,author,the_abstract;
-
-export default {
- /*
-       data() {
-           return {
-
-               headers: [
-                   {
-                       text: 'References',
-                       align: 'left',
-                       sortable: false,
-                       value: 'name'
-                   },
-                   {text: 'Criteria1', value: 'Criteria1'},
-                   {text: 'Criteria2', value: 'Criteria2'},
-                   {text: 'Criteria3', value: 'Criteria3'},
-                   {text: 'Criteria4', value: 'Criteria4'}
-               ],
-
-               results: [
-                   {
-                       name: 'Ref1',
-                       Criteria1: v,
-                       Criteria2: v,
-                       Criteria3: x,
-                       Criteria4: x,
-
-                   },
-                   {
-                       name: 'Ref2',
-                       Criteria1: v,
-                       Criteria2: x,
-                       Criteria3: v,
-                       Criteria4: v,
-
-                   },
-                   {
-                       name: 'Ref3',
-                       Criteria1: v,
-                       Criteria2: x,
-                       Criteria3: x,
-                       Criteria4: v,
-
-                   },
-
-               ]
-
-
-           }
-       },*/
-
-  methods: {
+  var id,title,author,the_abstract;
+  export default {
+    /*
+          data() {
+              return {
+                  headers: [
+                      {
+                          text: 'References',
+                          align: 'left',
+                          sortable: false,
+                          value: 'name'
+                      },
+                      {text: 'Criteria1', value: 'Criteria1'},
+                      {text: 'Criteria2', value: 'Criteria2'},
+                      {text: 'Criteria3', value: 'Criteria3'},
+                      {text: 'Criteria4', value: 'Criteria4'}
+                  ],
+                  results: [
+                      {
+                          name: 'Ref1',
+                          Criteria1: v,
+                          Criteria2: v,
+                          Criteria3: x,
+                          Criteria4: x,
+                      },
+                      {
+                          name: 'Ref2',
+                          Criteria1: v,
+                          Criteria2: x,
+                          Criteria3: v,
+                          Criteria4: v,
+                      },
+                      {
+                          name: 'Ref3',
+                          Criteria1: v,
+                          Criteria2: x,
+                          Criteria3: x,
+                          Criteria4: v,
+                      },
+                  ]
+              }
+          },*/
+    methods: {
       getTitle() {
-
-          id=this.$route.query.id;
-          title=this.$route.query.title;
-          author=this.$route.query.author;
-          the_abstract=this.$route.query.the_abstract;
-
-          return title;
+        id=this.$route.query.id;
+        title=this.$route.query.title;
+        author=this.$route.query.author;
+        the_abstract=this.$route.query.the_abstract;
+        return title;
       },
       classic() {
-
-          this.loading = true;
-          setTimeout(() => {
-              this.$router.push({
-                  path: '/etatdelart',
-                  query: {id: id,title:title,author:author,the_abstract:the_abstract},
-                  //query: {...},
-                  //moreData: {foo: 1}
-              })}, 1000);
+        this.loading = true;
+        setTimeout(() => {
+          this.$router.push({
+            path: '/etatdelart',
+            query: {id: id,title:title,author:author,the_abstract:the_abstract},
+            //query: {...},
+            //moreData: {foo: 1}
+          })}, 1000);
       },
-
       visual() {
-          this.loading = true;
-          setTimeout(() => {
-              this.$router.push("/visual");
-          }, 1000);
+        this.loading = true;
+        setTimeout(() => {
+          this.$router.push("/visual");
+        }, 1000);
       },
-
-
       matrice() {
-          this.loading = true;
-          setTimeout(() => {
-              this.$router.push({
-                  path: '/result_page_matrice',
-                  query: {id: id,title:title,author:author,the_abstract:the_abstract},
-                  //query: {...},
-                  //moreData: {foo: 1}
-              })}, 1000);
+        this.loading = true;
+        setTimeout(() => {
+          this.$router.push({
+            path: '/result_page_matrice',
+            query: {id: id,title:title,author:author,the_abstract:the_abstract},
+            //query: {...},
+            //moreData: {foo: 1}
+          })}, 1000);
       },
-
-  }
-};
+    }
+  };
 </script>
 <style scoped lang="css">
-.active_btn {
-  width: 40px;
-  background-color: deepskyblue;
-  color: red;
-}
-.btn {
-  width: 40px;
-}
+  .active_btn {
+    width: 40px;
+    background-color: deepskyblue;
+    color: red;
+  }
+  .btn {
+    width: 40px;
+  }
 </style>

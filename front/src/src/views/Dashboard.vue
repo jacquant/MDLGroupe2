@@ -7,6 +7,7 @@
     <div style="margin-right: 100px; margin-left: 100px; width:80%;" >
 
       <v-text-field
+<<<<<<< HEAD
               flat
               solo-inverted
               prepend-icon="search"
@@ -17,6 +18,40 @@
               v-on:keyup.enter="validateResearch"
       >
       </v-text-field>
+=======
+       flat
+       solo-inverted
+       prepend-icon="search"
+       label=""
+
+       name="Search"
+       v-model="searchedInput"
+       v-on:keyup="wordCloudDisplay"
+       v-on:keyup.enter="validateResearch"
+      >
+      </v-text-field>
+
+      <template>
+        <div id="app" hidden>
+          <wordcloud
+                  :data="defaultWords"
+                  nameKey="name"
+                  valueKey="value"
+                  :color="myColors"
+                  :showTooltip="true"
+                  :wordClick="wordClickHandler">
+          </wordcloud>
+        </div>
+      </template>
+
+
+      <vue-word-cloud
+              :words="[['romance', 19], ['horror', 3], ['fantasy', 7], ['adventure', 3]]"
+              :color="([, weight]) => weight > 10 ? 'DeepPink' : weight > 5 ? 'RoyalBlue' : 'Indigo'"
+              font-family="Roboto"
+      ></vue-word-cloud>
+
+>>>>>>> 89efe9a2f9bf254c55e7a9c30ade34d34cc64ad0
     </div>
     <div class="text-xs-center">
       <v-btn outline color="indigo" @click="advancedSearch" >Advanced Search</v-btn>
@@ -45,6 +80,11 @@
   import CircleStatistic from "@/components/widgets/statistic/CircleStatistic";
   import LinearStatistic from "@/components/widgets/statistic/LinearStatistic";
   import axios from "axios";
+<<<<<<< HEAD
+=======
+  import VueWordCloud from 'vuewordcloud';
+  import wordcloud from 'vue-wordcloud'
+>>>>>>> 89efe9a2f9bf254c55e7a9c30ade34d34cc64ad0
 
 
 export default {
@@ -62,101 +102,24 @@ export default {
     CircleStatistic,
     LinearStatistic,
     PlainTable,
+<<<<<<< HEAD
     PlainTableOrder
+=======
+    PlainTableOrder,
+    [VueWordCloud.name]: VueWordCloud
+
+>>>>>>> 89efe9a2f9bf254c55e7a9c30ade34d34cc64ad0
   },
   data: () => ({
 
     color: Material,
     selectedTab: "tab-1",
-    linearTrending: [
-      {
-        subheading: "Sales",
-        headline: "2,55",
-        caption: "increase",
-        percent: 15,
-        icon: {
-          label: "trending_up",
-          color: "success"
-        },
-        linear: {
-          value: 15,
-          color: "success"
-        }
-      },
-      {
-        subheading: "Revenue",
-        headline: "6,553",
-        caption: "increase",
-        percent: 10,
-        icon: {
-          label: "trending_down",
-          color: "error"
-        },
-        linear: {
-          value: 15,
-          color: "error"
-        }
-      },
-      {
-        subheading: "Orders",
-        headline: "5,00",
-        caption: "increase",
-        percent: 50,
-        icon: {
-          label: "arrow_upward",
-          color: "info"
-        },
-        linear: {
-          value: 50,
-          color: "info"
-        }
-      }
-    ],
-    trending: [
-      {
-        subheading: "Email",
-        headline: "15+",
-        caption: "email opens",
-        percent: 15,
-        icon: {
-          label: "email",
-          color: "info"
-        },
-        linear: {
-          value: 15,
-          color: "info"
-        }
-      },
-      {
-        subheading: "Tasks",
-        headline: "90%",
-        caption: "tasks completed.",
-        percent: 90,
-        icon: {
-          label: "list",
-          color: "primary"
-        },
-        linear: {
-          value: 90,
-          color: "success"
-        }
-      },
-      {
-        subheading: "Issues",
-        headline: "100%",
-        caption: "issues fixed.",
-        percent: 100,
-        icon: {
-          label: "bug_report",
-          color: "primary"
-        },
-        linear: {
-          value: 100,
-          color: "error"
-        }
-      }
-    ]
+
+    myColors: ['#1f77b4', '#629fc9', '#94bedb', '#c9e0ef'],
+    defaultWords: [],
   }),
+
+
   computed: {
     activity() {
       return API.getActivity();
@@ -172,7 +135,13 @@ export default {
     }
   },
 
+  name: 'app',
+  components: {
+    wordcloud
+  },
+
   methods:{
+
     validateResearch: function(e) {
 
         var inputedText = this.searchedInput; // la variable inputedText contient la phrase entrée dans la barre de recherche
@@ -191,6 +160,57 @@ export default {
 
       this.log += e.key;
     },
+
+    wordCloudDisplay:function(e){
+      var inputedText = this.searchedInput; // The input word is in inputedText
+      //................... call your API synonym from here and send it the inputedText as parameter
+
+
+
+
+      //end of the call to API synonym. If the result of the call is good then get the synonyms if defaultWords
+      this.defaultWords= [{
+        "name": "Cat",
+        "value": 26
+      },
+        {
+          "name": "fish",
+          "value": 19
+        },
+        {
+          "name": "things",
+          "value": 18
+        },
+        {
+          "name": "look",
+          "value": 16
+        },
+        {
+          "name": "two",
+          "value": 15
+        },
+        {
+          "name": "fun",
+          "value": 9
+        },
+        {
+          "name": "know",
+          "value": 9
+        },
+        {
+          "name": "good",
+          "value": 9
+        },
+        {
+          "name": "play",
+          "value": 6
+        }
+      ];
+      if(inputedText!=null) document.getElementById("app").style.display="block";
+      else document.getElementById("app").style.display="none";
+
+    },
+
     advancedSearch() {
       this.loading = true;
       setTimeout(() => {
@@ -204,6 +224,12 @@ export default {
         this.$router.push("../advancedSearch");
       }, 1000);
     },
+
+
+    wordClickHandler(name, value, vm) {
+      console.log('wordClickHandler', name, value, vm);
+    }
+
 
   }
 };

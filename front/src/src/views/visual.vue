@@ -1,4 +1,4 @@
-<template>
+nn <template>
   <div id="visual">
     <v-card-actions>
       <v-spacer></v-spacer>
@@ -12,41 +12,32 @@
     </v-card-actions>
     <v-container grid-list-xl fluid>
       <v-layout row wrap>
-        <v-flex lg8 sm12 xs12>
-          <v-widget title="Site Traffic" content-bg="white">
+        <v-flex height="400px"   width="100%" >
+          <v-widget title="Graph of words" content-bg="white">
             <v-btn icon slot="widget-header-action">
               <v-icon class="text--secondary">refresh</v-icon>
             </v-btn>
             <div slot="widget-content">
-              <e-chart
-                :path-option="[
-                  ['dataset.source', siteTrafficData],
-                  ['color', [color.lightBlue.base, color.green.lighten1]],
-                  ['legend.show', true],
-                  ['xAxis.axisLabel.show', true],
-                  ['yAxis.axisLabel.show', true],
-                  ['grid.left', '2%'],
-                  ['grid.bottom', '5%'],
-                  ['grid.right', '3%'],
-                  ['series[0].type', 'bar'],
-                  ['series[0].areaStyle', {}],
-                  ['series[0].smooth', true],
-                  ['series[1].smooth', true],
-                  ['series[1].type', 'bar'],
-                  ['series[1].areaStyle', {}]
-                ]"
-                height="400px"
-                width="100%"
-              ></e-chart>
+
+
+
+
+
+
             </div>
           </v-widget>
         </v-flex>
-        <v-flex lg4 sm12 xs12>
-          <v-widget title="Top Location" content-bg="white">
-            <div slot="widget-content">
-              <e-chart
-                :path-option="[
-                  ['dataset.source', locationData],
+      </v-layout>
+
+
+
+      <v-layout>
+      <v-flex width="50%">
+        <v-widget title="Pie chart" content-bg="white">
+          <div slot="widget-content">
+            <e-chart
+                    :path-option="[
+                  ['dataset.source', pieChartData],
                   ['legend.bottom', '0'],
                   [
                     'color',
@@ -65,13 +56,31 @@
                   ['series[0].avoidLabelOverlap', true],
                   ['series[0].radius', ['50%', '70%']]
                 ]"
-                height="400px"
-                width="100%"
-              ></e-chart>
+                    height="400px"
+                    width="100%"
+            ></e-chart>
+          </div>
+        </v-widget>
+      </v-flex>
+
+
+
+        <v-flex width="50%">
+          <v-widget title="Cloud of words" content-bg="white">
+            <div slot="widget-content">
+
+
+
+
+
+
+
             </div>
           </v-widget>
         </v-flex>
-      </v-layout>
+
+        </v-layout>
+
       <div id="sigma-container"></div>
     </v-container>
   </div>
@@ -96,6 +105,7 @@ import BoxChart from "@/components/widgets/chart/BoxChart";
 import ChatWindow from "@/components/chat/ChatWindow";
 import CircleStatistic from "@/components/widgets/statistic/CircleStatistic";
 import LinearStatistic from "@/components/widgets/statistic/LinearStatistic";
+
 
 export default {
   data() {
@@ -149,94 +159,11 @@ export default {
   data: () => ({
     color: Material,
     selectedTab: "tab-1",
-    linearTrending: [
-      {
-        subheading: "Sales",
-        headline: "2,55",
-        caption: "increase",
-        percent: 15,
-        icon: {
-          label: "trending_up",
-          color: "success"
-        },
-        linear: {
-          value: 15,
-          color: "success"
-        }
-      },
-      {
-        subheading: "Revenue",
-        headline: "6,553",
-        caption: "increase",
-        percent: 10,
-        icon: {
-          label: "trending_down",
-          color: "error"
-        },
-        linear: {
-          value: 15,
-          color: "error"
-        }
-      },
-      {
-        subheading: "Orders",
-        headline: "5,00",
-        caption: "increase",
-        percent: 50,
-        icon: {
-          label: "arrow_upward",
-          color: "info"
-        },
-        linear: {
-          value: 50,
-          color: "info"
-        }
-      }
-    ],
-    trending: [
-      {
-        subheading: "Email",
-        headline: "15+",
-        caption: "email opens",
-        percent: 15,
-        icon: {
-          label: "email",
-          color: "info"
-        },
-        linear: {
-          value: 15,
-          color: "info"
-        }
-      },
-      {
-        subheading: "Tasks",
-        headline: "90%",
-        caption: "tasks completed.",
-        percent: 90,
-        icon: {
-          label: "list",
-          color: "primary"
-        },
-        linear: {
-          value: 90,
-          color: "success"
-        }
-      },
-      {
-        subheading: "Issues",
-        headline: "100%",
-        caption: "issues fixed.",
-        percent: 100,
-        icon: {
-          label: "bug_report",
-          color: "primary"
-        },
-        linear: {
-          value: 100,
-          color: "error"
-        }
-      }
-    ]
+
+
+
+
+
   }),
   computed: {
     activity() {
@@ -248,8 +175,8 @@ export default {
     siteTrafficData() {
       return API.getMonthVisit;
     },
-    locationData() {
-      return API.getLocation;
+    pieChartData() {
+      return API.getData;
     }
   }
 };
