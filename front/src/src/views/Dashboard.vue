@@ -19,16 +19,25 @@
               :words="[['romance', 19], ['horror', 3], ['fantasy', 7], ['adventure', 3]]"
               :color="([, weight]) => weight > 10 ? 'DeepPink' : weight > 5 ? 'RoyalBlue' : 'Indigo'"
               font-family="Roboto"
-      ></vue-word-cloud>
+      />
 
     </div>
     <div class="text-xs-center">
       <v-btn outline color="indigo" @click="advancedSearch" >Advanced Search</v-btn>
     </div>
+
+    <wordcloud
+            :data="defaultWords"
+            nameKey="name"
+            valueKey="value"
+            :color="myColors"
+            :showTooltip="true"
+            :wordClick="wordClickHandler">
+    </wordcloud>
   </div>
+
+
 </template>
-
-
 
 
 <script>
@@ -50,9 +59,11 @@
   import LinearStatistic from "@/components/widgets/statistic/LinearStatistic";
   import axios from "axios";
   import VueWordCloud from 'vuewordcloud';
+  import wordcloud from 'vue-wordcloud'
 
 
 export default {
+  name: 'app',
   components: {
     VWidget,
     MiniStatistic,
@@ -68,9 +79,52 @@ export default {
     LinearStatistic,
     PlainTable,
     PlainTableOrder,
-    [VueWordCloud.name]: VueWordCloud
+    [VueWordCloud.name]: VueWordCloud,
+    wordcloud
   },
   data: () => ({
+
+
+      myColors: ['#1f77b4', '#629fc9', '#94bedb', '#c9e0ef'],
+      defaultWords: [{
+        "name": "Cat",
+        "value": 26
+      },
+        {
+          "name": "fish",
+          "value": 19
+        },
+        {
+          "name": "things",
+          "value": 18
+        },
+        {
+          "name": "look",
+          "value": 16
+        },
+        {
+          "name": "two",
+          "value": 15
+        },
+        {
+          "name": "fun",
+          "value": 9
+        },
+        {
+          "name": "know",
+          "value": 9
+        },
+        {
+          "name": "good",
+          "value": 9
+        },
+        {
+          "name": "play",
+          "value": 6
+        }
+      ]
+    ,
+
     color: Material,
     selectedTab: "tab-1",
     linearTrending: [
@@ -178,6 +232,11 @@ export default {
   },
 
   methods:{
+
+    wordClickHandler(name, value, vm) {
+      console.log('wordClickHandler', name, value, vm);
+    },
+
     validateResearch: function(e) {
 
         var inputedText = this.searchedInput; // la variable inputedText contient la phrase entrée dans la barre de recherche
@@ -220,7 +279,7 @@ function appel_ajax(param){
  xhr.onreadystatechange = function(){
    // On ne fait quelque chose que si on a tout reçu et que le serveur est ok
    if(xhr.status < 400 && xhr.status >= 200) {
-     //Ici sera afficher le résultat de notre script PHP ajax.php  alert(xhr.responseText);
+     //Ici sera affiché le résultat de notre script PHP ajax.php  alert(xhr.responseText);
      //alert(xhr.responseText);
 
    }
@@ -250,5 +309,6 @@ function getXhr(){
 }
 </script>
 
+
+
 <style scoped lang="css">
-</script>
