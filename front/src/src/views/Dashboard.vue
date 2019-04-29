@@ -84,6 +84,9 @@
 =======
   import VueWordCloud from 'vuewordcloud';
   import wordcloud from 'vue-wordcloud'
+<<<<<<< HEAD
+>>>>>>> 89efe9a2f9bf254c55e7a9c30ade34d34cc64ad0
+=======
 >>>>>>> 89efe9a2f9bf254c55e7a9c30ade34d34cc64ad0
 
 
@@ -108,6 +111,9 @@ export default {
     PlainTableOrder,
     [VueWordCloud.name]: VueWordCloud
 
+<<<<<<< HEAD
+>>>>>>> 89efe9a2f9bf254c55e7a9c30ade34d34cc64ad0
+=======
 >>>>>>> 89efe9a2f9bf254c55e7a9c30ade34d34cc64ad0
   },
   data: () => ({
