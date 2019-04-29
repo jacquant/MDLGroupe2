@@ -3,25 +3,33 @@
     <v-img v-bind:position="centerX" src=static/logo.jpg height="250" contain="true" alt="Logo ReSearch" />
     <br>
 
-  <div style="margin-right: 100px; margin-left: 100px; width:80%;" >
-    <v-text-field 
-      flat
-      solo-inverted
-      prepend-icon="search"
-      label=""
+    <div style="margin-right: 100px; margin-left: 100px; width:80%;" >
+      <v-text-field
+       flat
+       solo-inverted
+       prepend-icon="search"
+       label=""
 
-      name="Search"
-      v-model="searchedInput"
-      v-on:keyup.enter="validateResearch"
-    >
-    </v-text-field>
+       name="Search"
+       v-model="searchedInput"
+       v-on:keyup.enter="validateResearch"
+      >
+      </v-text-field>
+      <vue-word-cloud
+              :words="[['romance', 19], ['horror', 3], ['fantasy', 7], ['adventure', 3]]"
+              :color="([, weight]) => weight > 10 ? 'DeepPink' : weight > 5 ? 'RoyalBlue' : 'Indigo'"
+              font-family="Roboto"
+      ></vue-word-cloud>
 
     </div>
     <div class="text-xs-center">
       <v-btn outline color="indigo" @click="advancedSearch" >Advanced Search</v-btn>
     </div>
-    </div>
+  </div>
 </template>
+
+
+
 
 <script>
   import API from "@/api";
@@ -41,6 +49,8 @@
   import CircleStatistic from "@/components/widgets/statistic/CircleStatistic";
   import LinearStatistic from "@/components/widgets/statistic/LinearStatistic";
   import axios from "axios";
+  import VueWordCloud from 'vuewordcloud';
+
 
 export default {
   components: {
@@ -57,7 +67,8 @@ export default {
     CircleStatistic,
     LinearStatistic,
     PlainTable,
-    PlainTableOrder
+    PlainTableOrder,
+    [VueWordCloud.name]: VueWordCloud
   },
   data: () => ({
     color: Material,
@@ -173,6 +184,7 @@ export default {
 
 
 
+
             setTimeout(() => {
         this.$router.push({
           path: '/result_page',
@@ -202,7 +214,7 @@ export default {
 };
 
 function appel_ajax(param){
-   
+
  var xhr = getXhr();
  // On défini ce qu'on va faire quand on aura la réponse
  xhr.onreadystatechange = function(){
@@ -238,7 +250,5 @@ function getXhr(){
 }
 </script>
 
-
 <style scoped lang="css">
-
 </script>

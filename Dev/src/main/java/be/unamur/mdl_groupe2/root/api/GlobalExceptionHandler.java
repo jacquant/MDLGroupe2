@@ -13,7 +13,7 @@ import static be.unamur.mdl_groupe2.root.models.response.OperationResponse.*;
 
 /*
 @ControllerAdvice tells your spring application that this class will do the exception handling for your application.
-@RestController will make it a controller and let this class render the response.
+@RestController will make it a synonyme and let this class render the response.
 Use @ExceptionHandler annotation to define the class of Exception it will catch. (A Base class will catch all the Inherited and extended classes)
 */
 @ControllerAdvice
