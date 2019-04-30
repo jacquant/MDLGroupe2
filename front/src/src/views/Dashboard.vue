@@ -164,9 +164,16 @@
       },
       wordClickHandler(name, value, vm) {
         console.log('wordClickHandler', name, value, vm);
-      }
-    }
-  };
+      },
+
+    advancedSearch() {
+      this.loading = true;
+      setTimeout(() => {
+        this.$router.push("../AdvancedSearch");
+      }, 1000);
+    },
+
+
   function appel_ajax(param){
     var xhr = getXhr();
     // On défini ce qu'on va faire quand on aura la réponse
@@ -198,5 +205,6 @@
     }
     return xhr
   }
+
 </script>
 <style scoped lang="css">
