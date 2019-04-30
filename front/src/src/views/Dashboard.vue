@@ -157,7 +157,7 @@ export default {
     wordCloudDisplay:function(e){
       var inputedText = this.searchedInput; // The input word is in inputedText
       //................... call your API synonym from here and send it the inputedText as parameter
-      
+
       //end of the call to API synonym. If the result of the call is good then get the synonyms if defaultWords
       this.defaultWords= [{
         "name": "Cat",
@@ -205,6 +205,13 @@ export default {
       this.loading = true;
       setTimeout(() => {
         this.$router.push("../AdvancedSearch");
+      }, 1000);
+    },
+
+    searchHistory() {
+      this.loading = true;
+      setTimeout(() => {
+        this.$router.push("../StaticSearchHistory");
       }, 1000);
     },
 
