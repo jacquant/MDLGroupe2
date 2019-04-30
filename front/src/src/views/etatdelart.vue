@@ -3,9 +3,56 @@
         <v-container grid-list-xl fluid>
             <v-layout row wrap>
 
-            </v-layout>
+
+      <table style="margin-top:10px; width:100%; padding:10px; ">
+        <tr>
+          <td valign="top" width="70%">
+            <div id="result" style="width:100%; margin-left:30px">
+              <h2 style="vertical-align: top; color:blue;">State of art</h2>
+
+                  <h3> <b>Title: {{getTitle()}}</b> </h3>
+                <h5> <i> {{getInfo()}}</i> </h5>
+
+
+              <br>
+              <h3>
+                Abstract &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href class>PDF</a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Nb
+                References: (8881) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a
+                        href
+                        target="_blank"
+                        class
+                >
+                  <img src="../assets/favoris.png" width="3%">
+                </a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href target="_blank" class>
+                  <img src="../assets/partage.png">
+                </a>
+              </h3>
+
+              <div id="textarea">
+                <v-text-field
+                        label="abstract"
+                        name="abstract"
+                        textarea
+                        rows="10"
+                        cols="25"
+                        v-model="abstract"
+                ></v-text-field>
+              </div>
+            </div>
+          </td>
+
+          <!--td valign="top" width="20%">
+            <div style="border:1px solid black; margin-top:5px; ">
+              <div style="margin-top:10px; margin-left:5px;">
+           </v-layout>
 
             <v-card-actions>
+
 
                 <v-spacer></v-spacer>
                 <v-btn  color="" @click="classic"  class="active_btn">Classic</v-btn>
@@ -28,11 +75,92 @@
 
             </div>
 
+          </td-->
+        </tr>
+      </table>
+
+      <template>
+        <v-tabs
+                color="cyan"
+                dark
+                icons-and-text
+        >
+          <v-tabs-slider color="yellow"></v-tabs-slider>
+
+          <v-tab href="#tab-1">
+            Related Articles
+
+          </v-tab>
+
+          <v-tab href="#tab-2">
+            Video
+
+          </v-tab>
+
+
         </v-container>
     </div>
 </template>
 
 <script>
+
+  var id,title,author,the_abstract,info;
+  export default {
+    data() {
+      return {
+        text:["Related articles here","video here","comments here"]
+      }
+    },
+    model: {
+    },
+    methods: {
+      getTitle() {
+        this.abstract=this.$route.query.abstract;
+        id=this.$route.query.id;
+        title=this.$route.query.title;
+        author=this.$route.query.author;
+        the_abstract=this.abstract;
+        info=this.$route.query.info;
+        return this.$route.query.title;
+      },
+      getAuthor() {
+        return this.$route.query.author;
+      },
+        getInfo() {
+            return this.$route.query.info;
+        },
+      getPublish() {
+        return this.$route.query.id;
+      },
+      classic() {
+        this.loading = true;
+        setTimeout(() => {
+          this.$router.push({
+            path: '/etatdelart',
+              query: {id: id,title:title,author:author,abstract:the_abstract,info:info},
+            //query: {...},
+            //moreData: {foo: 1}
+          })}, 1000);
+      },
+      visual() {
+        this.loading = true;
+        setTimeout(() => {
+          this.$router.push("/visual");
+        }, 1000);
+      },
+      matrice() {
+        this.loading = true;
+        setTimeout(() => {
+          this.$router.push({
+            path: '/result_page_matrice',
+              query: {id: id,title:title,author:author,abstract:the_abstract,info:info},
+            //query: {...},
+            //moreData: {foo: 1}
+          })}, 1000);
+      },
+    }
+  };
+
     export default {
         data: () => ({
             loading: false,
@@ -66,6 +194,7 @@
         }
 
     };
+
 </script>
 <style scoped lang="css">
     #textarea {
