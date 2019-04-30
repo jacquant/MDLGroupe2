@@ -116,7 +116,8 @@ export default {
 
           var query = this.payload.slice()
           query = query.unshift(this.payload0)
-      //axios
+      
+          //axios
       setTimeout(() => {
         this.$router.push("../result_page");
       }, 1000);
