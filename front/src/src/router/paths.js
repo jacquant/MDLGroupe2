@@ -20,6 +20,7 @@ export default [
         `@/views/NotFound.vue`
       )
   },
+
   {
     path: "/403",
     meta: {
@@ -56,6 +57,20 @@ export default [
         `@/views/Login.vue`
       )
   },
+
+  {
+    path: "/vuewordcloud",
+    meta: {
+      public: true
+    },
+    name: "Vuewordcloud",
+    component: () =>
+        import(
+            /* webpackChunkName: "routes" */
+            `@/views/vuewordcloud.vue`
+            )
+  },
+
   {
     path: "/",
     meta: {},
