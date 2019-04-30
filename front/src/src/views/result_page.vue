@@ -7,13 +7,10 @@
                 </div>
       </v-layout-->
 
-      <!--v-card-actions>
-
-                <v-spacer></v-spacer>
-                <v-btn  color="" @click="classic"  class="btn">Classic</v-btn>
+      <v-card-actions>
+        <v-spacer></v-spacer>
                 <v-btn  color="" @click="visual"  class="btn">Visual</v-btn>
-                <v-btn  color="" @click="matrice"  class="btn">Matrice</v-btn>
-      </v-card-actions-->
+      </v-card-actions>
 
       <table style=" position: absolute; width:100%; " cellspacing="10">
         <tr>
@@ -32,8 +29,7 @@
                           name="author"
                           v-model="authors"
                           :items="itemsAuthor"
-                         
-                          chips
+
                           label="Select Author(s)"
                           multiple
                           width="200px"
@@ -42,7 +38,17 @@
                 </v-card-actions>
                 <v-card-actions>
                   Title:
-                  <v-text-field label="Title here" name="title"   v-model="title" ></v-text-field>
+                    <v-select
+                            name="title"
+                            v-model="title"
+                            :items="itemsTitle"
+
+                            label="Select Titles(s)"
+                            multiple
+                            width="300px"
+
+                    ></v-select>
+
                 </v-card-actions>
                 <v-card-actions>
                   Others details:
@@ -101,6 +107,9 @@
 
                     <v-list-tile-content>
                       <v-list-tile-title v-html="item.title"></v-list-tile-title>
+                        <v-list-tile-sub-title v-html="item.info"></v-list-tile-sub-title>
+
+
                     </v-list-tile-content>
                   </v-list-tile>
                 </template>
@@ -114,42 +123,41 @@
                   ></v-pagination>
                 </div>
               </template>
-                   <!--a href="#/etatdelart">
-                <img align="center" src="../assets/iconA.png" width="20px" />
-              <h2 class="flex my-4 primary--text">Research Result (88888)</h2>
-              <br>
-
-              <a href="#/etatdelart">
-                <img align="center" src="../assets/iconA.png" width="20px">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                do
-              </a>
-              <br>
-              <br>
-              <a href="#/etatdelart">
-                <img align="center" src="../assets/iconA.png" width="20px">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                do
-              </a>
-              <br>
-              <br>
-              <a href="#/etatdelart">
-                <img align="center" src="../assets/iconA.png" width="20px">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                do
-              </a>
-              <br>
-              <br>
-              <a href="#/etatdelart">
-                <img align="center" src="../assets/iconA.png" width="20px">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                do
-              </a>
-              <br>
-              <br>
-              <a href="#/etatdelart">
-                <img align="center" src="../assets/iconA.png" width="20px" />
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo</a><br /><br /-->
+              <!--a href="#/etatdelart">
+           <img align="center" src="../assets/iconA.png" width="20px" />
+         <h2 class="flex my-4 primary--text">Research Result (88888)</h2>
+         <br>
+         <a href="#/etatdelart">
+           <img align="center" src="../assets/iconA.png" width="20px">
+           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+           do
+         </a>
+         <br>
+         <br>
+         <a href="#/etatdelart">
+           <img align="center" src="../assets/iconA.png" width="20px">
+           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+           do
+         </a>
+         <br>
+         <br>
+         <a href="#/etatdelart">
+           <img align="center" src="../assets/iconA.png" width="20px">
+           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+           do
+         </a>
+         <br>
+         <br>
+         <a href="#/etatdelart">
+           <img align="center" src="../assets/iconA.png" width="20px">
+           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+           do
+         </a>
+         <br>
+         <br>
+         <a href="#/etatdelart">
+           <img align="center" src="../assets/iconA.png" width="20px" />
+           Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo</a><br /><br /-->
             </div>
           </td>
         </tr>
@@ -159,220 +167,204 @@
 </template>
 
 <script>
-    var id,title,author,abstract;
-
-export default {
-  data: () => ({
-    loading: false,
-    page:1,
-
-
-    itemsAuthor: [],
+  var id,title,author,abstract,info;
+  export default {
+    data: () => ({
+      loading: false,
+      page:1,
+      itemsAuthor: [],
+        itemsTitle: [],
       items: [],
-
       model: {
-         //items:this.$route.params.data,
-
-    }
-  }),
-
-  methods: {
-
-    searchfound() {
-       var inputedText=this.$route.query.data;
-       var thedata;
+        //items:this.$route.params.data,
+      }
+    }),
+    methods: {
+      searchfound() {
+        var inputedText=this.$route.query.data;
+        var thedata;
         //var thedata2=28;
         const axios = require('axios');
-
 // Make a request for a user with a given ID
         axios.get('http://mdl-std02.info.fundp.ac.be:8181/MdlGroupe2-test/api/QuickSearch?keyword='+inputedText)
-            .then(function (response) {
-                // handle success
-                //thedata=response;
-              console.log("la réponse:"+response);
-            })
-            .catch(function (error) {
-                // handle error
-                console.log(error);
-            })
-            .then(function () {
-                // always executed
-            });
-
+                .then(function (response) {
+                  // handle success
+                  //thedata=response;
+                  console.log("la réponse:"+response);
+                })
+                .catch(function (error) {
+                  // handle error
+                  console.log(error);
+                })
+                .then(function () {
+                  // always executed
+                });
         thedata= [
 
-            {
-                //avatar: '../assets/iconA.png',
-                id:1,
-                author:"Emmanuel AGOSSOU",
-                title: 'Lorem ipsum25662 dolor sit amet, consectetur adipiscing elit, seddo ',
-                abstract: 'Voici le abstact 1 ',
-            },
+          {
+            //avatar: '../assets/iconA.png',
+            id:1,
+              author:"Emmanuel AGOSSOU",
+            info:"Emmanuel AGOSSOU - published 2011 and event 1",
+            title: 'Lorem ipsum25662 dolor sit amet, consectetur adipiscing elit, seddo1 ',
+            abstract: 'Voici le abstact 1 ',
+          },
 
             {
-                //avatar: '../assets/iconA.png',
-                id:2,
-                author:"Paul LIYA, LOKo Ray",
-                title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo',
-                abstract: 'Voici le abstact 2',
-            },
+            //avatar: '../assets/iconA.png',
+            id:2,
+              author:"Paul LIYA, LOKo Ray",
+            info:"Paul LIYA, LOKo Ray - published 2005 and event 2",
+            title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo2',
+            abstract: 'Voici le abstact 2',
+          },
 
-            {
-                //avatar: '../assets/iconA.png',
-                id:3,
-                author:"Rowlins,J",
-                title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo',
-                abstract: 'Voici le abstact 3',
-            },
-            {
-                //avatar: '../assets/iconA.png',
-                id:4,
-                author:"Paul LIYA",
-                title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo',
-                abstract: 'Voici le abstact 4',
-            },
-            {
-                //avatar: '../assets/iconA.png',
-                id:5,
-                author:"Emmanuel AGOSSOU",
-                title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo',
-                abstract: 'Voici le abstact 5',
-            },
-            {
-                //avatar: '../assets/iconA.png',
-                id:6,
-                author:"LAFONT Jane",
-                title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo',
-                abstract: 'Voici le abstact 6',
-            }
+          {
+            //avatar: '../assets/iconA.png',
+            id:3,
+              author:"Rowlins,J",
+            info:"Rowlins,J - published 2015 and event 3",
+            title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo 3',
+            abstract: 'Voici le abstact 3',
+          },
+
+          {
+            //avatar: '../assets/iconA.png',
+            id:4,
+              author:"Paul LIYA",
+            info:"Paul LIYA- published 2015 and event 4",
+            title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo 4',
+            abstract: 'Voici le abstact 4',
+          },
+
+          {
+            //avatar: '../assets/iconA.png',
+            id:5,
+              author:"Emmanuel AGOSSOU",
+            info:"Emmanuel AGOSSOU - published 2018 and event 5",
+            title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo 5',
+            abstract: 'Voici le abstact 5',
+          },
+
+          {
+            //avatar: '../assets/iconA.png',
+            id:6,
+              author:"LAFONT Jane",
+            info:"LAFONT Jane - published 2015 and event 6",
+            title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo 6',
+            abstract: 'Voici le abstact 6',
+          }
         ];
+        this.items=thedata;
+        var taille=this.items.length;
+        for (i = 0; i < taille; i++) {
 
+                this.itemsAuthor[i] = this.items[i].author;
+                this.itemsTitle[i] = this.items[i].title;
 
-  this.items=thedata;
-  var taille=this.items.length;
-      for (i = 0; i < taille; i++) {
-        this.itemsAuthor[i] = this.items[i].author;
-      }
-       return taille;
-    },
-
-    classic() {
-
-      this.loading = true;
+        }
+        if(taille==0) return alert("No item found");
+        else return taille;
+      },
+      classic() {
+        this.loading = true;
         setTimeout(() => {
-            this.$router.push({
-                path: '/etatdelart',
-                query: {id: id,title:title,author:author,abstract:abstract},
-                //query: {...},
-                //moreData: {foo: 1}
-            })}, 1000);
-    },
-
-    visual() {
-      this.loading = true;
-      setTimeout(() => {
-        this.$router.push("/visual");
-      }, 1000);
-    },
-
-    matrice() {
-      this.loading = true;
+          this.$router.push({
+            path: '/etatdelart',
+            query: {id: id,title:title,author:author,abstract:abstract,info:info},
+            //query: {...},
+            //moreData: {foo: 1}
+          })}, 1000);
+      },
+      visual() {
+        this.loading = true;
         setTimeout(() => {
-            this.$router.push({
-                path: '/result_page_matrice',
-                query: {id: id,title:title,author:author,abstract:abstract},
-                //query: {...},
-                //moreData: {foo: 1}
-            })}, 1000);
-    },
-    selectTrack(item){
-      id=item.id;
-       title=item.title;
-      author=item.author;
+          this.$router.push("/visual");
+        }, 1000);
+      },
+      matrice() {
+        this.loading = true;
+        setTimeout(() => {
+          this.$router.push({
+            path: '/result_page_matrice',
+            query: {id: id,title:title,author:author,abstract:abstract,info:info},
+            //query: {...},
+            //moreData: {foo: 1}
+          })}, 1000);
+      },
+      selectTrack(item){
+        id=item.id;
+        title=item.title;
+        author=item.author;
         abstract=item.abstract;
-
+          info=item.info;
         setTimeout(() => {
-            this.$router.push({
-                path: '/etatdelart',
-                query: {id: id,title:title,author:author,abstract:abstract},
-                //query: {...},
-                //moreData: {foo: 1}
-            })}, 1000);
-
-
+          this.$router.push({
+            path: '/etatdelart',
+            query: {id: id,title:title,author:author,abstract:abstract,info:info},
+            //query: {...},
+            //moreData: {foo: 1}
+          })}, 1000);
+      }
     }
+  };
+  /****** script pour la gestion du panel d'expansion*****/
+  var acc = document.getElementsByClassName("accordion");
+  var i;
+  for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var panel = this.nextElementSibling;
+      panel.style.overflow = "hidden";
+      if (panel.style.maxHeight) {
+        panel.style.maxHeight = null;
+      } else {
+        panel.style.maxHeight = panel.scrollHeight + "px";
+      }
+    });
   }
-};
-
-
-
-
-/****** script pour la gestion du panel d'expansion*****/
-var acc = document.getElementsByClassName("accordion");
-var i;
-
-for (i = 0; i < acc.length; i++) {
-  acc[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-
-    var panel = this.nextElementSibling;
-    panel.style.overflow = "hidden";
-    if (panel.style.maxHeight) {
-      panel.style.maxHeight = null;
-    } else {
-      panel.style.maxHeight = panel.scrollHeight + "px";
-    }
-  });
-}
-
-
 </script>
 <style scoped lang="css">
-.active_btn {
-  width: 40px;
-  background-color: deepskyblue;
-  color: red;
-}
-.btn {
-  width: 40px;
-}
-
-.accordion {
-  background-color: #eee;
-  color: #444;
-  cursor: pointer;
-  padding: 5px;
-  width: 100%;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 17px;
-  transition: 0.4s;
-  font-weight: bold;
-}
-
-.active,
-.accordion:hover {
-  background-color: #ccc;
-}
-
-.panel {
-  padding: 0 2px;
-  background-color: white;
-  max-height: 0;
-  overflow: visible;
-  transition: max-height 0.2s ease-out;
-}
-
-.previous {
-  float: left;
-  margin-left: 5%;
-  margin-top: 0.6%;
-  background-color: #f1f1f1;
-  color: black;
-}
-
-.round {
-  border-radius: 100%;
-}
+  .active_btn {
+    width: 40px;
+    background-color: deepskyblue;
+    color: red;
+  }
+  .btn {
+    width: 40px;
+  }
+  .accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 5px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 17px;
+    transition: 0.4s;
+    font-weight: bold;
+  }
+  .active,
+  .accordion:hover {
+    background-color: #ccc;
+  }
+  .panel {
+    padding: 0 2px;
+    background-color: white;
+    max-height: 0;
+    overflow: visible;
+    transition: max-height 0.2s ease-out;
+  }
+  .previous {
+    float: left;
+    margin-left: 5%;
+    margin-top: 0.6%;
+    background-color: #f1f1f1;
+    color: black;
+  }
+  .round {
+    border-radius: 100%;
+  }
 </style>

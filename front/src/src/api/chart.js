@@ -23,6 +23,8 @@ const monthVisitData = shortMonth.map(m => {
   };
 });
 
+
+
 const campaignData = [
   {
     value: 335,
@@ -45,26 +47,47 @@ const campaignData = [
     name: "Search"
   }
 ];
-const locationData = [
+
+
+
+
+
+const pieChartData = [
   {
-    value: 50,
-    name: "China"
-  },
-  {
-    value: 35,
-    name: "USA"
-  },
-  {
-    value: 25,
-    name: "EU"
+    value: 30,
+    name: "Visualization"
   },
   {
     value: 10,
-    name: "Russia"
+    name: "Cloud computing"
+  },
+  {
+    value: 15,
+    name: "Big data"
+  },
+  {
+    value: 5,
+    name: "Test driven dev"
+  },
+  {
+    value: 20,
+    name: "Software engineering"
+  },
+  {
+    value: 20,
+    name: "Data science"
+  },
+  {
+    value: 15,
+    name: "Artificial Intelligence"
   },
   {
     value: 10,
-    name: "Other"
+    name: "IOT"
+  },
+  {
+    value: 40,
+    name: "Data science"
   }
 ];
 
@@ -104,4 +127,4 @@ const SinData = range(1, 12).map(i => {
   };
 });
 
-export { monthVisitData, campaignData, locationData, StackData, SinData };
+export { monthVisitData, campaignData, pieChartData, StackData, SinData };

@@ -12,9 +12,25 @@
 
        name="Search"
        v-model="searchedInput"
+       v-on:keyup="wordCloudDisplay"
        v-on:keyup.enter="validateResearch"
       >
       </v-text-field>
+
+      <template>
+        <div id="app" hidden>
+          <wordcloud
+                  :data="defaultWords"
+                  nameKey="name"
+                  valueKey="value"
+                  :color="myColors"
+                  :showTooltip="true"
+                  :wordClick="wordClickHandler">
+          </wordcloud>
+        </div>
+      </template>
+
+
       <vue-word-cloud
               :words="[['romance', 19], ['horror', 3], ['fantasy', 7], ['adventure', 3]]"
               :color="([, weight]) => weight > 10 ? 'DeepPink' : weight > 5 ? 'RoyalBlue' : 'Indigo'"
@@ -30,7 +46,7 @@
             :data="defaultWords"
             nameKey="name"
             valueKey="value"
-            :color="myColors"
+            :color="['#1f77b4', '#629fc9', '#94bedb', '#c9e0ef']"
             :showTooltip="true"
             :wordClick="wordClickHandler">
     </wordcloud>
@@ -42,50 +58,20 @@
 
 <script>
   import API from "@/api";
-  import EChart from "@/components/chart/echart";
-  import MiniStatistic from "@/components/widgets/statistic/MiniStatistic";
-  import PostListCard from "@/components/widgets/card/PostListCard";
-  import ProfileCard from "@/components/widgets/card/ProfileCard";
-  import PostSingleCard from "@/components/widgets/card/PostSingleCard";
-  import WeatherCard from "@/components/widgets/card/WeatherCard";
-  import PlainTable from "@/components/widgets/list/PlainTable";
-  import PlainTableOrder from "@/components/widgets/list/PlainTableOrder";
-  import VWidget from "@/components/VWidget";
   import Material from "vuetify/es5/util/colors";
-  import VCircle from "@/components/circle/VCircle";
-  import BoxChart from "@/components/widgets/chart/BoxChart";
-  import ChatWindow from "@/components/chat/ChatWindow";
-  import CircleStatistic from "@/components/widgets/statistic/CircleStatistic";
-  import LinearStatistic from "@/components/widgets/statistic/LinearStatistic";
-  import axios from "axios";
-  import VueWordCloud from 'vuewordcloud';
   import wordcloud from 'vue-wordcloud'
+  import axios from "axios";
+
 
 
 export default {
   name: 'app',
   components: {
-    VWidget,
-    MiniStatistic,
-    ChatWindow,
-    VCircle,
-    WeatherCard,
-    PostSingleCard,
-    PostListCard,
-    ProfileCard,
-    EChart,
-    BoxChart,
-    CircleStatistic,
-    LinearStatistic,
-    PlainTable,
-    PlainTableOrder,
-    [VueWordCloud.name]: VueWordCloud,
     wordcloud
-  },
+      },
+
   data: () => ({
 
-
-      myColors: ['#1f77b4', '#629fc9', '#94bedb', '#c9e0ef'],
       defaultWords: [{
         "name": "Cat",
         "value": 26
@@ -127,95 +113,9 @@ export default {
 
     color: Material,
     selectedTab: "tab-1",
-    linearTrending: [
-      {
-        subheading: "Sales",
-        headline: "2,55",
-        caption: "increase",
-        percent: 15,
-        icon: {
-          label: "trending_up",
-          color: "success"
-        },
-        linear: {
-          value: 15,
-          color: "success"
-        }
-      },
-      {
-        subheading: "Revenue",
-        headline: "6,553",
-        caption: "increase",
-        percent: 10,
-        icon: {
-          label: "trending_down",
-          color: "error"
-        },
-        linear: {
-          value: 15,
-          color: "error"
-        }
-      },
-      {
-        subheading: "Orders",
-        headline: "5,00",
-        caption: "increase",
-        percent: 50,
-        icon: {
-          label: "arrow_upward",
-          color: "info"
-        },
-        linear: {
-          value: 50,
-          color: "info"
-        }
-      }
-    ],
-    trending: [
-      {
-        subheading: "Email",
-        headline: "15+",
-        caption: "email opens",
-        percent: 15,
-        icon: {
-          label: "email",
-          color: "info"
-        },
-        linear: {
-          value: 15,
-          color: "info"
-        }
-      },
-      {
-        subheading: "Tasks",
-        headline: "90%",
-        caption: "tasks completed.",
-        percent: 90,
-        icon: {
-          label: "list",
-          color: "primary"
-        },
-        linear: {
-          value: 90,
-          color: "success"
-        }
-      },
-      {
-        subheading: "Issues",
-        headline: "100%",
-        caption: "issues fixed.",
-        percent: 100,
-        icon: {
-          label: "bug_report",
-          color: "primary"
-        },
-        linear: {
-          value: 100,
-          color: "error"
-        }
-      }
-    ]
   }),
+
+
   computed: {
     activity() {
       return API.getActivity();
@@ -242,8 +142,6 @@ export default {
         var inputedText = this.searchedInput; // la variable inputedText contient la phrase entrée dans la barre de recherche
 
 
-
-
             setTimeout(() => {
         this.$router.push({
           path: '/result_page',
@@ -255,17 +153,58 @@ export default {
 
       this.log += e.key;
     },
-    advancedSearch() {
-      this.loading = true;
-      setTimeout(() => {
-        this.$router.push("../AdvancedSearch");
-      }, 1000);
+
+    wordCloudDisplay:function(e){
+      var inputedText = this.searchedInput; // The input word is in inputedText
+      //................... call your API synonym from here and send it the inputedText as parameter
+      
+      //end of the call to API synonym. If the result of the call is good then get the synonyms if defaultWords
+      this.defaultWords= [{
+        "name": "Cat",
+        "value": 26
+      },
+        {
+          "name": "fish",
+          "value": 19
+        },
+        {
+          "name": "things",
+          "value": 18
+        },
+        {
+          "name": "look",
+          "value": 16
+        },
+        {
+          "name": "two",
+          "value": 15
+        },
+        {
+          "name": "fun",
+          "value": 9
+        },
+        {
+          "name": "know",
+          "value": 9
+        },
+        {
+          "name": "good",
+          "value": 9
+        },
+        {
+          "name": "play",
+          "value": 6
+        }
+      ];
+      if(inputedText!=null) document.getElementById("app").style.display="block";
+      else document.getElementById("app").style.display="none";
+
     },
 
     advancedSearch() {
       this.loading = true;
       setTimeout(() => {
-        this.$router.push("../advancedSearch");
+        this.$router.push("../AdvancedSearch");
       }, 1000);
     },
 
@@ -282,33 +221,8 @@ function appel_ajax(param){
      //Ici sera affiché le résultat de notre script PHP ajax.php  alert(xhr.responseText);
      //alert(xhr.responseText);
 
-   }
- }
-
- var url = "http://mdl-std02.info.fundp.ac.be:8181/MdlGroupe2-test/api/QuickSearch?keyword="+param;
- xhr.open("GET",url,true) ;
- xhr.send(null);
+  }
 }
 
-function getXhr(){
- var xhr = null;
- if(window.XMLHttpRequest) // Firefox et autres
-   xhr = new XMLHttpRequest();
- else if(window.ActiveXObject){ // Internet Explorer
-   try {
-     xhr = new ActiveXObject("Msxml2.XMLHTTP");
-   } catch (e) {
-     xhr = new ActiveXObject("Microsoft.XMLHTTP");
-   }
- }
- else { // XMLHttpRequest non supporté par le navigateur
-   alert("Votre navigateur ne supporte pas les objets XMLHTTPRequest...");
-   xhr = false;
- }
- return xhr
-}
+
 </script>
-
-
-
-<style scoped lang="css">
