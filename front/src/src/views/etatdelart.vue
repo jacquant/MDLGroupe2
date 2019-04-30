@@ -1,9 +1,7 @@
 <template>
     <div id="etatdelart">
         <v-container grid-list-xl fluid>
-            <v-layout row wrap>
-
-
+           
       <table style="margin-top:10px; width:100%; padding:10px; ">
         <tr>
           <td valign="top" width="70%">
@@ -49,7 +47,8 @@
           <!--td valign="top" width="20%">
             <div style="border:1px solid black; margin-top:5px; ">
               <div style="margin-top:10px; margin-left:5px;">
-           </v-layout>
+
+            </v-layout>
 
             <v-card-actions>
 
@@ -79,23 +78,41 @@
         </tr>
       </table>
 
-      <template>
-        <v-tabs
-                color="cyan"
-                dark
-                icons-and-text
-        >
-          <v-tabs-slider color="yellow"></v-tabs-slider>
 
-          <v-tab href="#tab-1">
-            Related Articles
+                <template>
+                    <v-tabs
+                            color="cyan"
+                            dark
+                            icons-and-text
+                    >
+                        <v-tabs-slider color="yellow"></v-tabs-slider>
 
-          </v-tab>
+                        <v-tab href="#tab-1">
+                            Related Articles
 
-          <v-tab href="#tab-2">
-            Video
+                        </v-tab>
 
-          </v-tab>
+                        <v-tab href="#tab-2">
+                            Video
+
+                        </v-tab>
+
+                        <v-tab href="#tab-3">
+                            Comments
+
+                        </v-tab>
+
+                        <v-tab-item
+                                v-for="i in 3"
+                                :key="i"
+                                :value="'tab-' + i"
+                        >
+                            <v-card flat>
+                                <v-card-text>{{ text[i-1] }}</v-card-text>
+                            </v-card>
+                        </v-tab-item>
+                    </v-tabs>
+                </template>
 
 
         </v-container>
@@ -161,39 +178,6 @@
     }
   };
 
-    export default {
-        data: () => ({
-            loading: false,
-            model: {
-                username: '',
-                password: ''
-            }
-        }),
-
-        methods: {
-            classic () {
-                this.loading = true;
-                setTimeout(() => {
-                    this.$router.push('/etatdelart');
-                }, 1000);
-            },
-
-            visual () {
-                this.loading = true;
-                setTimeout(() => {
-                    this.$router.push('/visual');
-                }, 1000);
-            },
-
-            matrice () {
-                this.loading = true;
-                setTimeout(() => {
-                    this.$router.push('/result_page_matrice');
-                }, 1000);
-            }
-        }
-
-    };
 
 </script>
 <style scoped lang="css">
