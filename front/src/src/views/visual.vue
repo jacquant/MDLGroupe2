@@ -6,10 +6,10 @@ nn <template>
       <v-btn color @click="visual" class="active_btn">Visual</v-btn>
       <v-btn color @click="matrice" class="btn">Matrice</v-btn>
     </v-card-actions>
-    <v-card-actions>
+    <!--v-card-actions>
       <v-btn type="button" class="btn">Author</v-btn>
       <v-btn type="button" class="btn">Title</v-btn>
-    </v-card-actions>
+    </v-card-actions-->
     <v-container grid-list-xl fluid>
       <v-layout row wrap>
         <v-flex height="400px"   width="100%" >

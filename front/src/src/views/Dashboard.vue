@@ -195,57 +195,15 @@ export default {
       }, 1000);
     },
 
-    advancedSearch() {
-      this.loading = true;
-      setTimeout(() => {
-        this.$router.push("../advancedSearch");
-      }, 1000);
-    },
-
-
     wordClickHandler(name, value, vm) {
       console.log('wordClickHandler', name, value, vm);
     }
 
 
   }
-};
-
-function appel_ajax(param){
-
- var xhr = getXhr();
- // On défini ce qu'on va faire quand on aura la réponse
- xhr.onreadystatechange = function(){
-   // On ne fait quelque chose que si on a tout reçu et que le serveur est ok
-   if(xhr.status < 400 && xhr.status >= 200) {
-     //Ici sera afficher le résultat de notre script PHP ajax.php  alert(xhr.responseText);
-     //alert(xhr.responseText);
-
-   }
- }
-
- var url = "http://mdl-std02.info.fundp.ac.be:8181/MdlGroupe2-test/api/QuickSearch?keyword="+param;
- xhr.open("GET",url,true) ;
- xhr.send(null);
 }
 
-function getXhr(){
- var xhr = null;
- if(window.XMLHttpRequest) // Firefox et autres
-   xhr = new XMLHttpRequest();
- else if(window.ActiveXObject){ // Internet Explorer
-   try {
-     xhr = new ActiveXObject("Msxml2.XMLHTTP");
-   } catch (e) {
-     xhr = new ActiveXObject("Microsoft.XMLHTTP");
-   }
- }
- else { // XMLHttpRequest non supporté par le navigateur
-   alert("Votre navigateur ne supporte pas les objets XMLHTTPRequest...");
-   xhr = false;
- }
- return xhr
-}
+
 </script>
 
 <style scoped lang="css">

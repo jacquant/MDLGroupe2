@@ -114,8 +114,8 @@ export default {
     Search() {
       this.loading = true;
 
-      var query = this.payload.unshift(this.payload0)
-
+          var query = this.payload.slice()
+          query = query.unshift(this.payload0)
       //axios
       setTimeout(() => {
         this.$router.push("../result_page");
