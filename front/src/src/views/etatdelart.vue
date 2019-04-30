@@ -1,6 +1,13 @@
 <template>
     <div id="etatdelart">
         <v-container grid-list-xl fluid>
+        
+         <v-card-actions>
+        <v-spacer></v-spacer>
+        <v-btn color @click="classic" class="active_btn">Classic</v-btn>
+        <v-btn color @click="visual" class="btn">Visual</v-btn>
+        <v-btn color @click="matrice" class="btn">Matrice</v-btn>
+      </v-card-actions>
            
       <table style="margin-top:10px; width:100%; padding:10px; ">
         <tr>
@@ -43,38 +50,7 @@
               </div>
             </div>
           </td>
-
-          <!--td valign="top" width="20%">
-            <div style="border:1px solid black; margin-top:5px; ">
-              <div style="margin-top:10px; margin-left:5px;">
-
-            </v-layout>
-
-            <v-card-actions>
-
-
-                <v-spacer></v-spacer>
-                <v-btn  color="" @click="classic"  class="active_btn">Classic</v-btn>
-                <v-btn  color="" @click="visual"  class="btn">Visual</v-btn>
-                <v-btn  color="" @click="matrice"  class="btn">Matrice</v-btn>
-            </v-card-actions>
-            <h2 class="flex my-4 primary--text">State of art</h2>
-            <h4 class="">Title:</h4>
-            <h3 class="">Abstract  <a href="" class="">PDF</a>  Nb Referernces: (8881)</h3>
-
-            <div id="textarea">
-
-                            <v-text-field
-                                    label="abstract"
-                                    textarea
-                                    rows="20"
-                                    cols="30"
-                                    v-model="abstract"
-                            ></v-text-field>
-
-            </div>
-
-          </td-->
+         
         </tr>
       </table>
 
