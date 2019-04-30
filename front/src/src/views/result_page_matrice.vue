@@ -17,6 +17,7 @@
       <h3>
         <b><u>Title:</u> {{getTitle()}}</b>
       </h3>
+        <h5> <i> {{getInfo()}}</i> </h5>
 
       <div id="table_matrice">
         <br>
@@ -61,7 +62,7 @@
 </template>
 
 <script>
-  var id,title,author,the_abstract;
+  var id,title,author,the_abstract,info;
   export default {
     /*
           data() {
@@ -105,18 +106,23 @@
           },*/
     methods: {
       getTitle() {
-        id=this.$route.query.id;
-        title=this.$route.query.title;
-        author=this.$route.query.author;
-        the_abstract=this.$route.query.the_abstract;
-        return title;
-      },
-      classic() {
+            id=this.$route.query.id;
+            title=this.$route.query.title;
+            author=this.$route.query.author;
+            info=this.$route.query.info;
+            the_abstract=this.$route.query.the_abstract;
+            return title;
+        },
+        getInfo() {
+            return this.$route.query.info;
+        },
+
+        classic() {
         this.loading = true;
         setTimeout(() => {
           this.$router.push({
             path: '/etatdelart',
-            query: {id: id,title:title,author:author,the_abstract:the_abstract},
+              query: {id: id,title:title,author:author,abstract:the_abstract,info:info},
             //query: {...},
             //moreData: {foo: 1}
           })}, 1000);
@@ -132,7 +138,7 @@
         setTimeout(() => {
           this.$router.push({
             path: '/result_page_matrice',
-            query: {id: id,title:title,author:author,the_abstract:the_abstract},
+              query: {id: id,title:title,author:author,abstract:the_abstract,info:info},
             //query: {...},
             //moreData: {foo: 1}
           })}, 1000);

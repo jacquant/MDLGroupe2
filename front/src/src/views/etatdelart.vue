@@ -1,71 +1,160 @@
 <template>
     <div id="etatdelart">
         <v-container grid-list-xl fluid>
-            <v-layout row wrap>
+        
+         <v-card-actions>
+        <v-spacer></v-spacer>
+        <v-btn color @click="classic" class="active_btn">Classic</v-btn>
+        <v-btn color @click="visual" class="btn">Visual</v-btn>
+        <v-btn color @click="matrice" class="btn">Matrice</v-btn>
+      </v-card-actions>
+           
+      <table style="margin-top:10px; width:100%; padding:10px; ">
+        <tr>
+          <td valign="top" width="70%">
+            <div id="result" style="width:100%; margin-left:30px">
+              <h2 style="vertical-align: top; color:blue;">State of art</h2>
 
-            </v-layout>
+                  <h3> <b>Title: {{getTitle()}}</b> </h3>
+                <h5> <i> {{getInfo()}}</i> </h5>
 
-            <v-card-actions>
 
-                <v-spacer></v-spacer>
-                <v-btn  color="" @click="classic"  class="active_btn">Classic</v-btn>
-                <v-btn  color="" @click="visual"  class="btn">Visual</v-btn>
-                <v-btn  color="" @click="matrice"  class="btn">Matrice</v-btn>
-            </v-card-actions>
-            <h2 class="flex my-4 primary--text">State of art</h2>
-            <h4 class="">Title:</h4>
-            <h3 class="">Abstract  <a href="" class="">PDF</a>  Nb Referernces: (8881)</h3>
+              <br>
+              <h3>
+                Abstract &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href class>PDF</a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Nb
+                References: (8881) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a
+                        href
+                        target="_blank"
+                        class
+                >
+                  <img src="../assets/favoris.png" width="3%">
+                </a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href target="_blank" class>
+                  <img src="../assets/partage.png">
+                </a>
+              </h3>
 
-            <div id="textarea">
-
-                            <v-text-field
-                                    label="abstract"
-                                    textarea
-                                    rows="20"
-                                    cols="30"
-                                    v-model="abstract"
-                            ></v-text-field>
-
+              <div id="textarea">
+                <v-text-field
+                        label="abstract"
+                        name="abstract"
+                        textarea
+                        rows="10"
+                        cols="25"
+                        v-model="abstract"
+                ></v-text-field>
+              </div>
             </div>
+          </td>
+         
+        </tr>
+      </table>
+
+
+                <template>
+                    <v-tabs
+                            color="cyan"
+                            dark
+                            icons-and-text
+                    >
+                        <v-tabs-slider color="yellow"></v-tabs-slider>
+
+                        <v-tab href="#tab-1">
+                            Related Articles
+
+                        </v-tab>
+
+                        <v-tab href="#tab-2">
+                            Video
+
+                        </v-tab>
+
+                        <v-tab href="#tab-3">
+                            Comments
+
+                        </v-tab>
+
+                        <v-tab-item
+                                v-for="i in 3"
+                                :key="i"
+                                :value="'tab-' + i"
+                        >
+                            <v-card flat>
+                                <v-card-text>{{ text[i-1] }}</v-card-text>
+                            </v-card>
+                        </v-tab-item>
+                    </v-tabs>
+                </template>
+
 
         </v-container>
     </div>
 </template>
 
 <script>
-    export default {
-        data: () => ({
-            loading: false,
-            model: {
-                username: '',
-                password: ''
-            }
-        }),
 
-        methods: {
-            classic () {
-                this.loading = true;
-                setTimeout(() => {
-                    this.$router.push('/etatdelart');
-                }, 1000);
-            },
+  var id,title,author,the_abstract,info;
+  export default {
+    data() {
+      return {
+        text:["Related articles here","video here","comments here"]
+      }
+    },
+    model: {
+    },
+    methods: {
+      getTitle() {
+        this.abstract=this.$route.query.abstract;
+        id=this.$route.query.id;
+        title=this.$route.query.title;
+        author=this.$route.query.author;
+        the_abstract=this.abstract;
+        info=this.$route.query.info;
+        return this.$route.query.title;
+      },
+      getAuthor() {
+        return this.$route.query.author;
+      },
+        getInfo() {
+            return this.$route.query.info;
+        },
+      getPublish() {
+        return this.$route.query.id;
+      },
+      classic() {
+        this.loading = true;
+        setTimeout(() => {
+          this.$router.push({
+            path: '/etatdelart',
+              query: {id: id,title:title,author:author,abstract:the_abstract,info:info},
+            //query: {...},
+            //moreData: {foo: 1}
+          })}, 1000);
+      },
+      visual() {
+        this.loading = true;
+        setTimeout(() => {
+          this.$router.push("/visual");
+        }, 1000);
+      },
+      matrice() {
+        this.loading = true;
+        setTimeout(() => {
+          this.$router.push({
+            path: '/result_page_matrice',
+              query: {id: id,title:title,author:author,abstract:the_abstract,info:info},
+            //query: {...},
+            //moreData: {foo: 1}
+          })}, 1000);
+      },
+    }
+  };
 
-            visual () {
-                this.loading = true;
-                setTimeout(() => {
-                    this.$router.push('/visual');
-                }, 1000);
-            },
 
-            matrice () {
-                this.loading = true;
-                setTimeout(() => {
-                    this.$router.push('/result_page_matrice');
-                }, 1000);
-            }
-        }
-
-    };
 </script>
 <style scoped lang="css">
     #textarea {

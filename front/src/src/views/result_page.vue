@@ -30,7 +30,6 @@
                           v-model="authors"
                           :items="itemsAuthor"
 
-                          chips
                           label="Select Author(s)"
                           multiple
                           width="200px"
@@ -39,7 +38,17 @@
                 </v-card-actions>
                 <v-card-actions>
                   Title:
-                  <v-text-field label="Title here" name="title"   v-model="title" ></v-text-field>
+                    <v-select
+                            name="title"
+                            v-model="title"
+                            :items="itemsTitle"
+
+                            label="Select Titles(s)"
+                            multiple
+                            width="300px"
+
+                    ></v-select>
+
                 </v-card-actions>
                 <v-card-actions>
                   Others details:
@@ -98,6 +107,9 @@
 
                     <v-list-tile-content>
                       <v-list-tile-title v-html="item.title"></v-list-tile-title>
+                        <v-list-tile-sub-title v-html="item.info"></v-list-tile-sub-title>
+
+
                     </v-list-tile-content>
                   </v-list-tile>
                 </template>
@@ -155,12 +167,13 @@
 </template>
 
 <script>
-  var id,title,author,abstract;
+  var id,title,author,abstract,info;
   export default {
     data: () => ({
       loading: false,
       page:1,
       itemsAuthor: [],
+        itemsTitle: [],
       items: [],
       model: {
         //items:this.$route.params.data,
@@ -187,62 +200,78 @@
                   // always executed
                 });
         thedata= [
+
           {
             //avatar: '../assets/iconA.png',
             id:1,
-            author:"Emmanuel AGOSSOU",
-            title: 'Lorem ipsum25662 dolor sit amet, consectetur adipiscing elit, seddo ',
+              author:"Emmanuel AGOSSOU",
+            info:"Emmanuel AGOSSOU - published 2011 and event 1",
+            title: 'Lorem ipsum25662 dolor sit amet, consectetur adipiscing elit, seddo1 ',
             abstract: 'Voici le abstact 1 ',
           },
-          {
+
+            {
             //avatar: '../assets/iconA.png',
             id:2,
-            author:"Paul LIYA, LOKo Ray",
-            title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo',
+              author:"Paul LIYA, LOKo Ray",
+            info:"Paul LIYA, LOKo Ray - published 2005 and event 2",
+            title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo2',
             abstract: 'Voici le abstact 2',
           },
+
           {
             //avatar: '../assets/iconA.png',
             id:3,
-            author:"Rowlins,J",
-            title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo',
+              author:"Rowlins,J",
+            info:"Rowlins,J - published 2015 and event 3",
+            title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo 3',
             abstract: 'Voici le abstact 3',
           },
+
           {
             //avatar: '../assets/iconA.png',
             id:4,
-            author:"Paul LIYA",
-            title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo',
+              author:"Paul LIYA",
+            info:"Paul LIYA- published 2015 and event 4",
+            title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo 4',
             abstract: 'Voici le abstact 4',
           },
+
           {
             //avatar: '../assets/iconA.png',
             id:5,
-            author:"Emmanuel AGOSSOU",
-            title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo',
+              author:"Emmanuel AGOSSOU",
+            info:"Emmanuel AGOSSOU - published 2018 and event 5",
+            title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo 5',
             abstract: 'Voici le abstact 5',
           },
+
           {
             //avatar: '../assets/iconA.png',
             id:6,
-            author:"LAFONT Jane",
-            title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo',
+              author:"LAFONT Jane",
+            info:"LAFONT Jane - published 2015 and event 6",
+            title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo 6',
             abstract: 'Voici le abstact 6',
           }
         ];
         this.items=thedata;
         var taille=this.items.length;
         for (i = 0; i < taille; i++) {
-          this.itemsAuthor[i] = this.items[i].author;
+
+                this.itemsAuthor[i] = this.items[i].author;
+                this.itemsTitle[i] = this.items[i].title;
+
         }
-        return taille;
+        if(taille==0) return alert("No item found");
+        else return taille;
       },
       classic() {
         this.loading = true;
         setTimeout(() => {
           this.$router.push({
             path: '/etatdelart',
-            query: {id: id,title:title,author:author,abstract:abstract},
+            query: {id: id,title:title,author:author,abstract:abstract,info:info},
             //query: {...},
             //moreData: {foo: 1}
           })}, 1000);
@@ -258,7 +287,7 @@
         setTimeout(() => {
           this.$router.push({
             path: '/result_page_matrice',
-            query: {id: id,title:title,author:author,abstract:abstract},
+            query: {id: id,title:title,author:author,abstract:abstract,info:info},
             //query: {...},
             //moreData: {foo: 1}
           })}, 1000);
@@ -268,10 +297,11 @@
         title=item.title;
         author=item.author;
         abstract=item.abstract;
+          info=item.info;
         setTimeout(() => {
           this.$router.push({
             path: '/etatdelart',
-            query: {id: id,title:title,author:author,abstract:abstract},
+            query: {id: id,title:title,author:author,abstract:abstract,info:info},
             //query: {...},
             //moreData: {foo: 1}
           })}, 1000);
