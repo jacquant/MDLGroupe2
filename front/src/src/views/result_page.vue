@@ -29,7 +29,6 @@
                           name="author"
                           v-model="authors"
                           :items="itemsAuthor"
-
                           label="Select Author(s)"
                           multiple
                           width="200px"
@@ -42,7 +41,6 @@
                             name="title"
                             v-model="title"
                             :items="itemsTitle"
-
                             label="Select Titles(s)"
                             multiple
                             width="300px"
@@ -57,9 +55,9 @@
 
                 <v-card-actions>
                   Pubished Year:
-                  <v-text-field label name="year1" v-model="model.year1"></v-text-field>
+                  <v-text-field label="year1" name="year1" v-model="model.year1"></v-text-field> to
 
-                  <v-text-field label name="year2" v-model="model.year2"></v-text-field>
+                  <v-text-field label="year2" name="year2" v-model="model.year2"></v-text-field>
                 </v-card-actions>
 
                 <div class>
@@ -204,8 +202,8 @@
           {
             //avatar: '../assets/iconA.png',
             id:1,
-              author:"Emmanuel AGOSSOU",
-            info:"Emmanuel AGOSSOU - published 2011 and event 1",
+              author:"J.S. Yi, B. Shneiderman",
+            info:"J.S. Yi, B. Shneiderman - published 2011 and event 1",
             title: 'Lorem ipsum25662 dolor sit amet, consectetur adipiscing elit, seddo1 ',
             abstract: 'Voici le abstact 1 ',
           },
@@ -222,8 +220,8 @@
           {
             //avatar: '../assets/iconA.png',
             id:3,
-              author:"Rowlins,J",
-            info:"Rowlins,J - published 2015 and event 3",
+              author:"Rowlins.J",
+            info:"Rowlins.J - published 2015 and event 3",
             title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo 3',
             abstract: 'Voici le abstact 3',
           },
@@ -231,8 +229,8 @@
           {
             //avatar: '../assets/iconA.png',
             id:4,
-              author:"Paul LIYA",
-            info:"Paul LIYA- published 2015 and event 4",
+              author:"D.Keim",
+            info:"D.Keim- published 2015 and event 4",
             title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo 4',
             abstract: 'Voici le abstact 4',
           },
@@ -240,8 +238,8 @@
           {
             //avatar: '../assets/iconA.png',
             id:5,
-              author:"Emmanuel AGOSSOU",
-            info:"Emmanuel AGOSSOU - published 2018 and event 5",
+              author:"J.S. Yi, B. Shneiderman",
+            info:"J.S. Yi, B. Shneiderman - published 2018 and event 5",
             title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo 5',
             abstract: 'Voici le abstact 5',
           },
@@ -249,20 +247,23 @@
           {
             //avatar: '../assets/iconA.png',
             id:6,
-              author:"LAFONT Jane",
-            info:"LAFONT Jane - published 2015 and event 6",
+              author:"LAFONT Jane, Kucher K., Kerren A.",
+            info:"LAFONT Jane, Kucher K., Kerren A. - published 2015 and event 6",
             title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo 6',
             abstract: 'Voici le abstact 6',
           }
         ];
         this.items=thedata;
+        var the_author="";
         var taille=this.items.length;
         for (i = 0; i < taille; i++) {
-
-                this.itemsAuthor[i] = this.items[i].author;
-                this.itemsTitle[i] = this.items[i].title;
-
+          this.itemsTitle[i] = this.items[i].title;  //get all the titles
+                //this.itemsAuthor[i] = this.items[i].author;
+          if(i==taille-1)the_author=the_author+this.items[i].author;
+          else the_author=the_author+this.items[i].author+",";
         }
+        this.itemsAuthor=the_author.split(",");
+
         if(taille==0) return alert("No item found");
         else return taille;
       },
@@ -274,13 +275,13 @@
             query: {id: id,title:title,author:author,abstract:abstract,info:info},
             //query: {...},
             //moreData: {foo: 1}
-          })}, 1000);
+          })}, 1);
       },
       visual() {
         this.loading = true;
         setTimeout(() => {
           this.$router.push("/visual");
-        }, 1000);
+        }, 1);
       },
       matrice() {
         this.loading = true;
@@ -290,7 +291,7 @@
             query: {id: id,title:title,author:author,abstract:abstract,info:info},
             //query: {...},
             //moreData: {foo: 1}
-          })}, 1000);
+          })}, 1);
       },
       selectTrack(item){
         id=item.id;
@@ -304,8 +305,9 @@
             query: {id: id,title:title,author:author,abstract:abstract,info:info},
             //query: {...},
             //moreData: {foo: 1}
-          })}, 1000);
-      }
+          })}, 1);
+      },
+
     }
   };
   /****** script pour la gestion du panel d'expansion*****/
