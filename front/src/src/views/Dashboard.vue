@@ -132,7 +132,7 @@ export default {
           query: {data: inputedText},
             //query: {...},
             //moreData: {foo: 1}
-        })}, 1000);
+        })}, 1);
 
 
       this.log += e.key;
@@ -192,7 +192,7 @@ export default {
       this.loading = true;
       setTimeout(() => {
         this.$router.push("../AdvancedSearch");
-      }, 1000);
+      }, 1);
     },
 
     wordClickHandler(name, value, vm) {

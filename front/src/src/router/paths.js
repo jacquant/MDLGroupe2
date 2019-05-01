@@ -57,6 +57,16 @@ export default [
       )
   },
   {
+    path: "/filtre",
+    meta: { breadcrumb: true },
+    name: "filtre",
+    component: () =>
+        import(
+            /* webpackChunkName: "routes" */
+            `@/views/Login.vue`
+            )
+  },
+  {
     path: "/",
     meta: {},
     name: "Root",

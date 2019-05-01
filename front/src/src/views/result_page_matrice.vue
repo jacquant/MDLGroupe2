@@ -125,13 +125,13 @@
               query: {id: id,title:title,author:author,abstract:the_abstract,info:info},
             //query: {...},
             //moreData: {foo: 1}
-          })}, 1000);
+          })}, 1);
       },
       visual() {
         this.loading = true;
         setTimeout(() => {
           this.$router.push("/visual");
-        }, 1000);
+        }, 1);
       },
       matrice() {
         this.loading = true;
@@ -141,7 +141,7 @@
               query: {id: id,title:title,author:author,abstract:the_abstract,info:info},
             //query: {...},
             //moreData: {foo: 1}
-          })}, 1000);
+          })}, 1);
       },
     }
   };
