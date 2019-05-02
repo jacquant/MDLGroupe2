@@ -87,7 +87,6 @@ import VWidget from "@/components/VWidget";
 import Material from "vuetify/es5/util/colors";
 import VCircle from "@/components/circle/VCircle";
 import BoxChart from "@/components/widgets/chart/BoxChart";
-import ChatWindow from "@/components/chat/ChatWindow";
 import CircleStatistic from "@/components/widgets/statistic/CircleStatistic";
 import LinearStatistic from "@/components/widgets/statistic/LinearStatistic";
 import axios from "axios";
