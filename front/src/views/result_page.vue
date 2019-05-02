@@ -30,8 +30,8 @@
                     v-model="authors"
                     :items="itemsAuthor"
                     label="Select Author(s)"
-                    chips
                     multiple
+                    chips
                     width="200px"
                   ></v-select>
                 </v-card-actions>
@@ -42,7 +42,6 @@
                     v-model="title"
                     :items="itemsTitle"
                     label="Select Titles(s)"
-                    chips
                     multiple
 
                     width="300px"
@@ -141,7 +140,7 @@
 </template>
 
 <script>
-var id, title, author, abstract, info,videoUrl,publisher,ref,pagerankscore,matriceref,the_item;
+var id, title, author, abstract, info,videoUrl,publisher,ref,pagerankscore,matriceref;
 export default {
   data: () => ({
     loading: false,
@@ -322,7 +321,16 @@ export default {
         this.$router.push({
           path: "/result_page_matrice",
           query: {
-              item:the_item
+            id: id,
+            title: title,
+            author: author,
+            abstract: abstract,
+            info: info,
+              videoUrl:videoUrl,
+              ref:ref,
+              publisher:publisher,
+              pagerankscore:pagerankscore,
+              matriceref:matriceref
           }
           //query: {...},
           //moreData: {foo: 1}
@@ -330,13 +338,11 @@ export default {
       }, 1);
     },
     selectTrack(item) {
-        the_item=item;
       id = item.id;
       title = item.title;
       author = item.author;
       abstract = item.abstract;
       info = item.info;
-        videoUrl=item.videoUrl;
        publisher=item.publisher;
         ref=item.ref;
         pagerankscore=item.pagerankscore;
@@ -346,7 +352,16 @@ export default {
         this.$router.push({
           path: "/etatdelart",
           query: {
-            item:the_item
+            id: id,
+            title: title,
+            author: author,
+            abstract: abstract,
+            info: info,
+              videoUrl:videoUrl,
+              ref:ref,
+              publisher:publisher,
+              pagerankscore:pagerankscore,
+              matriceref:matriceref
           }
 
             //query: {...},

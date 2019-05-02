@@ -109,7 +109,16 @@ export default {
         this.$router.push({
           path: "/etatdelart",
           query: {
-            item:this.$route.query.item
+                 id:this.$route.query.id,
+                title:this.$route.query.title,
+                author: this.$route.query.author,
+                info:this.$route.query.info,
+                videoUrl:this.$route.query.videoUrl,
+                publisher:this.$route.query.publisher,
+                ref:this.$route.query.ref,
+                pagerankscore:this.$route.query.pagerankscore,
+                matriceref:this.$route.query.matriceref,
+                abstract:this.$route.query.abstract
           }
           //query: {...},
           //moreData: {foo: 1}
@@ -122,7 +131,16 @@ export default {
         this.$router.push({
           path: "/visual",
           query: {
-            item:this.$route.query.item
+            id:this.$route.query.id,
+        title:this.$route.query.title,
+        author: this.$route.query.author,
+        info:this.$route.query.info,
+        videoUrl:this.$route.query.videoUrl,
+        publisher:this.$route.query.publisher,
+        ref:this.$route.query.ref,
+        pagerankscore:this.$route.query.pagerankscore,
+        matriceref:this.$route.query.matriceref,
+        abstract:this.$route.query.abstract
           }
           //query: {...},
           //moreData: {foo: 1}
@@ -135,7 +153,16 @@ export default {
         this.$router.push({
           path: "/result_page_matrice",
           query: {
-            item:this.$route.query.item
+            id:this.$route.query.id,
+            title:this.$route.query.title,
+            author: this.$route.query.author,
+            info:this.$route.query.info,
+            videoUrl:this.$route.query.videoUrl,
+            publisher:this.$route.query.publisher,
+            ref:this.$route.query.ref,
+            pagerankscore:this.$route.query.pagerankscore,
+            matriceref:this.$route.query.matriceref,
+            abstract:this.$route.query.abstract
           }
           //query: {...},
           //moreData: {foo: 1}

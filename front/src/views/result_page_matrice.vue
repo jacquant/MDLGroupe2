@@ -108,17 +108,16 @@ export default {
           },*/
   methods: {
     getTitle() {
-      this.abstract = this.$route.query.item.abstract;
-      id = this.$route.query.item.id;
-      title = this.$route.query.item.title;
-      author = this.$route.query.item.author;
-      the_abstract = this.$route.query.item.abstract;
-      info = this.$route.query.item.info;
-      videoUrl=this.$route.query.item.videoUrl;
-      publisher=this.$route.query.item.publisher;
-      ref=this.$route.query.item.ref;
-      pagerankscore=this.$route.query.item.pagerankscore;
-      matriceref=this.$route.query.item.matriceref;
+      id = this.$route.query.id;
+      title = this.$route.query.title;
+      author = this.$route.query.author;
+      info = this.$route.query.info;
+      videoUrl=this.$route.query.videoUrl;
+      publisher=this.$route.query.publisher;
+      ref=this.$route.query.ref;
+      pagerankscore=this.$route.query.pagerankscore;
+      matriceref=this.$route.query.matriceref;
+      the_abstract = this.$route.query.the_abstract;
       return title;
     },
     getInfo() {
@@ -131,7 +130,16 @@ export default {
         this.$router.push({
           path: "/etatdelart",
           query: {
-            item:this.$route.query.item
+            id: id,
+            title: title,
+            author: author,
+            abstract: the_abstract,
+            info: info,
+            videoUrl:videoUrl,
+            ref:ref,
+            publisher:publisher,
+            pagerankscore:pagerankscore,
+            matriceref:matriceref
           }
           //query: {...},
           //moreData: {foo: 1}
@@ -144,7 +152,16 @@ export default {
         this.$router.push({
           path: "/visual",
           query: {
-            item:this.$route.query.item
+            id: id,
+            title: title,
+            author: author,
+            abstract: the_abstract,
+            info: info,
+            videoUrl:videoUrl,
+            ref:ref,
+            publisher:publisher,
+            pagerankscore:pagerankscore,
+            matriceref:matriceref
           }
           //query: {...},
           //moreData: {foo: 1}
@@ -157,7 +174,16 @@ export default {
         this.$router.push({
           path: "/result_page_matrice",
           query: {
-            item:this.$route.query.item
+            id: id,
+            title: title,
+            author: author,
+            abstract: the_abstract,
+            info: info,
+            videoUrl:videoUrl,
+            ref:ref,
+            publisher:publisher,
+            pagerankscore:pagerankscore,
+            matriceref:matriceref
           }
           //query: {...},
           //moreData: {foo: 1}

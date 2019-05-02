@@ -83,34 +83,34 @@ var id, title, author, the_abstract, info,videoUrl,publisher,ref,pagerankscore,m
 export default {
   data() {
     return {
-      text:[this.$route.query.item.ref,this.$route.query.item.videoUrl,"comments here"]
+      text:[this.$route.query.ref,this.$route.query.videoUrl,"comments here"]
     };
   },
   model: {},
   methods: {
     getTitle() {
-      this.abstract = this.$route.query.item.abstract;
-      id = this.$route.query.item.id;
-      title = this.$route.query.item.title;
-      author = this.$route.query.item.author;
-      the_abstract = this.$route.query.item.abstract;
-      info = this.$route.query.item.info;
-      videoUrl=this.$route.query.item.videoUrl;
-      publisher=this.$route.query.item.publisher;
-      ref=this.$route.query.item.ref;
-      pagerankscore=this.$route.query.item.pagerankscore;
-      matriceref=this.$route.query.item.matriceref;
+      this.abstract = this.$route.query.abstract;
+      id = this.$route.query.id;
+      title = this.$route.query.title;
+      author = this.$route.query.author;
+      the_abstract = this.abstract;
+      info = this.$route.query.info;
+      videoUrl=this.$route.query.videoUrl;
+      publisher=this.$route.query.publisher;
+      ref=this.$route.query.ref;
+      pagerankscore=this.$route.query.pagerankscore;
+      matriceref=this.$route.query.matriceref;
 
-      return this.$route.query.item.title;
+      return this.$route.query.title;
     },
     getAuthor() {
-      return this.$route.query.item.author;
+      return this.$route.query.author;
     },
     getInfo() {
-      return this.$route.query.item.info;
+      return this.$route.query.info;
     },
     getPublish() {
-      return this.$route.query.item.id;
+      return this.$route.query.id;
     },
     classic() {
       this.loading = true;
@@ -118,7 +118,16 @@ export default {
         this.$router.push({
           path: "/etatdelart",
           query: {
-            item:this.$route.query.item
+            id: id,
+            title: title,
+            author: author,
+            abstract: the_abstract,
+            info: info,
+            videoUrl:videoUrl,
+            ref:ref,
+            publisher:publisher,
+            pagerankscore:pagerankscore,
+            matriceref:matriceref
           }
           //query: {...},
           //moreData: {foo: 1}
@@ -131,7 +140,16 @@ export default {
         this.$router.push({
           path: "/visual",
           query: {
-            item:this.$route.query.item
+            id: id,
+            title: title,
+            author: author,
+            abstract: the_abstract,
+            info: info,
+            videoUrl:videoUrl,
+            ref:ref,
+            publisher:publisher,
+            pagerankscore:pagerankscore,
+            matriceref:matriceref
           }
           //query: {...},
           //moreData: {foo: 1}
@@ -144,7 +162,16 @@ export default {
         this.$router.push({
           path: "/result_page_matrice",
           query: {
-            item:this.$route.query.item
+            id: id,
+            title: title,
+            author: author,
+            abstract: the_abstract,
+            info: info,
+            videoUrl:videoUrl,
+            ref:ref,
+            publisher:publisher,
+            pagerankscore:pagerankscore,
+            matriceref:matriceref
           }
           //query: {...},
           //moreData: {foo: 1}
