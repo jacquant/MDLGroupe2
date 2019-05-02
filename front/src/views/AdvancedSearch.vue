@@ -2,9 +2,13 @@
   <div id="advancedSearch" width="100%">
     <v-container>
       <v-layout row>
-        <v-btn fab dark small color="primary" @click="remove">
+        <v-btn fab dark small color="primary" @click="removeh">
           <v-icon dark>remove</v-icon>
         </v-btn>
+        <v-btn fab dark small color="primary" @click="addh">
+          <v-icon dark>add</v-icon>
+        </v-btn>
+
         <v-flex xs12 md19>
           <v-card-actions>
             <v-text-field
@@ -64,7 +68,10 @@
             </span>
           </span>
         </v-flex>
-        <v-btn fab dark small color="red" @click="add">
+        <v-btn fab dark small color="primary" @click="removev">
+          <v-icon dark>remove</v-icon>
+        </v-btn>
+        <v-btn fab dark small color="primary" @click="addv">
           <v-icon dark>add</v-icon>
         </v-btn>
       </v-layout>
@@ -127,7 +134,7 @@ export default {
   methods: {
     validateResearch: function(e) {},
 
-    add: function() {
+    addh: function() {
       var added = {};
       added["searchLine"] = {
         field1: "",
@@ -140,7 +147,7 @@ export default {
       this.payload.push(added);
     },
 
-    remove: function() {
+    removeh: function() {
       if (this.payload.length > 0) {
         this.payload.splice(-1, 1);
       }

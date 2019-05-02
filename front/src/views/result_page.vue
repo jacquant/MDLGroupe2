@@ -9,7 +9,7 @@
 
       <v-card-actions>
         <v-spacer></v-spacer>
-        <v-btn color="" @click="visual" class="btn">Visual</v-btn>
+        <v-btn color="" @click="" class="btn">Visual</v-btn>
       </v-card-actions>
 
       <table style=" position: absolute; width:100%; " cellspacing="10">

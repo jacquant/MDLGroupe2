@@ -52,7 +52,7 @@
       </table>
 
       <template>
-        <v-tabs color="cyan" dark icons-and-text>
+        <v-tabs color="dark" dark icons-and-text>
           <v-tabs-slider color="yellow"></v-tabs-slider>
 
           <v-tab href="#tab-1">

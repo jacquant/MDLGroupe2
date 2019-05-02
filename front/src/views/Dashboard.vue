@@ -1,6 +1,6 @@
 <template>
   <div id="pageDashboard" width="100%">
-    <v-img v-bind:position="centerX" src=static/logo.jpg height="150" contain="true" alt="Logo ReSearch" />
+    <v-img id="logo" v-bind:position="centerX" src=static/logo.jpg height="150" contain="true" alt="Logo ReSearch" />
     <br>
 
     <div style="margin-right: 100px; margin-left: 100px; width:80%;" >
@@ -22,7 +22,7 @@
       <v-btn outline color="indigo" @click="advancedSearch" >Advanced Search</v-btn>
     </div>
 
-    <div id="app" hidden>
+    <div id="app" class="appClass" hidden>
       <wordcloud
               :data="defaultWords"
               nameKey="name"
@@ -96,7 +96,7 @@
 
           var arrayTest = inputedText.split(" ");
           arrayTest.forEach(function(element,index) {
-            arrayTest[index] =  {"name": element, "value": Math.floor(Math.random() * 30) + 1 };
+            arrayTest[index] =  {"name":element, "value":Math.floor(Math.random() * 30) + 1};
           });
 
           this.defaultWords = arrayTest;
@@ -105,15 +105,15 @@
          }
       },
 
+      wordClickHandler(name, value, vm) {
+        this.searchedInput += name;
+      },
+
       advancedSearch() {
         this.loading = true;
         setTimeout(() => {
           this.$router.push("../AdvancedSearch");
         }, 1000);
-      },
-
-      wordClickHandler(name, value, vm) {
-        console.log('wordClickHandler', name, value, vm);
       },
 
       searchHistory() {
@@ -139,3 +139,12 @@
   }
 </script>
 <style scoped lang="css">
+.appClass {
+  align: center;
+  width: 50%;
+  height: 75%;
+  margin-left: 25%;
+  margin-right: 50%;
+  border-style: solid;
+}
+</style>
