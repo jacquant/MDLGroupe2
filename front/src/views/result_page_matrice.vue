@@ -64,7 +64,7 @@
 </template>
 
 <script>
-var id, title, author, the_abstract, info;
+var id, title, author, the_abstract, info,videoUrl,ref,publisher,pagerankscore,matriceref;
 export default {
   /*
           data() {
@@ -108,11 +108,17 @@ export default {
           },*/
   methods: {
     getTitle() {
-      id = this.$route.query.id;
-      title = this.$route.query.title;
-      author = this.$route.query.author;
-      info = this.$route.query.info;
-      the_abstract = this.$route.query.the_abstract;
+      this.abstract = this.$route.query.item.abstract;
+      id = this.$route.query.item.id;
+      title = this.$route.query.item.title;
+      author = this.$route.query.item.author;
+      the_abstract = this.$route.query.item.abstract;
+      info = this.$route.query.item.info;
+      videoUrl=this.$route.query.item.videoUrl;
+      publisher=this.$route.query.item.publisher;
+      ref=this.$route.query.item.ref;
+      pagerankscore=this.$route.query.item.pagerankscore;
+      matriceref=this.$route.query.item.matriceref;
       return title;
     },
     getInfo() {
@@ -125,11 +131,7 @@ export default {
         this.$router.push({
           path: "/etatdelart",
           query: {
-            id: id,
-            title: title,
-            author: author,
-            abstract: the_abstract,
-            info: info
+            item:this.$route.query.item
           }
           //query: {...},
           //moreData: {foo: 1}
@@ -139,7 +141,14 @@ export default {
     visual() {
       this.loading = true;
       setTimeout(() => {
-        this.$router.push("/visual");
+        this.$router.push({
+          path: "/visual",
+          query: {
+            item:this.$route.query.item
+          }
+          //query: {...},
+          //moreData: {foo: 1}
+        });
       }, 1);
     },
     matrice() {
@@ -148,11 +157,7 @@ export default {
         this.$router.push({
           path: "/result_page_matrice",
           query: {
-            id: id,
-            title: title,
-            author: author,
-            abstract: the_abstract,
-            info: info
+            item:this.$route.query.item
           }
           //query: {...},
           //moreData: {foo: 1}

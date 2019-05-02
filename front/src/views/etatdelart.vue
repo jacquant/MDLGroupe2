@@ -79,32 +79,38 @@
 </template>
 
 <script>
-var id, title, author, the_abstract, info;
+var id, title, author, the_abstract, info,videoUrl,publisher,ref,pagerankscore,matriceref;
 export default {
   data() {
     return {
-      text: ["Related articles here", "video here", "comments here"]
+      text:[this.$route.query.item.ref,this.$route.query.item.videoUrl,"comments here"]
     };
   },
   model: {},
   methods: {
     getTitle() {
-      this.abstract = this.$route.query.abstract;
-      id = this.$route.query.id;
-      title = this.$route.query.title;
-      author = this.$route.query.author;
-      the_abstract = this.abstract;
-      info = this.$route.query.info;
-      return this.$route.query.title;
+      this.abstract = this.$route.query.item.abstract;
+      id = this.$route.query.item.id;
+      title = this.$route.query.item.title;
+      author = this.$route.query.item.author;
+      the_abstract = this.$route.query.item.abstract;
+      info = this.$route.query.item.info;
+      videoUrl=this.$route.query.item.videoUrl;
+      publisher=this.$route.query.item.publisher;
+      ref=this.$route.query.item.ref;
+      pagerankscore=this.$route.query.item.pagerankscore;
+      matriceref=this.$route.query.item.matriceref;
+
+      return this.$route.query.item.title;
     },
     getAuthor() {
-      return this.$route.query.author;
+      return this.$route.query.item.author;
     },
     getInfo() {
-      return this.$route.query.info;
+      return this.$route.query.item.info;
     },
     getPublish() {
-      return this.$route.query.id;
+      return this.$route.query.item.id;
     },
     classic() {
       this.loading = true;
@@ -112,22 +118,25 @@ export default {
         this.$router.push({
           path: "/etatdelart",
           query: {
-            id: id,
-            title: title,
-            author: author,
-            abstract: the_abstract,
-            info: info
+            item:this.$route.query.item
           }
           //query: {...},
           //moreData: {foo: 1}
         });
-      }, 1000);
+      }, 1);
     },
     visual() {
       this.loading = true;
       setTimeout(() => {
-        this.$router.push("/visual");
-      }, 1000);
+        this.$router.push({
+          path: "/visual",
+          query: {
+            item:this.$route.query.item
+          }
+          //query: {...},
+          //moreData: {foo: 1}
+        });
+      }, 1);
     },
     matrice() {
       this.loading = true;
@@ -135,16 +144,12 @@ export default {
         this.$router.push({
           path: "/result_page_matrice",
           query: {
-            id: id,
-            title: title,
-            author: author,
-            abstract: the_abstract,
-            info: info
+            item:this.$route.query.item
           }
           //query: {...},
           //moreData: {foo: 1}
         });
-      }, 1000);
+      }, 1);
     }
   }
 };
