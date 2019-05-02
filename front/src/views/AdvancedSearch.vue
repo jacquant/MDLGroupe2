@@ -145,13 +145,22 @@ export default {
         this.payload.splice(-1, 1);
       }
     },
-    Search() {
+    Search(params) {
       this.loading = true;
 
       var query = this.payload.slice();
       query = query.unshift(this.payload0);
 
-      //axios
+      axios.get('http://mdl-std02.info.fundp.ac.be:8181/MdlGroupe2-test/api/AdvancedSearch?params='+params)
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
+      .then(function () {
+      });
+
       setTimeout(() => {
         this.$router.push("../result_page");
       }, 1000);
