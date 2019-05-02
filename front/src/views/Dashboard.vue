@@ -22,7 +22,7 @@
       <v-btn outline color="indigo" @click="advancedSearch" >Advanced Search</v-btn>
     </div>
 
-    <div id="app" hidden style="border: thin solid black">
+    <div id="app" hidden>
       <wordcloud
               :data="defaultWords"
               nameKey="name"
@@ -81,7 +81,7 @@
             query: {data: inputedText},
             //query: {...},
             //moreData: {foo: 1}
-          })}, 1000);
+          })}, 0.00001);
         this.log += e.key;
 
       },

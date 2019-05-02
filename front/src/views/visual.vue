@@ -1,4 +1,3 @@
-nn
 <template>
   <div id="visual">
     <v-card-actions>
@@ -57,7 +56,21 @@ nn
 
         <v-flex width="50%">
           <v-widget title="Cloud of words" content-bg="white">
-            <div slot="widget-content"></div>
+            <div id="app" slot="widget-content">
+              <wordcloud
+                :data="defaultWords"
+                nameKey="name"
+                valueKey="value"
+                :color="['#1f77b4', '#629fc9', '#94bedb', '#c9e0ef']"
+                :rotate="{ from: 0, to: 0, numOfOrientation: 0 }"
+                :spiral="rectangular"
+                :fontSize="[50, 60]"
+                :showTooltip="true"
+                :margin="{ top: 15, right: 5, bottom: 15, left: 5 }"
+                :wordClick="wordClickHandler"
+              >
+              </wordcloud>
+            </div>
           </v-widget>
         </v-flex>
       </v-layout>
@@ -70,19 +83,9 @@ nn
 <script>
 import API from "@/api";
 import EChart from "@/components/chart/echart";
-import MiniStatistic from "@/components/widgets/statistic/MiniStatistic";
-import PostListCard from "@/components/widgets/card/PostListCard";
-import ProfileCard from "@/components/widgets/card/ProfileCard";
-import PostSingleCard from "@/components/widgets/card/PostSingleCard";
-import WeatherCard from "@/components/widgets/card/WeatherCard";
-import PlainTable from "@/components/widgets/list/PlainTable";
-import PlainTableOrder from "@/components/widgets/list/PlainTableOrder";
 import VWidget from "@/components/VWidget";
 import Material from "vuetify/es5/util/colors";
-import VCircle from "@/components/circle/VCircle";
-import BoxChart from "@/components/widgets/chart/BoxChart";
-import CircleStatistic from "@/components/widgets/statistic/CircleStatistic";
-import LinearStatistic from "@/components/widgets/statistic/LinearStatistic";
+import wordcloud from 'vue-wordcloud';
 
 export default {
   data() {
@@ -90,10 +93,13 @@ export default {
       active: null,
       relatedArticle: " Related articles here",
       comments: " Comments here",
-      video: " Video  here"
+      video: " Video  here",
+      color: Material,
+      selectedTab: "tab-1",
+      defaultWords: [{"name": "car", "value":Math.floor(Math.random() * 30) + 1}, {"name": "computer", "value":Math.floor(Math.random() * 30) + 1}, {"name": "data", "value":Math.floor(Math.random() * 30) + 1}, {"name": "vizualisation", "value":Math.floor(Math.random() * 30) + 1}, {"name": "engineering", "value":Math.floor(Math.random() * 30) + 1}, {"name": "IT", "value":Math.floor(Math.random() * 30) + 1}]
     };
   },
-
+  name: "app",
   methods: {
     classic() {
       this.loading = true;
@@ -119,23 +125,9 @@ export default {
 
   components: {
     VWidget,
-    MiniStatistic,
-    VCircle,
-    WeatherCard,
-    PostSingleCard,
-    PostListCard,
-    ProfileCard,
     EChart,
-    BoxChart,
-    CircleStatistic,
-    LinearStatistic,
-    PlainTable,
-    PlainTableOrder
+    wordcloud
   },
-  data: () => ({
-    color: Material,
-    selectedTab: "tab-1"
-  }),
   computed: {
     activity() {
       return API.getActivity();

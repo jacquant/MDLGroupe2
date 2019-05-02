@@ -1,5 +1,5 @@
 <template>
-  <v-toolbar color="primary" fixed dark app>
+  <v-toolbar color="success" fixed dark app>
     <v-toolbar-title class="ml-0 pl-3"> </v-toolbar-title>
 
     <v-spacer></v-spacer>
@@ -29,7 +29,7 @@
     >
       <v-btn icon large flat slot="activator">
         <v-avatar size="30px">
-          <img src="/static/avatar/man_4.jpg" alt="Michael Wang" />
+          <img src="../assets/logo.png" alt="Michael Wang" />
         </v-avatar>
       </v-btn>
       <v-list class="pa-0">
