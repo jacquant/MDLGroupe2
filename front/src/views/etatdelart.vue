@@ -79,11 +79,11 @@
 </template>
 
 <script>
-var id, title, author, the_abstract, info;
+var id, title, author, the_abstract, info,videoUrl,publisher,ref,pagerankscore,matriceref;
 export default {
   data() {
     return {
-      text: ["Related articles here", "video here", "comments here"]
+      text:[this.$route.query.ref,this.$route.query.videoUrl,"comments here"]
     };
   },
   model: {},
@@ -95,6 +95,12 @@ export default {
       author = this.$route.query.author;
       the_abstract = this.abstract;
       info = this.$route.query.info;
+      videoUrl=this.$route.query.videoUrl;
+      publisher=this.$route.query.publisher;
+      ref=this.$route.query.ref;
+      pagerankscore=this.$route.query.pagerankscore;
+      matriceref=this.$route.query.matriceref;
+
       return this.$route.query.title;
     },
     getAuthor() {
@@ -116,18 +122,39 @@ export default {
             title: title,
             author: author,
             abstract: the_abstract,
-            info: info
+            info: info,
+            videoUrl:videoUrl,
+            ref:ref,
+            publisher:publisher,
+            pagerankscore:pagerankscore,
+            matriceref:matriceref
           }
           //query: {...},
           //moreData: {foo: 1}
         });
-      }, 1000);
+      }, 1);
     },
     visual() {
       this.loading = true;
       setTimeout(() => {
-        this.$router.push("/visual");
-      }, 1000);
+        this.$router.push({
+          path: "/visual",
+          query: {
+            id: id,
+            title: title,
+            author: author,
+            abstract: the_abstract,
+            info: info,
+            videoUrl:videoUrl,
+            ref:ref,
+            publisher:publisher,
+            pagerankscore:pagerankscore,
+            matriceref:matriceref
+          }
+          //query: {...},
+          //moreData: {foo: 1}
+        });
+      }, 1);
     },
     matrice() {
       this.loading = true;
@@ -139,12 +166,17 @@ export default {
             title: title,
             author: author,
             abstract: the_abstract,
-            info: info
+            info: info,
+            videoUrl:videoUrl,
+            ref:ref,
+            publisher:publisher,
+            pagerankscore:pagerankscore,
+            matriceref:matriceref
           }
           //query: {...},
           //moreData: {foo: 1}
         });
-      }, 1000);
+      }, 1);
     }
   }
 };

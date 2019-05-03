@@ -87,16 +87,18 @@ import VWidget from "@/components/VWidget";
 import Material from "vuetify/es5/util/colors";
 import wordcloud from 'vue-wordcloud';
 
+
 export default {
   data() {
     return {
+
       active: null,
-      relatedArticle: " Related articles here",
-      comments: " Comments here",
-      video: " Video  here",
+
       color: Material,
       selectedTab: "tab-1",
       defaultWords: [{"name": "car", "value":Math.floor(Math.random() * 30) + 1}, {"name": "computer", "value":Math.floor(Math.random() * 30) + 1}, {"name": "data", "value":Math.floor(Math.random() * 30) + 1}, {"name": "vizualisation", "value":Math.floor(Math.random() * 30) + 1}, {"name": "engineering", "value":Math.floor(Math.random() * 30) + 1}, {"name": "IT", "value":Math.floor(Math.random() * 30) + 1}]
+
+
     };
   },
   name: "app",
@@ -104,22 +106,68 @@ export default {
     classic() {
       this.loading = true;
       setTimeout(() => {
-        this.$router.push("/etatdelart");
-      }, 1000);
+        this.$router.push({
+          path: "/etatdelart",
+          query: {
+                 id:this.$route.query.id,
+                title:this.$route.query.title,
+                author: this.$route.query.author,
+                info:this.$route.query.info,
+                videoUrl:this.$route.query.videoUrl,
+                publisher:this.$route.query.publisher,
+                ref:this.$route.query.ref,
+                pagerankscore:this.$route.query.pagerankscore,
+                matriceref:this.$route.query.matriceref,
+                abstract:this.$route.query.abstract
+          }
+          //query: {...},
+          //moreData: {foo: 1}
+        });
+      }, 1);
     },
-
     visual() {
       this.loading = true;
       setTimeout(() => {
-        this.$router.push("/visual");
-      }, 1000);
+        this.$router.push({
+          path: "/visual",
+          query: {
+            id:this.$route.query.id,
+        title:this.$route.query.title,
+        author: this.$route.query.author,
+        info:this.$route.query.info,
+        videoUrl:this.$route.query.videoUrl,
+        publisher:this.$route.query.publisher,
+        ref:this.$route.query.ref,
+        pagerankscore:this.$route.query.pagerankscore,
+        matriceref:this.$route.query.matriceref,
+        abstract:this.$route.query.abstract
+          }
+          //query: {...},
+          //moreData: {foo: 1}
+        });
+      }, 1);
     },
-
     matrice() {
       this.loading = true;
       setTimeout(() => {
-        this.$router.push("/result_page_matrice");
-      }, 1000);
+        this.$router.push({
+          path: "/result_page_matrice",
+          query: {
+            id:this.$route.query.id,
+            title:this.$route.query.title,
+            author: this.$route.query.author,
+            info:this.$route.query.info,
+            videoUrl:this.$route.query.videoUrl,
+            publisher:this.$route.query.publisher,
+            ref:this.$route.query.ref,
+            pagerankscore:this.$route.query.pagerankscore,
+            matriceref:this.$route.query.matriceref,
+            abstract:this.$route.query.abstract
+          }
+          //query: {...},
+          //moreData: {foo: 1}
+        });
+      }, 1);
     }
   },
 

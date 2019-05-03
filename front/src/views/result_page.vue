@@ -31,6 +31,7 @@
                     :items="itemsAuthor"
                     label="Select Author(s)"
                     multiple
+                    chips
                     width="200px"
                   ></v-select>
                 </v-card-actions>
@@ -42,6 +43,7 @@
                     :items="itemsTitle"
                     label="Select Titles(s)"
                     multiple
+
                     width="300px"
                   ></v-select>
                 </v-card-actions>
@@ -128,41 +130,7 @@
                   <v-pagination v-model="page" :length="4"></v-pagination>
                 </div>
               </template>
-              <!--a href="#/etatdelart">
-           <img align="center" src="../assets/iconA.png" width="20px" />
-         <h2 class="flex my-4 primary--text">Research Result (88888)</h2>
-         <br>
-         <a href="#/etatdelart">
-           <img align="center" src="../assets/iconA.png" width="20px">
-           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-           do
-         </a>
-         <br>
-         <br>
-         <a href="#/etatdelart">
-           <img align="center" src="../assets/iconA.png" width="20px">
-           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-           do
-         </a>
-         <br>
-         <br>
-         <a href="#/etatdelart">
-           <img align="center" src="../assets/iconA.png" width="20px">
-           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-           do
-         </a>
-         <br>
-         <br>
-         <a href="#/etatdelart">
-           <img align="center" src="../assets/iconA.png" width="20px">
-           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-           do
-         </a>
-         <br>
-         <br>
-         <a href="#/etatdelart">
-           <img align="center" src="../assets/iconA.png" width="20px" />
-           Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo</a><br /><br /-->
+
             </div>
           </td>
         </tr>
@@ -172,7 +140,7 @@
 </template>
 
 <script>
-var id, title, author, abstract, info;
+var id, title, author, abstract, info,videoUrl,publisher,ref,pagerankscore,matriceref;
 export default {
   data: () => ({
     loading: false,
@@ -197,8 +165,13 @@ export default {
             inputedText
         )
         .then(function(response) {
-          // handle success
-          //thedata=response;
+            /*
+            this.items= response;
+
+            for (i = 0; i < response.length; i++) {
+                this.items[i] = response[i];
+            }
+            */
           console.log("la réponse:" + response);
         })
         .catch(function(error) {
@@ -216,7 +189,12 @@ export default {
           info: "J.S. Yi, B. Shneiderman - published 2011 and event 1",
           title:
             "Lorem ipsum25662 dolor sit amet, consectetur adipiscing elit, seddo1 ",
-          abstract: "Voici le abstact 1 "
+          abstract: "Voici le abstact 1 ",
+            videoUrl:"lien video1",
+            publisher:"publisher  1",
+            ref:"ref 1",
+            pagerankscore:"ranking 1",
+            matriceref:"matriceref 1",
         },
 
         {
@@ -226,7 +204,12 @@ export default {
           info: "Paul LIYA, LOKo Ray - published 2005 and event 2",
           title:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo2",
-          abstract: "Voici le abstact 2"
+          abstract: "Voici le abstact 2",
+            videoUrl:"lien video 2",
+            publisher:"publisher 2",
+            ref:"ref 2",
+            pagerankscore:"ranking 2",
+            matriceref:"matriceref 2",
         },
 
         {
@@ -236,7 +219,12 @@ export default {
           info: "Rowlins.J - published 2015 and event 3",
           title:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo 3",
-          abstract: "Voici le abstact 3"
+          abstract: "Voici le abstact 3",
+            videoUrl:"lien video 3",
+            publisher:"publisher 3",
+            ref:"ref 3",
+            pagerankscore:"ranking 3",
+            matriceref:"matriceref 3",
         },
 
         {
@@ -246,7 +234,12 @@ export default {
           info: "D.Keim- published 2015 and event 4",
           title:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo 4",
-          abstract: "Voici le abstact 4"
+          abstract: "Voici le abstact 4",
+            videoUrl:"lien video 4",
+            publisher:"publisher 4",
+            ref:"ref 4",
+            pagerankscore:"ranking 4",
+            matriceref:"matriceref 4",
         },
 
         {
@@ -256,7 +249,12 @@ export default {
           info: "J.S. Yi, B. Shneiderman - published 2018 and event 5",
           title:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo 5",
-          abstract: "Voici le abstact 5"
+          abstract: "Voici le abstact 5",
+            videoUrl:"lien video 5",
+            publisher:"publisher 5",
+            ref:"ref 5",
+            pagerankscore:"ranking 5",
+            matriceref:"matriceref 5",
         },
 
         {
@@ -267,7 +265,12 @@ export default {
             "LAFONT Jane, Kucher K., Kerren A. - published 2015 and event 6",
           title:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo 6",
-          abstract: "Voici le abstact 6"
+          abstract: "Voici le abstact 6",
+            videoUrl:"lien video 6",
+            publisher:"publisher 6",
+            ref:"ref 6",
+            pagerankscore:"ranking 6",
+            matriceref:"matriceref 6",
         }
       ];
       this.items = thedata;
@@ -294,7 +297,12 @@ export default {
             title: title,
             author: author,
             abstract: abstract,
-            info: info
+            info: info,
+              videoUrl:videoUrl,
+              ref:ref,
+              publisher:publisher,
+              pagerankscore:pagerankscore,
+              matriceref:matriceref
           }
           //query: {...},
           //moreData: {foo: 1}
@@ -317,7 +325,12 @@ export default {
             title: title,
             author: author,
             abstract: abstract,
-            info: info
+            info: info,
+              videoUrl:videoUrl,
+              ref:ref,
+              publisher:publisher,
+              pagerankscore:pagerankscore,
+              matriceref:matriceref
           }
           //query: {...},
           //moreData: {foo: 1}
@@ -330,6 +343,11 @@ export default {
       author = item.author;
       abstract = item.abstract;
       info = item.info;
+       publisher=item.publisher;
+        ref=item.ref;
+        pagerankscore=item.pagerankscore;
+        matriceref=item.matriceref;
+
       setTimeout(() => {
         this.$router.push({
           path: "/etatdelart",
@@ -338,9 +356,15 @@ export default {
             title: title,
             author: author,
             abstract: abstract,
-            info: info
+            info: info,
+              videoUrl:videoUrl,
+              ref:ref,
+              publisher:publisher,
+              pagerankscore:pagerankscore,
+              matriceref:matriceref
           }
-          //query: {...},
+
+            //query: {...},
           //moreData: {foo: 1}
         });
       }, 1);

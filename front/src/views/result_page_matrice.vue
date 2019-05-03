@@ -64,7 +64,7 @@
 </template>
 
 <script>
-var id, title, author, the_abstract, info;
+var id, title, author, the_abstract, info,videoUrl,ref,publisher,pagerankscore,matriceref;
 export default {
   /*
           data() {
@@ -112,6 +112,11 @@ export default {
       title = this.$route.query.title;
       author = this.$route.query.author;
       info = this.$route.query.info;
+      videoUrl=this.$route.query.videoUrl;
+      publisher=this.$route.query.publisher;
+      ref=this.$route.query.ref;
+      pagerankscore=this.$route.query.pagerankscore;
+      matriceref=this.$route.query.matriceref;
       the_abstract = this.$route.query.the_abstract;
       return title;
     },
@@ -129,7 +134,12 @@ export default {
             title: title,
             author: author,
             abstract: the_abstract,
-            info: info
+            info: info,
+            videoUrl:videoUrl,
+            ref:ref,
+            publisher:publisher,
+            pagerankscore:pagerankscore,
+            matriceref:matriceref
           }
           //query: {...},
           //moreData: {foo: 1}
@@ -139,7 +149,23 @@ export default {
     visual() {
       this.loading = true;
       setTimeout(() => {
-        this.$router.push("/visual");
+        this.$router.push({
+          path: "/visual",
+          query: {
+            id: id,
+            title: title,
+            author: author,
+            abstract: the_abstract,
+            info: info,
+            videoUrl:videoUrl,
+            ref:ref,
+            publisher:publisher,
+            pagerankscore:pagerankscore,
+            matriceref:matriceref
+          }
+          //query: {...},
+          //moreData: {foo: 1}
+        });
       }, 1);
     },
     matrice() {
@@ -152,7 +178,12 @@ export default {
             title: title,
             author: author,
             abstract: the_abstract,
-            info: info
+            info: info,
+            videoUrl:videoUrl,
+            ref:ref,
+            publisher:publisher,
+            pagerankscore:pagerankscore,
+            matriceref:matriceref
           }
           //query: {...},
           //moreData: {foo: 1}
