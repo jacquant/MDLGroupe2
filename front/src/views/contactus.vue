@@ -30,7 +30,7 @@
           </li> <br>
           <li>
             <v-avatar size="50px">
-              <img src="../assets/dania.jpg" alt="Dania Otri" />
+              <img src="../assets/dania.jpeg" alt="Dania Otri" />
             </v-avatar> &nbsp;
             <a href="mailto:dania.otri@student.unamur.be">dania.otri@student.unamur.be</a>
           </li> <br>
