@@ -3,7 +3,7 @@
     <v-container grid-list-xl fluid>
       <!--v-layout row wrap>
                 <div style="float:left; vertical-align: top;">
-                    <img src="/static/logo.jpg" alt="Reseach" width="120" height="120">
+                    <img src="/static/logo.jpg" alt="Research" width="120" height="120">
                 </div>
       </v-layout-->
 

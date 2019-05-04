@@ -24,8 +24,11 @@
       <v-btn  class="titre" @click="advancedSearch"
         >Advanced Search</v-btn
       >
+      <!--v-btn class="titre" @click="searchHistory"
+      >Search History</v-btn
+      -->
       <v-btn class="titre" @click="validateResearch"
-      >Validate</v-btn
+      >Validate Search</v-btn
       >
     </div>
 

@@ -50,7 +50,6 @@
                   outline
                   label="operator"
                   :items="items"
-                  v
                   v-model="item.searchLine.op"
                 ></v-select>
                 <v-text-field
@@ -82,20 +81,7 @@
 
 <script>
 import API from "@/api";
-import EChart from "@/components/chart/echart";
-import MiniStatistic from "@/components/widgets/statistic/MiniStatistic";
-import PostListCard from "@/components/widgets/card/PostListCard";
-import ProfileCard from "@/components/widgets/card/ProfileCard";
-import PostSingleCard from "@/components/widgets/card/PostSingleCard";
-import WeatherCard from "@/components/widgets/card/WeatherCard";
-import PlainTable from "@/components/widgets/list/PlainTable";
-import PlainTableOrder from "@/components/widgets/list/PlainTableOrder";
-import VWidget from "@/components/VWidget";
 import Material from "vuetify/es5/util/colors";
-import VCircle from "@/components/circle/VCircle";
-import BoxChart from "@/components/widgets/chart/BoxChart";
-import CircleStatistic from "@/components/widgets/statistic/CircleStatistic";
-import LinearStatistic from "@/components/widgets/statistic/LinearStatistic";
 import axios from "axios";
 
 export default {
@@ -152,6 +138,20 @@ export default {
         this.payload.splice(-1, 1);
       }
     },
+
+    addv: function() {
+      var added = {};
+      added["searchLine"] = {
+
+      }
+
+
+    },
+
+    removev: function() {
+
+    },
+
     Search(params) {
       this.loading = true;
 
