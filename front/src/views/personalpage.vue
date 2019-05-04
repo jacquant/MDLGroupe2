@@ -7,7 +7,7 @@
         </v-btn>
       </div>
 
-      <h2 class="flex my-4 primary--text">Personal Page</h2>
+      <h2 class="titre">Personal Page</h2>
       <h3 class>
         <u>User Name:</u>Le passage de Lorem Ipsum standard, utilisé depuis 1500
       </h3>
@@ -70,5 +70,10 @@ export default {
   margin: auto;
   margin-top: 5px;
   padding: 5px;
+}
+
+.titre {
+  color:lightslategrey;
+  font-weight: bold;
 }
 </style>

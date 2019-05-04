@@ -2,9 +2,9 @@
   <div id="visual">
     <v-card-actions>
       <v-spacer></v-spacer>
-      <v-btn color @click="classic" class="btn">Classic</v-btn>
-      <v-btn color @click="visual" class="active_btn">Visual</v-btn>
-      <v-btn color @click="matrice" class="btn">Matrice</v-btn>
+      <v-btn color @click="classic" class="titre">Classic</v-btn>
+      <v-btn color @click="visual" disabled="true" class="titre">Visual</v-btn>
+      <v-btn color @click="matrice" class="titre">Matrice</v-btn>
     </v-card-actions>
     <!--v-card-actions>
       <v-btn type="button" class="btn">Author</v-btn>
@@ -24,7 +24,7 @@
 
       <v-layout>
         <v-flex width="50%">
-          <v-widget title="Pie chart" content-bg="white">
+          <v-widget title="Domains treated" content-bg="white">
             <div slot="widget-content">
               <e-chart
                 :path-option="[
@@ -55,7 +55,7 @@
         </v-flex>
 
         <v-flex width="50%">
-          <v-widget title="Cloud of words" content-bg="white">
+          <v-widget title="Words appearing the most" content-bg="white">
             <div id="app" slot="widget-content">
               <wordcloud
                 :data="defaultWords"
@@ -196,12 +196,9 @@ export default {
 #textarea {
   margin-top: 20px;
 }
-.active_btn {
-  width: 40px;
-  background-color: deepskyblue;
-  color: red;
-}
-.btn {
-  width: 40px;
+
+.titre {
+  color:lightslategrey;
+  font-weight: bold;
 }
 </style>

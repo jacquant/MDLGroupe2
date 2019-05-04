@@ -8,12 +8,12 @@
               <v-card-text>
                 <div class="layout column align-center">
                   <img
-                    src="/static/logo.jpg"
+                    src="static/logo.jpg"
                     alt="Research"
                     width="120"
                     height="120"
                   />
-                  <h1 class="flex my-4 primary--text">Add state of art</h1>
+                  <h1 class="titre">Add state of art</h1>
                 </div>
                 <v-form>
                   <v-text-field
@@ -211,5 +211,9 @@ export default {
     width: 500px;
     height: 300px;
     overflow: auto;
+}
+.titre {
+  color:lightslategrey;
+  font-weight: bold;
 }
 </style>

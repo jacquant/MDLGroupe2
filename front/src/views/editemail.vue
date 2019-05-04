@@ -1,25 +1,17 @@
 <template>
-  <v-app id="editemail" class="primary">
+  <v-app id="editemail" class="blue-grey">
     <v-content>
       <v-container fluid fill-height>
         <v-layout align-center justify-center>
           <v-flex xs12 sm8 md4 lg4>
             <v-card class="elevation-1 pa-3">
               <v-card-text>
-                <div class="layout column align-center">
-                  <img
-                    src="/static/logo.jpg"
-                    alt="Research"
-                    width="120"
-                    height="120"
-                  />
-                </div>
                 <div style="margin-top: 10px;">
                   <v-card-actions>
                     <v-btn block color @click="editpwd" class="btn"
                       >Edit password</v-btn
                     >
-                    <v-btn block color @click="editmail" class="active_btn"
+                    <v-btn block color @click="editmail" disabled="true"
                       >Add email</v-btn
                     >
                     <v-btn block color @click="editprofile" class="btn"
@@ -28,7 +20,7 @@
                   </v-card-actions>
                 </div>
                 <div class="layout column align-center">
-                  <h3 class="flex my-4 primary--text">Add email</h3>
+                  <h3 class="titre">Add email</h3>
                 </div>
                 <v-form>
                   <v-text-field
@@ -42,7 +34,7 @@
               </v-card-text>
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn block color="primary" @click="editmailValidate"
+                <v-btn block color="green lighten-3" @click="editmailValidate"
                   >Validate</v-btn
                 >
               </v-card-actions>
@@ -96,11 +88,11 @@ export default {
   content: "";
   z-index: 0;
 }
-.active_btn {
-  width: 145px;
-  background-color: deepskyblue;
-  color: red;
+.titre {
+  color:lightslategrey;
+  font-weight: bold;
 }
+
 .btn {
   width: 145px;
 }

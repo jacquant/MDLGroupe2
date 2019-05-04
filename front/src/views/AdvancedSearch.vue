@@ -2,10 +2,10 @@
   <div id="advancedSearch" width="100%">
     <v-container>
       <v-layout row>
-        <v-btn fab dark small color="primary" @click="removeh">
+        <v-btn fab small class="titre" @click="removeh">
           <v-icon dark>remove</v-icon>
         </v-btn>
-        <v-btn fab dark small color="primary" @click="addh">
+        <v-btn fab small class="titre" @click="addh">
           <v-icon dark>add</v-icon>
         </v-btn>
 
@@ -68,14 +68,14 @@
             </span>
           </span>
         </v-flex>
-        <v-btn fab dark small color="primary" @click="removev">
+        <v-btn fab small class="titre" @click="removev">
           <v-icon dark>remove</v-icon>
         </v-btn>
-        <v-btn fab dark small color="primary" @click="addv">
+        <v-btn fab small class="titre" @click="addv">
           <v-icon dark>add</v-icon>
         </v-btn>
       </v-layout>
-      <v-btn color="warning" @click="Search" dark>search</v-btn>
+      <v-btn class="titre" @click="Search">search</v-btn>
     </v-container>
   </div>
 </template>
@@ -176,4 +176,9 @@ export default {
 };
 </script>
 
-<style scoped lang="css"></style>
+<style scoped lang="css">
+  .titre {
+    color:lightslategrey;
+    font-weight: bold;
+  }
+</style>

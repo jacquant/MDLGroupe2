@@ -3,16 +3,16 @@
     <v-container grid-list-xl fluid>
       <v-card-actions>
         <v-spacer></v-spacer>
-        <v-btn color @click="classic" class="active_btn">Classic</v-btn>
-        <v-btn color @click="visual" class="btn">Visual</v-btn>
-        <v-btn color @click="matrice" class="btn">Matrice</v-btn>
+        <v-btn color @click="classic" disabled="true" class="titre">Classic</v-btn>
+        <v-btn color @click="visual" class="titre">Visual</v-btn>
+        <v-btn color @click="matrice" class="titre">Matrice</v-btn>
       </v-card-actions>
 
       <table style="margin-top:10px; width:100%; padding:10px; ">
         <tr>
           <td valign="top" width="70%">
             <div id="result" style="width:100%; margin-left:30px">
-              <h2 style="vertical-align: top; color:blue;">State of art</h2>
+              <h2 style="vertical-align: top;" class="titre">State of art</h2>
 
               <h3>
                 <b>Title: {{ getTitle() }}</b>
@@ -52,7 +52,7 @@
       </table>
 
       <template>
-        <v-tabs color="dark" dark icons-and-text>
+        <v-tabs color="blue-grey lighten-1" dark icons-and-text>
           <v-tabs-slider color="yellow"></v-tabs-slider>
 
           <v-tab href="#tab-1">
@@ -185,12 +185,9 @@ export default {
 #textarea {
     margin-top: 10px;
 }
-.active_btn{
-    width:40px;
-    background-color: deepskyblue;
-    color: red;
-}
-.btn{
-    width:40px;
+
+.titre {
+  color:lightslategrey;
+  font-weight: bold;
 }
 </style>

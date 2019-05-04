@@ -29,7 +29,7 @@
     >
       <v-btn icon large flat slot="activator">
         <v-avatar size="30px">
-          <img src="../assets/logo.png" alt="Michael Wang" />
+          <img src="../assets/lion.jpg" alt="Michael Wang" />
         </v-avatar>
       </v-btn>
       <v-list class="pa-0">

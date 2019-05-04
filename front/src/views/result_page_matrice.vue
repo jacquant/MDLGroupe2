@@ -9,11 +9,11 @@
 
       <v-card-actions>
         <v-spacer></v-spacer>
-        <v-btn color @click="classic" class="btn">Classic</v-btn>
-        <v-btn color @click="visual" class="btn">Visual</v-btn>
-        <v-btn color @click="matrice" class="active_btn">Matrice</v-btn>
+        <v-btn color @click="classic" class="titre">Classic</v-btn>
+        <v-btn color @click="visual" class="titre">Visual</v-btn>
+        <v-btn color @click="matrice" disabled="true" class="titre">Matrice</v-btn>
       </v-card-actions>
-      <h2 class="flex my-4 primary--text">Result page - Matrice</h2>
+      <h2 class="titre">Result page - Matrice</h2>
       <h3>
         <b><u>Title:</u> {{ getTitle() }}</b>
       </h3>
@@ -194,12 +194,9 @@ export default {
 };
 </script>
 <style scoped lang="css">
-.active_btn {
-  width: 40px;
-  background-color: deepskyblue;
-  color: red;
-}
-.btn {
-  width: 40px;
+
+.titre {
+  color:lightslategrey;
+  font-weight: bold;
 }
 </style>

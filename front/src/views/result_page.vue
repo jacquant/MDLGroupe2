@@ -9,7 +9,7 @@
 
       <v-card-actions>
         <v-spacer></v-spacer>
-        <v-btn color="" @click="" class="btn">Visual</v-btn>
+        <v-btn @click="" class="titre">Visual</v-btn>
       </v-card-actions>
 
       <table style=" position: absolute; width:100%; " cellspacing="10">
@@ -43,7 +43,6 @@
                     :items="itemsTitle"
                     label="Select Titles(s)"
                     multiple
-
                     width="300px"
                   ></v-select>
                 </v-card-actions>
@@ -86,7 +85,7 @@
           </td>
 
           <td valign="top" width="80%">
-            <h2 class="flex my-4 primary--text">
+            <h2 class="titre">
               Research Result ({{ searchfound() }})
             </h2>
             <br />
@@ -130,7 +129,6 @@
                   <v-pagination v-model="page" :length="4"></v-pagination>
                 </div>
               </template>
-
             </div>
           </td>
         </tr>
@@ -140,7 +138,16 @@
 </template>
 
 <script>
-var id, title, author, abstract, info,videoUrl,publisher,ref,pagerankscore,matriceref;
+var id,
+  title,
+  author,
+  abstract,
+  info,
+  videoUrl,
+  publisher,
+  ref,
+  pagerankscore,
+  matriceref;
 export default {
   data: () => ({
     loading: false,
@@ -165,7 +172,7 @@ export default {
             inputedText
         )
         .then(function(response) {
-            /*
+          /*
             this.items= response;
 
             for (i = 0; i < response.length; i++) {
@@ -190,11 +197,11 @@ export default {
           title:
             "Lorem ipsum25662 dolor sit amet, consectetur adipiscing elit, seddo1 ",
           abstract: "Voici le abstact 1 ",
-            videoUrl:"lien video1",
-            publisher:"publisher  1",
-            ref:"ref 1",
-            pagerankscore:"ranking 1",
-            matriceref:"matriceref 1",
+          videoUrl: "lien video1",
+          publisher: "publisher  1",
+          ref: "ref 1",
+          pagerankscore: "ranking 1",
+          matriceref: "matriceref 1"
         },
 
         {
@@ -205,11 +212,11 @@ export default {
           title:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo2",
           abstract: "Voici le abstact 2",
-            videoUrl:"lien video 2",
-            publisher:"publisher 2",
-            ref:"ref 2",
-            pagerankscore:"ranking 2",
-            matriceref:"matriceref 2",
+          videoUrl: "lien video 2",
+          publisher: "publisher 2",
+          ref: "ref 2",
+          pagerankscore: "ranking 2",
+          matriceref: "matriceref 2"
         },
 
         {
@@ -220,11 +227,11 @@ export default {
           title:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo 3",
           abstract: "Voici le abstact 3",
-            videoUrl:"lien video 3",
-            publisher:"publisher 3",
-            ref:"ref 3",
-            pagerankscore:"ranking 3",
-            matriceref:"matriceref 3",
+          videoUrl: "lien video 3",
+          publisher: "publisher 3",
+          ref: "ref 3",
+          pagerankscore: "ranking 3",
+          matriceref: "matriceref 3"
         },
 
         {
@@ -235,11 +242,11 @@ export default {
           title:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo 4",
           abstract: "Voici le abstact 4",
-            videoUrl:"lien video 4",
-            publisher:"publisher 4",
-            ref:"ref 4",
-            pagerankscore:"ranking 4",
-            matriceref:"matriceref 4",
+          videoUrl: "lien video 4",
+          publisher: "publisher 4",
+          ref: "ref 4",
+          pagerankscore: "ranking 4",
+          matriceref: "matriceref 4"
         },
 
         {
@@ -250,11 +257,11 @@ export default {
           title:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo 5",
           abstract: "Voici le abstact 5",
-            videoUrl:"lien video 5",
-            publisher:"publisher 5",
-            ref:"ref 5",
-            pagerankscore:"ranking 5",
-            matriceref:"matriceref 5",
+          videoUrl: "lien video 5",
+          publisher: "publisher 5",
+          ref: "ref 5",
+          pagerankscore: "ranking 5",
+          matriceref: "matriceref 5"
         },
 
         {
@@ -266,11 +273,11 @@ export default {
           title:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo 6",
           abstract: "Voici le abstact 6",
-            videoUrl:"lien video 6",
-            publisher:"publisher 6",
-            ref:"ref 6",
-            pagerankscore:"ranking 6",
-            matriceref:"matriceref 6",
+          videoUrl: "lien video 6",
+          publisher: "publisher 6",
+          ref: "ref 6",
+          pagerankscore: "ranking 6",
+          matriceref: "matriceref 6"
         }
       ];
       this.items = thedata;
@@ -298,11 +305,11 @@ export default {
             author: author,
             abstract: abstract,
             info: info,
-              videoUrl:videoUrl,
-              ref:ref,
-              publisher:publisher,
-              pagerankscore:pagerankscore,
-              matriceref:matriceref
+            videoUrl: videoUrl,
+            ref: ref,
+            publisher: publisher,
+            pagerankscore: pagerankscore,
+            matriceref: matriceref
           }
           //query: {...},
           //moreData: {foo: 1}
@@ -326,11 +333,11 @@ export default {
             author: author,
             abstract: abstract,
             info: info,
-              videoUrl:videoUrl,
-              ref:ref,
-              publisher:publisher,
-              pagerankscore:pagerankscore,
-              matriceref:matriceref
+            videoUrl: videoUrl,
+            ref: ref,
+            publisher: publisher,
+            pagerankscore: pagerankscore,
+            matriceref: matriceref
           }
           //query: {...},
           //moreData: {foo: 1}
@@ -343,10 +350,10 @@ export default {
       author = item.author;
       abstract = item.abstract;
       info = item.info;
-       publisher=item.publisher;
-        ref=item.ref;
-        pagerankscore=item.pagerankscore;
-        matriceref=item.matriceref;
+      publisher = item.publisher;
+      ref = item.ref;
+      pagerankscore = item.pagerankscore;
+      matriceref = item.matriceref;
 
       setTimeout(() => {
         this.$router.push({
@@ -357,14 +364,14 @@ export default {
             author: author,
             abstract: abstract,
             info: info,
-              videoUrl:videoUrl,
-              ref:ref,
-              publisher:publisher,
-              pagerankscore:pagerankscore,
-              matriceref:matriceref
+            videoUrl: videoUrl,
+            ref: ref,
+            publisher: publisher,
+            pagerankscore: pagerankscore,
+            matriceref: matriceref
           }
 
-            //query: {...},
+          //query: {...},
           //moreData: {foo: 1}
         });
       }, 1);
@@ -388,14 +395,7 @@ for (i = 0; i < acc.length; i++) {
 }
 </script>
 <style scoped lang="css">
-.active_btn {
-  width: 40px;
-  background-color: deepskyblue;
-  color: red;
-}
-.btn {
-  width: 40px;
-}
+
 .accordion {
   background-color: #eee;
   color: #444;
@@ -429,5 +429,9 @@ for (i = 0; i < acc.length; i++) {
 }
 .round {
   border-radius: 100%;
+}
+.titre {
+  color:lightslategrey;
+  font-weight: bold;
 }
 </style>

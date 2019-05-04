@@ -1,7 +1,7 @@
 <template>
   <div id="contactus">
     <v-container grid-list-xl fluid>
-      <h2 class="flex my-4 primary--text">Contact Us</h2>
+      <h2 class="titre">Contact Us</h2>
 
       <h3>
         We are a team of students of the University of Namur (Belgium) and this
@@ -21,3 +21,10 @@ export default {
   })
 };
 </script>
+
+<style scoped lang="css">
+.titre {
+color:lightslategrey;
+font-weight: bold;
+}
+</style>
