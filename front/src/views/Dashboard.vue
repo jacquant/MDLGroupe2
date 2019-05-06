@@ -1,6 +1,6 @@
 <template>
   <div id="pageDashboard" width="100%">
-    <v-img id="logo" v-bind:position="centerX" src=static/logo.jpg height="350"
+    <v-img id="logo" v-bind:position="centerX" src=static/logo.jpg :height="logoHeight"
     contain="true" alt="Logo ReSearch" />
     <br />
 
@@ -21,12 +21,8 @@
     </div>
 
     <div class="text-xs-center">
-      <v-btn  class="titre" @click="advancedSearch"
-        >Advanced Search</v-btn
-      >
-      <v-btn class="titre" @click="validateResearch"
-      >Validate</v-btn
-      >
+      <v-btn class="titre" @click="advancedSearch">Advanced Search</v-btn>
+      <v-btn class="titre" @click="validateResearch">Validate</v-btn>
     </div>
 
     <div id="app" class="appClass" hidden>
@@ -34,9 +30,8 @@
         :data="defaultWords"
         nameKey="name"
         valueKey="value"
-        :color="['#CCEEDD', '#CCFFCC', '#CCDDCC', '#CCDDDD']"
+        :color="['#C0C0C0', '#808080']"
         :rotate="{ from: 0, to: 0, numOfOrientation: 0 }"
-        :spiral="rectangular"
         :fontSize="[50, 60]"
         :showTooltip="true"
         :margin="{ top: 15, right: 5, bottom: 15, left: 5 }"
@@ -60,7 +55,8 @@ export default {
   data: () => ({
     color: Material,
     selectedTab: "tab-1",
-    defaultWords: []
+    defaultWords: [],
+    logoHeight: '400'
   }),
   computed: {
     activity() {
@@ -94,22 +90,37 @@ export default {
     wordCloudDisplay: function(e) {
       var inputedText = this.searchedInput;
       if (inputedText.slice(-1) == " ") {
-        // The input word is in inputedText
-        //................... call your API synonym from here and send it the inputedText as parameter
-        //end of the call to API synonym. If the result of the call is good then get the synonyms if defaultWords
-        document.getElementById("logo").height="150";
-        var arrayTest = inputedText.split(" ");
-        arrayTest.forEach(function(element, index) {
-          arrayTest[index] = {
+
+        var apiResponse="";
+        var request = new XMLHttpRequest();
+
+        request.open(
+          "GET",
+          "http://localhost:8181/api/Synonyme?keyword=" + inputedText,
+          false
+        );
+        request.onload = function() {
+          if (request.status >= 200 && request.status < 400) {
+            apiResponse = JSON.parse(request.responseText);
+          }
+        };
+        request.send();
+
+        apiResponse.forEach(function(element, index) {
+          apiResponse[index] = {
             name: element,
             value: Math.floor(Math.random() * 30) + 1
           };
         });
 
-        this.defaultWords = arrayTest;
-        if (inputedText != null)
+        this.defaultWords = apiResponse;
+
+        if (this.defaultWords.length > 0) {
+          this.logoHeight=150;
           document.getElementById("app").style.display = "block";
-        else document.getElementById("app").style.display = "none";
+        } else {
+          document.getElementById("app").style.display = "none";
+        }
       }
     },
 
