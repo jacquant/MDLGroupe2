@@ -11,6 +11,14 @@
 
         <v-flex xs12 md19>
           <v-card-actions>
+            in &nbsp;
+            <v-select
+                    outline
+                    label="operator"
+                    :items="items2"
+                    v-model="payload0.searchLine.in"
+            ></v-select> &nbsp;
+            ,&nbsp;search &nbsp;
             <v-text-field
               label=""
               v-model="payload0.searchLine.field1"
@@ -25,13 +33,27 @@
               label=""
               v-model="payload0.searchLine.field2"
             ></v-text-field>
-            in
             <v-select
-              outline
-              label="operator"
-              :items="items2"
-              v-model="payload0.searchLine.in"
+                    outline
+                    label="operator"
+                    :items="items"
+                    v-model="payload0.searchLine.op"
             ></v-select>
+            <v-text-field
+                    label=""
+                    v-model="payload0.searchLine.field2"
+            ></v-text-field>
+            <v-select
+                    outline
+                    label="operator"
+                    :items="items"
+                    v-model="payload0.searchLine.op"
+            ></v-select>
+            <v-text-field
+                    label=""
+                    v-model="payload0.searchLine.field2"
+            ></v-text-field>
+
           </v-card-actions>
           <span v-for="item in payload">
             <span>
@@ -41,7 +63,15 @@
                   label="operator"
                   :items="items"
                   v-model="item.criterion"
-                ></v-select>
+                ></v-select> &nbsp;
+                in &nbsp;
+                <v-select
+                        outline
+                        label="operator"
+                        :items="items2"
+                        v-model="item.searchLine.in"
+                ></v-select> &nbsp;
+                 ,&nbsp;search &nbsp;
                 <v-text-field
                   label=""
                   v-model="item.searchLine.field1"
@@ -56,13 +86,27 @@
                   label=""
                   v-model="item.searchLine.field2"
                 ></v-text-field>
-                in
                 <v-select
-                  outline
-                  label="operator"
-                  :items="items2"
-                  v-model="item.searchLine.in"
+                        outline
+                        label="operator"
+                        :items="items"
+                        v-model="item.searchLine.op"
                 ></v-select>
+                <v-text-field
+                        label=""
+                        v-model="item.searchLine.field2"
+                ></v-text-field>
+                <v-select
+                        outline
+                        label="operator"
+                        :items="items"
+                        v-model="item.searchLine.op"
+                ></v-select>
+                <v-text-field
+                        label=""
+                        v-model="item.searchLine.field2"
+                ></v-text-field>
+
               </v-card-actions>
             </span>
           </span>
@@ -96,9 +140,10 @@ export default {
         field1: "",
         op: "AND",
         field2: "",
-        in: ""
+        in: "",
       },
-      criterion: "empty"
+      criterion: "empty",
+
     },
     payload: []
   }),
@@ -140,13 +185,9 @@ export default {
     },
 
     addv: function() {
-      var added = {};
-      added["searchLine"] = {
 
-      }
+      },
 
-
-    },
 
     removev: function() {
 
