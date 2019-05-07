@@ -1,7 +1,7 @@
 <template>
   <div id="pageDashboard" width="100%">
-    <v-img id="logo" v-bind:position="centerX" src=static/logo.jpg :height="logoHeight"
-    contain="true" alt="Logo ReSearch" />
+    <v-img id="logo" v-bind:position="centerX" src=static/logo.jpg
+    :height="logoHeight" contain="true" alt="Logo ReSearch" />
     <br />
 
     <div style="margin-right: 100px; margin-left: 100px; width:80%;">
@@ -23,14 +23,11 @@
 
     <div class="text-xs-center">
       <v-btn class="titre" @click="advancedSearch">Advanced Search</v-btn>
-      <v-btn class="titre" @click="validateResearch">Validate</v-btn>
+      <v-btn class="titre" @click="validateResearch">Validate Search</v-btn>
 
       <!--v-btn class="titre" @click="searchHistory"
       >Search History</v-btn
       -->
-      <v-btn class="titre" @click="validateResearch"
-      >Validate Search</v-btn
-      >
     </div>
 
     <div id="app" class="appClass" hidden>
@@ -64,7 +61,7 @@ export default {
     color: Material,
     selectedTab: "tab-1",
     defaultWords: [],
-    logoHeight: '400'
+    logoHeight: "400"
   }),
   computed: {
     activity() {
@@ -96,47 +93,44 @@ export default {
     },
 
     wordCloudDisplay: function(e) {
-      var inputedText = this.searchedInput;
-      if (inputedText.slice(-1) == " ") {
+      var refThis = this;
+      var inputedText = refThis.searchedInput;
+      var apiResponse = "";
+      var request = new XMLHttpRequest();
 
-        var apiResponse="";
-        var request = new XMLHttpRequest();
-
-        request.open(
-          "GET",
-          "http://localhost:8181/api/Synonyme?keyword=" + inputedText,
-          false
-        );
-        request.onload = function() {
-          if (request.status >= 200 && request.status < 400) {
-            apiResponse = JSON.parse(request.responseText);
-          }
-        };
-        request.send();
-
-        apiResponse.forEach(function(element, index) {
-          apiResponse[index] = {
-            name: element,
-            value: Math.floor(Math.random() * 30) + 1
-          };
-        });
-
-        this.defaultWords = apiResponse;
-
-        if (this.defaultWords.length > 0) {
-          this.logoHeight=150;
-          document.getElementById("app").style.display = "block";
-        } else {
-          document.getElementById("app").style.display = "none";
+      request.open(
+        "GET",
+        "http://localhost:8181/api/Synonyme?keyword=" + inputedText,
+        false
+      );
+      request.onload = function() {
+        if (request.status >= 200 && request.status < 400) {
+          apiResponse = JSON.parse(request.responseText);
         }
+      };
+      request.send();
+
+      apiResponse.forEach(function(element, index) {
+        apiResponse[index] = {
+          name: element,
+          value: Math.floor(Math.random() * 30) + 1
+        };
+      });
+
+      refThis.defaultWords = apiResponse;
+      if (refThis.defaultWords.length > 0) {
+        refThis.logoHeight = 150;
+        document.getElementById("app").style.display = "block";
+      } else {
+        document.getElementById("app").style.display = "none";
       }
     },
 
-    wordClickHandler(name, value, vm) {
+    /*wordClickHandler(name, value, vm) {
       this.searchedInput = this.searchedInput + name + " ";
-      document.getElementById("idTest").value = this.searchedInput;
+      //document.getElementById("idTest").value = this.searchedInput;
       console.log(this.searchedInput);
-    },
+    },*/
 
     advancedSearch() {
       this.loading = true;
