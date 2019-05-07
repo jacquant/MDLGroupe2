@@ -24,6 +24,13 @@
     <div class="text-xs-center">
       <v-btn class="titre" @click="advancedSearch">Advanced Search</v-btn>
       <v-btn class="titre" @click="validateResearch">Validate</v-btn>
+
+      <!--v-btn class="titre" @click="searchHistory"
+      >Search History</v-btn
+      -->
+      <v-btn class="titre" @click="validateResearch"
+      >Validate Search</v-btn
+      >
     </div>
 
     <div id="app" class="appClass" hidden>

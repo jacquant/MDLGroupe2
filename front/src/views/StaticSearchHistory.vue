@@ -1,7 +1,7 @@
 <template>
   <div id="StaticSearchHistory">
     <v-container grid-list-xl fluid>
-      <h2 class="flex my-4 primary--text">Research History</h2>
+      <h2>Research History</h2> <br>
       <h3>
         <ul>
           <a @click="etatdelart">

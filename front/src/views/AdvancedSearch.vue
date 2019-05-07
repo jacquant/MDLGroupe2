@@ -11,6 +11,14 @@
 
         <v-flex xs12 md19>
           <v-card-actions>
+            in &nbsp;
+            <v-select
+                    outline
+                    label="operator"
+                    :items="items2"
+                    v-model="payload0.searchLine.in"
+            ></v-select> &nbsp;
+            ,&nbsp;search &nbsp;
             <v-text-field
               label=""
               v-model="payload0.searchLine.field1"
@@ -25,13 +33,27 @@
               label=""
               v-model="payload0.searchLine.field2"
             ></v-text-field>
-            in
             <v-select
-              outline
-              label="operator"
-              :items="items2"
-              v-model="payload0.searchLine.in"
+                    outline
+                    label="operator"
+                    :items="items"
+                    v-model="payload0.searchLine.op"
             ></v-select>
+            <v-text-field
+                    label=""
+                    v-model="payload0.searchLine.field2"
+            ></v-text-field>
+            <v-select
+                    outline
+                    label="operator"
+                    :items="items"
+                    v-model="payload0.searchLine.op"
+            ></v-select>
+            <v-text-field
+                    label=""
+                    v-model="payload0.searchLine.field2"
+            ></v-text-field>
+
           </v-card-actions>
           <span v-for="item in payload">
             <span>
@@ -41,7 +63,15 @@
                   label="operator"
                   :items="items"
                   v-model="item.criterion"
-                ></v-select>
+                ></v-select> &nbsp;
+                in &nbsp;
+                <v-select
+                        outline
+                        label="operator"
+                        :items="items2"
+                        v-model="item.searchLine.in"
+                ></v-select> &nbsp;
+                 ,&nbsp;search &nbsp;
                 <v-text-field
                   label=""
                   v-model="item.searchLine.field1"
@@ -50,20 +80,33 @@
                   outline
                   label="operator"
                   :items="items"
-                  v
                   v-model="item.searchLine.op"
                 ></v-select>
                 <v-text-field
                   label=""
                   v-model="item.searchLine.field2"
                 ></v-text-field>
-                in
                 <v-select
-                  outline
-                  label="operator"
-                  :items="items2"
-                  v-model="item.searchLine.in"
+                        outline
+                        label="operator"
+                        :items="items"
+                        v-model="item.searchLine.op"
                 ></v-select>
+                <v-text-field
+                        label=""
+                        v-model="item.searchLine.field2"
+                ></v-text-field>
+                <v-select
+                        outline
+                        label="operator"
+                        :items="items"
+                        v-model="item.searchLine.op"
+                ></v-select>
+                <v-text-field
+                        label=""
+                        v-model="item.searchLine.field2"
+                ></v-text-field>
+
               </v-card-actions>
             </span>
           </span>
@@ -82,20 +125,7 @@
 
 <script>
 import API from "@/api";
-import EChart from "@/components/chart/echart";
-import MiniStatistic from "@/components/widgets/statistic/MiniStatistic";
-import PostListCard from "@/components/widgets/card/PostListCard";
-import ProfileCard from "@/components/widgets/card/ProfileCard";
-import PostSingleCard from "@/components/widgets/card/PostSingleCard";
-import WeatherCard from "@/components/widgets/card/WeatherCard";
-import PlainTable from "@/components/widgets/list/PlainTable";
-import PlainTableOrder from "@/components/widgets/list/PlainTableOrder";
-import VWidget from "@/components/VWidget";
 import Material from "vuetify/es5/util/colors";
-import VCircle from "@/components/circle/VCircle";
-import BoxChart from "@/components/widgets/chart/BoxChart";
-import CircleStatistic from "@/components/widgets/statistic/CircleStatistic";
-import LinearStatistic from "@/components/widgets/statistic/LinearStatistic";
 import axios from "axios";
 
 export default {
@@ -110,9 +140,10 @@ export default {
         field1: "",
         op: "AND",
         field2: "",
-        in: ""
+        in: "",
       },
-      criterion: "empty"
+      criterion: "empty",
+
     },
     payload: []
   }),
@@ -152,6 +183,16 @@ export default {
         this.payload.splice(-1, 1);
       }
     },
+
+    addv: function() {
+
+      },
+
+
+    removev: function() {
+
+    },
+
     Search(params) {
       this.loading = true;
 
