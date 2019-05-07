@@ -1,9 +1,8 @@
 package be.unamur.mdl_groupe2.root.identity;
 
 import org.springframework.security.core.authority.AuthorityUtils;
-import be.unamur.mdl_groupe2.root.models.user.Role;
+
 import be.unamur.mdl_groupe2.root.models.user.User;
-import org.springframework.security.core.authority.AuthorityUtils;
 
 public class TokenUser extends org.springframework.security.core.userdetails.User {
     private User user;

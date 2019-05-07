@@ -1,10 +1,9 @@
 package be.unamur.mdl_groupe2.root.models.session;
 
 
-import lombok.Data;
-import io.swagger.annotations.ApiModelProperty;
-
 import java.util.List;
+
+import lombok.Data;
 
 @Data
 public class SessionItem {

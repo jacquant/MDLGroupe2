@@ -1,32 +1,22 @@
 package be.unamur.mdl_groupe2.root.api.user;
 
-import be.unamur.mdl_groupe2.root.models.user.User;
-import be.unamur.mdl_groupe2.root.repositories.UserRepository;
-import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-
-import io.swagger.annotations.*;
-import org.springframework.web.bind.annotation.*;
-
-import org.springframework.http.*;
-import org.springframework.beans.factory.annotation.Autowired;
-
 import javax.servlet.http.HttpServletRequest;
 
 import com.google.common.base.Strings;
-import org.apache.commons.io.IOUtils;
-import org.json.*;
 
-import be.unamur.mdl_groupe2.root.models.response.*;
-import be.unamur.mdl_groupe2.root.models.user.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
-import static be.unamur.mdl_groupe2.root.models.response.OperationResponse.*;
+import be.unamur.mdl_groupe2.root.models.response.OperationResponse;
+import be.unamur.mdl_groupe2.root.models.response.OperationResponse.ResponseStatusEnum;
+import be.unamur.mdl_groupe2.root.models.user.User;
+import be.unamur.mdl_groupe2.root.models.user.UserResponse;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 
 
 @RestController

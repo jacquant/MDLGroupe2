@@ -1,11 +1,9 @@
 package be.unamur.mdl_groupe2.root.models.session;
 
-import io.swagger.annotations.*;
-import lombok.*;
-
-import java.util.*;
-
-import be.unamur.mdl_groupe2.root.models.response.*;
+import be.unamur.mdl_groupe2.root.models.response.OperationResponse;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = false)
