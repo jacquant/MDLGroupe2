@@ -6,6 +6,7 @@
 
     <div style="margin-right: 100px; margin-left: 100px; width:80%;">
       <v-text-field
+        id="idTest"
         flat
         background-color="white"
         solo
@@ -30,7 +31,7 @@
         :data="defaultWords"
         nameKey="name"
         valueKey="value"
-        :color="['#C0C0C0', '#808080']"
+        :color="['#C0C0C0', '#808080', '#C0C0C0']"
         :rotate="{ from: 0, to: 0, numOfOrientation: 0 }"
         :fontSize="[50, 60]"
         :showTooltip="true"
@@ -125,7 +126,9 @@ export default {
     },
 
     wordClickHandler(name, value, vm) {
-      this.searchedInput += name;
+      this.searchedInput = this.searchedInput + name + " ";
+      document.getElementById("idTest").value = this.searchedInput;
+      console.log(this.searchedInput);
     },
 
     advancedSearch() {
