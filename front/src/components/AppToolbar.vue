@@ -29,7 +29,7 @@
     >
       <v-btn icon large flat slot="activator">
         <v-avatar size="30px">
-          <img src="../assets/lion.jpg" alt="Michael Wang" />
+          <img src="../assets/lion.jpg" alt="User" />
         </v-avatar>
       </v-btn>
       <v-list class="pa-0">
@@ -68,7 +68,7 @@ export default {
       {
         icon: "account_circle",
         href: "",
-
+      
         title: "Profile",
         click: e => {
           //this.$router.push("../personnalpage");
@@ -89,6 +89,7 @@ export default {
         title: "Logout",
         click: e => {
           window.getApp.$emit("APP_LOGOUT");
+
         }
       }
     ]

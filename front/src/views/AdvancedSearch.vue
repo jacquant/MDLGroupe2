@@ -11,50 +11,40 @@
 
         <v-flex xs12 md19>
           <v-card-actions>
-            in &nbsp;
+            in 
             <v-select
                     outline
-                    label="operator"
+                    label="criteria"
                     :items="items2"
-                    v-model="payload0.searchLine.in"
+                    v-model="payload0.criterion"
             ></v-select> &nbsp;
             ,&nbsp;search &nbsp;
-            <v-text-field
-              label=""
-              v-model="payload0.searchLine.field1"
-            ></v-text-field>
-            <v-select
-              outline
-              label="operator"
-              :items="items"
-              v-model="payload0.searchLine.op"
-            ></v-select>
-            <v-text-field
-              label=""
-              v-model="payload0.searchLine.field2"
-            ></v-text-field>
-            <v-select
-                    outline
-                    label="operator"
-                    :items="items"
-                    v-model="payload0.searchLine.op"
-            ></v-select>
-            <v-text-field
-                    label=""
-                    v-model="payload0.searchLine.field2"
-            ></v-text-field>
-            <v-select
-                    outline
-                    label="operator"
-                    :items="items"
-                    v-model="payload0.searchLine.op"
-            ></v-select>
-            <v-text-field
-                    label=""
-                    v-model="payload0.searchLine.field2"
-            ></v-text-field>
 
+            <span v-for="field in payload0.searchLine">
+              <span>
+                <v-select
+                  outline
+                  label="operator"
+                  :items="items"
+                  v-model="field.op"
+                  v-if="field.op != 'empty'"
+                ></v-select>
+
+                <v-text-field
+                label=""
+                v-model="field.field"
+                ></v-text-field>
+              </span>
+            </span>
+
+            <v-btn fab small class="titre" @click="removev(payload0)">
+              <v-icon dark>remove</v-icon>
+            </v-btn>
+            <v-btn fab small class="titre" @click="addv(payload0)">
+              <v-icon dark>add</v-icon>
+            </v-btn>
           </v-card-actions>
+          
           <span v-for="item in payload">
             <span>
               <v-card-actions>
@@ -65,58 +55,53 @@
                   v-model="item.criterion"
                 ></v-select> &nbsp;
                 in &nbsp;
-                <v-select
-                        outline
-                        label="operator"
-                        :items="items2"
-                        v-model="item.searchLine.in"
-                ></v-select> &nbsp;
-                 ,&nbsp;search &nbsp;
-                <v-text-field
-                  label=""
-                  v-model="item.searchLine.field1"
-                ></v-text-field>
-                <v-select
-                  outline
-                  label="operator"
-                  :items="items"
-                  v-model="item.searchLine.op"
-                ></v-select>
-                <v-text-field
-                  label=""
-                  v-model="item.searchLine.field2"
-                ></v-text-field>
-                <v-select
-                        outline
-                        label="operator"
-                        :items="items"
-                        v-model="item.searchLine.op"
-                ></v-select>
-                <v-text-field
-                        label=""
-                        v-model="item.searchLine.field2"
-                ></v-text-field>
-                <v-select
-                        outline
-                        label="operator"
-                        :items="items"
-                        v-model="item.searchLine.op"
-                ></v-select>
-                <v-text-field
-                        label=""
-                        v-model="item.searchLine.field2"
-                ></v-text-field>
+
+                <span v-for="field in item.searchLine">
+                  <span>
+                    <v-select
+                      outline
+                      label="operator"
+                      :items="items"
+                      v-model="field.op"
+                      v-if="field.op != 'empty'"
+                    ></v-select>
+
+                    <v-text-field
+                    label=""
+                    v-model="field.field"
+                    ></v-text-field>
+                  </span>
+                </span>
+
+                <v-btn fab small class="titre" @click="removev(item)">
+                  <v-icon dark>remove</v-icon>
+                </v-btn>
+                <v-btn fab small class="titre" @click="addv(item)">
+                  <v-icon dark>add</v-icon>
+                </v-btn>
 
               </v-card-actions>
             </span>
           </span>
+
+          <span v-for="item2 in addedv">
+            <span>
+              <v-card-actions>
+                <v-select
+                        outline
+                        label="operator"
+                        :items="items"
+                        v-model="item2.addedv.op4"
+                ></v-select>
+                <v-text-field
+                        label=""
+                        v-model="item2.addedv.field5"
+                ></v-text-field>
+              </v-card-actions>
+            </span>
+          </span> 
         </v-flex>
-        <v-btn fab small class="titre" @click="removev">
-          <v-icon dark>remove</v-icon>
-        </v-btn>
-        <v-btn fab small class="titre" @click="addv">
-          <v-icon dark>add</v-icon>
-        </v-btn>
+
       </v-layout>
       <v-btn class="titre" @click="Search">search</v-btn>
     </v-container>
@@ -134,17 +119,17 @@ export default {
     selectedTab: "tab-1",
     test: 1,
     items: ["AND", "OR", "NOT"],
-    items2: ["AAA", "TTT", "ZZZ"],
+    items2: ["Author", "Title", "Article"],
     payload0: {
-      searchLine: {
-        field1: "",
-        op: "AND",
-        field2: "",
-        in: "",
-      },
-      criterion: "empty",
+      searchLine: [
+        {op: "empty", field:""},
+        {op: "AND", field:""}
+      ],
 
+      criterion: "",
     },
+    addedv: {},
+
     payload: []
   }),
   computed: {
@@ -167,12 +152,11 @@ export default {
 
     addh: function() {
       var added = {};
-      added["searchLine"] = {
-        field1: "",
-        op: "AND",
-        field2: "",
-        in: ""
-      };
+      added["searchLine"] = [
+        {op: "empty", field:""},
+        {op: "AND", field:""}
+      ];
+
       added["criterion"] = "AND";
 
       this.payload.push(added);
@@ -184,13 +168,21 @@ export default {
       }
     },
 
-    addv: function() {
+    addv: function(item) {
+      var field = {
+        op: "AND",
+        field: ""
+      }
 
-      },
+      item.searchLine.push(field)
+      console.log(item.searchLine.length)
+    },
 
 
-    removev: function() {
-
+    removev: function(item) {
+        if(item.searchLine.length > 1){
+          item.searchLine.splice(-1, 1)
+        }
     },
 
     Search(params) {
