@@ -9,7 +9,7 @@
           <v-icon dark>add</v-icon>
         </v-btn>
 
-        <v-flex xs12 md19>
+        <v-flex xs8 >
           <v-card-actions>
             in 
             <v-select
@@ -55,6 +55,13 @@
                   v-model="item.criterion"
                 ></v-select> &nbsp;
                 in &nbsp;
+                <v-select
+                    outline
+                    label="criteria"
+                    :items="items2"
+                    v-model="payload0.criterion"
+                ></v-select> &nbsp;
+                ,&nbsp;search &nbsp;
 
                 <span v-for="field in item.searchLine">
                   <span>
@@ -91,15 +98,16 @@
                         outline
                         label="operator"
                         :items="items"
-                        v-model="item2.addedv.op4"
+                        v-model="item2.addedv.op"
                 ></v-select>
                 <v-text-field
                         label=""
-                        v-model="item2.addedv.field5"
+                        v-model="item2.addedv.field"
                 ></v-text-field>
               </v-card-actions>
             </span>
-          </span> 
+          </span>
+
         </v-flex>
 
       </v-layout>
