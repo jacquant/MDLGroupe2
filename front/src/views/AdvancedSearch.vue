@@ -1,40 +1,45 @@
 <template>
   <div id="advancedSearch" width="100%">
     <v-container>
-      <v-layout row>
+      <v-layout column>
+        <v-layout row>
         <v-btn fab small class="titre" @click="removeh">
           <v-icon dark>remove</v-icon>
         </v-btn>
         <v-btn fab small class="titre" @click="addh">
           <v-icon dark>add</v-icon>
         </v-btn>
-
-        <v-flex xs8 >
-          <v-card-actions>
+        </v-layout>
+        <v-card-actions>
             in 
             <v-select
                     outline
                     label="criteria"
                     :items="items2"
                     v-model="payload0.criterion"
+
             ></v-select> &nbsp;
             ,&nbsp;search &nbsp;
 
             <span v-for="field in payload0.searchLine">
-              <span>
-                <v-select
-                  outline
-                  label="operator"
-                  :items="items"
-                  v-model="field.op"
-                  v-if="field.op != 'empty'"
-                ></v-select>
-
-                <v-text-field
-                label=""
-                v-model="field.field"
-                ></v-text-field>
-              </span>
+              
+              <v-layout row>
+                <div style="padding-left:10px;padding-right:10px">
+                  <v-select
+                    outline
+                    label="operator"
+                    :items="items"
+                    v-model="field.op"
+                    v-if="field.op != 'empty'"
+                  ></v-select>
+                </div>  
+                <div style="padding-left:10px;padding-right:10px">
+                  <v-text-field
+                  label=""
+                  v-model="field.field"
+                  ></v-text-field>
+                </div>
+              </v-layout>
             </span>
 
             <v-btn fab small class="titre" @click="removev(payload0)">
@@ -43,10 +48,11 @@
             <v-btn fab small class="titre" @click="addv(payload0)">
               <v-icon dark>add</v-icon>
             </v-btn>
+
           </v-card-actions>
           
           <span v-for="item in payload">
-            <span>
+              <v-layout row>
               <v-card-actions>
                 <v-select
                   outline
@@ -64,7 +70,9 @@
                 ,&nbsp;search &nbsp;
 
                 <span v-for="field in item.searchLine">
-                  <span>
+                  
+                   <v-layout row>
+                     <div style="padding-left:10px;padding-right:10px">
                     <v-select
                       outline
                       label="operator"
@@ -72,12 +80,16 @@
                       v-model="field.op"
                       v-if="field.op != 'empty'"
                     ></v-select>
+                    </div>
 
+                    <div style="padding-left:10px;padding-right:10px">
                     <v-text-field
                     label=""
                     v-model="field.field"
                     ></v-text-field>
-                  </span>
+                    </div>
+                   </v-layout> 
+                  
                 </span>
 
                 <v-btn fab small class="titre" @click="removev(item)">
@@ -86,9 +98,10 @@
                 <v-btn fab small class="titre" @click="addv(item)">
                   <v-icon dark>add</v-icon>
                 </v-btn>
-
+                
               </v-card-actions>
-            </span>
+              </v-layout>
+            
           </span>
 
           <span v-for="item2 in addedv">
@@ -108,7 +121,7 @@
             </span>
           </span>
 
-        </v-flex>
+   
 
       </v-layout>
       <v-btn class="titre" @click="Search">search</v-btn>
