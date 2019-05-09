@@ -3,23 +3,22 @@
     <v-container>
       <v-layout column>
         <v-layout row>
-          <v-tooltip bottom>
-            <template v-slot:activator="{ on }">
-              <v-btn fab small class="titre" @click="removeh" v-on="on">
-                <v-icon dark>remove</v-icon>
-              </v-btn>
-            </template>
-            <span>remove a line</span>
-          </v-tooltip>
-          
-          <v-tooltip bottom>
-            <template v-slot:activator="{ on }">
-              <v-btn fab small class="titre" @click="addh" v-on="on">
-                <v-icon dark>add</v-icon>
-              </v-btn>
-            </template>
-            <span>add a line</span>
-          </v-tooltip>
+                <v-tooltip bottom>
+                  <template v-slot:activator="{ on }">
+                    <v-btn fab small class="titre" @click="removeh" v-on="on">
+                      <v-icon dark>remove</v-icon>
+                    </v-btn>
+                  </template>
+                  <span>remove a line</span>
+                </v-tooltip>
+                <v-tooltip bottom>
+                  <template v-slot:activator="{ on }">
+                    <v-btn fab small class="titre" @click="addh" v-on="on">
+                      <v-icon dark>add</v-icon>
+                    </v-btn>
+                  </template>
+                  <span>add a line</span>
+                </v-tooltip>
         </v-layout>
         <v-card-actions>
             in 
@@ -53,23 +52,12 @@
               </v-layout>
             </span>
 
-            <v-tooltip bottom>
-                  <template v-slot:activator="{ on }">
-                    <v-btn fab small class="titre" @click="removev(item)" v-on="on">
-                      <v-icon dark>remove</v-icon>
-                    </v-btn>
-                  </template>
-                  <span>remove a field</span>
-            </v-tooltip>
-
-            <v-tooltip bottom>
-                  <template v-slot:activator="{ on }">
-                    <v-btn fab small class="titre" @click="addv(item)" v-on="on">
-                      <v-icon dark>add</v-icon>
-                    </v-btn>
-                  </template>
-                  <span>add a field</span>
-                </v-tooltip>
+            <v-btn fab small class="titre" @click="removev(payload0)">
+              <v-icon dark>remove</v-icon>
+            </v-btn>
+            <v-btn fab small class="titre" @click="addv(payload0)">
+              <v-icon dark>add</v-icon>
+            </v-btn>
 
           </v-card-actions>
           
@@ -113,24 +101,13 @@
                    </v-layout> 
                   
                 </span>
-                
-                <v-tooltip bottom>
-                  <template v-slot:activator="{ on }">
-                    <v-btn fab small class="titre" @click="removev(item)" v-on="on">
-                      <v-icon dark>remove</v-icon>
-                    </v-btn>
-                  </template>
-                  <span>remove a field</span>
-                </v-tooltip>
 
-                <v-tooltip bottom>
-                  <template v-slot:activator="{ on }">
-                    <v-btn fab small class="titre" @click="addv(item)" v-on="on">
-                      <v-icon dark>add</v-icon>
-                    </v-btn>
-                  </template>
-                  <span>add a field</span>
-                </v-tooltip>
+                <v-btn fab small class="titre" @click="removev(item)">
+                  <v-icon dark>remove</v-icon>
+                </v-btn>
+                <v-btn fab small class="titre" @click="addv(item)">
+                  <v-icon dark>add</v-icon>
+                </v-btn>
                 
               </v-card-actions>
               </v-layout>
@@ -231,7 +208,6 @@ export default {
       item.searchLine.push(field)
       console.log(item.searchLine.length)
     },
-
 
     removev: function(item) {
         if(item.searchLine.length > 1){
