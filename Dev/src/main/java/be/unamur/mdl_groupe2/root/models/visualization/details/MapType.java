@@ -23,6 +23,6 @@ public class MapType {
     private String mapType;
 
     @ManyToOne
-    @JoinColumn(name = "visualization", nullable = false)
+    @JoinColumn(name = "visualizationId", nullable = false)
     private Visualization visualization;
 }

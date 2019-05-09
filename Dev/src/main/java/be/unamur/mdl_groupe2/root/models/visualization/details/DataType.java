@@ -23,6 +23,6 @@ public class DataType {
     private String dataType;
 
     @ManyToOne
-    @JoinColumn(name = "visualization", nullable = false)
+    @JoinColumn(name = "visualizationId", nullable = false)
     private Visualization visualization;
 }

@@ -23,6 +23,6 @@ public class VisAttributes {
     private String visAttribute;
 
     @ManyToOne
-    @JoinColumn(name = "visualization", nullable = false)
+    @JoinColumn(name = "visualizationId", nullable = false)
     private Visualization visualization;
 }

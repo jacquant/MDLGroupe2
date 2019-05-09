@@ -20,7 +20,7 @@ public class DataAvailability {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "article", nullable = false)
+    @JoinColumn(name = "articleId", nullable = false)
     private Article article;
 
     private String dataAvailability;
