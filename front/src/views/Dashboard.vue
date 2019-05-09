@@ -98,39 +98,36 @@ export default {
       var apiResponse = "";
       var request = new XMLHttpRequest();
 
-      request.open(
-        "GET",
-        "http://localhost:8181/api/Synonyme?keyword=" + inputedText,
-        false
-      );
-      request.onload = function() {
-        if (request.status >= 200 && request.status < 400) {
-          apiResponse = JSON.parse(request.responseText);
-        }
-      };
-      request.send();
-
-      apiResponse.forEach(function(element, index) {
-        apiResponse[index] = {
-          name: element,
-          value: Math.floor(Math.random() * 30) + 1
-        };
-      });
-
-      refThis.defaultWords = apiResponse;
-      if (refThis.defaultWords.length > 0) {
-        refThis.logoHeight = 150;
-        document.getElementById("app").style.display = "block";
-      } else {
-        document.getElementById("app").style.display = "none";
-      }
+      axios
+        .get(
+          "http://localhost:8181/api/Synonyme?keyword=" + inputedText
+        )
+        .then(response => {
+          console.log(response);
+          if (response.request.status >= 200 && response.request.status < 400) {
+            apiResponse = response.data;
+            apiResponse.forEach(function(element, index) {
+              apiResponse[index] = {
+                name: element,
+                value: Math.floor(Math.random() * 30) + 1
+              };
+            });
+            refThis.defaultWords = apiResponse;
+            if (refThis.defaultWords.length > 0) {
+              refThis.logoHeight = 150;
+              document.getElementById("app").style.display = "block";
+            } else {
+              document.getElementById("app").style.display = "none";
+            }
+          }
+        });
     },
 
-    /*wordClickHandler(name, value, vm) {
+    wordClickHandler(name, value, vm) {
       this.searchedInput = this.searchedInput + name + " ";
       //document.getElementById("idTest").value = this.searchedInput;
       console.log(this.searchedInput);
-    },*/
+    },
 
     advancedSearch() {
       this.loading = true;
