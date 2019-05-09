@@ -96,7 +96,6 @@ export default {
       var refThis = this;
       var inputedText = refThis.searchedInput;
       var apiResponse = "";
-      var request = new XMLHttpRequest();
 
       axios
         .get(
@@ -141,18 +140,6 @@ export default {
       setTimeout(() => {
         this.$router.push("../StaticSearchHistory");
       }, 1000);
-    },
-
-    appel_ajax(param) {
-      var xhr = getXhr();
-      // On défini ce qu'on va faire quand on aura la réponse
-      xhr.onreadystatechange = function() {
-        // On ne fait quelque chose que si on a tout reçu et que le serveur est ok
-        if (xhr.status < 400 && xhr.status >= 200) {
-          //Ici sera affiché le résultat de notre script PHP ajax.php  alert(xhr.responseText);
-          //alert(xhr.responseText);
-        }
-      };
     }
   }
 };

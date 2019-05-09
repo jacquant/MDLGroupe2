@@ -140,17 +140,6 @@ export default [
   },
 
   {
-    path: "/visual",
-    meta: { breadcrumb: true },
-    name: "visual",
-    component: () =>
-      import(
-        /* webpackChunkName: "routes" */
-        `@/views/visual.vue`
-      )
-  },
-
-  {
     path: "/StaticSearchHistory",
     meta: { breadcrumb: true },
     name: "StaticSearchHistory",
@@ -190,16 +179,6 @@ export default [
       import(
         /* webpackChunkName: "routes" */
         `@/views/result_page.vue`
-      )
-  },
-  {
-    path: "/result_page_matrice",
-    meta: { breadcrumb: true },
-    name: "result_page_matrice",
-    component: () =>
-      import(
-        /* webpackChunkName: "routes" */
-        `@/views/result_page_matrice.vue`
       )
   },
   {
