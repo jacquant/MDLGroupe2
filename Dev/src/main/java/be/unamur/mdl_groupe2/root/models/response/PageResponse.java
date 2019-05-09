@@ -1,12 +1,13 @@
 package be.unamur.mdl_groupe2.root.models.response;
 
-import io.swagger.annotations.*;
-import org.springframework.data.domain.*;
-import lombok.*;
+import java.util.List;
 
-import java.util.*;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Sort;
 
-import be.unamur.mdl_groupe2.root.models.response.OperationResponse.*;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 @Data //for getters and setters
 public class PageResponse extends OperationResponse {

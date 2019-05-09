@@ -1,4 +1,4 @@
-package be.unamur.mdl_groupe2.root.models.articleRef;
+package be.unamur.mdl_groupe2.root.models.article.details;
 
 import be.unamur.mdl_groupe2.root.models.article.Article;
 import lombok.AllArgsConstructor;
@@ -9,12 +9,12 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "ArticleRef")
+@Table(name = "Countries")
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ArticleRef {
+public class Country {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -22,4 +22,6 @@ public class ArticleRef {
     @ManyToOne
     @JoinColumn(name = "articleId", nullable = false)
     private Article article;
+
+    private String country;
 }

@@ -1,7 +1,9 @@
 package be.unamur.mdl_groupe2.root.models.article;
 
+import be.unamur.mdl_groupe2.root.models.article.details.*;
 import be.unamur.mdl_groupe2.root.models.articleRef.ArticleRef;
 import be.unamur.mdl_groupe2.root.models.literatureReview.LiteratureReview;
+import be.unamur.mdl_groupe2.root.models.visualization.Visualization;
 import lombok.*;
 
 import javax.persistence.*;
@@ -24,6 +26,13 @@ public class Article {
 
     private String title;
 
+    private String shortRef;
+
+    private Integer year;
+
+    @OneToMany(mappedBy = "article", cascade = CascadeType.ALL)
+    private Set<Country> countries;
+
     private String[] domain;
 
     private String[] tag;
@@ -44,13 +53,36 @@ public class Article {
 
     private String publisher;
 
+    @OneToMany(mappedBy = "article", cascade = CascadeType.ALL)
+    private Set<TargetUsers> targetUsers;
+
+    @OneToMany(mappedBy = "article", cascade = CascadeType.ALL)
+    private Set<DataRealness> dataRealness;
+
+    @OneToMany(mappedBy = "article", cascade = CascadeType.ALL)
+    private Set<DataSource> dataSource;
+
+    @OneToMany(mappedBy = "article", cascade = CascadeType.ALL)
+    private Set<DataAvailability> dataAvailability;
+
+    @OneToMany(mappedBy = "article", cascade = CascadeType.ALL)
+    private Set<Interaction> interaction;
+
+    @OneToMany(mappedBy = "article", cascade = CascadeType.ALL)
+    private Set<Action> action;
+
     private int metric;
     @OneToMany(mappedBy = "article", cascade = CascadeType.ALL)
     private Set<ArticleRef> bibliography;
+
+    private Boolean open;
 
     private Boolean authorizedContribution;
 
     private Boolean contributionUnderSupervision;
 
     private Long pagerankscore;
+
+    @OneToMany(mappedBy = "article", cascade = CascadeType.ALL)
+    private Set<Visualization> visualizations;
 }

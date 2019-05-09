@@ -1,26 +1,33 @@
 package be.unamur.mdl_groupe2.root.config;
 
-import org.springframework.security.core.*;
+import java.io.IOException;
+
+import javax.servlet.FilterChain;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
+
+import org.apache.commons.io.IOUtils;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.AuthenticationServiceException;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.authentication.*;
 import org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
-import java.io.IOException;
-
-import org.apache.commons.io.IOUtils;
-import org.json.*;
+import be.unamur.mdl_groupe2.root.identity.TokenUser;
+import be.unamur.mdl_groupe2.root.identity.TokenUtil;
+import be.unamur.mdl_groupe2.root.models.response.OperationResponse.ResponseStatusEnum;
+import be.unamur.mdl_groupe2.root.models.session.SessionItem;
+import be.unamur.mdl_groupe2.root.models.session.SessionResponse;
 import lombok.extern.slf4j.Slf4j;
-
-import be.unamur.mdl_groupe2.root.identity.*;
-import be.unamur.mdl_groupe2.root.models.user.User;
-import be.unamur.mdl_groupe2.root.models.session.*;
-
-import static be.unamur.mdl_groupe2.root.models.response.OperationResponse.*;
-
-import com.fasterxml.jackson.databind.*;
 
 
 /* This filter maps to /session and tries to validate the username and password */
