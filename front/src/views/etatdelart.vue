@@ -265,7 +265,9 @@ export default {
       return API.getData;
     }
   },
-  model: {},
+  model: {
+    //paper: this.$route.query.data
+  },
   methods: {
     getTitle() {
       this.abstract = this.$route.query.abstract;
