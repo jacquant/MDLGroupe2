@@ -20,8 +20,8 @@ public class DataSource {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "article", nullable = false)
+    @JoinColumn(name = "articleId", nullable = false)
     private Article article;
 
-    private String dataSources;
+    private String dataSource;
 }
