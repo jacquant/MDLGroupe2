@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1665df2b-97e4-4167-b215-4f27df40fb8b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/views/AdvancedSearch.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/views/AdvancedSearch.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/views/Dashboard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/views/Dashboard.vue" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -19,15 +19,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/front/src/views/Dashboard.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="28" column="8" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="8" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="e#1434#1458#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="306">
+              <caret line="115" column="10" lean-forward="true" selection-start-line="115" selection-start-column="10" selection-end-line="115" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -35,7 +31,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/front/src/views/contactus.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-17">
+            <state relative-caret-position="136">
               <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
             </state>
           </provider>
@@ -50,23 +46,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/front/src/views/AdvancedSearch.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="26" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
-              <folding>
-                <element signature="e#381#387#0" expanded="true" />
-                <element signature="e#589#595#0" expanded="true" />
-                <element signature="e#609#615#0" expanded="true" />
-                <element signature="e#615#621#0" expanded="true" />
-                <element signature="e#1370#1376#0" expanded="true" />
-                <element signature="e#1389#1395#0" expanded="true" />
-                <element signature="e#1617#1623#0" expanded="true" />
-                <element signature="e#1991#1997#0" expanded="true" />
-                <element signature="e#1649#1655#0" expanded="true" />
-                <element signature="e#2431#2455#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-3475">
+              <caret line="31" column="26" selection-start-line="31" selection-start-column="26" selection-end-line="31" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -129,8 +113,8 @@
         <option value="$PROJECT_DIR$/front/src/views/StaticSearchHistory.vue" />
         <option value="$PROJECT_DIR$/front/src/views/contactus.vue" />
         <option value="$PROJECT_DIR$/front/src/views/result_page.vue" />
-        <option value="$PROJECT_DIR$/front/src/views/Dashboard.vue" />
         <option value="$PROJECT_DIR$/front/src/views/AdvancedSearch.vue" />
+        <option value="$PROJECT_DIR$/front/src/views/Dashboard.vue" />
       </list>
     </option>
   </component>
@@ -141,9 +125,9 @@
     <auto-save>true</auto-save>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="281" />
-    <option name="y" value="128" />
-    <option name="width" value="1463" />
+    <option name="x" value="953" />
+    <option name="y" value="123" />
+    <option name="width" value="972" />
     <option name="height" value="838" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -247,19 +231,20 @@
       <workItem from="1556969595229" duration="13202000" />
       <workItem from="1557142700969" duration="450000" />
       <workItem from="1557143560546" duration="49000" />
-      <workItem from="1557143798331" duration="8256000" />
+      <workItem from="1557143798331" duration="8855000" />
+      <workItem from="1557392859652" duration="7497000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="100054000" />
+    <option name="totallyTimeSpent" value="108150000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="281" y="128" width="1463" height="838" extended-state="0" />
+    <frame x="953" y="123" width="972" height="838" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4989429" weight="0.24070175" />
-      <window_info id="Structure" order="1" sideWeight="0.5010571" side_tool="true" visible="true" weight="0.24070175" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49667773" visible="true" weight="0.23982869" />
+      <window_info id="Structure" order="1" sideWeight="0.50332224" side_tool="true" weight="0.23982869" />
       <window_info id="Favorites" order="2" sideWeight="0.5010571" side_tool="true" weight="0.24070175" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Designer" order="4" />
@@ -274,7 +259,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32907802" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.49789253" visible="true" weight="0.19432624" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49789253" visible="true" weight="0.14609928" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5021075" side_tool="true" weight="0.2383532" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -312,6 +297,20 @@
                 </list>
               </option>
             </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
           </value>
         </entry>
       </map>
@@ -382,6 +381,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/front/src/views/contactus.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/front/src/components/AppToolbar.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
@@ -409,40 +415,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front/src/views/contactus.vue">
+    <entry file="file://$PROJECT_DIR$/front/src/views/AdvancedSearch.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-17">
-          <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+        <state relative-caret-position="-3475">
+          <caret line="31" column="26" selection-start-line="31" selection-start-column="26" selection-end-line="31" selection-end-column="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/front/src/views/Dashboard.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" column="8" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="8" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="e#1434#1458#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front/src/views/AdvancedSearch.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="26" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
-          <folding>
-            <element signature="e#381#387#0" expanded="true" />
-            <element signature="e#589#595#0" expanded="true" />
-            <element signature="e#609#615#0" expanded="true" />
-            <element signature="e#615#621#0" expanded="true" />
-            <element signature="e#1370#1376#0" expanded="true" />
-            <element signature="e#1389#1395#0" expanded="true" />
-            <element signature="e#1617#1623#0" expanded="true" />
-            <element signature="e#1991#1997#0" expanded="true" />
-            <element signature="e#1649#1655#0" expanded="true" />
-            <element signature="e#2431#2455#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="306">
+          <caret line="115" column="10" lean-forward="true" selection-start-line="115" selection-start-column="10" selection-end-line="115" selection-end-column="10" />
         </state>
       </provider>
     </entry>
