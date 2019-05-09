@@ -15,10 +15,10 @@ export default [
     },
     name: "NotFound",
     component: () =>
-      import(
-        /* webpackChunkName: "routes" */
-        `@/views/NotFound.vue`
-      )
+        import(
+            /* webpackChunkName: "routes" */
+            `@/views/NotFound.vue`
+            )
   },
 
   {
@@ -28,10 +28,10 @@ export default [
     },
     name: "AccessDenied",
     component: () =>
-      import(
-        /* webpackChunkName: "routes" */
-        `@/views/Deny.vue`
-      )
+        import(
+            /* webpackChunkName: "routes" */
+            `@/views/Deny.vue`
+            )
   },
   {
     path: "/500",
@@ -40,10 +40,10 @@ export default [
     },
     name: "ServerError",
     component: () =>
-      import(
-        /* webpackChunkName: "routes" */
-        `@/views/Error.vue`
-      )
+        import(
+            /* webpackChunkName: "routes" */
+            `@/views/Error.vue`
+            )
   },
   {
     path: "/login",
@@ -52,20 +52,20 @@ export default [
     },
     name: "Login",
     component: () =>
-      import(
-        /* webpackChunkName: "routes" */
-        `@/views/Login.vue`
-      )
+        import(
+            /* webpackChunkName: "routes" */
+            `@/views/Login.vue`
+            )
   },
   {
     path: "/filtre",
     meta: { breadcrumb: true },
     name: "filtre",
     component: () =>
-      import(
-        /* webpackChunkName: "routes" */
-        `@/views/Login.vue`
-      )
+        import(
+            /* webpackChunkName: "routes" */
+            `@/views/Login.vue`
+            )
   },
   {
     path: "/",
@@ -80,20 +80,20 @@ export default [
     meta: { breadcrumb: true },
     name: "Dashboard",
     component: () =>
-      import(
-        /* webpackChunkName: "routes" */
-        `@/views/Dashboard.vue`
-      )
+        import(
+            /* webpackChunkName: "routes" */
+            `@/views/Dashboard.vue`
+            )
   },
   {
     path: "/etatdelart",
     meta: { breadcrumb: true },
     name: "etatdelart",
     component: () =>
-      import(
-        /* webpackChunkName: "routes" */
-        `@/views/etatdelart.vue`
-      )
+        import(
+            /* webpackChunkName: "routes" */
+            `@/views/etatdelart.vue`
+            )
   },
 
   {
@@ -101,10 +101,10 @@ export default [
     meta: {},
     name: "editemail",
     component: () =>
-      import(
-        /* webpackChunkName: "routes" */
-        `@/views/editemail.vue`
-      )
+        import(
+            /* webpackChunkName: "routes" */
+            `@/views/editemail.vue`
+            )
   },
 
   {
@@ -112,10 +112,10 @@ export default [
     meta: { breadcrumb: true },
     name: "editprofil",
     component: () =>
-      import(
-        /* webpackChunkName: "routes" */
-        `@/views/editprofil.vue`
-      )
+        import(
+            /* webpackChunkName: "routes" */
+            `@/views/editprofil.vue`
+            )
   },
 
   {
@@ -123,20 +123,20 @@ export default [
     meta: { breadcrumb: true },
     name: "editpassword",
     component: () =>
-      import(
-        /* webpackChunkName: "routes" */
-        `@/views/editpassword.vue`
-      )
+        import(
+            /* webpackChunkName: "routes" */
+            `@/views/editpassword.vue`
+            )
   },
   {
     path: "/addstateofart",
     meta: { breadcrumb: true },
     name: "addstateofart",
     component: () =>
-      import(
-        /* webpackChunkName: "routes" */
-        `@/views/addstateofart.vue`
-      )
+        import(
+            /* webpackChunkName: "routes" */
+            `@/views/addstateofart.vue`
+            )
   },
 
   {
@@ -144,10 +144,10 @@ export default [
     meta: { breadcrumb: true },
     name: "StaticSearchHistory",
     component: () =>
-      import(
-        /* webpackChunkName: "routes" */
-        `@/views/StaticSearchHistory.vue`
-      )
+        import(
+            /* webpackChunkName: "routes" */
+            `@/views/StaticSearchHistory.vue`
+            )
   },
 
   {
@@ -155,20 +155,20 @@ export default [
     meta: { breadcrumb: true },
     name: "contactus",
     component: () =>
-      import(
-        /* webpackChunkName: "routes" */
-        `@/views/contactus.vue`
-      )
+        import(
+            /* webpackChunkName: "routes" */
+            `@/views/contactus.vue`
+            )
   },
   {
     path: "/personalpage",
     meta: { breadcrumb: true },
     name: "personalpage",
     component: () =>
-      import(
-        /* webpackChunkName: "routes" */
-        `@/views/personalpage.vue`
-      )
+        import(
+            /* webpackChunkName: "routes" */
+            `@/views/personalpage.vue`
+            )
   },
   {
     path: "/result_page",
@@ -176,19 +176,19 @@ export default [
     meta: { breadcrumb: true },
     name: "result_page",
     component: () =>
-      import(
-        /* webpackChunkName: "routes" */
-        `@/views/result_page.vue`
-      )
+        import(
+            /* webpackChunkName: "routes" */
+            `@/views/result_page.vue`
+            )
   },
   {
     path: "/advancedSearch",
     meta: { breadcrumb: true },
     name: "AdvancedSearch",
     component: () =>
-      import(
-        /* webpackChunkName: "routes" */
-        `@/views/AdvancedSearch.vue`
-      )
+        import(
+            /* webpackChunkName: "routes" */
+            `@/views/AdvancedSearch.vue`
+            )
   }
 ];
