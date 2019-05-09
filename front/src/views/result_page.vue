@@ -138,6 +138,7 @@
 </template>
 
 <script>
+const axios = require('axios');
 var id,
   title,
   author,
@@ -355,26 +356,22 @@ export default {
       pagerankscore = item.pagerankscore;
       matriceref = item.matriceref;
 
-      setTimeout(() => {
-        this.$router.push({
-          path: "/etatdelart",
-          query: {
-            id: id,
-            title: title,
-            author: author,
-            abstract: abstract,
-            info: info,
-            videoUrl: videoUrl,
-            ref: ref,
-            publisher: publisher,
-            pagerankscore: pagerankscore,
-            matriceref: matriceref
-          }
-
-          //query: {...},
-          //moreData: {foo: 1}
-        });
-      }, 1);
+      axios.get("http://mdl-std02.info.fundp.ac.be:8181/MdlGroupe2-test/api/articles/"+id)
+      .then(function (response) {
+        console.log(response);
+        setTimeout(() => {
+          this.$router.push({
+            path: "/etatdelart",
+            query:{
+              data: response
+            }
+          })
+        })
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
     }
   }
 };
