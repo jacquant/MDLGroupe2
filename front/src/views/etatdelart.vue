@@ -86,7 +86,9 @@ export default {
       text:[this.$route.query.ref,this.$route.query.videoUrl,"comments here"]
     };
   },
-  model: {},
+  model: {
+    paper: this.$route.query.data
+  },
   methods: {
     getTitle() {
       this.abstract = this.$route.query.abstract;

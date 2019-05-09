@@ -39,6 +39,7 @@
 </template>
 
 <script>
+const axios = require("axios");
 export default {
   data: () => ({
     loading: false,
@@ -50,14 +51,29 @@ export default {
 
   methods: {
     settings() {
-      this.loading = true;
-      setTimeout(() => {
-        this.$router.push("/editpassword");
-      }, 1000);
+      axios.get("http://mdl-std02.info.fundp.ac.be:8181/MdlGroupe2-test/user?name=dania")
+      .then(function (response) {
+        console.log(response);
+        setTimeout(() => {
+          this.$router.push({
+            path: "/editpassword",
+            query:{
+              data: response
+            }
+          })
+        })
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
     }
   }
 };
 </script>
+
+
+
 <style scoped lang="css">
 #textarea {
   margin-top: 10px;
