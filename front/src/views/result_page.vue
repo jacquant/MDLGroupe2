@@ -304,6 +304,7 @@
                         id: 1,
                         author: "J.S. Yi, B. Shneiderman",
                         info: "J.S. Yi, B. Shneiderman - published 2011 and event 1",
+                        date:"2011",
                         title:
                             "Lorem ipsum25662 dolor sit amet, consectetur adipiscing elit, seddo1 ",
                         abstract: "Voici le abstact 1 ",
@@ -318,6 +319,7 @@
                         id: 2,
                         author: "Paul LIYA, LOKo Ray",
                         info: "Paul LIYA, LOKo Ray - published 2005 and event 2",
+                        date:"2005",
                         title:
                             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo2",
                         abstract: "Voici le abstact 2",
@@ -332,6 +334,7 @@
                         id: 3,
                         author: "Rowlins.J",
                         info: "Rowlins.J - published 2015 and event 3",
+                        date:"2015",
                         title:
                             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo 3",
                         abstract: "Voici le abstact 3",
@@ -346,6 +349,7 @@
                         id: 4,
                         author: "D.Keim",
                         info: "D.Keim- published 2015 and event 4",
+                        date:"2015",
                         title:
                             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo 4",
                         abstract: "Voici le abstact 4",
@@ -360,6 +364,7 @@
                         id: 5,
                         author: "J.S. Yi, B. Shneiderman",
                         info: "J.S. Yi, B. Shneiderman - published 2018 and event 5",
+                        date:"2018",
                         title:
                             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo 5",
                         abstract: "Voici le abstact 5",
@@ -375,6 +380,7 @@
                         author: "LAFONT Jane, Kucher K., Kerren A.",
                         info:
                             "LAFONT Jane, Kucher K., Kerren A. - published 2015 and event 6",
+                        date:"2015",
                         title:
                             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo 6",
                         abstract: "Voici le abstact 6",
