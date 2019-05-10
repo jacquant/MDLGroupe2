@@ -17,22 +17,53 @@
                     <td width="15%" valign="top">
                         <div class="menu" valign="top">
                             <button class="accordion">Filters Menu</button>
-                            <div class="panel">
+
                                 <v-card-actions style="vertical-align: top;">
+
+                                    <v-data-table
+                                            v-model="selected"
+                                            :headers="headers"
+                                            name="datatable1"
+                                            :items="filteredItems"
+                                            item-key="title"
+                                            hide-default-footer
+                                           class="datatable1"
+
+                                    >
+
+                                        <template slot="headers" slot-scope="props">
+
+                                            <tr class=""
+                                                v-for="header in props.headers"
+                                                :key="header.text"
+                                                >
+
+                                                <th
+
+                                                >
+                                                    <div v-if="filters.hasOwnProperty(header.value)">{{header.text}}
+                                                        <v-select flat hide-details small multiple clearable :items="columnValueList(header.value)" v-model="filters[header.value]">
+
+                                                        </v-select>
+
+                                                    </div>
+                                                </th>
+                                            </tr>
+                                        </template>
+                        </v-data-table>
+                    </v-card-actions>
+
+                                <!--v-card-actions>
                                     Author(s):
-                                    <!--v-text-field
-                                      label="Author(s) here"
-                                      name="author"
-                                      v-model="model.author"
-                                    ></v-text-field-->
                                     <v-select
                                             name="author"
                                             v-model="authors"
-                                            :items="itemsAuthor"
+                                            :items="author"
                                             label="Select Author(s)"
                                             multiple
                                             chips
                                             width="200px"
+                                            @input="filteredAuthor"
                                     ></v-select>
                                 </v-card-actions>
                                 <v-card-actions>
@@ -40,10 +71,11 @@
                                     <v-select
                                             name="title"
                                             v-model="title"
-                                            :items="itemsTitle"
+                                            :items="title"
                                             label="Select Titles(s)"
                                             multiple
                                             width="300px"
+                                            @change="filteredTitle"
                                     ></v-select>
                                 </v-card-actions>
                                 <v-card-actions>
@@ -69,7 +101,7 @@
                                             name="year2"
                                             v-model="model.year2"
                                     ></v-text-field>
-                                </v-card-actions>
+                                </v-card-actions-->
 
                                 <div class>
                                     <b>Criteria on State of art</b>
@@ -80,17 +112,39 @@
                                     <input type="checkbox" class />critere3
                                     <input type="checkbox" class />critere4
                                 </div>
-                            </div>
+
                         </div>
                     </td>
 
                     <td valign="top" width="80%">
                         <h2 class="titre">
-                            Research Result ({{ searchfound() }})
+                            Research Result ({{tailleResult()}})
                         </h2>
                         <br />
                         <div id="listResult" valign="top">
-                            <v-list one-line>
+                            <div id="app">
+                                <v-app id="inspire">
+                                    <v-data-table
+                                            v-model="selected"
+                                            :items="filteredItems"
+                                            name="datatable2"
+                                            :pagination.sync="pagination"
+                                            item-key="title"
+                                            class="elevation-1"
+                                    >
+                                <template slot="items" slot-scope="props">
+                                    <tr :active="props.selected" @click="props.selected = !props.selected">
+                                        <td valign="top" @click="selectTrack(props.item)">{{ props.item.title }}<br>{{props.item.info }}</td>
+
+
+                                    </tr>
+                                </template>
+                                </v-data-table>
+                                </v-app>
+                                </div>
+
+
+                            <!--v-list-- one-line>
                                 <template v-for="(item, index) in items">
                                     <v-subheader v-if="item.header" :key="item.header">
                                         {{ item.header }}
@@ -108,9 +162,7 @@
                                             avatar
                                             @click="selectTrack(item)"
                                     >
-                                        <!--v-list-tile-avatar>
-                                          <img :src="item.avatar">
-                                        </v-list-tile-avatar-->
+
 
                                         <v-list-tile-content>
                                             <v-list-tile-title
@@ -122,13 +174,9 @@
                                         </v-list-tile-content>
                                     </v-list-tile>
                                 </template>
-                            </v-list>
+                            </v-list-->
 
-                            <template>
-                                <div class="text-xs-center">
-                                    <v-pagination v-model="page" :length="4"></v-pagination>
-                                </div>
-                            </template>
+
                         </div>
                     </td>
                 </tr>
@@ -155,12 +203,152 @@
             page: 1,
             itemsAuthor: [],
             itemsTitle: [],
-            items: [],
+
             model: {
                 //items:this.$route.params.data,
-            }
+            },
+
+            pagination: {
+                sortBy: 'title'
+            },
+            selected: [],
+            headers: [
+                { text: 'Title', value: 'title' },
+                { text: 'Author', value: 'author' },
+                { text: 'Published Date', value: 'date' },
+            ],
+            filters: {
+                title: [],
+                author: [],
+                date: [],
+
+            },
+            items: [
+                    {
+                        //avatar: '../assets/iconA.png',
+                        id: 1,
+                        author: "J.S. Yi, B. Shneiderman",
+                        info: "J.S. Yi, B. Shneiderman - published 2011 and event 1",
+                        date:"2011",
+                        title:
+                            "Lorem ipsum25662 dolor sit amet, consectetur adipiscing elit, seddo1 ",
+                        abstract: "Voici le abstact 1 ",
+                        videoUrl: "lien video1",
+                        publisher: "publisher  1",
+                        ref: "ref 1",
+                        pagerankscore: "ranking 1",
+                        matriceref: "matriceref 1"
+                    },
+                    {
+                        //avatar: '../assets/iconA.png',
+                        id: 2,
+                        author: "Paul LIYA, LOKo Ray",
+                        info: "Paul LIYA, LOKo Ray - published 2005 and event 2",
+                        date:"2005",
+                        title:
+                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo2",
+                        abstract: "Voici le abstact 2",
+                        videoUrl: "lien video 2",
+                        publisher: "publisher 2",
+                        ref: "ref 2",
+                        pagerankscore: "ranking 2",
+                        matriceref: "matriceref 2"
+                    },
+                    {
+                        //avatar: '../assets/iconA.png',
+                        id: 3,
+                        author: "Rowlins.J",
+                        info: "Rowlins.J - published 2015 and event 3",
+                        date:"2015",
+                        title:
+                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo 3",
+                        abstract: "Voici le abstact 3",
+                        videoUrl: "lien video 3",
+                        publisher: "publisher 3",
+                        ref: "ref 3",
+                        pagerankscore: "ranking 3",
+                        matriceref: "matriceref 3"
+                    },
+                    {
+                        //avatar: '../assets/iconA.png',
+                        id: 4,
+                        author: "D.Keim",
+                        info: "D.Keim- published 2015 and event 4",
+                        date:"2015",
+                        title:
+                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo 4",
+                        abstract: "Voici le abstact 4",
+                        videoUrl: "lien video 4",
+                        publisher: "publisher 4",
+                        ref: "ref 4",
+                        pagerankscore: "ranking 4",
+                        matriceref: "matriceref 4"
+                    },
+                    {
+                        //avatar: '../assets/iconA.png',
+                        id: 5,
+                        author: "J.S. Yi, B. Shneiderman",
+                        info: "J.S. Yi, B. Shneiderman - published 2018 and event 5",
+                        date:"2018",
+                        title:
+                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo 5",
+                        abstract: "Voici le abstact 5",
+                        videoUrl: "lien video 5",
+                        publisher: "publisher 5",
+                        ref: "ref 5",
+                        pagerankscore: "ranking 5",
+                        matriceref: "matriceref 5"
+                    },
+                    {
+                        //avatar: '../assets/iconA.png',
+                        id: 6,
+                        author: "LAFONT Jane, Kucher K., Kerren A.",
+                        info:
+                            "LAFONT Jane, Kucher K., Kerren A. - published 2015 and event 6",
+                        date:"2015",
+                        title:
+                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo 6",
+                        abstract: "Voici le abstact 6",
+                        videoUrl: "lien video 6",
+                        publisher: "publisher 6",
+                        ref: "ref 6",
+                        pagerankscore: "ranking 6",
+                        matriceref: "matriceref 6"
+                    }
+
+                ]
+
         }),
+        computed: {
+            filteredItems() {
+                return this.items.filter(d => {
+                    return Object.keys(this.filters).every(f => {
+                        return this.filters[f].length < 1 || this.filters[f].includes(d[f])
+                    })
+                })
+            }
+        },
         methods: {
+            tailleResult(){
+                if (this.items.length == 0) return alert("No item found");
+                else return this.items.length;
+            },
+            toggleAll () {
+                if (this.selected.length) this.selected = []
+                else this.selected = this.items.slice()
+            },
+            changeSort (column) {
+                if (this.pagination.sortBy === column) {
+                    this.pagination.descending = !this.pagination.descending
+                } else {
+                    this.pagination.sortBy = column
+                    this.pagination.descending = false
+                }
+            },
+            columnValueList(val) {
+                return this.items.map(d => d[val])
+            },
+
             searchfound() {
                 var inputedText = this.$route.query.data;
                 var thedata;
@@ -274,6 +462,7 @@
                         pagerankscore: "ranking 6",
                         matriceref: "matriceref 6"
                     }
+
                 ];
                 this.items = thedata;
                 var the_author = "";
@@ -285,8 +474,7 @@
                     else the_author = the_author + this.items[i].author + ",";
                 }
                 this.itemsAuthor = the_author.split(",");
-                if (taille == 0) return alert("No item found");
-                else return taille;
+                return this.item;
             },
             classic() {
                 this.loading = true;
@@ -384,7 +572,41 @@
                   // handle error
                   console.log(error);
                 })*/
-            }
+            },
+
+            filteredTitle: function() {
+                var the_this=this;
+                // var tab=[];
+                //alert(this.items.length);
+                return this.items.filter((data) => {
+                    // Filtre en fonction du titre
+                    let isInTitle = data.title.includes(this.title);
+                    if(isInTitle) {
+                        // this.items=data;
+                         alert(data.info);
+                        // return this.items=data;
+                    }
+                })
+
+            },
+
+            filteredAuthor: function() {
+                var the_this=this;
+                // var tab=[];
+                //alert(this.items.length);
+                return this.items.filter((data) => {
+                    // Filtre en fonction du titre
+                    let isInAuthor = data.author.includes(this.authors);
+                    if(isInAuthor) {
+                        //this.items=data;
+
+                        alert(data.info);
+
+                        // return this.items=data;
+                    }
+                })
+
+            },
         }
     };
     /****** script pour la gestion du panel d'expansion*****/
@@ -427,6 +649,9 @@
         max-height: 0;
         overflow: visible;
         transition: max-height 0.2s ease-out;
+    }
+    .datatable1 {
+        background-color: gainsboro;
     }
     .previous {
         float: left;
