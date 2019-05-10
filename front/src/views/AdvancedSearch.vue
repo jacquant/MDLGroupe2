@@ -22,7 +22,7 @@
 
          </v-layout>
           <v-card-actions>
-            in
+            in 
             <v-select
                     outline
                     label="criteria"
@@ -68,7 +68,7 @@
                         :items="items"
                         v-model="item.criterion"
                 ></v-select>
-                &nbsp; in &nbsp;
+                &nbsp; in &nbsp;&nbsp;&nbsp;
                 <v-select
                         outline
                         label="criteria"
@@ -131,6 +131,7 @@
   import API from "@/api";
   import Material from "vuetify/es5/util/colors";
   import axios from "axios";
+import { setTimeout } from 'timers';
   export default {
     data: () => ({
       color: Material,
@@ -188,25 +189,33 @@
           item.searchLine.splice(-1, 1);
         }
       },
-      Search(params) {
+      Search() {
         this.loading = true;
         var query = this.payload.slice();
         query = query.unshift(this.payload0);
-        axios
-                .get(
-                        "http://mdl-std02.info.fundp.ac.be:8181/MdlGroupe2-test/api/AdvancedSearch?params=" +
-                        params
-                )
-                .then(function(response) {
-                  console.log(response);
-                })
-                .catch(function(error) {
-                  console.log(error);
-                })
-                .then(function() {});
-        setTimeout(() => {
-          this.$router.push("../result_page");
-        }, 1000);
+
+        axios.get(
+              "http://mdl-std02.info.fundp.ac.be:8181/MdlGroupe2-test/api/AdvancedSearch",
+              {
+                params: {
+                  params: query
+                }
+              })
+        .then(function(response){
+          console.log(response);
+
+          setTimeout(() => {
+            this.$router.push({
+              path:"/result_page",
+              query:{
+                data: response
+              }
+            })
+          })
+        })
+        .catch(function(error){
+          console.log(error)
+        })
       }
     }
   };

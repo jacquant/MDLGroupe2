@@ -203,6 +203,7 @@
             page: 1,
             itemsAuthor: [],
             itemsTitle: [],
+            items: this.$route.query.data,
 
             model: {
                 //items:this.$route.params.data,
@@ -223,7 +224,7 @@
                 date: [],
 
             },
-            items: [
+            tmp: [
                     {
                         //avatar: '../assets/iconA.png',
                         id: 1,
