@@ -27,6 +27,7 @@
                                             :items="filteredItems"
                                             item-key="title"
                                             hide-default-footer
+                                            disable-pagination="true"
                                            class="datatable1"
 
                                     >
@@ -129,6 +130,7 @@
                                             :items="filteredItems"
                                             name="datatable2"
                                             :pagination.sync="pagination"
+
                                             item-key="title"
                                             class="elevation-1"
                                     >
@@ -197,6 +199,7 @@
         ref,
         pagerankscore,
         matriceref;
+
     export default {
         data: () => ({
             loading: false,
@@ -209,7 +212,8 @@
             },
 
             pagination: {
-                sortBy: 'title'
+                sortBy: 'title',
+                rowsPerPage:25,
             },
             selected: [],
             headers: [
@@ -220,105 +224,18 @@
             filters: {
                 title: [],
                 author: [],
-                date: [],
+                date: []
 
             },
-            items: [
-                    {
-                        //avatar: '../assets/iconA.png',
-                        id: 1,
-                        author: "J.S. Yi, B. Shneiderman",
-                        info: "J.S. Yi, B. Shneiderman - published 2011 and event 1",
-                        date:"2011",
-                        title:
-                            "Lorem ipsum25662 dolor sit amet, consectetur adipiscing elit, seddo1 ",
-                        abstract: "Voici le abstact 1 ",
-                        videoUrl: "lien video1",
-                        publisher: "publisher  1",
-                        ref: "ref 1",
-                        pagerankscore: "ranking 1",
-                        matriceref: "matriceref 1"
-                    },
-                    {
-                        //avatar: '../assets/iconA.png',
-                        id: 2,
-                        author: "Paul LIYA, LOKo Ray",
-                        info: "Paul LIYA, LOKo Ray - published 2005 and event 2",
-                        date:"2005",
-                        title:
-                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo2",
-                        abstract: "Voici le abstact 2",
-                        videoUrl: "lien video 2",
-                        publisher: "publisher 2",
-                        ref: "ref 2",
-                        pagerankscore: "ranking 2",
-                        matriceref: "matriceref 2"
-                    },
-                    {
-                        //avatar: '../assets/iconA.png',
-                        id: 3,
-                        author: "Rowlins.J",
-                        info: "Rowlins.J - published 2015 and event 3",
-                        date:"2015",
-                        title:
-                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo 3",
-                        abstract: "Voici le abstact 3",
-                        videoUrl: "lien video 3",
-                        publisher: "publisher 3",
-                        ref: "ref 3",
-                        pagerankscore: "ranking 3",
-                        matriceref: "matriceref 3"
-                    },
-                    {
-                        //avatar: '../assets/iconA.png',
-                        id: 4,
-                        author: "D.Keim",
-                        info: "D.Keim- published 2015 and event 4",
-                        date:"2015",
-                        title:
-                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo 4",
-                        abstract: "Voici le abstact 4",
-                        videoUrl: "lien video 4",
-                        publisher: "publisher 4",
-                        ref: "ref 4",
-                        pagerankscore: "ranking 4",
-                        matriceref: "matriceref 4"
-                    },
-                    {
-                        //avatar: '../assets/iconA.png',
-                        id: 5,
-                        author: "J.S. Yi, B. Shneiderman",
-                        info: "J.S. Yi, B. Shneiderman - published 2018 and event 5",
-                        date:"2018",
-                        title:
-                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo 5",
-                        abstract: "Voici le abstact 5",
-                        videoUrl: "lien video 5",
-                        publisher: "publisher 5",
-                        ref: "ref 5",
-                        pagerankscore: "ranking 5",
-                        matriceref: "matriceref 5"
-                    },
-                    {
-                        //avatar: '../assets/iconA.png',
-                        id: 6,
-                        author: "LAFONT Jane, Kucher K., Kerren A.",
-                        info:
-                            "LAFONT Jane, Kucher K., Kerren A. - published 2015 and event 6",
-                        date:"2015",
-                        title:
-                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo 6",
-                        abstract: "Voici le abstact 6",
-                        videoUrl: "lien video 6",
-                        publisher: "publisher 6",
-                        ref: "ref 6",
-                        pagerankscore: "ranking 6",
-                        matriceref: "matriceref 6"
-                    }
 
-                ]
+          items:[],
 
         }),
+
+        created(){
+            this.items=this.searchfound()
+        } ,
+
         computed: {
             filteredItems() {
                 return this.items.filter(d => {
@@ -350,6 +267,7 @@
             },
 
             searchfound() {
+
                 var inputedText = this.$route.query.data;
                 var thedata;
                 //var thedata2=28;
@@ -357,8 +275,12 @@
                 // Make a request for a user with a given ID
                 axios
                     .get(
-                        "http://mdl-std02.info.fundp.ac.be:8181/MdlGroupe2-test/api/QuickSearch?keyword=" +
-                        inputedText
+                        "http://mdl-std02.info.fundp.ac.be:8181/MdlGroupe2-test/api/QuickSearch?keyword=",
+                        {
+                            params:{
+                                keyword:inputedText
+                            }
+                        }
                     )
                     .then(function(response) {
                         /*
@@ -464,7 +386,8 @@
                     }
 
                 ];
-                this.items = thedata;
+
+                /*
                 var the_author = "";
                 var taille = this.items.length;
                 for (i = 0; i < taille; i++) {
@@ -474,7 +397,8 @@
                     else the_author = the_author + this.items[i].author + ",";
                 }
                 this.itemsAuthor = the_author.split(",");
-                return this.item;
+                */
+                return thedata;
             },
             classic() {
                 this.loading = true;
@@ -574,39 +498,7 @@
                 })*/
             },
 
-            filteredTitle: function() {
-                var the_this=this;
-                // var tab=[];
-                //alert(this.items.length);
-                return this.items.filter((data) => {
-                    // Filtre en fonction du titre
-                    let isInTitle = data.title.includes(this.title);
-                    if(isInTitle) {
-                        // this.items=data;
-                         alert(data.info);
-                        // return this.items=data;
-                    }
-                })
 
-            },
-
-            filteredAuthor: function() {
-                var the_this=this;
-                // var tab=[];
-                //alert(this.items.length);
-                return this.items.filter((data) => {
-                    // Filtre en fonction du titre
-                    let isInAuthor = data.author.includes(this.authors);
-                    if(isInAuthor) {
-                        //this.items=data;
-
-                        alert(data.info);
-
-                        // return this.items=data;
-                    }
-                })
-
-            },
         }
     };
     /****** script pour la gestion du panel d'expansion*****/
