@@ -25,30 +25,30 @@
                                             :headers="headers"
                                             name="datatable1"
                                             :items="filteredItems"
+                                            hide-actions
                                             item-key="title"
-                                            hide-default-footer
-                                            disable-pagination="true"
+
                                            class="datatable1"
 
                                     >
 
                                         <template slot="headers" slot-scope="props">
 
-                                            <tr class=""
+                                            <tr
                                                 v-for="header in props.headers"
                                                 :key="header.text"
                                                 >
 
-                                                <th
+                                                <td
 
                                                 >
-                                                    <div v-if="filters.hasOwnProperty(header.value)">{{header.text}}
-                                                        <v-select flat hide-details small multiple clearable :items="columnValueList(header.value)" v-model="filters[header.value]">
+                                                    <div  v-if="filters.hasOwnProperty(header.value)">{{header.text}}
+                                                        <v-select  multiple clearable :items="columnValueList(header.value)" v-model="filters[header.value]">
 
                                                         </v-select>
 
                                                     </div>
-                                                </th>
+                                                </td>
                                             </tr>
                                         </template>
                         </v-data-table>
@@ -219,12 +219,12 @@
             headers: [
                 { text: 'Title', value: 'title' },
                 { text: 'Author', value: 'author' },
-                { text: 'Published Date', value: 'date' },
+                { text: 'Published Year', value: 'year' },
             ],
             filters: {
                 title: [],
                 author: [],
-                date: []
+                year: []
 
             },
 
@@ -275,7 +275,7 @@
                 // Make a request for a user with a given ID
                 axios
                     .get(
-                        "http://mdl-std02.info.fundp.ac.be:8181/MdlGroupe2-test/api/QuickSearch?keyword=",
+                        "http://mdl-std02.info.fundp.ac.be:8181/MdlGroupe2-test/api/QuickSearch?params=",
                         {
                             params:{
                                 keyword:inputedText
@@ -293,7 +293,7 @@
                     })
                     .catch(function(error) {
                         // handle error
-                        console.log(error);
+                        console.log("Erreur obtenue est:"+error);
                     })
                     .then(function() {
                         // always executed
@@ -304,7 +304,7 @@
                         id: 1,
                         author: "J.S. Yi, B. Shneiderman",
                         info: "J.S. Yi, B. Shneiderman - published 2011 and event 1",
-                        date:"2011",
+                        year:"2011",
                         title:
                             "Lorem ipsum25662 dolor sit amet, consectetur adipiscing elit, seddo1 ",
                         abstract: "Voici le abstact 1 ",
@@ -319,7 +319,7 @@
                         id: 2,
                         author: "Paul LIYA, LOKo Ray",
                         info: "Paul LIYA, LOKo Ray - published 2005 and event 2",
-                        date:"2005",
+                        year:"2005",
                         title:
                             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo2",
                         abstract: "Voici le abstact 2",
@@ -334,7 +334,7 @@
                         id: 3,
                         author: "Rowlins.J",
                         info: "Rowlins.J - published 2015 and event 3",
-                        date:"2015",
+                        year:"2015",
                         title:
                             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo 3",
                         abstract: "Voici le abstact 3",
@@ -349,7 +349,7 @@
                         id: 4,
                         author: "D.Keim",
                         info: "D.Keim- published 2015 and event 4",
-                        date:"2015",
+                        year:"2015",
                         title:
                             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo 4",
                         abstract: "Voici le abstact 4",
@@ -364,7 +364,7 @@
                         id: 5,
                         author: "J.S. Yi, B. Shneiderman",
                         info: "J.S. Yi, B. Shneiderman - published 2018 and event 5",
-                        date:"2018",
+                        year:"2018",
                         title:
                             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo 5",
                         abstract: "Voici le abstact 5",
@@ -380,7 +380,7 @@
                         author: "LAFONT Jane, Kucher K., Kerren A.",
                         info:
                             "LAFONT Jane, Kucher K., Kerren A. - published 2015 and event 6",
-                        date:"2015",
+                        year:"2005",
                         title:
                             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo 6",
                         abstract: "Voici le abstact 6",
@@ -462,6 +462,7 @@
                 author = item.author;
                 abstract = item.abstract;
                 info = item.info;
+                videoUrl=item.videoUrl;
                 publisher = item.publisher;
                 ref = item.ref;
                 pagerankscore = item.pagerankscore;
