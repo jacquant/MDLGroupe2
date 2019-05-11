@@ -19,7 +19,7 @@ public class Visualization {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "articleId", nullable = false)
+    @JoinColumn(name = "articleId")
     private Article article;
 
     @OneToMany(mappedBy = "visualization", cascade = CascadeType.ALL)

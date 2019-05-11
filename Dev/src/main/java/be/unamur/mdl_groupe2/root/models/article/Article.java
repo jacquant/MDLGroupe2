@@ -1,6 +1,5 @@
 package be.unamur.mdl_groupe2.root.models.article;
 
-import be.unamur.mdl_groupe2.root.models.article.details.*;
 import be.unamur.mdl_groupe2.root.models.articleRef.ArticleRef;
 import be.unamur.mdl_groupe2.root.models.literatureReview.LiteratureReview;
 import be.unamur.mdl_groupe2.root.models.visualization.Visualization;
@@ -16,7 +15,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-public class Article {
+public class Article implements Comparable<Article>{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -30,8 +29,7 @@ public class Article {
 
     private Integer year;
 
-    @OneToMany(mappedBy = "article", cascade = CascadeType.ALL)
-    private Set<Country> countries;
+    private String[] countries;
 
     private String[] domain;
 
@@ -43,7 +41,7 @@ public class Article {
 
     @OneToMany(mappedBy = "article", cascade = CascadeType.ALL)
     private Set<LiteratureReview> literatureReviews;
-    // private DBFile pdfFiles;
+    //private DBFile pdfFiles;
 
     private String videoUrl;
 
@@ -53,23 +51,17 @@ public class Article {
 
     private String publisher;
 
-    @OneToMany(mappedBy = "article", cascade = CascadeType.ALL)
-    private Set<TargetUsers> targetUsers;
+    private String[] targetUsers;
 
-    @OneToMany(mappedBy = "article", cascade = CascadeType.ALL)
-    private Set<DataRealness> dataRealness;
+    private String[] dataRealness;
 
-    @OneToMany(mappedBy = "article", cascade = CascadeType.ALL)
-    private Set<DataSource> dataSource;
+    private String[] dataSource;
 
-    @OneToMany(mappedBy = "article", cascade = CascadeType.ALL)
-    private Set<DataAvailability> dataAvailability;
+    private String[] dataAvailability;
 
-    @OneToMany(mappedBy = "article", cascade = CascadeType.ALL)
-    private Set<Interaction> interaction;
+    private String[] interaction;
 
-    @OneToMany(mappedBy = "article", cascade = CascadeType.ALL)
-    private Set<Action> action;
+    private String[] action;
 
     private int metric;
     @OneToMany(mappedBy = "article", cascade = CascadeType.ALL)
@@ -85,4 +77,9 @@ public class Article {
 
     @OneToMany(mappedBy = "article", cascade = CascadeType.ALL)
     private Set<Visualization> visualizations;
+
+    @Override
+    public int compareTo(Article o) {
+        return this.getPagerankscore().compareTo(o.getPagerankscore());
+    }
 }

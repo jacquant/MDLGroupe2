@@ -23,6 +23,9 @@ public class SearchCrawler {
     @Autowired
     private ArticleRepository repository;
 
+    /**
+     *
+     */
     @Scheduled(cron = "0 0 3")
     public void SearchCrawler() {
 
@@ -33,19 +36,13 @@ public class SearchCrawler {
                 article.setMetric(getMetricsFromPlateform(article));
             }
         }
-
-        for (Article article : repository.findAll()) {
-            long score = 0;
-            for (ArticleRef articleRef : article.getBibliography()) {
-                Article article_1 = articleRef.getArticle();
-                int metrics = article_1.getMetric();
-                if (metrics != 0)
-                    score = score + article_1.getPagerankscore() / metrics;
-            }
-            article.setPagerankscore(score);
-        }
     }
 
+    /**
+     *
+     * @param article
+     * @return
+     */
     private int getMetricsFromPlateform(Article article) {
         int i = 0;
         for (Article allArticle : repository.findAll()) {
@@ -60,6 +57,13 @@ public class SearchCrawler {
         return i;
     }
 
+    /**
+     *
+     * @param article
+     * @return
+     * @throws MetricNotAvailableException
+     * @throws NotAuthorizedException
+     */
     private int getMetricsFromWeb(Article article) throws MetricNotAvailableException, NotAuthorizedException {
         String ref = article.getRef();
 
@@ -86,6 +90,12 @@ public class SearchCrawler {
         return metrics;
     }
 
+    /**
+     *
+     * @param ref
+     * @return
+     * @throws Exception
+     */
     private String curlWeb(String ref) throws Exception{
 
         StringBuilder result = new StringBuilder();
@@ -102,8 +112,13 @@ public class SearchCrawler {
         return result.toString();
     }
 
+    /**
+     *
+     * @param webPage
+     * @return
+     */
     private int cleanWebResultIEEE(String webPage){
-        int tmp=0;
+        int tmp;
 
         String pattern = "\"citationCountPaper\":";
         tmp = webPage.lastIndexOf(pattern);
@@ -118,6 +133,12 @@ public class SearchCrawler {
         return Integer.parseInt(Trimmed);
     }
 
+    /**
+     *
+     * @param webPage
+     * @return
+     * @throws NotAuthorizedException
+     */
     private int cleanWebResultACM(String webPage) throws NotAuthorizedException{
         throw new NotAuthorizedException("https://libraries.acm.org/digital-library/policies");
     }
