@@ -2,6 +2,7 @@ package be.unamur.mdl_groupe2.root.api;
 
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,6 +16,7 @@ Use @ExceptionHandler annotation to define the class of Exception it will catch.
 */
 @ControllerAdvice
 @RestController
+@CrossOrigin(origins = { "http://localhost:8181", "http://localhost:8080" }, maxAge = 3000)
 public class GlobalExceptionHandler {
     @ExceptionHandler(value = DataIntegrityViolationException.class)
     public OperationResponse handleBaseException(DataIntegrityViolationException e) {

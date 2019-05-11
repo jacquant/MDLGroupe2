@@ -8,15 +8,13 @@ import be.unamur.mdl_groupe2.root.search.SearchService;
 import com.google.gson.Gson;
 
 import org.json.JSONArray;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import be.unamur.mdl_groupe2.root.models.article.Article;
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin(origins = { "http://localhost:8181", "http://localhost:8080" }, maxAge = 3000)
 public class SearchController {
 
     private final List<Article> searchResult = null;

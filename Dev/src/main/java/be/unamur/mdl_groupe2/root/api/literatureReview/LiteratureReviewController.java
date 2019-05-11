@@ -3,21 +3,14 @@ package be.unamur.mdl_groupe2.root.api.literatureReview;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import be.unamur.mdl_groupe2.root.models.literatureReview.LiteratureReview;
 import be.unamur.mdl_groupe2.root.repositories.LiteratureReviewRepository;
 
 @RestController
 @RequestMapping("/api")
-
+@CrossOrigin(origins = { "http://localhost:8181", "http://localhost:8080" }, maxAge = 3000)
 public class LiteratureReviewController{
 
     private final LiteratureReviewRepository literatureReviewRepository;
