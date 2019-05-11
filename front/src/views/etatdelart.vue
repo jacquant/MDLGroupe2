@@ -5,7 +5,7 @@
         <v-spacer></v-spacer>
         <v-btn color @click="classicView" class="titre">Classic</v-btn>
         <v-btn color @click="visualView" class="titre">Visual</v-btn>
-        <v-btn color @click="matriceView" class="titre">Matrice</v-btn>
+        <v-btn color @click="matriceView" class="titre">Matrix</v-btn>
       </v-card-actions>
 
       <div id="classicView">
@@ -294,6 +294,9 @@ export default {
     //paper: this.$route.query.data
   },
   methods: {
+    setDefaultsWords() {
+      return null;
+    },
     getTitle() {
       this.abstract = this.$route.query.abstract;
       id = this.$route.query.id;
