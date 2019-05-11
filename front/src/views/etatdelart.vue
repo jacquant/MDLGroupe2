@@ -89,7 +89,12 @@
                 <v-btn icon slot="widget-header-action">
                   <v-icon class="text--secondary">refresh</v-icon>
                 </v-btn>
-                <div slot="widget-content"></div>
+                <div slot="widget-content">
+                    <!--put  cloud graph here-->
+
+
+                    <!--end of cloud graph-->
+                </div>
               </v-widget>
             </v-flex>
           </v-layout>
