@@ -21,7 +21,7 @@
                 <h5>
                   <i> {{ getInfo() }}</i>
                 </h5>
-
+                <h4><b>Keywords:</b> {{ getKeywords() }}</h4>
                 <br />
                 <h3>
                   Abstract &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -87,7 +87,11 @@
                 <v-btn icon slot="widget-header-action">
                   <v-icon class="text--secondary">refresh</v-icon>
                 </v-btn>
-                <div slot="widget-content"></div>
+                <div slot="widget-content">
+                  <!--put  cloud graph here-->
+
+                  <!--end of cloud graph-->
+                </div>
               </v-widget>
             </v-flex>
           </v-layout>
@@ -158,6 +162,7 @@
           <h5>
             <i> {{ getInfo() }}</i>
           </h5>
+          <h4><b>Keywords:</b> {{ getKeywords() }}</h4>
 
           <div id="table_matrice">
             <br />
@@ -204,13 +209,22 @@
 </template>
 
 <script>
-  import API from "@/api";
-  import EChart from "@/components/chart/echart";
-  import VWidget from "@/components/VWidget";
-  import Material from "vuetify/es5/util/colors";
-  import wordcloud from 'vue-wordcloud';
-
-var id,title,author,the_abstract,info,videoUrl,publisher,ref,pagerankscore,matriceref;
+import API from "@/api";
+import EChart from "@/components/chart/echart";
+import VWidget from "@/components/VWidget";
+import Material from "vuetify/es5/util/colors";
+import wordcloud from "vue-wordcloud";
+var id,
+  title,
+  author,
+  the_abstract,
+  keywords,
+  info,
+  videoUrl,
+  publisher,
+  ref,
+  pagerankscore,
+  matriceref;
 export default {
   components: {
     VWidget,
@@ -219,45 +233,56 @@ export default {
   },
   data() {
     return {
-      text: [this.$route.query.ref, this.$route.query.videoUrl, "comments here"],
+      text: [
+        this.$route.query.ref,
+        this.$route.query.videoUrl,
+        "comments here"
+      ],
       color: Material,
       selectedTab: "tab-1",
-      defaultWords: [{"name": "car", "value":Math.floor(Math.random() * 30) + 1}, {"name": "computer", "value":Math.floor(Math.random() * 30) + 1}, {"name": "data", "value":Math.floor(Math.random() * 30) + 1}, {"name": "vizualisation", "value":Math.floor(Math.random() * 30) + 1}, {"name": "engineering", "value":Math.floor(Math.random() * 30) + 1}, {"name": "IT", "value":Math.floor(Math.random() * 30) + 1}],
+      defaultWords: [
+        { name: "car", value: Math.floor(Math.random() * 30) + 1 },
+        { name: "computer", value: Math.floor(Math.random() * 30) + 1 },
+        { name: "data", value: Math.floor(Math.random() * 30) + 1 },
+        { name: "vizualisation", value: Math.floor(Math.random() * 30) + 1 },
+        { name: "engineering", value: Math.floor(Math.random() * 30) + 1 },
+        { name: "IT", value: Math.floor(Math.random() * 30) + 1 }
+      ]
       /*headers: [
-        {
-          text: 'References',
-          align: 'left',
-          sortable: false,
-          value: 'name'
-        },
-        {text: 'Criteria1', value: 'Criteria1'},
-        {text: 'Criteria2', value: 'Criteria2'},
-        {text: 'Criteria3', value: 'Criteria3'},
-        {text: 'Criteria4', value: 'Criteria4'}
-      ],
-      results: [
-        {
-          name: 'Ref1',
-          Criteria1: v,
-          Criteria2: v,
-          Criteria3: x,
-          Criteria4: x,
-        },
-        {
-          name: 'Ref2',
-          Criteria1: v,
-          Criteria2: x,
-          Criteria3: v,
-          Criteria4: v,
-        },
-        {
-          name: 'Ref3',
-          Criteria1: v,
-          Criteria2: x,
-          Criteria3: x,
-          Criteria4: v,
-        },
-      ]*/
+          {
+            text: 'References',
+            align: 'left',
+            sortable: false,
+            value: 'name'
+          },
+          {text: 'Criteria1', value: 'Criteria1'},
+          {text: 'Criteria2', value: 'Criteria2'},
+          {text: 'Criteria3', value: 'Criteria3'},
+          {text: 'Criteria4', value: 'Criteria4'}
+        ],
+        results: [
+          {
+            name: 'Ref1',
+            Criteria1: v,
+            Criteria2: v,
+            Criteria3: x,
+            Criteria4: x,
+          },
+          {
+            name: 'Ref2',
+            Criteria1: v,
+            Criteria2: x,
+            Criteria3: v,
+            Criteria4: v,
+          },
+          {
+            name: 'Ref3',
+            Criteria1: v,
+            Criteria2: x,
+            Criteria3: x,
+            Criteria4: v,
+          },
+        ]*/
     };
   },
   computed: {
@@ -275,13 +300,13 @@ export default {
       title = this.$route.query.title;
       author = this.$route.query.author;
       the_abstract = this.abstract;
+      keywords = this.$route.query.keywords;
       info = this.$route.query.info;
       videoUrl = this.$route.query.videoUrl;
       publisher = this.$route.query.publisher;
       ref = this.$route.query.ref;
       pagerankscore = this.$route.query.pagerankscore;
       matriceref = this.$route.query.matriceref;
-
       return this.$route.query.title;
     },
     getAuthor() {
@@ -293,7 +318,9 @@ export default {
     getPublish() {
       return this.$route.query.id;
     },
-
+    getKeywords() {
+      return this.$route.query.keywords;
+    },
     visualView() {
       document.getElementById("visualView").style.display = "block";
       document.getElementById("matriceView").style.display = "none";
@@ -314,9 +341,8 @@ export default {
 </script>
 <style scoped lang="css">
 #textarea {
-    margin-top: 10px;
+  margin-top: 10px;
 }
-
 .titre {
   color:lightslategrey;
   font-weight: bold;

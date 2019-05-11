@@ -61,7 +61,7 @@ import Util from "@/util";
 export default {
   name: "app-toolbar",
   components: {
-    NotificationList
+
   },
   data: () => ({
     items: [
@@ -71,7 +71,7 @@ export default {
       
         title: "Profile",
         click: e => {
-          //this.$router.push("../personnalpage");
+          //this.$router.push("../personalpage");
           window.getApp.$emit("APP_PERSONAL_PAGE");
         }
       },
@@ -89,6 +89,7 @@ export default {
         title: "Logout",
         click: e => {
           window.getApp.$emit("APP_LOGOUT");
+          this.login;
 
         }
       }
@@ -121,6 +122,13 @@ export default {
       this.loading = true;
       setTimeout(() => {
         this.$router.push("../contactus");
+      }, 1000);
+    },
+
+    login() {
+      this.loading = true;
+      setTimeout(() => {
+        this.$router.push("../login");
       }, 1000);
     },
 

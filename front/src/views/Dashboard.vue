@@ -92,18 +92,15 @@ export default {
       }, 0.00001);
       this.log += e.key;
     },
-
     getResults: function(e) {
-
       var refThis = this;
       var inputedText = refThis.searchedInput;
-      var apiResponse ="";
+      var apiResponse = "";
       var request = new XMLHttpRequest();
-
       request.open(
         "GET",
         "http://localhost:8181/api/QuickSearchJson?keyword=" + inputedText,
-              false
+        false
       );
       request.onload = function() {
         if (request.status >= 200 && request.status > 400) {
@@ -111,26 +108,36 @@ export default {
         }
       };
       request.send();
-
       apiResponse.foreach(function(element, index) {
-        apiResponse[index] = {
-          
-        };
+        apiResponse[index] = {};
       });
+    },
 
+    wordClickHandler(name, value, vm) {
+      this.searchedInput = this.searchedInput + " " + name;
+    },
+
+    advancedSearch() {
+      this.loading = true;
+      setTimeout(() => {
+        this.$router.push("../AdvancedSearch");
+      }, 1000);
+    },
+
+    searchHistory() {
+      this.loading = true;
+      setTimeout(() => {
+        this.$router.push("../StaticSearchHistory");
+      }, 1000);
     },
 
     wordCloudDisplay: function(e) {
       var refThis = this;
       var inputedText = refThis.searchedInput;
       var apiResponse = "";
-
       axios
-        .get(
-          "http://localhost:8181/api/Synonyme?keyword=" + inputedText
-        )
+        .get("http://localhost:8181/api/Synonyme?keyword=" + inputedText)
         .then(response => {
-          console.log(response);
           if (response.request.status >= 200 && response.request.status < 400) {
             apiResponse = response.data;
             apiResponse.forEach(function(element, index) {
@@ -148,24 +155,6 @@ export default {
             }
           }
         });
-    },
-
-    wordClickHandler(name, value, vm) {
-      this.searchedInput = this.searchedInput + name + " ";
-    },
-
-    advancedSearch() {
-      this.loading = true;
-      setTimeout(() => {
-        this.$router.push("../AdvancedSearch");
-      }, 1000);
-    },
-
-    searchHistory() {
-      this.loading = true;
-      setTimeout(() => {
-        this.$router.push("../StaticSearchHistory");
-      }, 1000);
     }
   }
 };
