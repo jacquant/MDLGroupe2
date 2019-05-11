@@ -193,6 +193,7 @@
         title,
         author,
         abstract,
+        keywords,
         info,
         videoUrl,
         publisher,
@@ -212,7 +213,7 @@
             },
 
             pagination: {
-                sortBy: 'title',
+                sortBy: '',
                 rowsPerPage:25,
             },
             selected: [],
@@ -278,7 +279,7 @@
                         "http://mdl-std02.info.fundp.ac.be:8181/MdlGroupe2-test/api/QuickSearch?params=",
                         {
                             params:{
-                                keyword:inputedText
+                                params:inputedText
                             }
                         }
                     )
@@ -308,6 +309,7 @@
                         title:
                             "Lorem ipsum25662 dolor sit amet, consectetur adipiscing elit, seddo1 ",
                         abstract: "Voici le abstact 1 ",
+                        keywords:"Structural Analysis, Text Visualization, Relationships Visualization",
                         videoUrl: "lien video1",
                         publisher: "publisher  1",
                         ref: "ref 1",
@@ -323,6 +325,7 @@
                         title:
                             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo2",
                         abstract: "Voici le abstact 2",
+                        keywords:"Text mining, Text Visualization",
                         videoUrl: "lien video 2",
                         publisher: "publisher 2",
                         ref: "ref 2",
@@ -338,6 +341,7 @@
                         title:
                             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo 3",
                         abstract: "Voici le abstact 3",
+                        keywords:"Big data, mining algorithms, visualization",
                         videoUrl: "lien video 3",
                         publisher: "publisher 3",
                         ref: "ref 3",
@@ -353,6 +357,7 @@
                         title:
                             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo 4",
                         abstract: "Voici le abstact 4",
+                        keywords:"Image visualization, Rendering algorithm",
                         videoUrl: "lien video 4",
                         publisher: "publisher 4",
                         ref: "ref 4",
@@ -368,6 +373,7 @@
                         title:
                             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo 5",
                         abstract: "Voici le abstact 5",
+                        keywords:"IOT, Encryption",
                         videoUrl: "lien video 5",
                         publisher: "publisher 5",
                         ref: "ref 5",
@@ -384,6 +390,7 @@
                         title:
                             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo 6",
                         abstract: "Voici le abstact 6",
+                        keywords:"Concurency, Enbaded systems,Software architecture ",
                         videoUrl: "lien video 6",
                         publisher: "publisher 6",
                         ref: "ref 6",
@@ -416,6 +423,7 @@
                             title: title,
                             author: author,
                             abstract: abstract,
+                            keywords:keywords,
                             info: info,
                             videoUrl: videoUrl,
                             ref: ref,
@@ -444,6 +452,7 @@
                             title: title,
                             author: author,
                             abstract: abstract,
+                            keywords:keywords,
                             info: info,
                             videoUrl: videoUrl,
                             ref: ref,
@@ -461,6 +470,7 @@
                 title = item.title;
                 author = item.author;
                 abstract = item.abstract;
+                keywords=item.keywords;
                 info = item.info;
                 videoUrl=item.videoUrl;
                 publisher = item.publisher;
@@ -475,6 +485,7 @@
                             title: title,
                             author: author,
                             abstract: abstract,
+                            keywords:keywords,
                             info: info,
                             videoUrl: videoUrl,
                             ref: ref,

@@ -21,7 +21,9 @@
                 <h5>
                   <i> {{ getInfo() }}</i>
                 </h5>
-
+                  <h4>
+                      <b>Keywords:</b> {{ getKeywords() }}
+                  </h4>
                 <br />
                 <h3>
                   Abstract &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -158,6 +160,9 @@
           <h5>
             <i> {{ getInfo() }}</i>
           </h5>
+            <h4>
+                <b>Keywords:</b> {{ getKeywords() }}
+            </h4>
 
           <div id="table_matrice">
             <br />
@@ -209,7 +214,7 @@
   import VWidget from "@/components/VWidget";
   import Material from "vuetify/es5/util/colors";
   import wordcloud from 'vue-wordcloud';
-  var id,title,author,the_abstract,info,videoUrl,publisher,ref,pagerankscore,matriceref;
+  var id,title,author,the_abstract,keywords,info,videoUrl,publisher,ref,pagerankscore,matriceref;
   export default {
     components: {
       VWidget,
@@ -274,6 +279,7 @@
         title = this.$route.query.title;
         author = this.$route.query.author;
         the_abstract = this.abstract;
+          keywords=this.$route.query.keywords;
         info = this.$route.query.info;
         videoUrl = this.$route.query.videoUrl;
         publisher = this.$route.query.publisher;
@@ -291,6 +297,10 @@
       getPublish() {
         return this.$route.query.id;
       },
+
+        getKeywords(){
+            return this.$route.query.keywords;
+        },
       classic() {
         this.loading = true;
         setTimeout(() => {
@@ -301,6 +311,7 @@
               title: title,
               author: author,
               abstract: the_abstract,
+                keywords:keywords,
               info: info,
               videoUrl: videoUrl,
               ref: ref,
