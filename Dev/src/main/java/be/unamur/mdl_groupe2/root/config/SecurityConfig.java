@@ -36,6 +36,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .anonymous().and()
                 // Disable Cross site references
                 .csrf().disable()
+                .cors().and()
                 // Add CORS Filter
                 // Custom Token based authentication based on the header previously given to the client
                 //.addFilterBefore(new VerifyTokenFilter(tokenUtil), UsernamePasswordAuthenticationFilter.class)
