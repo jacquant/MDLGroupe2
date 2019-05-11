@@ -6,7 +6,6 @@
 
     <div style="margin-right: 100px; margin-left: 100px; width:80%;">
       <v-text-field
-        id="idTest"
         flat
         background-color="white"
         solo
