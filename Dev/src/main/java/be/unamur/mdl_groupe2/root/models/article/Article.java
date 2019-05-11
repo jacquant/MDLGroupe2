@@ -15,7 +15,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-public class Article {
+public class Article implements Comparable<Article>{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -77,4 +77,9 @@ public class Article {
 
     @OneToMany(mappedBy = "article", cascade = CascadeType.ALL)
     private Set<Visualization> visualizations;
+
+    @Override
+    public int compareTo(Article o) {
+        return this.getPagerankscore().compareTo(o.getPagerankscore());
+    }
 }
