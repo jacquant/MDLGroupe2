@@ -20,6 +20,6 @@ public class ArticleRef {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "articleId", nullable = false)
+    @JoinColumn(name = "articleId")
     private Article article;
 }

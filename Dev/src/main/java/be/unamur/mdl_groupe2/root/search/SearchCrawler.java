@@ -103,7 +103,7 @@ public class SearchCrawler {
     }
 
     private int cleanWebResultIEEE(String webPage){
-        int tmp=0;
+        int tmp;
 
         String pattern = "\"citationCountPaper\":";
         tmp = webPage.lastIndexOf(pattern);

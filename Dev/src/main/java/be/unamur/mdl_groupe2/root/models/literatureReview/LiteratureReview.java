@@ -16,7 +16,7 @@ public class LiteratureReview extends Article {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "articleId", nullable = false)
+    @JoinColumn(name = "articleId")
     private Article article;
 
     @NonNull
