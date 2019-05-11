@@ -61,7 +61,8 @@ export default {
     color: Material,
     selectedTab: "tab-1",
     defaultWords: [],
-    logoHeight: "400"
+    logoHeight: "400",
+    searchedInput: ""
   }),
   computed: {
     activity() {
@@ -151,8 +152,6 @@ export default {
 
     wordClickHandler(name, value, vm) {
       this.searchedInput = this.searchedInput + name + " ";
-      //document.getElementById("idTest").value = this.searchedInput;
-      console.log(this.searchedInput);
     },
 
     advancedSearch() {

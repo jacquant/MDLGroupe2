@@ -293,28 +293,6 @@ export default {
     getPublish() {
       return this.$route.query.id;
     },
-    classic() {
-      this.loading = true;
-      setTimeout(() => {
-        this.$router.push({
-          path: "/etatdelart",
-          query: {
-            id: id,
-            title: title,
-            author: author,
-            abstract: the_abstract,
-            info: info,
-            videoUrl: videoUrl,
-            ref: ref,
-            publisher: publisher,
-            pagerankscore: pagerankscore,
-            matriceref: matriceref
-          }
-          //query: {...},
-          //moreData: {foo: 1}
-        });
-      }, 1);
-    },
 
     visualView() {
       document.getElementById("visualView").style.display = "block";
