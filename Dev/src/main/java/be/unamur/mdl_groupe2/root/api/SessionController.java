@@ -5,11 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import be.unamur.mdl_groupe2.root.models.response.OperationResponse.ResponseStatusEnum;
 import be.unamur.mdl_groupe2.root.models.session.SessionItem;
@@ -30,6 +26,7 @@ This is a dummy rest synonyme, for the purpose of documentation (/session) path 
 
 @RestController
 @Api(tags = { "Authentication" })
+@CrossOrigin(origins = { "http://localhost:8181", "http://localhost:8080" }, maxAge = 3000)
 public class SessionController {
 
     @Autowired

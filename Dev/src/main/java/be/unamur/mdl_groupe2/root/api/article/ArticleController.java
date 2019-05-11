@@ -13,6 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin(origins = { "http://localhost:8181", "http://localhost:8080" }, maxAge = 3000)
 public class ArticleController {
 
     private final ArticleRepository articleRepository;
@@ -34,17 +35,17 @@ public class ArticleController {
     }
 
     @GetMapping("/articles/{author}")
-    public List<Article> findArticleWriteBy(Long id){
+    public List<Article> findArticleWriteBy(@PathVariable("author") Long id){
         return this.articleRepository.findArticleWriteBy(id);
     }
 
     @GetMapping("/articles/{title}")
-    public List<Article> findArticleWithTitle(String title){
+    public List<Article> findArticleWithTitle(@PathVariable("title") String title){
         return this.articleRepository.findArticleWithTitle(title);
     }
 
     @GetMapping("/articles/{tag}")
-    public List<Article> findArticleWithTag(String tag){
+    public List<Article> findArticleWithTag(@PathVariable("tag") String tag){
         return this.articleRepository.findArticleWithTitle(tag);
     }
 
