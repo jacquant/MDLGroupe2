@@ -89,7 +89,7 @@ export default {
         title: "Logout",
         click: e => {
           window.getApp.$emit("APP_LOGOUT");
-          this.login;
+
 
         }
       }
@@ -125,12 +125,7 @@ export default {
       }, 1000);
     },
 
-    login() {
-      this.loading = true;
-      setTimeout(() => {
-        this.$router.push("../login");
-      }, 1000);
-    },
+
 
     dashboard() {
       this.loading = true;

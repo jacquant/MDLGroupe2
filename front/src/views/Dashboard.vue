@@ -90,28 +90,7 @@
         }, 0.00001);
         this.log += e.key;
       },
-      getResults: function(e) {
-        var refThis = this;
-        var inputedText = refThis.searchedInput;
-        var apiResponse ="";
-        var request = new XMLHttpRequest();
-        request.open(
-                "GET",
-                "http://localhost:8181/api/QuickSearchJson?keyword=" + inputedText,
-                false
-        );
-        request.onload = function() {
-          if (request.status >= 200 && request.status > 400) {
-            apiResponse = JSON.parse(request.responseText);
-          }
-        };
-        request.send();
-        apiResponse.foreach(function(element, index) {
-          apiResponse[index] = {
 
-          };
-        });
-      },
       wordCloudDisplay: function(e) {
         var refThis = this;
         var inputedText = refThis.searchedInput;

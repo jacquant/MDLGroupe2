@@ -284,6 +284,9 @@
                         }
                     )
                     .then(function(response) {
+
+                        this.thedata = response;
+
                         /*
                           this.items= response;
                           for (i = 0; i < response.length; i++) {
