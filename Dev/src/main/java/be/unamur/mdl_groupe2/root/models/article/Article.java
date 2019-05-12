@@ -3,7 +3,9 @@ package be.unamur.mdl_groupe2.root.models.article;
 import be.unamur.mdl_groupe2.root.models.articleRef.ArticleRef;
 import be.unamur.mdl_groupe2.root.models.literatureReview.LiteratureReview;
 import be.unamur.mdl_groupe2.root.models.visualization.Visualization;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
+import org.hibernate.annotations.Proxy;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -15,7 +17,8 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-public class Article implements Comparable<Article>{
+@Proxy(lazy=false)
+public class Article {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -39,7 +42,7 @@ public class Article implements Comparable<Article>{
 
     private String abstractArticle;
 
-    @OneToMany(mappedBy = "article", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "article", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<LiteratureReview> literatureReviews;
     //private DBFile pdfFiles;
 
@@ -64,7 +67,8 @@ public class Article implements Comparable<Article>{
     private String[] action;
 
     private int metric;
-    @OneToMany(mappedBy = "article", cascade = CascadeType.ALL)
+
+    @OneToMany(mappedBy = "article", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<ArticleRef> bibliography;
 
     private Boolean open;
@@ -75,7 +79,7 @@ public class Article implements Comparable<Article>{
 
     private Long pagerankscore;
 
-    @OneToMany(mappedBy = "article", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "article", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Visualization> visualizations;
 
     @Override
