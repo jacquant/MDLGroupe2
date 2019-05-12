@@ -3,7 +3,6 @@ package be.unamur.mdl_groupe2.root.models.article;
 import be.unamur.mdl_groupe2.root.models.articleRef.ArticleRef;
 import be.unamur.mdl_groupe2.root.models.literatureReview.LiteratureReview;
 import be.unamur.mdl_groupe2.root.models.visualization.Visualization;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.hibernate.annotations.Proxy;
 
@@ -18,7 +17,7 @@ import java.util.Set;
 @AllArgsConstructor
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @Proxy(lazy=false)
-public class Article {
+public class Article implements Comparable<Article>{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
