@@ -1,19 +1,15 @@
 package be.unamur.mdl_groupe2.root.api.literatureReview;
 
-import be.unamur.mdl_groupe2.root.models.literatureReview.LiteratureReview;
-import be.unamur.mdl_groupe2.root.repositories.LiteratureReviewRepository;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
-import static org.springframework.http.ResponseEntity.ok;
+import be.unamur.mdl_groupe2.root.models.literatureReview.LiteratureReview;
+import be.unamur.mdl_groupe2.root.repositories.LiteratureReviewRepository;
 
 @RestController
 @RequestMapping("/api")
-
 public class LiteratureReviewController{
 
     private final LiteratureReviewRepository literatureReviewRepository;

@@ -12,7 +12,7 @@ import java.util.List;
 public class SynonymeController {
 
     @GetMapping("Synonyme")
-    public List<String> synonymes(@RequestParam(value="keyword",required = true)String request) throws FileNotFoundException {
+    public List<String> synonymes(@RequestParam(value="keyword")String request) throws FileNotFoundException {
         return Synonymes.getSyno(request);
     }
 }
