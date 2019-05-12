@@ -81,4 +81,9 @@ public class Article {
 
     @OneToMany(mappedBy = "article", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Visualization> visualizations;
+
+    @Override
+    public int compareTo(Article o) {
+        return this.getPagerankscore().compareTo(o.getPagerankscore());
+    }
 }

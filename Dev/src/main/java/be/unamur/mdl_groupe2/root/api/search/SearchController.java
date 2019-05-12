@@ -1,32 +1,46 @@
 package be.unamur.mdl_groupe2.root.api.search;
 
 import java.util.List;
+import java.util.Map;
 
+import be.unamur.mdl_groupe2.root.search.AdvancedSearchService;
+import be.unamur.mdl_groupe2.root.search.SearchService;
 import com.google.gson.Gson;
 
 import org.json.JSONArray;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import be.unamur.mdl_groupe2.root.models.article.Article;
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin(origins = { "http://localhost:8181", "http://localhost:8080" }, maxAge = 3000)
 public class SearchController {
 
     private final List<Article> searchResult = null;
 
     @GetMapping("QuickSearch")
-    public List<Article> searchController(@RequestParam(value="keyword",required = true)String search) {
+    public List<Article> searchController(@RequestParam Map<String, String> params) {
 
-        //TODO
-        return null;
+        return new SearchService().SearchService(params);
     }
 
     @GetMapping("QuickSearchJson")
-    public JSONArray searchControllerJson(@RequestParam(value="keyword",required = true)String search){
-        return new JSONArray(new Gson().toJson(searchController(search)));
+    public JSONArray searchControllerJson(@RequestParam Map<String, String> params){
+        return new JSONArray(new Gson().toJson(searchController(params)));
+    }
+
+
+    /* <!-- URL avec deux paramètres nommés 'lang' et 'admin', et ayant pour valeur respectivement 'fr' et 'true' --> /page.jsp?lang=fr&admin=true*/
+    @GetMapping("AdvancedSearch")
+    public List<Article> AdvancedSearchController(@RequestParam Map<String, String> params) {
+
+        return new AdvancedSearchService().AdvancedSearchService(params);
+    }
+
+    @GetMapping("AdvancedSearchJson")
+    public JSONArray AdvancedSearchControllerJson(@RequestParam Map<String, String> params){
+
+        return new JSONArray(new Gson().toJson(AdvancedSearchController(params)));
     }
 }
