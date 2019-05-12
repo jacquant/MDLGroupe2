@@ -8,20 +8,41 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 
+/**
+ * The interface Article repository.
+ */
 @Repository
 public interface ArticleRepository extends JpaRepository<Article, Long> {
 
-    //TODO protect against SQL injection
+    /**
+     * Find article write by list.
+     *
+     * @param id the id
+     * @return the list
+     */
+//TODO protect against SQL injection
     @Query(value = "SELECT u FROM Article u WHERE u.author=?1")
     List<Article> findArticleWriteBy(Long id);
 
 
-    //TODO protect against SQL injection
+    /**
+     * Find article with title list.
+     *
+     * @param title the title
+     * @return the list
+     */
+//TODO protect against SQL injection
     @Query(value = "SELECT u FROM Article u WHERE u.title=?1")
     List<Article> findArticleWithTitle(String title);
 
 
-    //TODO protect against SQL injection
+    /**
+     * Find article with tag list.
+     *
+     * @param tag the tag
+     * @return the list
+     */
+//TODO protect against SQL injection
     //TODO Tag est stocké comme un tableau de string en BD
     @Query(value = "SELECT u FROM Article u WHERE u.tag=?1")
     List<Article> findArticleWithTag(String tag);

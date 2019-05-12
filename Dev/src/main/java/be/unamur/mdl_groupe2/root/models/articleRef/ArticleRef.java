@@ -8,6 +8,9 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
+/**
+ * The type Article ref.
+ */
 @Entity
 @Table(name = "ArticleRef")
 @Data

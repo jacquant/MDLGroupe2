@@ -7,18 +7,39 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * The interface Author repository.
+ */
 @Repository
 public interface AuthorRepository extends JpaRepository<Author, Long> {
 
-    //TODO protect against SQL injection
+    /**
+     * Find author id with surname list.
+     *
+     * @param surname the surname
+     * @return the list
+     */
+//TODO protect against SQL injection
     @Query(value = "SELECT id FROM Author u WHERE u.surname=?1")
     List<Long> findAuthorIdWithSurname(String surname);
 
-    //TODO protect against SQL injection
+    /**
+     * Find author id with first name list.
+     *
+     * @param surname the surname
+     * @return the list
+     */
+//TODO protect against SQL injection
     @Query(value = "SELECT id FROM Author u WHERE u.firstName=?1")
     List<Long> findAuthorIdWithFirstName(String surname);
 
-    //TODO protect against SQL injection
+    /**
+     * Find author id with first nameor surname list.
+     *
+     * @param surname the surname
+     * @return the list
+     */
+//TODO protect against SQL injection
     @Query(value = "SELECT id FROM Author u WHERE u.firstName=?1 OR u.surname=?1")
     List<Long> findAuthorIdWithFirstNameorSurname(String surname);
 
