@@ -293,6 +293,7 @@
                               this.items[i] = response[i];
                           }
                           */
+                        this.thedata=response;
                         console.log("la réponse:" + response);
                     })
                     .catch(function(error) {
@@ -302,7 +303,8 @@
                     .then(function() {
                         // always executed
                     });
-                thedata = [
+
+               thedata = [
                     {
                         //avatar: '../assets/iconA.png',
                         id: 1,
