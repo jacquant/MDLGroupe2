@@ -16,7 +16,6 @@ Use @ExceptionHandler annotation to define the class of Exception it will catch.
 */
 @ControllerAdvice
 @RestController
-@CrossOrigin(origins = { "http://localhost:8181", "http://localhost:8080" }, maxAge = 3000)
 public class GlobalExceptionHandler {
     @ExceptionHandler(value = DataIntegrityViolationException.class)
     public OperationResponse handleBaseException(DataIntegrityViolationException e) {

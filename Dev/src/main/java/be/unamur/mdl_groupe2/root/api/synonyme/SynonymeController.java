@@ -9,7 +9,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = { "http://localhost:8181", "http://localhost:8080" }, maxAge = 3000)
 public class SynonymeController {
 
     @GetMapping("Synonyme")

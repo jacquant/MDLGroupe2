@@ -5,6 +5,7 @@ import rita.RiWordNet;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -20,25 +21,21 @@ public class Synonymes {
        RiWordNet rw = new RiWordNet("WordNet-3.0/");
        rw.randomizeResults(false);
 
-       for(int i=0;i<texteArray.size();i++) {
-           synonymesTab = rw.getSynset(texteArray.get(i), "n");
-           for(int j=0;j<synonymesTab.length;j++) {
-               synonymes.add(synonymesTab[j]);
-           }
+       for (String s : texteArray) {
+           synonymesTab = rw.getSynset(s, "n");
+           Collections.addAll(synonymes, synonymesTab);
        }
        return synonymes;
     }
 
-    public static List<String> StringToStringArray(String texte) {
+    private static List<String> StringToStringArray(String texte) {
        String[] txt = texte.split(" ");
        List<String> texteArray = new ArrayList<String>();
-       for(int k=0;k<txt.length;k++) {
-           texteArray.add(txt[k]);
-       }
+       Collections.addAll(texteArray, txt);
        return texteArray;
     }
 
-    public static String removeStopWords(String texte) throws FileNotFoundException {
+    private static String removeStopWords(String texte) throws FileNotFoundException {
 
         List<String> ls = new ArrayList<String>();
         File file = new File("stopWords.txt");
@@ -50,9 +47,9 @@ public class Synonymes {
 
         List<String> texteArray = Synonymes.StringToStringArray(texte.toLowerCase());
 
-        for(int i=0;i<ls.size();i++) {
-            for(int j=0;j<texteArray.size();j++) {
-                if(texteArray.get(j).equals(ls.get(i))) {
+        for (String l : ls) {
+            for (int j = 0; j < texteArray.size(); j++) {
+                if (texteArray.get(j).equals(l)) {
                     texteArray.remove(j);
                 }
             }

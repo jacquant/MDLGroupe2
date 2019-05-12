@@ -5,12 +5,13 @@ import be.unamur.mdl_groupe2.root.models.article.Article;
 import be.unamur.mdl_groupe2.root.repositories.ArticleRepository;
 import be.unamur.mdl_groupe2.root.repositories.AuthorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
 
-
+@Component
 public class AdvancedSearchService extends SearchService {
 
     @Autowired
@@ -19,7 +20,7 @@ public class AdvancedSearchService extends SearchService {
     private AuthorRepository authorRepository;
     private List<Article> searchRepository;
 
-    public List<Article> AdvancedSearchService(Map<String, String> params) {
+    public List<Article> AdvancedSearch(Map<String, String> params) {
         List<Article> result = null;
         try {
             result = SortResult(FindResult(params));

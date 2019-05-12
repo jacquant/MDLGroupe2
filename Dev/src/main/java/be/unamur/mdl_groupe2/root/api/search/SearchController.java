@@ -14,7 +14,6 @@ import be.unamur.mdl_groupe2.root.models.article.Article;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = { "http://localhost:8181", "http://localhost:8080" }, maxAge = 3000)
 public class SearchController {
 
     private final List<Article> searchResult = null;
@@ -35,7 +34,7 @@ public class SearchController {
     @GetMapping("AdvancedSearch")
     public List<Article> AdvancedSearchController(@RequestParam Map<String, String> params) {
 
-        return new AdvancedSearchService().AdvancedSearchService(params);
+        return new AdvancedSearchService().AdvancedSearch(params);
     }
 
     @GetMapping("AdvancedSearchJson")
