@@ -89,7 +89,7 @@
                 </v-btn>
                 <div slot="widget-content">
                   <!--put  cloud graph here-->
-
+                  <artilceViewGraph></artilceViewGraph>
                   <!--end of cloud graph-->
                 </div>
               </v-widget>
