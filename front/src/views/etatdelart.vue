@@ -240,14 +240,7 @@ export default {
       ],
       color: Material,
       selectedTab: "tab-1",
-      defaultWords: [
-        { name: "car", value: Math.floor(Math.random() * 30) + 1 },
-        { name: "computer", value: Math.floor(Math.random() * 30) + 1 },
-        { name: "data", value: Math.floor(Math.random() * 30) + 1 },
-        { name: "vizualisation", value: Math.floor(Math.random() * 30) + 1 },
-        { name: "engineering", value: Math.floor(Math.random() * 30) + 1 },
-        { name: "IT", value: Math.floor(Math.random() * 30) + 1 }
-      ]
+      defaultWords: []
       /*headers: [
           {
             text: 'References',
@@ -295,7 +288,12 @@ export default {
   },
   methods: {
     setDefaultsWords() {
-      return null;
+      this.defaultWords = [{ name: "car", value: Math.floor(Math.random() * 30) + 1 },
+      { name: "computer", value: Math.floor(Math.random() * 30) + 1 },
+      { name: "data", value: Math.floor(Math.random() * 30) + 1 },
+      { name: "vizualisation", value: Math.floor(Math.random() * 30) + 1 },
+      { name: "engineering", value: Math.floor(Math.random() * 30) + 1 },
+      { name: "IT", value: Math.floor(Math.random() * 30) + 1 }]
     },
     getTitle() {
       this.abstract = this.$route.query.abstract;
