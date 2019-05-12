@@ -21,9 +21,7 @@
                 <h5>
                   <i> {{ getInfo() }}</i>
                 </h5>
-                  <h4>
-                      <b>Keywords:</b> {{ getKeywords() }}
-                  </h4>
+                <h4><b>Keywords:</b> {{ getKeywords() }}</h4>
                 <br />
                 <h3>
                   Abstract &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -41,12 +39,12 @@
 
                 <div id="textarea">
                   <v-text-field
-                          label="abstract"
-                          name="abstract"
-                          textarea
-                          rows="10"
-                          cols="25"
-                          v-model="abstract"
+                    label="abstract"
+                    name="abstract"
+                    textarea
+                    rows="10"
+                    cols="25"
+                    v-model="abstract"
                   ></v-text-field>
                 </div>
               </div>
@@ -90,10 +88,9 @@
                   <v-icon class="text--secondary">refresh</v-icon>
                 </v-btn>
                 <div slot="widget-content">
-                    <!--put  cloud graph here-->
+                  <!--put  cloud graph here-->
 
-
-                    <!--end of cloud graph-->
+                  <!--end of cloud graph-->
                 </div>
               </v-widget>
             </v-flex>
@@ -104,7 +101,7 @@
               <v-widget title="Domains treated" content-bg="white">
                 <div slot="widget-content">
                   <e-chart
-                          :path-option="[
+                    :path-option="[
                       ['dataset.source', pieChartData],
                       ['legend.bottom', '0'],
                       [
@@ -124,8 +121,8 @@
                       ['series[0].avoidLabelOverlap', true],
                       ['series[0].radius', ['50%', '70%']]
                     ]"
-                          height="400px"
-                          width="100%"
+                    height="400px"
+                    width="100%"
                   ></e-chart>
                 </div>
               </v-widget>
@@ -135,16 +132,16 @@
               <v-widget title="Words appearing the most" content-bg="white">
                 <div id="app" slot="widget-content">
                   <wordcloud
-                          :data="defaultWords"
-                          nameKey="name"
-                          valueKey="value"
-                          :color="['#1f77b4', '#629fc9', '#94bedb', '#c9e0ef']"
-                          :rotate="{ from: 0, to: 0, numOfOrientation: 0 }"
-                          :spiral="rectangular"
-                          :fontSize="[50, 60]"
-                          :showTooltip="true"
-                          :margin="{ top: 15, right: 5, bottom: 15, left: 5 }"
-                          :wordClick="wordClickHandler"
+                    :data="defaultWords"
+                    nameKey="name"
+                    valueKey="value"
+                    :color="['#1f77b4', '#629fc9', '#94bedb', '#c9e0ef']"
+                    :rotate="{ from: 0, to: 0, numOfOrientation: 0 }"
+                    :spiral="rectangular"
+                    :fontSize="[50, 60]"
+                    :showTooltip="true"
+                    :margin="{ top: 15, right: 5, bottom: 15, left: 5 }"
+                    :wordClick="wordClickHandler"
                   >
                   </wordcloud>
                 </div>
@@ -165,9 +162,7 @@
           <h5>
             <i> {{ getInfo() }}</i>
           </h5>
-            <h4>
-                <b>Keywords:</b> {{ getKeywords() }}
-            </h4>
+          <h4><b>Keywords:</b> {{ getKeywords() }}</h4>
 
           <div id="table_matrice">
             <br />
@@ -214,25 +209,46 @@
 </template>
 
 <script>
-  import API from "@/api";
-  import EChart from "@/components/chart/echart";
-  import VWidget from "@/components/VWidget";
-  import Material from "vuetify/es5/util/colors";
-  import wordcloud from 'vue-wordcloud';
-  var id,title,author,the_abstract,keywords,info,videoUrl,publisher,ref,pagerankscore,matriceref;
-  export default {
-    components: {
-      VWidget,
-      EChart,
-      wordcloud
-    },
-    data() {
-      return {
-        text: [this.$route.query.ref, this.$route.query.videoUrl, "comments here"],
-        color: Material,
-        selectedTab: "tab-1",
-        defaultWords: [{"name": "car", "value":Math.floor(Math.random() * 30) + 1}, {"name": "computer", "value":Math.floor(Math.random() * 30) + 1}, {"name": "data", "value":Math.floor(Math.random() * 30) + 1}, {"name": "vizualisation", "value":Math.floor(Math.random() * 30) + 1}, {"name": "engineering", "value":Math.floor(Math.random() * 30) + 1}, {"name": "IT", "value":Math.floor(Math.random() * 30) + 1}],
-        /*headers: [
+import API from "@/api";
+import EChart from "@/components/chart/echart";
+import VWidget from "@/components/VWidget";
+import Material from "vuetify/es5/util/colors";
+import wordcloud from "vue-wordcloud";
+var id,
+  title,
+  author,
+  the_abstract,
+  keywords,
+  info,
+  videoUrl,
+  publisher,
+  ref,
+  pagerankscore,
+  matriceref;
+export default {
+  components: {
+    VWidget,
+    EChart,
+    wordcloud
+  },
+  data() {
+    return {
+      text: [
+        this.$route.query.ref,
+        this.$route.query.videoUrl,
+        "comments here"
+      ],
+      color: Material,
+      selectedTab: "tab-1",
+      defaultWords: [
+        { name: "car", value: Math.floor(Math.random() * 30) + 1 },
+        { name: "computer", value: Math.floor(Math.random() * 30) + 1 },
+        { name: "data", value: Math.floor(Math.random() * 30) + 1 },
+        { name: "vizualisation", value: Math.floor(Math.random() * 30) + 1 },
+        { name: "engineering", value: Math.floor(Math.random() * 30) + 1 },
+        { name: "IT", value: Math.floor(Math.random() * 30) + 1 }
+      ]
+      /*headers: [
           {
             text: 'References',
             align: 'left',
@@ -267,92 +283,68 @@
             Criteria4: v,
           },
         ]*/
-      };
-    },
-    computed: {
-      pieChartData() {
-        return API.getData;
-      }
-    },
-    model: {
-      //paper: this.$route.query.data
-    },
-    methods: {
-      getTitle() {
-        this.abstract = this.$route.query.abstract;
-        id = this.$route.query.id;
-        title = this.$route.query.title;
-        author = this.$route.query.author;
-        the_abstract = this.abstract;
-          keywords=this.$route.query.keywords;
-        info = this.$route.query.info;
-        videoUrl = this.$route.query.videoUrl;
-        publisher = this.$route.query.publisher;
-        ref = this.$route.query.ref;
-        pagerankscore = this.$route.query.pagerankscore;
-        matriceref = this.$route.query.matriceref;
-        return this.$route.query.title;
-      },
-      getAuthor() {
-        return this.$route.query.author;
-      },
-      getInfo() {
-        return this.$route.query.info;
-      },
-      getPublish() {
-        return this.$route.query.id;
-      },
-
-        getKeywords(){
-            return this.$route.query.keywords;
-        },
-      classic() {
-        this.loading = true;
-        setTimeout(() => {
-          this.$router.push({
-            path: "/etatdelart",
-            query: {
-              id: id,
-              title: title,
-              author: author,
-              abstract: the_abstract,
-                keywords:keywords,
-              info: info,
-              videoUrl: videoUrl,
-              ref: ref,
-              publisher: publisher,
-              pagerankscore: pagerankscore,
-              matriceref: matriceref
-            }
-            //query: {...},
-            //moreData: {foo: 1}
-          });
-        }, 1);
-      },
-      visualView() {
-        document.getElementById("visualView").style.display = "block";
-        document.getElementById("matriceView").style.display = "none";
-        document.getElementById("classicView").style.display = "none";
-      },
-      classicView() {
-        document.getElementById("visualView").style.display = "none";
-        document.getElementById("matriceView").style.display = "none";
-        document.getElementById("classicView").style.display = "block";
-      },
-      matriceView() {
-        document.getElementById("visualView").style.display = "none";
-        document.getElementById("matriceView").style.display = "block";
-        document.getElementById("classicView").style.display = "none";
-      }
+    };
+  },
+  computed: {
+    pieChartData() {
+      return API.getData;
     }
-  };
+  },
+  model: {
+    //paper: this.$route.query.data
+  },
+  methods: {
+    getTitle() {
+      this.abstract = this.$route.query.abstract;
+      id = this.$route.query.id;
+      title = this.$route.query.title;
+      author = this.$route.query.author;
+      the_abstract = this.abstract;
+      keywords = this.$route.query.keywords;
+      info = this.$route.query.info;
+      videoUrl = this.$route.query.videoUrl;
+      publisher = this.$route.query.publisher;
+      ref = this.$route.query.ref;
+      pagerankscore = this.$route.query.pagerankscore;
+      matriceref = this.$route.query.matriceref;
+      return this.$route.query.title;
+    },
+    getAuthor() {
+      return this.$route.query.author;
+    },
+    getInfo() {
+      return this.$route.query.info;
+    },
+    getPublish() {
+      return this.$route.query.id;
+    },
+    getKeywords() {
+      return this.$route.query.keywords;
+    },
+    visualView() {
+      document.getElementById("visualView").style.display = "block";
+      document.getElementById("matriceView").style.display = "none";
+      document.getElementById("classicView").style.display = "none";
+    },
+    classicView() {
+      document.getElementById("visualView").style.display = "none";
+      document.getElementById("matriceView").style.display = "none";
+      document.getElementById("classicView").style.display = "block";
+    },
+    matriceView() {
+      document.getElementById("visualView").style.display = "none";
+      document.getElementById("matriceView").style.display = "block";
+      document.getElementById("classicView").style.display = "none";
+    }
+  }
+};
 </script>
 <style scoped lang="css">
-  #textarea {
-    margin-top: 10px;
-  }
-  .titre {
-    color:lightslategrey;
-    font-weight: bold;
-  }
+#textarea {
+  margin-top: 10px;
+}
+.titre {
+  color:lightslategrey;
+  font-weight: bold;
+}
 </style>
