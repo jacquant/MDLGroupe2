@@ -33,22 +33,22 @@ public class ArticleController {
         return articleRepository.findAll();
     }
 
-    @GetMapping("/articles/{author}")
-    public List<Article> findArticleWriteBy(Long id){
-        return this.articleRepository.findArticleWriteBy(id);
+    @GetMapping("/articles/with_author/{author}")
+    public List<Article> findArticleWriteBy(@PathVariable("author") Long author){
+        return this.articleRepository.findArticleWriteBy(author);
     }
 
-    @GetMapping("/articles/{title}")
-    public List<Article> findArticleWithTitle(String title){
+    @GetMapping("/articles/with_title/{title}")
+    public List<Article> findArticleWithTitle(@PathVariable("title") String title){
         return this.articleRepository.findArticleWithTitle(title);
     }
 
-    @GetMapping("/articles/{tag}")
-    public List<Article> findArticleWithTag(String tag){
-        return this.articleRepository.findArticleWithTitle(tag);
+    @GetMapping("/articles/with_tag/{tag}")
+    public List<Article> findArticleWithTag(@PathVariable("tag") String tag){
+        return this.articleRepository.findArticleWithTag(tag);
     }
 
-    @GetMapping("/articles/{article_id}")
+    @GetMapping("/articles/with_id/{article_id}")
     public Article findByArticleId(@PathVariable("article_id") Long articleId) {
         return articleRepository.getOne(articleId);
     }

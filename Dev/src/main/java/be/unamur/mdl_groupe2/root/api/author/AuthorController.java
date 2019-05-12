@@ -37,7 +37,7 @@ public class AuthorController {
     }
 
     @GetMapping("/authors/{firstName}")
-    public List<Author> getAuthorByFirstname(@PathVariable("surname") String firstName) {
+    public List<Author> getAuthorByFirstname(@PathVariable("firstName") String firstName) {
         List<Long> list_id = authorRepository.findAuthorIdWithFirstName(firstName);
         return authorRepository.findAllById(list_id);
     }
