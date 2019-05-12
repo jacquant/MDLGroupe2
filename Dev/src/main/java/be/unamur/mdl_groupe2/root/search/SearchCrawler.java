@@ -7,24 +7,28 @@ import be.unamur.mdl_groupe2.root.models.articleRef.ArticleRef;
 import be.unamur.mdl_groupe2.root.repositories.ArticleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+/**
+ * The type Search crawler.
+ */
 /*
     This class is in charge to explore and update the information for ranking.
     The searchCrawler need to be called once a day.
  */
-
+@Component
 public class SearchCrawler {
 
     @Autowired
     private ArticleRepository repository;
 
     /**
-     *
+     * Search crawler.
      */
     @Scheduled(cron = "0 0 3")
     public void SearchCrawler() {

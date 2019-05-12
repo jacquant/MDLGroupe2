@@ -26,7 +26,6 @@ This is a dummy rest synonyme, for the purpose of documentation (/session) path 
 
 @RestController
 @Api(tags = { "Authentication" })
-@CrossOrigin(origins = { "http://localhost:8181", "http://localhost:8080" }, maxAge = 3000)
 public class SessionController {
 
     @Autowired

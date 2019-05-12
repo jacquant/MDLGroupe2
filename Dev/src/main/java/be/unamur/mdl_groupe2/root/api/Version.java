@@ -13,7 +13,6 @@ import io.swagger.annotations.ApiResponses;
 @RestController
 @RequestMapping(value = "/version", produces = {"application/json"})
 @Api(tags = {"Common"})
-@CrossOrigin(origins = { "http://localhost:8181", "http://localhost:8080" }, maxAge = 3000)
 public class Version {
     @ApiOperation(value = "Gets the version of the REST API", response = VersionModel.class)
     @ApiResponses(value = {@ApiResponse(code = 200, message = "Returns the version info for the REST API.", response = VersionModel.class)})
