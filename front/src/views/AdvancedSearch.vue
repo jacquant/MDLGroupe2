@@ -21,7 +21,8 @@
                 <td>                  
                    <v-flex>
                       <v-text-field
-                           label="Enter Author "                          
+                           label="Enter Author "
+                           color="success"                          
                             outline
                             v-model="authorfield1"
                       ></v-text-field>
@@ -32,14 +33,15 @@
                 <td>
                   <v-flex>
                       <v-text-field
-                           label="Enter Author "                          
+                           label="Enter Author " 
+                           color="success"                         
                             outline
                              v-model="authorfield2"
                       ></v-text-field>
                   </v-flex>   
                 </td>             
                </tr>
-              
+              <br>
               <tr>
                 <td rowspan="2">                  
                    Title:
@@ -59,7 +61,8 @@
                 <td>                  
                    <v-flex>
                       <v-text-field
-                           label="Enter title "                          
+                           label="Enter title " 
+                           color="success"                         
                             outline
                             v-model="titlefield1"
                       ></v-text-field>
@@ -70,14 +73,16 @@
                 <td>
                   <v-flex>
                       <v-text-field
-                           label="Enter title "                          
+                           label="Enter title "
+                           color="success"                          
                             outline
                              v-model="titlefield2"
                       ></v-text-field>
                   </v-flex>   
                 </td>             
                </tr>
-
+               <br>
+               <br>
                <tr>
                 <td rowspan="2">                  
                    Article:
@@ -97,7 +102,8 @@
                 <td>                  
                    <v-flex>
                       <v-text-field
-                           label="Enter text "                          
+                           label="Enter text " 
+                           color="success"                         
                             outline
                             v-model="articlefield1"
                       ></v-text-field>
@@ -108,7 +114,8 @@
                 <td>
                   <v-flex>
                       <v-text-field
-                           label="Enter text "                          
+                           label="Enter text " 
+                           color="success"                         
                             outline
                              v-model="articlefield2"
                       ></v-text-field>
