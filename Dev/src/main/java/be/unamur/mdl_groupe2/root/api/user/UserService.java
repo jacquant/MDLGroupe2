@@ -1,25 +1,16 @@
 package be.unamur.mdl_groupe2.root.api.user;
 
-import java.util.List;
-
-import be.unamur.mdl_groupe2.root.models.*;
-import com.google.common.base.Strings;
-
-import org.springframework.stereotype.Service;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.stereotype.Service;
 
+import be.unamur.mdl_groupe2.root.models.user.User;
 import be.unamur.mdl_groupe2.root.repositories.UserRepository;
-import be.unamur.mdl_groupe2.root.models.user.*;
 
 
 @Service
 public class UserService {
 
-    @Autowired
     private UserRepository userRepository;
 
     public String getLoggedInUserId() {

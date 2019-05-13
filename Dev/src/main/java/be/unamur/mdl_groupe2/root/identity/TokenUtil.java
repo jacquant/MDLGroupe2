@@ -1,15 +1,18 @@
 package be.unamur.mdl_groupe2.root.identity;
 
+import java.util.Date;
+import java.util.Optional;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
-import io.jsonwebtoken.*;
-
-import javax.servlet.http.*;
-import java.util.*;
-import java.io.IOException;
 
 import be.unamur.mdl_groupe2.root.models.user.Role;
 import be.unamur.mdl_groupe2.root.models.user.User;
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 
 @Service
 public class TokenUtil {
@@ -58,7 +61,7 @@ public class TokenUtil {
     public String createTokenForUser(User user) {
         return Jwts.builder()
                 .setExpiration(new Date(System.currentTimeMillis() + VALIDITY_TIME_MS))
-                .setSubject(user.getFullName())
+                .setSubject(user.getFirstName()+ user.getLastName())
                 .claim("userId", user.getUserId())
                 .claim("role", user.getRole().toString())
                 .signWith(SignatureAlgorithm.HS256, secret)

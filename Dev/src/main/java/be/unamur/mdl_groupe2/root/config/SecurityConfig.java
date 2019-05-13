@@ -1,14 +1,15 @@
 package be.unamur.mdl_groupe2.root.config;
 
-import org.springframework.security.config.annotation.web.builders.*;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.security.web.access.channel.ChannelProcessingFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
-import be.unamur.mdl_groupe2.root.identity.*;
 import org.springframework.core.annotation.Order;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.web.access.channel.ChannelProcessingFilter;
+
+import be.unamur.mdl_groupe2.root.identity.TokenUtil;
 
 
 @Configuration
@@ -49,10 +50,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     /*
     * If You want to store encoded password in your databases and authenticate user
     * based on encoded password then uncomment the below method and provide an encoder
-
     @Autowired
     private UserDetailsService userDetailsService;
-
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder());
