@@ -23,7 +23,7 @@ public class AuthorController {
      *
      * @param authorRepository the author repository
      */
-    @Contract(pure = true)
+    //@Contract(pure = true)
     @Autowired
     public AuthorController(AuthorRepository authorRepository) {
         this.authorRepository = authorRepository;
