@@ -4,6 +4,8 @@ import be.unamur.mdl_groupe2.root.exception.EmptyResultListException;
 import be.unamur.mdl_groupe2.root.models.article.Article;
 import be.unamur.mdl_groupe2.root.repositories.ArticleRepository;
 import be.unamur.mdl_groupe2.root.repositories.AuthorRepository;
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import java.util.Collections;
 import java.util.List;
@@ -16,7 +18,7 @@ public class SearchService {
     @Autowired
     private AuthorRepository authorRepository;
 
-    public List<Article> SearchService(Map<String, String> params){
+    public List<Article> Search(String params){
         List<Article> result = null;
         try {
              result = SortResult(FindResult(params));
@@ -33,7 +35,7 @@ public class SearchService {
      * @param list a list of article to sort
      * @return a sorted list based on the pagerank of each article
      */
-    public List<Article> SortResult(List<Article> list) throws EmptyResultListException {
+    List<Article> SortResult(@NotNull List<Article> list) throws EmptyResultListException {
         if(list.isEmpty()) {
             throw new EmptyResultListException("No Result");
         }else {
@@ -47,19 +49,20 @@ public class SearchService {
      * @param params is keyword choice by the user
      * @return list of article that match the keyword
      */
-    private List<Article> FindResult(Map<String, String> params){
+    private List<Article> FindResult(@NotNull String params){
         List<Article> searchRepository = null;
+        String [] split = params.split(" ");
 
-        params.forEach((k, v) -> {
+        for (int i=0; i<=split.length; i++){
 
-            for(Long id:authorRepository.findAuthorIdWithSurname(v)) {
+            for(Long id:authorRepository.findAuthorIdWithSurname(split[i])) {
                 searchRepository.addAll(articleRepository.findArticleWriteBy(id));
             }
 
-            searchRepository.addAll(articleRepository.findArticleWithTitle(v));
+            searchRepository.addAll(articleRepository.findArticleWithTitle(split[i]));
 
-            searchRepository.addAll(articleRepository.findArticleWithTag(v));
-        });
+            searchRepository.addAll(articleRepository.findArticleWithTag(split[i]));
+        };
         return searchRepository;
     }
 

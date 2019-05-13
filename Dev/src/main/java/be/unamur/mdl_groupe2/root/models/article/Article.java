@@ -3,12 +3,18 @@ package be.unamur.mdl_groupe2.root.models.article;
 import be.unamur.mdl_groupe2.root.models.articleRef.ArticleRef;
 import be.unamur.mdl_groupe2.root.models.literatureReview.LiteratureReview;
 import be.unamur.mdl_groupe2.root.models.visualization.Visualization;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Proxy;
 
 import javax.persistence.*;
 import java.util.Set;
 
+/**
+ * The type Article.
+ */
 @Entity
 @Table(name = "Article")
 @Data
@@ -16,8 +22,8 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@Proxy(lazy=false)
-public class Article implements Comparable<Article>{
+@Proxy(lazy = false)
+public class Article implements Comparable<Article> {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

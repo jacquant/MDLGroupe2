@@ -5,6 +5,8 @@ import be.unamur.mdl_groupe2.root.exception.NotAuthorizedException;
 import be.unamur.mdl_groupe2.root.models.article.Article;
 import be.unamur.mdl_groupe2.root.models.articleRef.ArticleRef;
 import be.unamur.mdl_groupe2.root.repositories.ArticleRepository;
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
@@ -14,9 +16,6 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-/**
- * The type Search crawler.
- */
 /*
     This class is in charge to explore and update the information for ranking.
     The searchCrawler need to be called once a day.
@@ -24,16 +23,18 @@ import java.net.URL;
 @Component
 public class SearchCrawler {
 
+    private final ArticleRepository articleRepository;
+
+    @Contract(pure = true)
     @Autowired
-    private ArticleRepository repository;
+    public SearchCrawler(ArticleRepository articleRepository) {
+        this.articleRepository = articleRepository;
+    }
 
-    /**
-     * Search crawler.
-     */
     @Scheduled(cron = "0 0 3")
-    public void SearchCrawler() {
+    public void Search() {
 
-        for (Article article : repository.findAll()) {
+        for (Article article : articleRepository.findAll()) {
             try {
                 article.setMetric(getMetricsFromWeb(article));
             } catch (MetricNotAvailableException | NotAuthorizedException e) {
@@ -42,14 +43,9 @@ public class SearchCrawler {
         }
     }
 
-    /**
-     *
-     * @param article
-     * @return
-     */
     private int getMetricsFromPlateform(Article article) {
         int i = 0;
-        for (Article allArticle : repository.findAll()) {
+        for (Article allArticle : articleRepository.findAll()) {
 
             for (ArticleRef articleRefBiblo : allArticle.getBibliography()) {
                 Article articleRef = articleRefBiblo.getArticle();
@@ -61,27 +57,20 @@ public class SearchCrawler {
         return i;
     }
 
-    /**
-     *
-     * @param article
-     * @return
-     * @throws MetricNotAvailableException
-     * @throws NotAuthorizedException
-     */
-    private int getMetricsFromWeb(Article article) throws MetricNotAvailableException, NotAuthorizedException {
+    private int getMetricsFromWeb(@NotNull Article article) throws MetricNotAvailableException, NotAuthorizedException {
         String ref = article.getRef();
 
-        String ieeePatern = "ieee" ;
+        String ieeePatern = "ieee";
         String acmPatern = "acm";
         String curlResult;
         int metrics = 0;
 
 
-        try{
+        try {
             curlResult = curlWeb(ref);
-            if(ref.contains(ieeePatern)){
+            if (ref.contains(ieeePatern)) {
                 metrics = cleanWebResultIEEE(curlResult);
-            } else if (ref.contains(acmPatern)){
+            } else if (ref.contains(acmPatern)) {
                 metrics = cleanWebResultACM(curlResult);
             } else {
                 throw new MetricNotAvailableException();
@@ -94,13 +83,8 @@ public class SearchCrawler {
         return metrics;
     }
 
-    /**
-     *
-     * @param ref
-     * @return
-     * @throws Exception
-     */
-    private String curlWeb(String ref) throws Exception{
+    @NotNull
+    private String curlWeb(String ref) throws Exception {
 
         StringBuilder result = new StringBuilder();
         URL url = new URL(ref);
@@ -116,12 +100,7 @@ public class SearchCrawler {
         return result.toString();
     }
 
-    /**
-     *
-     * @param webPage
-     * @return
-     */
-    private int cleanWebResultIEEE(String webPage){
+    private int cleanWebResultIEEE(@NotNull String webPage) {
         int tmp;
 
         String pattern = "\"citationCountPaper\":";
@@ -129,21 +108,16 @@ public class SearchCrawler {
         String TrimmedBefore = webPage.substring(tmp);
 
         tmp = TrimmedBefore.indexOf(":");
-        String Trimmedtmp = TrimmedBefore.substring(tmp+1);
+        String Trimmedtmp = TrimmedBefore.substring(tmp + 1);
 
         tmp = Trimmedtmp.indexOf(",");
-        String Trimmed = Trimmedtmp.substring(0,tmp);
+        String Trimmed = Trimmedtmp.substring(0, tmp);
 
         return Integer.parseInt(Trimmed);
     }
 
-    /**
-     *
-     * @param webPage
-     * @return
-     * @throws NotAuthorizedException
-     */
-    private int cleanWebResultACM(String webPage) throws NotAuthorizedException{
+    @Contract("_ -> fail")
+    private int cleanWebResultACM(String webPage) throws NotAuthorizedException {
         throw new NotAuthorizedException("https://libraries.acm.org/digital-library/policies");
     }
 

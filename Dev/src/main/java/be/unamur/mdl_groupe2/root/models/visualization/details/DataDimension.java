@@ -22,6 +22,6 @@ public class DataDimension {
     private String dataDimension;
 
     @ManyToOne
-    @JoinColumn(name = "veisualizationId", nullable = false)
+    @JoinColumn(name = "visualizationId", nullable = false)
     private Visualization visualization;
 }
