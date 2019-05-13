@@ -21,7 +21,7 @@ public interface ArticleRepository extends JpaRepository<Article, Long> {
      * @return the list
      */
 //TODO protect against SQL injection
-    @Query(value = "SELECT u FROM Article u WHERE u.author=?1")
+    @Query(value = "SELECT u FROM Article u WHERE u.author LIKE ?1")
     List<Article> findArticleWriteBy(Long id);
 
 
@@ -32,7 +32,7 @@ public interface ArticleRepository extends JpaRepository<Article, Long> {
      * @return the list
      */
 //TODO protect against SQL injection
-    @Query(value = "SELECT u FROM Article u WHERE u.title=?1")
+    @Query(value = "SELECT u FROM Article u WHERE u.title LIKE ?1")
     List<Article> findArticleWithTitle(String title);
 
 
@@ -44,7 +44,7 @@ public interface ArticleRepository extends JpaRepository<Article, Long> {
      */
 //TODO protect against SQL injection
     //TODO Tag est stocké comme un tableau de string en BD
-    @Query(value = "SELECT u FROM Article u WHERE u.tag=?1")
+    @Query(value = "SELECT u FROM Article u WHERE u.tag LIKE ?1")
     List<Article> findArticleWithTag(String tag);
 
 }

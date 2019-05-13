@@ -20,7 +20,7 @@ public interface AuthorRepository extends JpaRepository<Author, Long> {
      * @return the list
      */
 //TODO protect against SQL injection
-    @Query(value = "SELECT id FROM Author u WHERE u.surname=?1")
+    @Query(value = "SELECT id FROM Author u WHERE u.surname LIKE ?1")
     List<Long> findAuthorIdWithSurname(String surname);
 
     /**
@@ -30,7 +30,7 @@ public interface AuthorRepository extends JpaRepository<Author, Long> {
      * @return the list
      */
 //TODO protect against SQL injection
-    @Query(value = "SELECT id FROM Author u WHERE u.firstName=?1")
+    @Query(value = "SELECT id FROM Author u WHERE u.firstName LIKE ?1")
     List<Long> findAuthorIdWithFirstName(String surname);
 
     /**

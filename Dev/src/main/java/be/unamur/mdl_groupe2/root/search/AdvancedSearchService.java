@@ -38,15 +38,15 @@ public class AdvancedSearchService extends SearchService {
         params.forEach((k, v) -> {
             switch (k) {
                 case "author":
-                    for(Long id:authorRepository.findAuthorIdWithSurname(v)) {
+                    for(Long id:authorRepository.findAuthorIdWithSurname('%'+v+'%')) {
                         searchRepository.addAll(articleRepository.findArticleWriteBy(id));
                     }
                     break;
                 case "title":
-                    searchRepository.addAll(articleRepository.findArticleWithTitle(v));
+                    searchRepository.addAll(articleRepository.findArticleWithTitle('%'+v+'%'));
                     break;
                 case "keywords":
-                    searchRepository.addAll(articleRepository.findArticleWithTag(v));
+                    searchRepository.addAll(articleRepository.findArticleWithTag('%'+v+'%'));
                     break;
                 default:
                     Map<String,String> tmp = new Hashtable();
