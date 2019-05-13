@@ -68,7 +68,6 @@ public class LiteratureReviewController {
     @PutMapping("/literature_reviews/{review_id}")
     public LiteratureReview update(@PathVariable("review_id") Long reviewId, @RequestBody LiteratureReview reviewObject) {
         LiteratureReview literatureReview = literatureReviewRepository.getOne(reviewId);
-        literatureReview.setNumberRef(reviewObject.getNumberRef());
         literatureReview.setNumberCriteria(reviewObject.getNumberCriteria());
         literatureReview.setAuthorization(reviewObject.getAuthorization());
         literatureReview.setMatriceref(reviewObject.getMatriceref());
