@@ -258,20 +258,18 @@ export default {
       var type = this.$route.query.type;
       var parametres = this.$route.query.data;
       var thedata;
-      console.log("RESULT_PAGE: " + type + " PARAM : " + parametres);
 
       if (type == "quickSearch") {
         var request = new XMLHttpRequest();
         request.open(
           "GET",
-          "http://mdl-std02.info.fundp.ac.be:8181/MdlGroupe2-test/api/articles/",
+          "http://mdl-std02.info.fundp.ac.be:8181/MdlGroupe2-test/api/articles/with_id/1",
           false
         );
         request.onload = function() {
           var data = JSON.parse(this.response);
 
           if (request.status >= 200 && request.status < 400) {
-            console.log(data);
             thedata = [
               {
                 id: data.id,
@@ -289,7 +287,7 @@ export default {
               }
             ];
           } else if(type=="advancedSearch") {
-            
+
           } else {
             console.log("ERREUR GET REQUEST: " + data);
           }
@@ -428,107 +426,18 @@ export default {
                 */
       return thedata;
     },
-    classic() {
-      this.loading = true;
-      setTimeout(() => {
-        this.$router.push({
-          path: "/etatdelart",
-          query: {
-            id: id,
-            title: title,
-            author: author,
-            abstract: abstract,
-            keywords: keywords,
-            info: info,
-            videoUrl: videoUrl,
-            ref: ref,
-            publisher: publisher,
-            pagerankscore: pagerankscore,
-            matriceref: matriceref
-          }
-          //query: {...},
-          //moreData: {foo: 1}
-        });
-      }, 1);
-    },
-    visual() {
-      this.loading = true;
-      setTimeout(() => {
-        this.$router.push("/visual");
-      }, 1);
-    },
-    matrice() {
-      this.loading = true;
-      setTimeout(() => {
-        this.$router.push({
-          path: "/result_page_matrice",
-          query: {
-            id: id,
-            title: title,
-            author: author,
-            abstract: abstract,
-            keywords: keywords,
-            info: info,
-            videoUrl: videoUrl,
-            ref: ref,
-            publisher: publisher,
-            pagerankscore: pagerankscore,
-            matriceref: matriceref
-          }
-          //query: {...},
-          //moreData: {foo: 1}
-        });
-      }, 1);
-    },
     selectTrack(item) {
       id = item.id;
-      title = item.title;
-      author = item.author;
-      abstract = item.abstract;
-      keywords = item.keywords;
-      info = item.info;
-      videoUrl = item.videoUrl;
-      publisher = item.publisher;
-      ref = item.ref;
-      pagerankscore = item.pagerankscore;
-      matriceref = item.matriceref;
+
       setTimeout(() => {
         this.$router.push({
           path: "/etatdelart",
           query: {
-            id: id,
-            title: title,
-            author: author,
-            abstract: abstract,
-            keywords: keywords,
-            info: info,
-            videoUrl: videoUrl,
-            ref: ref,
-            publisher: publisher,
-            pagerankscore: pagerankscore,
-            matriceref: matriceref
+            id: id
           }
-          //query: {...},
-          //moreData: {foo: 1}
         });
       }, 1);
-      /*
-                axios.get("http://mdl-std02.info.fundp.ac.be:8181/MdlGroupe2-test/api/articles/"+id)
-                .then(function (response) {
-                  console.log(response);
-                  setTimeout(() => {
-                    this.$router.push({
-                      path: "/etatdelart",
-                      query:{
-                        data: response
-                      }
-                    })
-                  })
-                })
-                .catch(function (error) {
-                  // handle error
-                  console.log(error);
-                })*/
+
     }
   }
 };
