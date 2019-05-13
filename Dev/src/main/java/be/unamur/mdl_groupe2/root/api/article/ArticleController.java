@@ -136,10 +136,10 @@ public class ArticleController {
      * @param articleObject the article object
      * @return the article
      */
-    /*@PutMapping("/articles/{article_id}")
+    @PutMapping("/articles/{article_id}")
     public Article update(@PathVariable("article_id") Long articleID, @NotNull @RequestBody Article articleObject) {
         Article article = articleRepository.getOne(articleID);
-        /*article.setAuthor(articleObject.getAuthor());
+        article.setAuthor(articleObject.getAuthor());
         article.setTitle(articleObject.getTitle());
         article.setDomain(articleObject.getDomain());
         article.setTag(articleObject.getTag());
@@ -156,16 +156,7 @@ public class ArticleController {
 
 
         return articleRepository.save(article);
-    }*/
-
-    @Transactional
-    @PutMapping("/articles/{article_id}")
-    public Article update(@PathVariable("article_id") Long articleID, @NotNull @RequestBody Article articleObject) {
-        Article article = articleRepository.getOne(articleID);
-
-        return articleRepository.save(article);
     }
-
 
     /**
      * Set metrics article.
