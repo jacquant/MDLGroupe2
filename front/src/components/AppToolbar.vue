@@ -84,15 +84,24 @@ export default {
         }
       },
       {
+        icon: "fa-pencil",
+        href: "#",
+        title: "Add State Of Art",
+        click: e => {
+          window.getApp.$emit("APP_AddStateOfArt");
+        },
+        
+      },
+      {
         icon: "fullscreen_exit",
         href: "#",
         title: "Logout",
         click: e => {
           window.getApp.$emit("APP_LOGOUT");
-
-
-        }
+        },
+        
       }
+      
     ]
   }),
   computed: {
