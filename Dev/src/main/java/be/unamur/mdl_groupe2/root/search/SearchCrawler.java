@@ -25,7 +25,7 @@ public class SearchCrawler {
 
     private final ArticleRepository articleRepository;
 
-    @Contract(pure = true)
+    //@Contract(pure = true)
     @Autowired
     public SearchCrawler(ArticleRepository articleRepository) {
         this.articleRepository = articleRepository;

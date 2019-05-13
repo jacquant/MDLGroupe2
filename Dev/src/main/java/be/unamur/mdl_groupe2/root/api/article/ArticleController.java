@@ -26,7 +26,7 @@ public class ArticleController {
      *
      * @param articleRepository the article repository
      */
-    @Contract(pure = true)
+    //@Contract(pure = true)
     @Autowired
     public ArticleController(ArticleRepository articleRepository) {
         this.articleRepository = articleRepository;

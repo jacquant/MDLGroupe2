@@ -18,7 +18,7 @@ public class ArticleRank{
     private final ArticleRepository repository;
     private int[] matrice;
 
-    @Contract(pure = true)
+    //@Contract(pure = true)
     @Autowired
     public ArticleRank(ArticleRepository repository) {
         this.repository = repository;

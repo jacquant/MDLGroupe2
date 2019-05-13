@@ -49,10 +49,8 @@ public class AdvancedSearchService extends SearchService {
                     searchRepository.addAll(articleRepository.findArticleWithTag('%'+v+'%'));
                     break;
                 default:
-                    Map<String,String> tmp = new Hashtable();
-                    tmp.put(k,v);
                     //TODO Get back result from search service and add it to searchRepository
-                    searchRepository.addAll(Search(tmp));
+                    searchRepository.addAll(Search(v));
                     break;
             }
         });
