@@ -3,7 +3,6 @@ package be.unamur.mdl_groupe2.root.search;
 import be.unamur.mdl_groupe2.root.exception.MetricNotAvailableException;
 import be.unamur.mdl_groupe2.root.exception.NotAuthorizedException;
 import be.unamur.mdl_groupe2.root.models.article.Article;
-import be.unamur.mdl_groupe2.root.models.articleRef.ArticleRef;
 import be.unamur.mdl_groupe2.root.repositories.ArticleRepository;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
@@ -47,9 +46,8 @@ public class SearchCrawler {
         int i = 0;
         for (Article allArticle : articleRepository.findAll()) {
 
-            for (ArticleRef articleRefBiblo : allArticle.getBibliography()) {
-                Article articleRef = articleRefBiblo.getArticle();
-                if (articleRef.getRef().equals(article.getRef())) {
+            for (Long articleRefBiblo : allArticle.getBibliographyArticle()) {
+                if (articleRefBiblo.equals(article.getId())) {
                     i++;
                 }
             }

@@ -61,12 +61,13 @@ public class ArticleRank{
         Graph<Long,DefaultEdge > g = new DefaultDirectedGraph<>(DefaultEdge.class);
         repository.findAll().forEach(article -> {
             g.addVertex(article.getId());
-            article.getBibliography().forEach(articleRef -> {
+            Long[] articles = article.getBibliographyArticle();
+            for (int i = 0; i <= articles.length; i++) {
                 //Creation of a Vertex for each reference
-                g.addVertex(articleRef.getArticle().getId());
+                g.addVertex(articles[i]);
                 //Creation of a edge between source and referenced
-                g.addEdge(article.getId(), articleRef.getArticle().getId());
-            });
+                g.addEdge(article.getId(), articles[i]);
+            }
         });
         return g;
     }

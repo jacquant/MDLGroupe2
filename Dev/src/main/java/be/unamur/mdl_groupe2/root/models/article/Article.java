@@ -1,7 +1,6 @@
 package be.unamur.mdl_groupe2.root.models.article;
 
-import be.unamur.mdl_groupe2.root.models.articleRef.ArticleRef;
-import be.unamur.mdl_groupe2.root.models.literatureReview.LiteratureReview;
+import be.unamur.mdl_groupe2.root.models.author.Author;
 import be.unamur.mdl_groupe2.root.models.visualization.Visualization;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -21,19 +20,21 @@ import java.util.Set;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @Proxy(lazy = false)
 public class Article implements Comparable<Article> {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    //List of author's id
-    private Long[] author;
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(name = "contribution_article", joinColumns = @JoinColumn(name = "article_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "author_id", referencedColumnName = "id"))
+    private Set<Author> author;
 
     private String title;
 
     private String shortRef;
+
+    private String ref;
 
     private Integer year;
 
@@ -43,21 +44,19 @@ public class Article implements Comparable<Article> {
 
     private String[] tag;
 
-    private Boolean published;
-
     private String abstractArticle;
 
-    @OneToMany(mappedBy = "article", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Set<LiteratureReview> literatureReviews;
-    //private DBFile pdfFiles;
+    private Long[] bibliographyArticle;
+
+    private Long[] bibliographyLiteratureReview;
 
     private String videoUrl;
-
-    private String ref;
 
     private String journal;
 
     private String publisher;
+
+    private Boolean published;
 
     private String[] targetUsers;
 
@@ -72,9 +71,6 @@ public class Article implements Comparable<Article> {
     private String[] action;
 
     private int metric;
-
-    @OneToMany(mappedBy = "article", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Set<ArticleRef> bibliography;
 
     private Boolean open;
 
