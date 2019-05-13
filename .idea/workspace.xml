@@ -71,8 +71,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/api/article/ArticleController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="530">
-              <caret line="54" selection-start-line="54" selection-end-line="57" selection-end-column="5" />
+            <state relative-caret-position="561">
+              <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -92,12 +92,21 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/api/search/SearchController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="543">
-              <caret line="57" column="74" lean-forward="true" selection-start-line="57" selection-start-column="74" selection-end-line="57" selection-end-column="74" />
+            <state relative-caret-position="771">
+              <caret line="79" column="18" selection-start-line="79" selection-start-column="18" selection-end-line="79" selection-end-column="18" />
               <folding>
                 <element signature="e#1333#1334#0" expanded="true" />
                 <element signature="e#1390#1391#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/api/MainController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -595,7 +604,7 @@
       <workItem from="1557693860600" duration="8003000" />
       <workItem from="1557733720405" duration="1356000" />
       <workItem from="1557735854344" duration="743000" />
-      <workItem from="1557736825154" duration="4412000" />
+      <workItem from="1557736825154" duration="4897000" />
     </task>
     <task id="LOCAL-00004" summary="Fix Comparable">
       <created>1557649756613</created>
@@ -608,7 +617,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="147430000" />
+    <option name="totallyTimeSpent" value="147915000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1200" extended-state="0" />
@@ -846,13 +855,6 @@
     <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/api/SessionController.java" />
     <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/api/user/UserService.java" />
     <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/api/user/UserController.java" />
-    <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/api/MainController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/models/articleRef/ArticleRef.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="273">
@@ -1019,16 +1021,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/search/SearchCrawler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="27" column="6" selection-start-line="27" selection-start-column="6" selection-end-line="27" selection-end-column="6" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/search/AdvancedSearchService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="705">
@@ -1036,17 +1028,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/api/Version.java">
+    <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/config/CorsFilter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="25" column="22" lean-forward="true" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="22" />
+        <state relative-caret-position="180">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/api/article/ArticleController.java">
+    <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/search/SearchCrawler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="530">
-          <caret line="54" selection-start-line="54" selection-end-line="57" selection-end-column="5" />
+        <state relative-caret-position="234">
+          <caret line="27" column="6" selection-start-line="27" selection-start-column="6" selection-end-line="27" selection-end-column="6" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1063,10 +1058,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/config/CorsFilter.java">
+    <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/api/Version.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        <state relative-caret-position="255">
+          <caret line="25" column="22" lean-forward="true" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/api/MainController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/api/article/ArticleController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1075,8 +1084,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/api/search/SearchController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="543">
-          <caret line="57" column="74" lean-forward="true" selection-start-line="57" selection-start-column="74" selection-end-line="57" selection-end-column="74" />
+        <state relative-caret-position="771">
+          <caret line="79" column="18" selection-start-line="79" selection-start-column="18" selection-end-line="79" selection-end-column="18" />
           <folding>
             <element signature="e#1333#1334#0" expanded="true" />
             <element signature="e#1390#1391#0" expanded="true" />

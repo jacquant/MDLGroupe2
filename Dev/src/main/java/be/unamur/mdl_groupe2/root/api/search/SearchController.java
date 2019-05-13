@@ -42,7 +42,7 @@ public class SearchController {
      * @param params the params
      * @return the list
      */
-    @GetMapping("QuickSearch")
+    @GetMapping("/QuickSearch")
     public List<Article> searchController(@RequestParam String params) {
         return new SearchService().Search(params);
     }
@@ -53,8 +53,8 @@ public class SearchController {
      * @param params the params
      * @return the json array
      */
-    @GetMapping("QuickSearchJson")
-    public JSONArray searchControllerJson(@RequestParam("params") String params) {
+    @GetMapping("/QuickSearchJson")
+    public JSONArray searchControllerJson(@RequestParam String params) {
         return new JSONArray(new Gson().toJson(searchController(params)));
     }
 
@@ -65,7 +65,7 @@ public class SearchController {
      * @param params the params
      * @return the list
      */
-    @GetMapping("AdvancedSearch")
+    @GetMapping("/AdvancedSearch")
     public List<Article> AdvancedSearchController(@RequestParam Map<String, String> params) {
 
         return new AdvancedSearchService(articleRepository, authorRepository).AdvancedSearch(params);
@@ -77,7 +77,7 @@ public class SearchController {
      * @param params the params
      * @return the json array
      */
-    @GetMapping("AdvancedSearchJson")
+    @GetMapping("/AdvancedSearchJson")
     public JSONArray AdvancedSearchControllerJson(@RequestParam Map<String, String> params) {
 
         return new JSONArray(new Gson().toJson(AdvancedSearchController(params)));
