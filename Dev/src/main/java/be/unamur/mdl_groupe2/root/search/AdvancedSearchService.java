@@ -42,11 +42,20 @@ public class AdvancedSearchService extends SearchService {
                         searchRepository.addAll(articleRepository.findArticleWriteBy(id));
                     }
                     break;
+                case "noauthor":
+                    //TODO
+                    break;
                 case "title":
                     searchRepository.addAll(articleRepository.findArticleWithTitle('%'+v+'%'));
                     break;
+                case "notitle":
+                    //TODO
+                    break;
                 case "keywords":
                     searchRepository.addAll(articleRepository.findArticleWithTag('%'+v+'%'));
+                    break;
+                case "nokeywords":
+                    //TODO
                     break;
                 default:
                     //TODO Get back result from search service and add it to searchRepository
