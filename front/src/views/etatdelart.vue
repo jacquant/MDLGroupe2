@@ -16,17 +16,17 @@
                 <h2 style="vertical-align: top;" class="titre">State of art</h2>
 
                 <h3>
-                  <b>Title: {{ getTitle() }}</b>
+                  <b>Title: {{ title }}</b>
                 </h3>
                 <h5>
-                  <i> {{ getInfo() }}</i>
+                  <i> {{ info }}</i>
                 </h5>
-                <h4><b>Keywords:</b> {{ getKeywords() }}</h4>
+                <h4><b>Keywords:</b> {{ keywords }}</h4>
                 <br />
                 <h3>
                   Abstract &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   <a href class>PDF</a>
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Nb References: (8881)
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Nb References: {{ nbReferences }}
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   <a href target="_blank" class>
                     <img src="../assets/favoris.png" width="3%" />
@@ -156,12 +156,12 @@
         <v-container grid-list-xl fluid>
           <h2 class="titre">Reference's matrix</h2>
           <h3>
-            <b><u>Title:</u> {{ getTitle() }}</b>
+            <b><u>Title:</u> {{ title }}</b>
           </h3>
           <h5>
-            <i> {{ getInfo() }}</i>
+            <i> {{ info }}</i>
           </h5>
-          <h4><b>Keywords:</b> {{ getKeywords() }}</h4>
+          <h4><b>Keywords:</b> {{ keywords }}</h4>
 
           <div id="table_matrice">
             <br />
@@ -213,19 +213,8 @@ import EChart from "@/components/chart/echart";
 import VWidget from "@/components/VWidget";
 import Material from "vuetify/es5/util/colors";
 import wordcloud from "vue-wordcloud";
-import axios from "axios";
 
-var id,
-  title,
-  author,
-  the_abstract,
-  keywords,
-  info,
-  videoUrl,
-  publisher,
-  ref,
-  pagerankscore,
-  matriceref;
+
 export default {
   components: {
     VWidget,
@@ -242,7 +231,13 @@ export default {
       color: Material,
       selectedTab: "tab-1",
       defaultWords: [],
-      defaultWordsPieChart: []
+      defaultWordsPieChart: [],
+      id: "",
+      title: "",
+      nbReferences: "",
+      the_abstract: "",
+      domains: "",
+      keywords: ""
       /*headers: [
           {
             text: 'References',
@@ -281,7 +276,7 @@ export default {
     };
   },
   created() {
-    this.setDatas();
+    this.setData();
   },
   /*computed: {
     pieChartData() {
@@ -292,69 +287,53 @@ export default {
     //paper: this.$route.query.data
   },
   methods: {
-    setDatas() {
-      var request = new XMLHttpRequest();
-      var apiGetTags;
-      var apiGetDomains;
+    setData() {
       var refThis = this;
+      refThis.id = this.$route.query.id;
+      var request = new XMLHttpRequest();
 
       request.open(
         "GET",
-        "http://mdl-std02.info.fundp.ac.be:8181/MdlGroupe2-test/api/articles/with_id/1",
+        "http://mdl-std02.info.fundp.ac.be:8181/MdlGroupe2-test/api/articles/with_id/" +
+          refThis.id,
         false
       );
+
       request.onload = function() {
-        // Begin accessing JSON data here
         var data = JSON.parse(this.response);
-
+        console.log(data);
         if (request.status >= 200 && request.status < 400) {
-          apiGetDomains = data.domain;
-          apiGetDomains.forEach(function(element, index) {
-            apiGetDomains[index] = {
-              value: Math.floor(Math.random() * 30) + 1,
-              name: element
-            };
-          });
-          refThis.defaultWordsPieChart = apiGetDomains;
+          refThis.title = data.title;
+          refThis.the_abstract = data.abstractArticle;
+          refThis.author = data.countries;
+          refThis.nbReferences = data.metric;
+          refThis.defaultWords = data.tag;
+          refThis.defaultWordsPieChart = data.domain;
+          refThis.keywords = data.tag.toString();
+          refThis.domains = data.domain.toString();
 
-          apiGetTags = data.tag;
-          apiGetTags.forEach(function(element, index) {
-            apiGetTags[index] = {
+          refThis.defaultWords.forEach(function(element, index) {
+            refThis.defaultWords[index] = {
               name: element,
               value: Math.floor(Math.random() * 30) + 1
             };
           });
-          refThis.defaultWords = apiGetTags;
+          refThis.defaultWordsPieChart.forEach(function(element, index) {
+            refThis.defaultWordsPieChart[index] = {
+              value: Math.floor(Math.random() * 30) + 1,
+              name: element
+            };
+          });
+
+          /*refThis.info = null;
+          refThis.videoUrl = data.videoUrl;
+          refThis.publisher = data.publisher;
+          refThis.ref = data.ref;
+          refThis.pagerankscore = data.pagerankscore;
+          refThis.matriceref = null;*/
         }
       };
       request.send();
-    },
-    getTitle() {
-      this.abstract = this.$route.query.abstract;
-      id = this.$route.query.id;
-      title = this.$route.query.title;
-      author = this.$route.query.author;
-      the_abstract = this.abstract;
-      keywords = this.$route.query.keywords;
-      info = this.$route.query.info;
-      videoUrl = this.$route.query.videoUrl;
-      publisher = this.$route.query.publisher;
-      ref = this.$route.query.ref;
-      pagerankscore = this.$route.query.pagerankscore;
-      matriceref = this.$route.query.matriceref;
-      return this.$route.query.title;
-    },
-    getAuthor() {
-      return this.$route.query.author;
-    },
-    getInfo() {
-      return this.$route.query.info;
-    },
-    getPublish() {
-      return this.$route.query.id;
-    },
-    getKeywords() {
-      return this.$route.query.keywords;
     },
     visualView() {
       document.getElementById("visualView").style.display = "block";

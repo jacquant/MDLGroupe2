@@ -22,8 +22,8 @@
 
     <div class="text-xs-center">
       <v-btn class="titre" @click="advancedSearch">Advanced Search</v-btn>
-      <v-btn class="titre" @click="getResults">Validate Search</v-btn>
-       <v-btn class="titre" @click="addArt">Add State Of Art</v-btn>
+      <v-btn class="titre" @click="validateResearch">Validate Search</v-btn>
+      <v-btn class="titre" @click="addArt">Add State Of Art</v-btn>
 
       <!--v-btn class="titre" @click="searchHistory"
       >Search History</v-btn
@@ -81,36 +81,16 @@ export default {
   name: "app",
   methods: {
     validateResearch: function(e) {
-      var inputedText = this.searchedInput; // la variable inputedText contient la phrase entrée dans la barre de recherche
+      var refThis = this;
+      var inputedText = refThis.searchedInput;
+
+
       setTimeout(() => {
-        this.$router.push({
+        refThis.$router.push({
           path: "/result_page",
-          query: { data: inputedText }
-          //query: {...},
-          //moreData: {foo: 1}
+          query: { data: inputedText, type: "quickSearch" }
         });
       }, 0.00001);
-      this.log += e.key;
-    },
-    getResults: function(e) {
-      var refThis = this;
-      var inputedTextArray = refThis.searchedInput.split(" ");
-      var apiMapParameter = new Map();
-      inputedTextArray.forEach(function(element, index) {
-        apiMapParameter.set("keyword" + index, element);
-      });
-      console.log(apiMapParameter);
-
-      var apiResponse = "";
-
-      axios
-        .get(
-          "http://mdl-std02.info.fundp.ac.be:8181/MdlGroupe2-test/api/QuickSearch" +
-            apiMapParameter
-        )
-        .then(response => {
-          console.log(response);
-        });
     },
 
     wordClickHandler(name, value, vm) {
