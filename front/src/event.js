@@ -29,6 +29,12 @@ export default [
     }
   },
   {
+    name: "APP_AddStateOfArt",
+    callback: function() {
+      this.$router.push({ path: "/addstateofart" });
+    }
+  },
+  {
     name: "APP_PAGE_LOADED",
     callback: function() {}
   },

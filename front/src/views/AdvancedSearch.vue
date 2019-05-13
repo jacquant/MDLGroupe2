@@ -82,7 +82,6 @@
                 </td>             
                </tr>
                <br>
-               <br>
                <tr>
                 <td rowspan="2">                  
                    Article:
