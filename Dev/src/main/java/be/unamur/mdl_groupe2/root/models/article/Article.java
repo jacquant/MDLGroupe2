@@ -29,7 +29,7 @@ public class Article implements Comparable<Article> {
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "contribution_article", joinColumns = @JoinColumn(name = "article_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "author_id", referencedColumnName = "id"))
     private Set<Author> author;
-
+    @Column(length = 65536)
     private String title;
 
     private String shortRef;
@@ -37,17 +37,17 @@ public class Article implements Comparable<Article> {
     private String ref;
 
     private Integer year;
-
+    @Column(length = 65536)
     private String[] countries;
-
+    @Column(length = 65536)
     private String[] domain;
-
+    @Column(length = 65536)
     private String[] tag;
-
+    @Column(length = 65536)
     private String abstractArticle;
-
+    @Column(length = 65536)
     private Long[] bibliographyArticle;
-
+    @Column(length = 65536)
     private Long[] bibliographyLiteratureReview;
 
     private String videoUrl;
@@ -57,17 +57,17 @@ public class Article implements Comparable<Article> {
     private String publisher;
 
     private Boolean published;
-
+    @Column(length = 65536)
     private String[] targetUsers;
-
+    @Column(length = 65536)
     private String[] dataRealness;
-
+    @Column(length = 65536)
     private String[] dataSource;
-
+    @Column(length = 65536)
     private String[] dataAvailability;
-
+    @Column(length = 65536)
     private String[] interaction;
-
+    @Column(length = 65536)
     private String[] action;
 
     private int metric;

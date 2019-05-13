@@ -28,7 +28,7 @@ public class LiteratureReview implements Comparable<LiteratureReview> {
                joinColumns = @JoinColumn(name = "literature_review_id", referencedColumnName = "id"),
                inverseJoinColumns = @JoinColumn(name = "author_id", referencedColumnName = "id"))
     private Set<Author> author;
-
+    @Column(length = 65536)
     private String title;
 
     private String shortRef;
@@ -36,13 +36,13 @@ public class LiteratureReview implements Comparable<LiteratureReview> {
     private String ref;
 
     private Integer year;
-
+    @Column(length = 65536)
     private String[] countries;
-
+    @Column(length = 65536)
     private String[] domain;
-
+    @Column(length = 65536)
     private String[] tag;
-
+    @Column(length = 65536)
     private String abstractArticle;
 
     private String videoUrl;
@@ -52,23 +52,23 @@ public class LiteratureReview implements Comparable<LiteratureReview> {
     private String publisher;
 
     private Boolean published;
-
+    @Column(length = 65536)
     private String[] targetUsers;
-
+    @Column(length = 65536)
     private String[] dataRealness;
-
+    @Column(length = 65536)
     private String[] dataSource;
-
+    @Column(length = 65536)
     private String[] dataAvailability;
-
+    @Column(length = 65536)
     private String[] interaction;
-
+    @Column(length = 65536)
     private String[] action;
 
     private int metric;
-
+    @Column(length = 65536)
     private Long[] bibliographyArticle;
-
+    @Column(length = 65536)
     private Long[] bibliographyLiteratureReview;
 
     private Boolean open;
@@ -83,9 +83,9 @@ public class LiteratureReview implements Comparable<LiteratureReview> {
     private Set<Visualization> visualizations;
 
     private Integer numberCriteria;
-
+    @Column(length = 65536)
     private String[] authorization;
-
+    @Column(length = 65536)
     private String[][] matriceref;
 
     @Override
