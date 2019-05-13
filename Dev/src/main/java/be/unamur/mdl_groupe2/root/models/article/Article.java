@@ -2,7 +2,9 @@ package be.unamur.mdl_groupe2.root.models.article;
 
 import be.unamur.mdl_groupe2.root.models.articleRef.ArticleRef;
 import be.unamur.mdl_groupe2.root.models.literatureReview.LiteratureReview;
+import be.unamur.mdl_groupe2.root.models.visualization.Visualization;
 import lombok.*;
+import org.hibernate.annotations.Proxy;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -14,7 +16,8 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-public class Article {
+@Proxy(lazy=false)
+public class Article implements Comparable<Article>{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -24,6 +27,12 @@ public class Article {
 
     private String title;
 
+    private String shortRef;
+
+    private Integer year;
+
+    private String[] countries;
+
     private String[] domain;
 
     private String[] tag;
@@ -32,9 +41,9 @@ public class Article {
 
     private String abstractArticle;
 
-    @OneToMany(mappedBy = "article", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "article", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<LiteratureReview> literatureReviews;
-    // private DBFile pdfFiles;
+    //private DBFile pdfFiles;
 
     private String videoUrl;
 
@@ -44,13 +53,36 @@ public class Article {
 
     private String publisher;
 
+    private String[] targetUsers;
+
+    private String[] dataRealness;
+
+    private String[] dataSource;
+
+    private String[] dataAvailability;
+
+    private String[] interaction;
+
+    private String[] action;
+
     private int metric;
-    @OneToMany(mappedBy = "article", cascade = CascadeType.ALL)
+
+    @OneToMany(mappedBy = "article", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<ArticleRef> bibliography;
+
+    private Boolean open;
 
     private Boolean authorizedContribution;
 
     private Boolean contributionUnderSupervision;
 
     private Long pagerankscore;
+
+    @OneToMany(mappedBy = "article", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Set<Visualization> visualizations;
+
+    @Override
+    public int compareTo(Article o) {
+        return this.getPagerankscore().compareTo(o.getPagerankscore());
+    }
 }

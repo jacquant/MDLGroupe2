@@ -1,39 +1,60 @@
 package be.unamur.mdl_groupe2.root.search;
 
+import be.unamur.mdl_groupe2.root.exception.EmptyResultListException;
+import be.unamur.mdl_groupe2.root.models.article.Article;
 import be.unamur.mdl_groupe2.root.repositories.ArticleRepository;
 import be.unamur.mdl_groupe2.root.repositories.AuthorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+import java.util.Hashtable;
+import java.util.List;
 import java.util.Map;
 
-
-public class AdvancedSearchService {
+@Component
+public class AdvancedSearchService extends SearchService {
 
     @Autowired
     private ArticleRepository articleRepository;
     @Autowired
     private AuthorRepository authorRepository;
+    private List<Article> searchRepository;
 
-    public AdvancedSearchService(Map<String, String> params){
+    public List<Article> AdvancedSearch(Map<String, String> params) {
+        List<Article> result = null;
+        try {
+            result = SortResult(FindResult(params));
+        } catch (EmptyResultListException e) {
+            //TODO
+            e.printStackTrace();
+        }
+        return result;
+    }
 
 
+    private List<Article> FindResult(Map<String, String> params){
         params.forEach((k, v) -> {
             switch (k) {
                 case "author":
                     for(Long id:authorRepository.findAuthorIdWithSurname(v)) {
-                        articleRepository.findArticleWriteBy(id);
+                        searchRepository.addAll(articleRepository.findArticleWriteBy(id));
                     }
                     break;
                 case "title":
-                    articleRepository.findArticleWithTitle(v);
+                    searchRepository.addAll(articleRepository.findArticleWithTitle(v));
                     break;
                 case "keywords":
-                    articleRepository.findArticleWithTag(v);
+                    searchRepository.addAll(articleRepository.findArticleWithTag(v));
                     break;
                 default:
-                    new SimpleSearchService(v);
+                    Map<String,String> tmp = new Hashtable();
+                    tmp.put(k,v);
+                    //TODO Get back result from search service and add it to searchRepository
+                    searchRepository.addAll(SearchService(tmp));
                     break;
             }
         });
+
+        return searchRepository;
     }
 }
