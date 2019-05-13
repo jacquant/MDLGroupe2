@@ -19,11 +19,12 @@ public class SearchService {
 
     public List<Article> Search(String params){
         List<Article> result = null;
-        try {
+        /*try {
              result = SortResult(FindResult(params));
         } catch (EmptyResultListException e) {
             e.printStackTrace();
-        }
+        }*/
+        result = FindResult(params);
         return result;
     }
 
