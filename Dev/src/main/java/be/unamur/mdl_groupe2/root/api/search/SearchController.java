@@ -44,7 +44,8 @@ public class SearchController {
      */
     @GetMapping("/QuickSearch")
     public List<Article> searchController(@RequestParam String params) {
-        return new SearchService().Search(params);
+        List<Article> result = new SearchService().Search(params);
+        return result;
     }
 
     /**
@@ -83,8 +84,4 @@ public class SearchController {
         return new JSONArray(new Gson().toJson(AdvancedSearchController(params)));
     }
 
-    @GetMapping("/testSearch")
-    public  String TestSearch(@RequestParam String params){
-        return params;
-    }
 }
