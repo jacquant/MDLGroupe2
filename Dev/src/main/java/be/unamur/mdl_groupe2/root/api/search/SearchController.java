@@ -54,7 +54,7 @@ public class SearchController {
      * @return the json array
      */
     @GetMapping("QuickSearchJson")
-    public JSONArray searchControllerJson(@RequestParam String params) {
+    public JSONArray searchControllerJson(@RequestParam("params") String params) {
         return new JSONArray(new Gson().toJson(searchController(params)));
     }
 
