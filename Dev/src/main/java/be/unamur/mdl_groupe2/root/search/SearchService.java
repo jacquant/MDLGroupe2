@@ -66,10 +66,10 @@ public class SearchService {
             }
             catch (NullPointerException e){}
 
-            try {
+            /*try {
                 searchRepository.addAll(articleRepository.findArticleWithTag(split[i]));
             }
-            catch (NullPointerException e){}
+            catch (NullPointerException e){}*/
 
         };
         return searchRepository;
