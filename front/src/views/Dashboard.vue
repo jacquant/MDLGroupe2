@@ -22,7 +22,7 @@
 
     <div class="text-xs-center">
       <v-btn class="titre" @click="advancedSearch">Advanced Search</v-btn>
-      <v-btn class="titre" @click="validateResearch">Validate Search</v-btn>
+      <v-btn class="titre" @click="getResults">Validate Search</v-btn>
 
       <!--v-btn class="titre" @click="searchHistory"
       >Search History</v-btn
@@ -93,27 +93,22 @@ export default {
     },
     getResults: function(e) {
       var refThis = this;
-      var inputedText = refThis.searchedInput;
+      var inputedTextArray = refThis.searchedInput.split(" ");
+      var apiMapParameter = new Map();
+      inputedTextArray.forEach(function(element, index) {
+        apiMapParameter.set("keyword" + index, element);
+      });
+      console.log(apiMapParameter);
+
       var apiResponse = "";
+
       axios
-        .get("http://localhost:8181/api/Synonyme?keyword=" + inputedText)
+        .get(
+          "http://mdl-std02.info.fundp.ac.be:8181/MdlGroupe2-test/api/QuickSearch" +
+            apiMapParameter
+        )
         .then(response => {
-          if (response.request.status >= 200 && response.request.status < 400) {
-            apiResponse = response.data;
-            apiResponse.forEach(function(element, index) {
-              apiResponse[index] = {
-                name: element,
-                value: Math.floor(Math.random() * 30) + 1
-              };
-            });
-            refThis.defaultWords = apiResponse;
-            if (refThis.defaultWords.length > 0) {
-              refThis.logoHeight = 150;
-              document.getElementById("app").style.display = "block";
-            } else {
-              document.getElementById("app").style.display = "none";
-            }
-          }
+          console.log(response);
         });
     },
 

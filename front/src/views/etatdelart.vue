@@ -102,7 +102,7 @@
                 <div slot="widget-content">
                   <e-chart
                     :path-option="[
-                      ['dataset.source', pieChartData],
+                      ['dataset.source', defaultWordsPieChart],
                       ['legend.bottom', '0'],
                       [
                         'color',
@@ -141,7 +141,6 @@
                     :fontSize="[50, 60]"
                     :showTooltip="true"
                     :margin="{ top: 15, right: 5, bottom: 15, left: 5 }"
-                    :wordClick="wordClickHandler"
                   >
                   </wordcloud>
                 </div>
@@ -214,6 +213,8 @@ import EChart from "@/components/chart/echart";
 import VWidget from "@/components/VWidget";
 import Material from "vuetify/es5/util/colors";
 import wordcloud from "vue-wordcloud";
+import axios from "axios";
+
 var id,
   title,
   author,
@@ -240,7 +241,8 @@ export default {
       ],
       color: Material,
       selectedTab: "tab-1",
-      defaultWords: []
+      defaultWords: [],
+      defaultWordsPieChart: []
       /*headers: [
           {
             text: 'References',
@@ -278,22 +280,54 @@ export default {
         ]*/
     };
   },
-  computed: {
+  created() {
+    this.setDatas();
+  },
+  /*computed: {
     pieChartData() {
       return API.getData;
     }
-  },
+  },*/
   model: {
     //paper: this.$route.query.data
   },
   methods: {
-    setDefaultsWords() {
-      this.defaultWords = [{ name: "car", value: Math.floor(Math.random() * 30) + 1 },
-      { name: "computer", value: Math.floor(Math.random() * 30) + 1 },
-      { name: "data", value: Math.floor(Math.random() * 30) + 1 },
-      { name: "vizualisation", value: Math.floor(Math.random() * 30) + 1 },
-      { name: "engineering", value: Math.floor(Math.random() * 30) + 1 },
-      { name: "IT", value: Math.floor(Math.random() * 30) + 1 }]
+    setDatas() {
+      var request = new XMLHttpRequest();
+      var apiGetTags;
+      var apiGetDomains;
+      var refThis = this;
+
+      request.open(
+        "GET",
+        "http://mdl-std02.info.fundp.ac.be:8181/MdlGroupe2-test/api/articles/with_id/1",
+        false
+      );
+      request.onload = function() {
+        // Begin accessing JSON data here
+        var data = JSON.parse(this.response);
+
+        if (request.status >= 200 && request.status < 400) {
+          apiGetDomains = data.domain;
+          apiGetDomains.forEach(function(element, index) {
+            apiGetDomains[index] = {
+              value: Math.floor(Math.random() * 30) + 1,
+              name: element
+            };
+          });
+          refThis.defaultWordsPieChart = apiGetDomains;
+
+          apiGetTags = data.tag;
+          apiGetTags.forEach(function(element, index) {
+            apiGetTags[index] = {
+              name: element,
+              value: Math.floor(Math.random() * 30) + 1
+            };
+          });
+          refThis.defaultWords = apiGetTags;
+        }
+      };
+      request.send();
     },
     getTitle() {
       this.abstract = this.$route.query.abstract;
