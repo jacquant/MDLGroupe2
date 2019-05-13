@@ -22,7 +22,6 @@ public class SearchService {
         try {
              result = SortResult(FindResult(params));
         } catch (EmptyResultListException e) {
-            //TODO
             e.printStackTrace();
         }
         return result;
@@ -50,17 +49,27 @@ public class SearchService {
      */
     private List<Article> FindResult(@NotNull String params){
         List<Article> searchRepository = null;
-        String [] split = params.split(" ");
+        String[] split = params.split(" ");
 
         for (int i=0; i<=split.length; i++){
 
             for(Long id:authorRepository.findAuthorIdWithSurname(split[i])) {
-                searchRepository.addAll(articleRepository.findArticleWriteBy(id));
+                try {
+                    searchRepository.addAll(articleRepository.findArticleWriteBy(id));
+                }
+                catch (NullPointerException e){}
             }
 
-            searchRepository.addAll(articleRepository.findArticleWithTitle(split[i]));
+            try {
+                searchRepository.addAll(articleRepository.findArticleWithTitle(split[i]));
+            }
+            catch (NullPointerException e){}
 
-            searchRepository.addAll(articleRepository.findArticleWithTag(split[i]));
+            try {
+                searchRepository.addAll(articleRepository.findArticleWithTag(split[i]));
+            }
+            catch (NullPointerException e){}
+
         };
         return searchRepository;
     }
