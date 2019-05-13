@@ -129,7 +129,7 @@
             </v-flex>
 
             <v-flex width="50%">
-              <v-widget title="Words appearing the most" content-bg="white">
+              <v-widget title="Tags" content-bg="white">
                 <div id="app" slot="widget-content">
                   <wordcloud
                     :data="defaultWords"
