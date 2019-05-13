@@ -300,7 +300,7 @@ export default {
 
       request.open(
         "GET",
-        "http://mdl-std02.info.fundp.ac.be:8181/MdlGroupe2-test/api/articles/with_id/1",
+        "http://mdl-std02.info.fundp.ac.be:8181/MdlGroupe2-test/api/articles/with_id/3",
         false
       );
       request.onload = function() {

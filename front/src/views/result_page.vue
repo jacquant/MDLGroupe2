@@ -235,8 +235,8 @@ export default {
   },
   methods: {
     tailleResult() {
-      if (this.items.length == 0) return alert("No item found");
-      else return this.items.length;
+      //if (this.items.length == 0) return alert("No item found");
+      return this.items.length;
     },
     toggleAll() {
       if (this.selected.length) this.selected = [];
@@ -255,41 +255,66 @@ export default {
     },
 
     searchfound() {
-      var inputedText = this.$route.query.data;
+      var type = this.$route.query.type;
+      var parametres = this.$route.query.data;
       var thedata;
-      //var thedata2=28;
-      const axios = require("axios");
-      // Make a request for a user with a given ID
-      axios
-        .get(
-          "http://mdl-std02.info.fundp.ac.be:8181/MdlGroupe2-test/api/QuickSearch?params=",
-          {
-            params: {
-              params: inputedText
-            }
+      console.log("RESULT_PAGE: " + type + " PARAM : " + parametres);
+
+      if (type == "quickSearch") {
+        var request = new XMLHttpRequest();
+        request.open(
+          "GET",
+          "http://mdl-std02.info.fundp.ac.be:8181/MdlGroupe2-test/api/articles/",
+          false
+        );
+        request.onload = function() {
+          var data = JSON.parse(this.response);
+
+          if (request.status >= 200 && request.status < 400) {
+            console.log(data);
+            thedata = [
+              {
+                id: data.id,
+                author: data.author,
+                info: data.author + "--" + data.publisher,
+                year: data.year,
+                title: data.title,
+                abstract: data.abstractArticle,
+                keywords: data.tag,
+                videoUrl: data.videoUrl,
+                publisher: data.publisher,
+                ref: data.ref,
+                pagerankscore: data.pagerankscore,
+                matriceref: "matriceref 1"
+              }
+            ];
+          } else if(type=="advancedSearch") {
+            
+          } else {
+            console.log("ERREUR GET REQUEST: " + data);
           }
-        )
-        .then(function(response) {
-          this.thedata = response;
+        };
+        request.send();
+      } else {
+        var requestAdvancedSearch = new XMLHttpRequest();
 
-          /*
-                          this.items= response;
-                          for (i = 0; i < response.length; i++) {
-                              this.items[i] = response[i];
-                          }
-                          */
-          this.thedata = response;
-          console.log("la réponse:" + response);
-        })
-        .catch(function(error) {
-          // handle error
-          console.log("Erreur obtenue est:" + error);
-        })
-        .then(function() {
-          // always executed
-        });
+        request.open(
+          "GET",
+          "http://mdl-std02.info.fundp.ac.be:8181/MdlGroupe2-test/api/articles/with_id/1",
+          false
+        );
+        request.onload = function() {
+          var data = JSON.parse(this.response);
 
-      thedata = [
+          if (request.status >= 200 && request.status < 400) {
+            console.log(data);
+          } else {
+            console.log("ERREUR GET REQUEST: " + data);
+          }
+        };
+        request.send();
+      }
+      /*thedata = [
         {
           //avatar: '../assets/iconA.png',
           id: 1,
@@ -388,7 +413,7 @@ export default {
           pagerankscore: "ranking 6",
           matriceref: "matriceref 6"
         }
-      ];
+      ];*/
 
       /*
                 var the_author = "";
