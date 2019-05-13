@@ -7,6 +7,7 @@ import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -135,10 +136,10 @@ public class ArticleController {
      * @param articleObject the article object
      * @return the article
      */
-    @PutMapping("/articles/{article_id}")
+    /*@PutMapping("/articles/{article_id}")
     public Article update(@PathVariable("article_id") Long articleID, @NotNull @RequestBody Article articleObject) {
         Article article = articleRepository.getOne(articleID);
-        article.setAuthor(articleObject.getAuthor());
+        /*article.setAuthor(articleObject.getAuthor());
         article.setTitle(articleObject.getTitle());
         article.setDomain(articleObject.getDomain());
         article.setTag(articleObject.getTag());
@@ -151,8 +152,20 @@ public class ArticleController {
         article.setPublisher(articleObject.getPublisher());
         article.setAuthorizedContribution(articleObject.getAuthorizedContribution());
         article.setContributionUnderSupervision(articleObject.getContributionUnderSupervision());
+
+
+
+        return articleRepository.save(article);
+    }*/
+
+    @Transactional
+    @PutMapping("/articles/{article_id}")
+    public Article update(@PathVariable("article_id") Long articleID, @NotNull @RequestBody Article articleObject) {
+        Article article = articleRepository.getOne(articleID);
+
         return articleRepository.save(article);
     }
+
 
     /**
      * Set metrics article.
