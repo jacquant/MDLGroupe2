@@ -82,4 +82,9 @@ public class SearchController {
 
         return new JSONArray(new Gson().toJson(AdvancedSearchController(params)));
     }
+
+    @GetMapping("/testSearch")
+    public  String TestSearch(@RequestParam String params){
+        return params;
+    }
 }

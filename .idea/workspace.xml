@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1665df2b-97e4-4167-b215-4f27df40fb8b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/repositories/ArticleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/repositories/ArticleRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/search/AdvancedSearchService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/search/AdvancedSearchService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/search/SearchService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/search/SearchService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/api/search/SearchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/api/search/SearchController.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -38,23 +37,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/search/AdvancedSearchService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/api/search/SearchController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="346">
-              <caret line="52" column="31" selection-start-line="52" selection-start-column="31" selection-end-line="52" selection-end-column="31" />
+            <state relative-caret-position="633">
+              <caret line="61" column="7" lean-forward="true" selection-start-line="61" selection-start-column="7" selection-end-line="61" selection-end-column="7" />
               <folding>
                 <element signature="e#1335#1336#0" expanded="true" />
                 <element signature="e#1392#1393#0" expanded="true" />
+                <element signature="e#2525#2526#0" expanded="true" />
+                <element signature="e#2553#2554#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -63,7 +55,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/api/article/ArticleController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="473">
+            <state relative-caret-position="510">
               <caret line="47" selection-start-line="47" selection-end-line="47" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -75,8 +67,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/search/SearchService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="688">
-              <caret line="71" column="46" selection-start-line="71" selection-start-column="46" selection-end-line="71" selection-end-column="46" />
+            <state relative-caret-position="1125">
+              <caret line="75" column="5" selection-start-line="75" selection-start-column="5" selection-end-line="75" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -84,11 +76,16 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/repositories/ArticleRepository.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="600">
-              <caret line="45" column="58" lean-forward="true" selection-start-line="45" selection-start-column="58" selection-end-line="45" selection-end-column="58" />
+            <state relative-caret-position="75">
+              <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
+              <folding>
+                <element signature="e#0#48#1" expanded="true" />
+                <element signature="e#0#47#1" expanded="true" />
+                <element signature="e#0#45#1" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -105,8 +102,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/ServletInitializer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="1" lean-forward="true" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+            <state relative-caret-position="210">
+              <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -117,7 +114,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/search/ArticleRank.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
+            <state relative-caret-position="198">
               <caret line="20" column="6" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -127,9 +124,23 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/search/SearchCrawler.java">
+        <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/repositories/AuthorRepository.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="390">
+              <caret line="31" column="36" selection-start-line="31" selection-start-column="36" selection-end-line="31" selection-end-column="36" />
+              <folding>
+                <element signature="e#0#47#1" expanded="true" />
+                <element signature="e#0#49#1" expanded="true" />
+                <element signature="e#0#60#1" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/search/SearchCrawler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
               <caret line="26" column="6" selection-start-line="26" selection-start-column="6" selection-end-line="26" selection-end-column="6" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -244,10 +255,10 @@
         <option value="$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/api/author/AuthorController.java" />
         <option value="$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/search/ArticleRank.java" />
         <option value="$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/search/SearchCrawler.java" />
-        <option value="$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/api/search/SearchController.java" />
         <option value="$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/repositories/ArticleRepository.java" />
         <option value="$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/search/AdvancedSearchService.java" />
         <option value="$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/search/SearchService.java" />
+        <option value="$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/api/search/SearchController.java" />
       </list>
     </option>
   </component>
@@ -270,90 +281,6 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="MDLGroupe2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Dev" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MDLGroupe2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Dev" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MDLGroupe2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Dev" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MDLGroupe2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Dev" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MDLGroupe2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Dev" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="root" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MDLGroupe2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Dev" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="root" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MDLGroupe2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Dev" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="root" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="article" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MDLGroupe2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Dev" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="root" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="search" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MDLGroupe2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Dev" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="root" type="462c0819:PsiDirectoryNode" />
-              <item name="repositories" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MDLGroupe2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Dev" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="root" type="462c0819:PsiDirectoryNode" />
-              <item name="search" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="Scope">
         <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
           <expand>
@@ -458,6 +385,90 @@
               <item name="MDLGroupe2" type="b2602c69:ProjectViewProjectNode" />
               <item name="MDLGroupe2" type="462c0819:PsiDirectoryNode" />
               <item name="Visualisation" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="MDLGroupe2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Dev" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MDLGroupe2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Dev" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MDLGroupe2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Dev" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MDLGroupe2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Dev" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MDLGroupe2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Dev" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="root" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MDLGroupe2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Dev" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="root" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MDLGroupe2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Dev" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="root" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="article" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MDLGroupe2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Dev" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="root" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="search" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MDLGroupe2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Dev" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="root" type="462c0819:PsiDirectoryNode" />
+              <item name="repositories" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MDLGroupe2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Dev" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="root" type="462c0819:PsiDirectoryNode" />
+              <item name="search" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -585,6 +596,8 @@
       <workItem from="1557735854344" duration="743000" />
       <workItem from="1557736825154" duration="6592000" />
       <workItem from="1557758205047" duration="3368000" />
+      <workItem from="1557762810611" duration="205000" />
+      <workItem from="1557763253787" duration="271000" />
     </task>
     <task id="LOCAL-00004" summary="Fix Comparable">
       <created>1557649756613</created>
@@ -597,13 +610,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="152978000" />
+    <option name="totallyTimeSpent" value="153454000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1200" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49511003" visible="true" weight="0.1773163" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49511003" visible="true" weight="0.18051118" />
       <window_info id="Structure" order="1" sideWeight="0.50488997" side_tool="true" weight="0.17252396" />
       <window_info id="Favorites" order="2" sideWeight="0.5010571" side_tool="true" weight="0.24070175" />
       <window_info id="Image Layers" order="3" />
@@ -884,18 +897,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/repositories/AuthorRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="31" column="36" selection-start-line="31" selection-start-column="36" selection-end-line="31" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#53#1" expanded="true" />
-            <element signature="e#0#57#1" expanded="true" />
-            <element signature="e#0#60#1" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/config/CorsFilter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -974,22 +975,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/ServletInitializer.java">
+    <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/search/AdvancedSearchService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="1" lean-forward="true" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+        <state relative-caret-position="510">
+          <caret line="42" column="21" lean-forward="true" selection-start-line="42" selection-start-column="21" selection-end-line="42" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/api/article/ArticleController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="47" selection-start-line="47" selection-end-line="47" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/search/ArticleRank.java">
+    <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/search/Vertex.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="20" column="6" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
+        <state relative-caret-position="30">
+          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/ServletInitializer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/search/SearchCrawler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="26" column="6" selection-start-line="26" selection-start-column="6" selection-end-line="26" selection-end-column="6" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1030#1031#0" expanded="true" />
+            <element signature="e#1088#1089#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1004,67 +1031,60 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/search/SearchCrawler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="6" selection-start-line="26" selection-start-column="6" selection-end-line="26" selection-end-column="6" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1030#1031#0" expanded="true" />
-            <element signature="e#1088#1089#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/search/Vertex.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/api/search/SearchController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="52" column="31" selection-start-line="52" selection-start-column="31" selection-end-line="52" selection-end-column="31" />
-          <folding>
-            <element signature="e#1335#1336#0" expanded="true" />
-            <element signature="e#1392#1393#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/search/AdvancedSearchService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/search/SearchService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="688">
-          <caret line="71" column="46" selection-start-line="71" selection-start-column="46" selection-end-line="71" selection-end-column="46" />
+        <state relative-caret-position="1125">
+          <caret line="75" column="5" selection-start-line="75" selection-start-column="5" selection-end-line="75" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/api/article/ArticleController.java">
+    <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/search/ArticleRank.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="473">
-          <caret line="47" selection-start-line="47" selection-end-line="47" />
+        <state relative-caret-position="198">
+          <caret line="20" column="6" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/repositories/AuthorRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="31" column="36" selection-start-line="31" selection-start-column="36" selection-end-line="31" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#47#1" expanded="true" />
+            <element signature="e#0#49#1" expanded="true" />
+            <element signature="e#0#60#1" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/repositories/ArticleRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="45" column="58" lean-forward="true" selection-start-line="45" selection-start-column="58" selection-end-line="45" selection-end-column="58" />
+        <state relative-caret-position="75">
+          <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#48#1" expanded="true" />
+            <element signature="e#0#47#1" expanded="true" />
+            <element signature="e#0#45#1" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/api/search/SearchController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="633">
+          <caret line="61" column="7" lean-forward="true" selection-start-line="61" selection-start-column="7" selection-end-line="61" selection-end-column="7" />
+          <folding>
+            <element signature="e#1335#1336#0" expanded="true" />
+            <element signature="e#1392#1393#0" expanded="true" />
+            <element signature="e#2525#2526#0" expanded="true" />
+            <element signature="e#2553#2554#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
