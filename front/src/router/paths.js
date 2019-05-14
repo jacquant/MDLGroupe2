@@ -86,6 +86,16 @@ export default [
             )
   },
   {
+    path: "/VisualEA",
+    meta: { breadcrumb: true },
+    name: "VisualEA",
+    component: () =>
+        import(
+            /* webpackChunkName: "routes" */
+            `@/views/VisualEA.vue`
+            )
+  },
+  {
     path: "/addstateofart",
     meta: { breadcrumb: true },
     name: "addstateofart",
@@ -96,9 +106,9 @@ export default [
             )
   },
   {
-    path: "/graphe",
+    path: "/graphe3",
     meta: { breadcrumb: true },
-    name: "graphe",
+    name: "graphe3",
     component: () =>
         import(
             /* webpackChunkName: "routes" */

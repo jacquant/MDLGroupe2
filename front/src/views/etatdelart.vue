@@ -76,7 +76,7 @@
         </v-tabs>
       </div>
 
-      <div id="visualView">
+      <div id="visualView" style="display: none">
         <!--v-card-actions>
           <v-btn type="button" class="btn">Author</v-btn>
           <v-btn type="button" class="btn">Title</v-btn>
@@ -151,7 +151,7 @@
         </v-container>
       </div>
 
-      <div id="matriceView">
+      <div id="matriceView" style="display: none">
         <v-container grid-list-xl fluid>
           <h2 class="titre">Reference's matrix</h2>
           <h3>
@@ -172,26 +172,13 @@
                 <th>VisAttributes</th>
                 <th>VisTechniques</th>
               </tr>
-              <tr>
+              <tr v-for="dim in visu_datadimension, map in visu_mapType, attr in visu_visAttribute, tech in visu_visTechnique" >
                 <td>ref</td>
-                <td>v</td>
-                <td>v</td>
-                <td>x</td>
-                <td>x</td>
-              </tr>
-              <tr>
-                <td>ref 2</td>
-                <td>v</td>
-                <td>v</td>
-                <td>v</td>
-                <td>x</td>
-              </tr>
-              <tr>
-                <td>ref 3</td>
-                <td>v</td>
-                <td>v</td>
-                <td>x</td>
-                <td>x</td>
+                <td>{{ dim }}/td>
+                <td>{{ map }}</td>
+                <td> {{ attr }}</td>
+                <td> {{ tech }}</td>
+
               </tr>
             </table>
           </div>
@@ -233,8 +220,13 @@ export default {
       the_abstract: "",
       domains: "",
       keywords: "",
-      visualizations:"",
-      ref:[],
+      visu_datadimension: [],
+      visu_mapType: [],
+      visu_visAttribute: [],
+      visu_visTechnique: [],
+      bibliographyLiteratureReview: [],
+      bibliographyArticle: [],
+      ref: []
 
       /*headers: [
           {
@@ -275,6 +267,7 @@ export default {
   },
   created() {
     this.setData();
+    this.classicView();
   },
   model: {
     //paper: this.$route.query.data
@@ -303,8 +296,16 @@ export default {
           refThis.defaultWordsPieChart = data.domain;
           refThis.keywords = data.tag.toString();
           refThis.domains = data.domain.toString();
-          refThis.visualizations=data.visualizations;
+          refThis.visu_datadimension=data.visu_datadimension;
+          refThis.visu_mapType=data.visu_mapType;
+          refThis.visu_visAttribute=data.visu_visAttribute;
+          refThis.visu_visTechnique=data.visu_visTechnique;
+          refThis.bibliographyLiteratureReview=data.bibliographyLiteratureReview;
+          refThis.bibliographyArticle=data.bibliographyArticle;
           refThis.ref=data.ref;
+
+          console.log("map "+refThis.visu_mapType);
+          console.log("biblio etat de lart "+refThis.bibliographyLiteratureReview);
 
           refThis.defaultWords.forEach(function(element, index) {
             refThis.defaultWords[index] = {

@@ -23,7 +23,7 @@
     <div class="text-xs-center">
       <v-btn class="titre" @click="advancedSearch">Advanced Search</v-btn>
       <v-btn class="titre" @click="validateResearch">Validate Search</v-btn>
-      <v-btn class="titre" @click="addArt">Add State Of Art</v-btn>
+      <v-btn class="titre" @click="graphe3">Add State Of Art</v-btn>
 
       <!--v-btn class="titre" @click="searchHistory"
       >Search History</v-btn
@@ -101,6 +101,12 @@ export default {
       this.loading = true;
       setTimeout(() => {
         this.$router.push("../AdvancedSearch");
+      }, 1000);
+    },
+    graphe3() {
+      this.loading=true;
+      setTimeout(() => {
+        this.$router.push("../graphe3");
       }, 1000);
     },
     addArt() {
