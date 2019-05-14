@@ -3,6 +3,7 @@ package be.unamur.mdl_groupe2.root.api.search;
 import java.util.List;
 import java.util.Map;
 
+import be.unamur.mdl_groupe2.root.models.article.Article;
 import be.unamur.mdl_groupe2.root.repositories.ArticleRepository;
 import be.unamur.mdl_groupe2.root.repositories.AuthorRepository;
 import be.unamur.mdl_groupe2.root.search.SearchService;
@@ -40,7 +41,7 @@ public class SearchController {
      * @return the list
      */
     @GetMapping("/QuickSearch")
-    public List<Long> searchController(@RequestParam String params) {
+    public List<Article> searchController(@RequestParam String params) {
         return new SearchService(authorRepository, articleRepository).Search(params);
     }
 
