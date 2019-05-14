@@ -5,14 +5,10 @@ import be.unamur.mdl_groupe2.root.models.article.Article;
 import be.unamur.mdl_groupe2.root.models.author.Author;
 import be.unamur.mdl_groupe2.root.repositories.ArticleRepository;
 import be.unamur.mdl_groupe2.root.repositories.AuthorRepository;
-import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
-import be.unamur.mdl_groupe2.root.synonymes.Synonyms;
 import org.springframework.stereotype.Component;
 
-import java.awt.*;
 import java.util.*;
-import java.util.List;
 
 import static java.util.Collections.emptyList;
 
@@ -44,7 +40,7 @@ public class SearchService {
      * @param list a list of article to sort
      * @return a sorted list based on the pagerank of each article
      */
-    private List<Article> SortResult(@NotNull List<Article> list) throws EmptyResultListException {
+    private List<Article> SortResult(List<Article> list) throws EmptyResultListException {
         if (list.isEmpty()) {
             throw new EmptyResultListException("No Result");
         } else {
@@ -57,7 +53,7 @@ public class SearchService {
      * @param params is keyword choice by the user
      * @return list of article that match the keyword
      */
-    private List<Long> FindResult(@NotNull String params) {
+    private List<Long> FindResult(String params) {
         List<Long> searchId = new ArrayList<>(Arrays.asList());
         if (params.isEmpty()) return emptyList();
         else {

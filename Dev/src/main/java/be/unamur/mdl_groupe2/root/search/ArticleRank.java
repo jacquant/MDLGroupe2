@@ -1,7 +1,6 @@
 package be.unamur.mdl_groupe2.root.search;
 
 import be.unamur.mdl_groupe2.root.repositories.ArticleRepository;
-import org.jetbrains.annotations.Contract;
 import org.jgrapht.Graph;
 import org.jgrapht.alg.scoring.PageRank;
 import org.jgrapht.graph.DefaultDirectedGraph;

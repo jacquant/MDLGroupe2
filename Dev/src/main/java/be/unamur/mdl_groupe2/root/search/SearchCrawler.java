@@ -4,8 +4,6 @@ import be.unamur.mdl_groupe2.root.exception.MetricNotAvailableException;
 import be.unamur.mdl_groupe2.root.exception.NotAuthorizedException;
 import be.unamur.mdl_groupe2.root.models.article.Article;
 import be.unamur.mdl_groupe2.root.repositories.ArticleRepository;
-import org.jetbrains.annotations.Contract;
-import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
@@ -55,7 +53,7 @@ public class SearchCrawler {
         return i;
     }
 
-    private int getMetricsFromWeb(@NotNull Article article) throws MetricNotAvailableException, NotAuthorizedException {
+    private int getMetricsFromWeb(Article article) throws MetricNotAvailableException, NotAuthorizedException {
         String ref = article.getRef();
 
         String ieeePatern = "ieee";
@@ -81,7 +79,6 @@ public class SearchCrawler {
         return metrics;
     }
 
-    @NotNull
     private String curlWeb(String ref) throws Exception {
 
         StringBuilder result = new StringBuilder();
@@ -98,7 +95,7 @@ public class SearchCrawler {
         return result.toString();
     }
 
-    private int cleanWebResultIEEE(@NotNull String webPage) {
+    private int cleanWebResultIEEE(String webPage) {
         int tmp;
 
         String pattern = "\"citationCountPaper\":";
@@ -114,7 +111,6 @@ public class SearchCrawler {
         return Integer.parseInt(Trimmed);
     }
 
-    @Contract("_ -> fail")
     private int cleanWebResultACM(String webPage) throws NotAuthorizedException {
         throw new NotAuthorizedException("https://libraries.acm.org/digital-library/policies");
     }

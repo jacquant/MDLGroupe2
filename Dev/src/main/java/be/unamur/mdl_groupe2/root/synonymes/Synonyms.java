@@ -1,5 +1,7 @@
 package be.unamur.mdl_groupe2.root.synonymes;
 
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.ResourceLoader;
 import org.springframework.util.ResourceUtils;
 import rita.RiWordNet;
 
@@ -28,8 +30,7 @@ public class Synonyms {
         List<String> synonyms = new ArrayList<>();
         List<String> textArray = Synonyms.StringToStringArray(text);
         String[] synonymsTab;
-
-        RiWordNet rw = new RiWordNet(ResourceUtils.getFile("classpath:synonyms/WordNet-3.0").getAbsolutePath());
+        RiWordNet rw = new RiWordNet(ResourceUtils.getFile("classpath:synonyms/WordNet-3.0").getPath());
         rw.randomizeResults(false);
 
         for (String s : textArray) {
