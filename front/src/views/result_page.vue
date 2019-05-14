@@ -203,7 +203,7 @@ export default {
 
     pagination: {
       sortBy: "",
-      rowsPerPage: 25
+      rowsPerPage: 10
     },
     selected: [],
     headers: [
