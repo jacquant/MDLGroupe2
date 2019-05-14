@@ -20,6 +20,7 @@
     "roboto-fontface": "*",
     "serve": "^11.0.0",
     "server": "^1.0.18",
+    "sigma": "^1.2.1",
     "vee-validate": "^2.1.4",
     "vue": "^2.6.10",
     "vue-fullcalendar": "^1.0.9",

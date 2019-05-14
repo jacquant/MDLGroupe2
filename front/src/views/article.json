@@ -1,0 +1,5 @@
+[{"id":1,"title":"title 1","author":[{"name":"author1"},{"name":"author2"}],"bibliographie":[{"ref":2},{"ref":3}],"linktoArticle":"test"},
+{"id":2,"title":"title 2 ","author":[{"name":"author1"},{"name":"author2"}],"bibliographie":[{"ref":3}],"linktoArticle":"test"},
+{"id":3,"title":"title 3","author":[{"name":"author4"},{"name":"author2"}],"bibliographie":[{"ref":4}],"linktoArticle":"test"},
+{"id":4,"title":"title 4","author":[{"name":"author4"},{"name":"author2"}],"bibliographie":[{"ref":4}],"linktoArticle":"test"},
+{"id":5,"title":"title 5","author":[{"name":"author3"},{"name":"author2"}],"bibliographie":[{"ref":3},{"ref":4},{"ref":2}],"linktoArticle":"test"}]

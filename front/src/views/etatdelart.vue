@@ -40,11 +40,12 @@
                 <div id="textarea">
                   <v-text-field
                     label="abstract"
+                    readonly="true"
                     name="abstract"
                     textarea
                     rows="10"
                     cols="25"
-                    v-model="abstract"
+                    v-model="the_abstract"
                   ></v-text-field>
                 </div>
               </div>
@@ -88,9 +89,7 @@
                   <v-icon class="text--secondary">refresh</v-icon>
                 </v-btn>
                 <div slot="widget-content">
-                  <!--put  cloud graph here-->
-                  <artilceViewGraph></artilceViewGraph>
-                  <!--end of cloud graph-->
+                  <div v-html="index"></div>
                 </div>
               </v-widget>
             </v-flex>
@@ -215,6 +214,7 @@ import Material from "vuetify/es5/util/colors";
 import wordcloud from "vue-wordcloud";
 
 
+
 export default {
   components: {
     VWidget,
@@ -314,7 +314,7 @@ export default {
           });
           refThis.defaultWordsPieChart.forEach(function(element, index) {
             refThis.defaultWordsPieChart[index] = {
-              value: Math.floor(Math.random() * 30) + 1,
+              value: 1,
               name: element
             };
           });
@@ -354,5 +354,11 @@ export default {
 .titre {
   color:lightslategrey;
   font-weight: bold;
+}
+
+#container {
+  max-width: 1000px;
+  height: 1000px;
+  margin: auto;
 }
 </style>

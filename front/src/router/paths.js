@@ -96,6 +96,16 @@ export default [
             )
   },
   {
+    path: "/graphe",
+    meta: { breadcrumb: true },
+    name: "graphe",
+    component: () =>
+        import(
+            /* webpackChunkName: "routes" */
+            `@/views/graphe3.vue`
+            )
+  },
+  {
     path: "/etatdelart",
     meta: { breadcrumb: true },
     name: "etatdelart",
