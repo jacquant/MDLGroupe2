@@ -193,7 +193,7 @@ export default {
 
     pagination: {
       sortBy: "",
-      rowsPerPage: 10
+      rowsPerPage: 5
     },
     selected: [],
     headers: [
@@ -276,8 +276,6 @@ export default {
       var parametres = this.$route.query.data;
       var theRef = this;
 
-      console.log("parametre " + parametres);
-
       if (type == "quickSearch") {
         var request = new XMLHttpRequest();
         request.open(
@@ -287,6 +285,7 @@ export default {
         );
         request.onload = function() {
           var data = JSON.parse(this.response);
+          console.log(data);
 
           if (request.status >= 200 && request.status < 400) {
             var i,
@@ -298,7 +297,8 @@ export default {
 
             for (i = 0; i < data.length; i++) {
               authors = data[i].author;
-
+              console.log(authors);
+              lesAuthor= "";
               for (j = 0; j < authors.length; j++) {
                 lesAuthor +=
                   authors[j].firstName + " " + authors[j].surname + ", ";
@@ -335,53 +335,7 @@ export default {
           "GET",
                 "http://mdl-std02.info.fundp.ac.be:8181/MdlGroupe2-test/api/QuickSearch?params=" + parametres,
           false
-        );
-        request.onload = function() {
-          var data = JSON.parse(this.response);
-
-          if (request.status >= 200 && request.status < 400) {
-            var i,
-              j,
-              cpt = 0;
-            var authors = [];
-            var lesAuthor = "";
-            var allAuthor = [];
-
-            for (i = 0; i < data.length; i++) {
-              if (i == 15) break;
-              authors = data[i].author;
-              console.log("taille " + this.response);
-
-              for (j = 0; j < authors.length; j++) {
-                lesAuthor +=
-                  authors[j].firstName + " " + authors[j].surname + ", ";
-                allAuthor[cpt] =
-                  authors[j].firstName + " " + authors[j].surname;
-                cpt++;
-              }
-
-              theRef.allkeywords[i]=data[i].tag;
-              theRef.alldomains[i]=data[i].domain;
-
-              theRef.items.push({
-                id: data[i].id,
-                author: lesAuthor,
-                info: lesAuthor + "--" + data[i].publisher,
-                year: data[i].year,
-                title: data[i].title,
-                abstract: data[i].abstractArticle,
-                keywords: data[i].tag,
-                domains: data[i].domains,
-                videoUrl: data[i].videoUrl,
-                publisher: data[i].publisher,
-                ref: data[i].ref,
-                pagerankscore: data[i].pagerankscore,
-                matriceref: "matriceref 1"
-              });
-            }
-          }
-        };
-        request.send();*/
+        );*/
       }
 
       return theRef.items;

@@ -29,7 +29,7 @@
     >
       <v-btn icon large flat slot="activator">
         <v-avatar size="30px">
-          <img src="../assets/lion.jpg" alt="User" />
+          <img src="../assets/sachou.jpg" alt="User" />
         </v-avatar>
       </v-btn>
       <v-list class="pa-0">

@@ -134,7 +134,6 @@ export default {
 
       request.onload = function() {
         var data = JSON.parse(this.response);
-        console.log(data);
         if (request.status >= 200 && request.status < 400) {
           refThis.defaultWords=data.synonym;
           refThis.defaultWords.forEach(function(element, index) {
@@ -143,7 +142,6 @@ export default {
               value: Math.floor(Math.random() * 30) + 1
             };
           });
-          console.log(refThis.defaultWords);
           if (refThis.defaultWords.length > 0) {
             refThis.logoHeight = 150;
             document.getElementById("app").style.display = "block";
