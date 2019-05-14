@@ -167,14 +167,16 @@
             <table cellpadding="5px" border="1" style="font-size:24px;">
               <tr style="background-color:lightgrey;">
                 <th>References</th>
-                <th>Criteria 1</th>
-                <th>Criteria 2</th>
-                <th>Criteria 3</th>
+                <th>DataDimension</th>
+                <th>DataType</th>
+                <th>VisAttributes</th>
+                <th>VisTechniques</th>
               </tr>
               <tr>
-                <td>ref 1</td>
+                <td>ref</td>
                 <td>v</td>
                 <td>v</td>
+                <td>x</td>
                 <td>x</td>
               </tr>
               <tr>
@@ -182,23 +184,16 @@
                 <td>v</td>
                 <td>v</td>
                 <td>v</td>
+                <td>x</td>
               </tr>
               <tr>
                 <td>ref 3</td>
                 <td>v</td>
                 <td>v</td>
                 <td>x</td>
+                <td>x</td>
               </tr>
             </table>
-
-            <!--template>
-                        <v-data-table
-                                :headers="headers"
-                                :items="results"
-                                :items-per-page="5"
-                                class="elevation-1"
-                        ></v-data-table>
-            </template-->
           </div>
         </v-container>
       </div>
@@ -237,7 +232,10 @@ export default {
       nbReferences: "",
       the_abstract: "",
       domains: "",
-      keywords: ""
+      keywords: "",
+      visualizations:"",
+      ref:[],
+
       /*headers: [
           {
             text: 'References',
@@ -305,6 +303,8 @@ export default {
           refThis.defaultWordsPieChart = data.domain;
           refThis.keywords = data.tag.toString();
           refThis.domains = data.domain.toString();
+          refThis.visualizations=data.visualizations;
+          refThis.ref=data.ref;
 
           refThis.defaultWords.forEach(function(element, index) {
             refThis.defaultWords[index] = {
