@@ -13,6 +13,10 @@ import java.util.List;
 @Repository
 public interface AuthorRepository extends JpaRepository<Author, Long> {
 
+    List<Author> findAuthorsBySurnameContains(String surname);
+
+    List<Author> findAuthorsByFirstNameContains(String firstName);
+
     List<Author> findAuthorsBySurname(String surname);
     /**
      * Find author id with surname list.

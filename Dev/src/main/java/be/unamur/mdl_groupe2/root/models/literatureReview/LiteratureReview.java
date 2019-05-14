@@ -19,7 +19,6 @@ import java.util.Set;
 @Proxy(lazy = false)
 public class LiteratureReview implements Comparable<LiteratureReview> {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)

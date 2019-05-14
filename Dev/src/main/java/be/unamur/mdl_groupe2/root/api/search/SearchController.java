@@ -5,14 +5,11 @@ import java.util.Map;
 
 import be.unamur.mdl_groupe2.root.repositories.ArticleRepository;
 import be.unamur.mdl_groupe2.root.repositories.AuthorRepository;
-import be.unamur.mdl_groupe2.root.search.AdvancedSearchService;
 import be.unamur.mdl_groupe2.root.search.SearchService;
 import com.google.gson.Gson;
 
 import org.json.JSONArray;
 import org.springframework.web.bind.annotation.*;
-
-import be.unamur.mdl_groupe2.root.models.article.Article;
 
 /**
  * The type Search controller.
@@ -44,7 +41,7 @@ public class SearchController {
      */
     @GetMapping("/QuickSearch")
     public List<Long> searchController(@RequestParam String params) {
-        return new SearchService().Search(params);
+        return new SearchService(authorRepository, articleRepository).Search(params);
     }
 
     /**
@@ -65,21 +62,23 @@ public class SearchController {
      * @param params the params
      * @return the list
      */
+/*
     @GetMapping("/AdvancedSearch")
     public List<Long> AdvancedSearchController(@RequestParam Map<String, String> params) {
         return new AdvancedSearchService(articleRepository, authorRepository).AdvancedSearch(params);
     }
-
-    /**
+*/
+/*
+    *//**
      * Advanced search controller json json array.
      *
      * @param params the params
      * @return the json array
-     */
+     *//*
     @GetMapping("/AdvancedSearchJson")
     public JSONArray AdvancedSearchControllerJson(@RequestParam Map<String, String> params) {
 
         return new JSONArray(new Gson().toJson(AdvancedSearchController(params)));
-    }
+    }*/
 
 }
