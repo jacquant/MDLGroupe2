@@ -97,7 +97,7 @@
                                     ></v-text-field>
                                 </v-card-actions-->
 
-              <div class>
+              <!--<div class>
                 <b>Criteria on State of art</b>
                 <br />
                 <input type="checkbox" class />critere1
@@ -105,7 +105,7 @@
                 <br />
                 <input type="checkbox" class />critere3
                 <input type="checkbox" class />critere4
-              </div>
+              </div>-->
             </div>
           </td>
 
