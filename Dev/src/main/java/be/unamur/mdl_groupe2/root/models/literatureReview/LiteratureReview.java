@@ -19,7 +19,7 @@ import java.util.Set;
 @Proxy(lazy = false)
 public class LiteratureReview implements Comparable<LiteratureReview> {
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
@@ -82,7 +82,7 @@ public class LiteratureReview implements Comparable<LiteratureReview> {
     private String[] visu_datadimension;
 
     @Column(length = 65536)
-    private String[] visu_StringdataType;
+    private String[] visu_dataType;
 
     @Column(length = 65536)
     private String[] visu_mapType;

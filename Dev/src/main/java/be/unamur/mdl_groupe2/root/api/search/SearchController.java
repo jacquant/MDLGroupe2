@@ -43,9 +43,8 @@ public class SearchController {
      * @return the list
      */
     @GetMapping("/QuickSearch")
-    public List<Article> searchController(@RequestParam String params) {
-        List<Article> result = new SearchService().Search(params);
-        return result;
+    public List<Long> searchController(@RequestParam String params) {
+        return new SearchService().Search(params);
     }
 
     /**
@@ -67,8 +66,7 @@ public class SearchController {
      * @return the list
      */
     @GetMapping("/AdvancedSearch")
-    public List<Article> AdvancedSearchController(@RequestParam Map<String, String> params) {
-
+    public List<Long> AdvancedSearchController(@RequestParam Map<String, String> params) {
         return new AdvancedSearchService(articleRepository, authorRepository).AdvancedSearch(params);
     }
 

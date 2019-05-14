@@ -130,13 +130,9 @@ public class ArticleController {
      * @param listID liste de n ID d'article
      * @return article list where listID[n]= return.article[n].id
      */
-    @GetMapping("article/")
-    public List<Article> ListArticleBasedOnID(@PathVariable("artilceID")List<Long> listID){
-        List<Article> result = null;
-        for(int i=0; i<= listID.size();i++){
-            result.add(articleRepository.getOne(listID.get(i)));
-        }
-        return result;
+    @GetMapping("/articles/with_ids/")
+    public List<Article> ListArticleBasedOnID(List<Long> listID){
+        return articleRepository.findAllById(listID);
     }
 
 // ===============================
