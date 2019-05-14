@@ -1,6 +1,7 @@
 package be.unamur.mdl_groupe2.root.repositories;
 
 import be.unamur.mdl_groupe2.root.models.article.Article;
+import be.unamur.mdl_groupe2.root.models.author.Author;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -13,7 +14,9 @@ import java.util.List;
  */
 @Repository
 public interface ArticleRepository extends JpaRepository<Article, Long> {
-
+    // List<Article> findArticlesByTagContains(String[] tags);
+    List<Article> findArticlesByTitleContains(String title);
+    List<Article> findArticlesByTitleLike(String title);
     /**
      * Find article write by list.
      *
@@ -24,6 +27,7 @@ public interface ArticleRepository extends JpaRepository<Article, Long> {
     @Query(value = "SELECT u FROM Article u WHERE u.author LIKE %?1%")
     List<Article> findArticleWriteBy(Long id);
 
+    List<Article> findArticlesByAuthor(Author author);
 
     /**
      * Find article with title list.

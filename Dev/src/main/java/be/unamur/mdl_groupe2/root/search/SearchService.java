@@ -2,20 +2,27 @@ package be.unamur.mdl_groupe2.root.search;
 
 import be.unamur.mdl_groupe2.root.exception.EmptyResultListException;
 import be.unamur.mdl_groupe2.root.models.article.Article;
+import be.unamur.mdl_groupe2.root.models.author.Author;
 import be.unamur.mdl_groupe2.root.repositories.ArticleRepository;
 import be.unamur.mdl_groupe2.root.repositories.AuthorRepository;
-import org.checkerframework.checker.units.qual.A;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.awt.*;
 import java.util.*;
+import java.util.List;
 
 public class SearchService {
 
+    private final ArticleRepository articleRepository;
+    private final AuthorRepository authorRepository;
+
     @Autowired
-    private ArticleRepository articleRepository;
-    @Autowired
-    private AuthorRepository authorRepository;
+    public SearchService(AuthorRepository authorRepository, ArticleRepository articleRepository) {
+        this.authorRepository = authorRepository;
+        this.articleRepository = articleRepository;
+    }
+
 
     public List<Long> Search(String params) {
         List<Long> result;
@@ -47,27 +54,25 @@ public class SearchService {
      * @return list of article that match the keyword
      */
     private List<Long> FindResult(@NotNull String params) {
-        List<Long> searchId = new ArrayList<>(Arrays.asList(1L, 2L));
+        List<Long> searchId = new ArrayList<>(Arrays.asList());
         String[] split = params.split(" ");
-        System.out.println(params);
 
-        for (int i = 0; i <= split.length; i++) {
-            System.out.println(split[i]);
-            System.out.println(safeId(authorRepository.findAuthorIdWithSurname(split[i])));
-            for (Long id : (safeId(authorRepository.findAuthorIdWithSurname(split[i])))) {
-                for (Article article : safeArticle(articleRepository.findArticleWriteBy(id))) {
+        for (int i = 0; i < split.length; i++) {
+            System.out.println("Au moins un élément");
+            for (Author author : (safeAuthor(authorRepository.findAuthorsBySurnameContains(split[i])))) {
+                for (Article article : safeArticle(articleRepository.findArticlesByAuthor(author))) {
                     searchId.add(article.getId());
                 }
             }
-            for (Long id : safeId(authorRepository.findAuthorIdWithFirstName(split[i]))) {
-                for (Article article : safeArticle(articleRepository.findArticleWriteBy(id))) {
+            for (Author author : safeAuthor(authorRepository.findAuthorsByFirstNameContains(split[i]))) {
+                for (Article article : safeArticle(articleRepository.findArticlesByAuthor(author))) {
                     searchId.add(article.getId());
                 }
             }
-            for (Article article : safeArticle(articleRepository.findArticleWithTag(split[i]))) {
+/*            for (Article article : safeArticle(articleRepository.findArticlesByTagContains(split[i].split("")))) {
                 searchId.add(article.getId());
-            }
-            for (Article article : safeArticle(articleRepository.findArticleWithTitle(split[i]))) {
+            }*/
+            for (Article article : safeArticle(articleRepository.findArticlesByTitleContains(split[i]))) {
                 searchId.add(article.getId());
             }
         }
@@ -79,6 +84,10 @@ public class SearchService {
     }
 
     private static List<Article> safeArticle( List<Article> other ) {
+        return other == null ? Collections.emptyList() : other;
+    }
+
+    private static List<Author> safeAuthor( List<Author> other ) {
         return other == null ? Collections.emptyList() : other;
     }
 }
