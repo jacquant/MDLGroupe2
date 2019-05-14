@@ -6,9 +6,7 @@ import be.unamur.mdl_groupe2.root.repositories.ArticleRepository;
 import be.unamur.mdl_groupe2.root.repositories.AuthorRepository;
 import org.springframework.stereotype.Component;
 
-import java.util.Hashtable;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Component
 public class AdvancedSearchService extends SearchService {
@@ -22,8 +20,8 @@ public class AdvancedSearchService extends SearchService {
         this.authorRepository = authorRepository;
     }
 
-    public List<Article> AdvancedSearch(Map<String, String> params) {
-        List<Article> result = null;
+    public List<Long> AdvancedSearch(Map<String, String> params) {
+        List<Long> result = new ArrayList<>(Arrays.asList(1L, 2L));
         try {
             result = SortResult(FindResult(params));
         } catch (EmptyResultListException e) {
@@ -34,36 +32,28 @@ public class AdvancedSearchService extends SearchService {
     }
 
 
-    private List<Article> FindResult(Map<String, String> params){
+    private List<Long> FindResult(Map<String, String> params) {
+        List<Long> searchId = new ArrayList<>(Arrays.asList(1L, 2L));
         params.forEach((k, v) -> {
-            switch (k) {
-                case "author":
-                    for(Long id:authorRepository.findAuthorIdWithSurname(v)) {
-                        searchRepository.addAll(articleRepository.findArticleWriteBy(id));
+            if (k.equals("author")) {
+                for (Long id : authorRepository.findAuthorIdWithSurname(v)) {
+                    for (Article article : articleRepository.findArticleWriteBy(id)) {
+                        searchId.add(article.getId());
                     }
-                    break;
-                case "noauthor":
-                    //TODO
-                    break;
-                case "title":
-                    searchRepository.addAll(articleRepository.findArticleWithTitle(v));
-                    break;
-                case "notitle":
-                    //TODO
-                    break;
-                case "keywords":
-                    searchRepository.addAll(articleRepository.findArticleWithTag(v));
-                    break;
-                case "nokeywords":
-                    //TODO
-                    break;
-                default:
-                    //TODO Get back result from search service and add it to searchRepository
-                    searchRepository.addAll(Search(v));
-                    break;
+                }
+            } else if (k.equals("title")) {
+                for (Article article : articleRepository.findArticleWithTitle(v)) {
+                    searchId.add(article.getId());
+                }
+            } else if (k.equals("keywords")){
+                for (Article article : articleRepository.findArticleWithTag(v)) {
+                    searchId.add(article.getId());
+                }
+            } else{
+                searchId.addAll(Search(v));
             }
         });
 
-        return searchRepository;
+        return new ArrayList<>(new HashSet<>(searchId));
     }
 }

@@ -126,6 +126,15 @@ public class ArticleController {
         return articleObject.getAuthorizedContribution();
     }
 
+    /**
+     * @param listID liste de n ID d'article
+     * @return article list where listID[n]= return.article[n].id
+     */
+    @GetMapping("/articles/with_ids/")
+    public List<Article> ListArticleBasedOnID(List<Long> listID){
+        return articleRepository.findAllById(listID);
+    }
+
 // ===============================
     // PUT
 
