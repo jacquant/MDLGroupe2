@@ -89,6 +89,19 @@ public class AuthorController {
         return authorRepository.findAllById(list_id);
     }
 
+    /**
+     * @param listID liste de n ID d'autheur
+     * @return author list where listID[n]= return.article[n].id
+     */
+    @GetMapping("article/")
+    public List<Author> ListArticleBasedOnID(@PathVariable("authorID")List<Long> listID){
+        List<Author> result = null;
+        for(int i=0; i<= listID.size();i++){
+            result.add(authorRepository.getOne(listID.get(i)));
+        }
+        return result;
+    }
+
     // ===============================
     // POST
 
