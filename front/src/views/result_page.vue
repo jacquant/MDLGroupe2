@@ -297,7 +297,6 @@ export default {
             var allAuthor = [];
 
             for (i = 0; i < data.length; i++) {
-              if (i == 15) break;
               authors = data[i].author;
 
               for (j = 0; j < authors.length; j++) {

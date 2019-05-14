@@ -76,7 +76,7 @@
         </v-tabs>
       </div>
 
-      <div id="visualView" style="display: none">
+      <div id="visualView">
         <!--v-card-actions>
           <v-btn type="button" class="btn">Author</v-btn>
           <v-btn type="button" class="btn">Title</v-btn>
@@ -151,7 +151,7 @@
         </v-container>
       </div>
 
-      <div id="matriceView" style="display: none">
+      <div id="matriceView">
         <v-container grid-list-xl fluid>
           <h2 class="titre">Reference's matrix</h2>
           <h3>
@@ -288,7 +288,7 @@ export default {
       request.onload = function() {
         var data = JSON.parse(this.response);
         console.log(data);
-        /*if (request.status >= 200 && request.status < 400) {
+        if (request.status >= 200 && request.status < 400) {
           refThis.title = data.title;
           refThis.the_abstract = data.abstractArticle;
           refThis.author = data.countries;
@@ -325,7 +325,7 @@ export default {
           refThis.ref = data.ref;
           refThis.pagerankscore = data.pagerankscore;
           refThis.matriceref = null;
-        }*/
+        }
       };
       request.send();
     },

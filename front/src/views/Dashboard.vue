@@ -30,7 +30,7 @@
       -->
     </div>
 
-    <div id="app" class="appClass" hidden>
+    <div id="app" class="appClass">
       <wordcloud
         :data="defaultWords"
         nameKey="name"
@@ -51,7 +51,6 @@
 import API from "@/api";
 import Material from "vuetify/es5/util/colors";
 import wordcloud from "vue-wordcloud";
-import axios from "axios";
 
 export default {
   components: {
@@ -125,7 +124,6 @@ export default {
     wordCloudDisplay: function(e) {
       var refThis = this;
       var inputedText = refThis.searchedInput;
-      var apiResponse = "";
       var request = new XMLHttpRequest();
 
       request.open(
@@ -138,14 +136,13 @@ export default {
         var data = JSON.parse(this.response);
         console.log(data);
         if (request.status >= 200 && request.status < 400) {
-          refThis.defaultWords=data.synonyms;
+          refThis.defaultWords=data.synonym;
           refThis.defaultWords.forEach(function(element, index) {
             refThis.defaultWords[index] = {
               name: element,
               value: Math.floor(Math.random() * 30) + 1
             };
           });
-          refThis.defaultWords = apiResponse;
           console.log(refThis.defaultWords);
           if (refThis.defaultWords.length > 0) {
             refThis.logoHeight = 150;
