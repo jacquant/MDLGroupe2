@@ -2,8 +2,6 @@ package be.unamur.mdl_groupe2.root.api.author;
 
 import be.unamur.mdl_groupe2.root.models.author.Author;
 import be.unamur.mdl_groupe2.root.repositories.AuthorRepository;
-import org.jetbrains.annotations.Contract;
-import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -123,7 +121,7 @@ public class AuthorController {
      * @return the author
      */
     @PutMapping("/authors/with_id/{author_id}")
-    public Author update(@PathVariable("author_id") Long authorId, @NotNull @RequestBody Author authorObject) {
+    public Author update(@PathVariable("author_id") Long authorId, @RequestBody Author authorObject) {
         Author author = authorRepository.getOne(authorId);
         author.setFirstName(authorObject.getFirstName());
         author.setSurname(authorObject.getSurname());
