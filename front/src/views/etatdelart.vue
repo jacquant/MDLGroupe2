@@ -278,11 +278,6 @@ export default {
   created() {
     this.setData();
   },
-  /*computed: {
-    pieChartData() {
-      return API.getData;
-    }
-  },*/
   model: {
     //paper: this.$route.query.data
   },
@@ -294,14 +289,13 @@ export default {
 
       request.open(
         "GET",
-        "http://mdl-std02.info.fundp.ac.be:8181/MdlGroupe2-test/api/articles/with_id/" +
+        "http://mdl-std02.info.fundp.ac.be:8181/MdlGroupe2-test/api/literature_reviews/" +
           refThis.id,
         false
       );
 
       request.onload = function() {
         var data = JSON.parse(this.response);
-        console.log(data);
         if (request.status >= 200 && request.status < 400) {
           refThis.title = data.title;
           refThis.the_abstract = data.abstractArticle;

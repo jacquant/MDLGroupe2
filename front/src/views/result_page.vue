@@ -259,16 +259,16 @@ export default {
       var parametres = this.$route.query.data;
       var thedata;
 
+
       if (type == "quickSearch") {
         var request = new XMLHttpRequest();
         request.open(
           "GET",
-          "http://mdl-std02.info.fundp.ac.be:8181/MdlGroupe2-test/api/articles/with_id/1",
+          "http://mdl-std02.info.fundp.ac.be:8181/MdlGroupe2-test/api/literature_reviews/1",
           false
         );
         request.onload = function() {
           var data = JSON.parse(this.response);
-
           if (request.status >= 200 && request.status < 400) {
             thedata = [
               {
@@ -286,31 +286,11 @@ export default {
                 matriceref: "matriceref 1"
               }
             ];
-          } else if(type=="advancedSearch") {
-
-          } else {
-            console.log("ERREUR GET REQUEST: " + data);
           }
         };
         request.send();
-      } else {
-        var requestAdvancedSearch = new XMLHttpRequest();
-
-        request.open(
-          "GET",
-          "http://mdl-std02.info.fundp.ac.be:8181/MdlGroupe2-test/api/articles/with_id/1",
-          false
-        );
-        request.onload = function() {
-          var data = JSON.parse(this.response);
-
-          if (request.status >= 200 && request.status < 400) {
-            console.log(data);
-          } else {
-            console.log("ERREUR GET REQUEST: " + data);
-          }
-        };
-        request.send();
+      } else if(type=="advancedSearch") {
+        // API ADVANCED SEARCH
       }
       /*thedata = [
         {
