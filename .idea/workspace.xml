@@ -37,55 +37,22 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/search/SearchService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="918">
-              <caret line="71" column="44" lean-forward="true" selection-start-line="71" selection-start-column="44" selection-end-line="71" selection-end-column="44" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/models/article/Article.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="33">
-              <caret line="24" column="7" lean-forward="true" selection-start-line="24" selection-start-column="7" selection-end-line="24" selection-end-column="7" />
+            <state relative-caret-position="723">
+              <caret line="81" selection-start-line="81" selection-end-line="94" selection-end-column="39" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/models/author/Author.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="22" column="52" lean-forward="true" selection-start-line="22" selection-start-column="52" selection-end-line="22" selection-end-column="52" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/models/literatureReview/LiteratureReview.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="22" column="51" selection-start-line="22" selection-start-column="51" selection-end-line="22" selection-end-column="51" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/models/visitor/Visitor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="51" selection-start-line="8" selection-start-column="51" selection-end-line="8" selection-end-column="51" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/models/visualization/Visualization.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="17" column="52" lean-forward="true" selection-start-line="17" selection-start-column="52" selection-end-line="17" selection-end-column="52" />
+            <state relative-caret-position="30">
+              <caret line="2" column="55" selection-start-line="2" selection-start-column="55" selection-end-line="2" selection-end-column="55" />
             </state>
           </provider>
         </entry>
@@ -102,8 +69,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/repositories/ArticleRepository.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="35" column="53" selection-start-line="35" selection-start-column="53" selection-end-line="35" selection-end-column="53" />
+            <state>
+              <caret line="49" column="1" lean-forward="true" selection-start-line="49" selection-start-column="1" selection-end-line="49" selection-end-column="1" />
               <folding>
                 <element signature="e#0#48#1" expanded="true" />
                 <element signature="e#0#47#1" expanded="true" />
@@ -113,26 +80,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/api/article/ArticleController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="477">
-              <caret line="130" column="59" lean-forward="true" selection-start-line="130" selection-start-column="59" selection-end-line="130" selection-end-column="59" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/api/author/AuthorController.java">
+        <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/repositories/LiteratureReviewRepository.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="454">
-              <caret line="93" column="26" selection-start-line="93" selection-start-column="26" selection-end-line="93" selection-end-column="26" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="120">
+              <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -224,17 +176,17 @@
         <option value="$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/repositories/AuthorRepository.java" />
         <option value="$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/search/ArticleRank.java" />
         <option value="$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/search/SearchCrawler.java" />
-        <option value="$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/repositories/ArticleRepository.java" />
         <option value="$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/search/AdvancedSearchService.java" />
         <option value="$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/api/search/SearchController.java" />
         <option value="$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/search/SearchService.java" />
-        <option value="$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/models/article/Article.java" />
         <option value="$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/models/author/Author.java" />
-        <option value="$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/models/literatureReview/LiteratureReview.java" />
         <option value="$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/models/visitor/Visitor.java" />
         <option value="$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/models/visualization/Visualization.java" />
         <option value="$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/api/author/AuthorController.java" />
         <option value="$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/api/article/ArticleController.java" />
+        <option value="$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/repositories/ArticleRepository.java" />
+        <option value="$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/models/article/Article.java" />
+        <option value="$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/models/literatureReview/LiteratureReview.java" />
       </list>
     </option>
   </component>
@@ -452,6 +404,36 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="root" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+              <item name="article" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MDLGroupe2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Dev" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="root" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+              <item name="literatureReview" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MDLGroupe2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Dev" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="root" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+              <item name="visualization" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MDLGroupe2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Dev" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="root" type="462c0819:PsiDirectoryNode" />
               <item name="repositories" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -603,7 +585,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="155767000" />
+    <option name="totallyTimeSpent" value="158188000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1200" extended-state="0" />
@@ -619,7 +601,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32858709" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49947312" visible="true" weight="0.18672566" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49947312" weight="0.18672566" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -734,75 +716,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="uml://DATABASE/8b34ce09-a5bc-46ff-9578-ffc45eecdc44.TABLE:mdl.visualization">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>DATABASE</ID>
-          <OriginalElement>8b34ce09-a5bc-46ff-9578-ffc45eecdc44.TABLE:mdl.visualization</OriginalElement>
-          <nodes>
-            <node x="" y="">8b34ce09-a5bc-46ff-9578-ffc45eecdc44.TABLE:mdl.visualization</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="82.0" y="37.0" />
-          <SelectedNodes />
-          <Categories>
-            <Category>Key columns</Category>
-            <Category>Columns</Category>
-          </Categories>
-          <SCOPE>All</SCOPE>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/models/visualization/details/DataDimension.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/models/visualization/details/DataType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://DATABASE/8b34ce09-a5bc-46ff-9578-ffc45eecdc44.SCHEMA:mdl">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>DATABASE</ID>
-          <OriginalElement>8b34ce09-a5bc-46ff-9578-ffc45eecdc44.SCHEMA:mdl</OriginalElement>
-          <nodes>
-            <node x="619.0" y="0.0">8b34ce09-a5bc-46ff-9578-ffc45eecdc44.TABLE:mdl.authors</node>
-            <node x="883.0" y="0.0">8b34ce09-a5bc-46ff-9578-ffc45eecdc44.TABLE:mdl.files</node>
-            <node x="253.0" y="926.0">8b34ce09-a5bc-46ff-9578-ffc45eecdc44.TABLE:mdl.article_ref</node>
-            <node x="341.0" y="0.0">8b34ce09-a5bc-46ff-9578-ffc45eecdc44.TABLE:mdl.users</node>
-            <node x="538.0" y="785.0">8b34ce09-a5bc-46ff-9578-ffc45eecdc44.TABLE:mdl.data_type</node>
-            <node x="0.0" y="785.0">8b34ce09-a5bc-46ff-9578-ffc45eecdc44.TABLE:mdl.data_dimension</node>
-            <node x="461.0" y="926.0">8b34ce09-a5bc-46ff-9578-ffc45eecdc44.TABLE:mdl.visualization</node>
-            <node x="791.0" y="785.0">8b34ce09-a5bc-46ff-9578-ffc45eecdc44.TABLE:mdl.map_type</node>
-            <node x="277.0" y="785.0">8b34ce09-a5bc-46ff-9578-ffc45eecdc44.TABLE:mdl.vis_technique</node>
-            <node x="871.0" y="926.0">8b34ce09-a5bc-46ff-9578-ffc45eecdc44.TABLE:mdl.visitor</node>
-            <node x="0.0" y="0.0">8b34ce09-a5bc-46ff-9578-ffc45eecdc44.TABLE:mdl.article</node>
-            <node x="669.0" y="926.0">8b34ce09-a5bc-46ff-9578-ffc45eecdc44.TABLE:mdl.hibernate_sequence</node>
-            <node x="0.0" y="926.0">8b34ce09-a5bc-46ff-9578-ffc45eecdc44.TABLE:mdl.vis_attributes</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="0.7226487523992322" x="221.0" y="322.0" />
-          <SelectedNodes>
-            <node>8b34ce09-a5bc-46ff-9578-ffc45eecdc44.TABLE:mdl.vis_technique</node>
-          </SelectedNodes>
-          <Categories>
-            <Category>Key columns</Category>
-            <Category>Columns</Category>
-          </Categories>
-          <SCOPE>All</SCOPE>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/models/dbfile/DBFile.java" />
     <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/models/response/OperationResponse.java" />
     <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/models/response/PageResponse.java" />
     <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/models/response/SingleDataSeriseResponse.java" />
@@ -848,13 +761,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/repositories/VisitorRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/repositories/LiteratureReviewRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
@@ -971,18 +877,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/repositories/AuthorRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="31" column="36" selection-start-line="31" selection-start-column="36" selection-end-line="31" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#47#1" expanded="true" />
-            <element signature="e#0#49#1" expanded="true" />
-            <element signature="e#0#60#1" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/api/search/SearchController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="570">
@@ -1011,50 +905,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/models/literatureReview/LiteratureReview.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="22" column="51" selection-start-line="22" selection-start-column="51" selection-end-line="22" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/models/visitor/Visitor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="51" selection-start-line="8" selection-start-column="51" selection-end-line="8" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/models/visualization/Visualization.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="17" column="52" lean-forward="true" selection-start-line="17" selection-start-column="52" selection-end-line="17" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/models/VersionModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/models/article/Article.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="33">
-          <caret line="24" column="7" lean-forward="true" selection-start-line="24" selection-start-column="7" selection-end-line="24" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/repositories/ArticleRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="35" column="53" selection-start-line="35" selection-start-column="53" selection-end-line="35" selection-end-column="53" />
-          <folding>
-            <element signature="e#0#48#1" expanded="true" />
-            <element signature="e#0#47#1" expanded="true" />
-            <element signature="e#0#45#1" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1070,11 +924,108 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/api/article/ArticleController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="477">
-          <caret line="130" column="59" lean-forward="true" selection-start-line="130" selection-start-column="59" selection-end-line="130" selection-end-column="59" />
+        <state relative-caret-position="39">
+          <caret line="42" column="7" lean-forward="true" selection-start-line="42" selection-start-column="7" selection-end-line="42" selection-end-column="7" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/repositories/AuthorRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="31" column="36" selection-start-line="31" selection-start-column="36" selection-end-line="31" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#47#1" expanded="true" />
+            <element signature="e#0#49#1" expanded="true" />
+            <element signature="e#0#60#1" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/repositories/LiteratureReviewRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/repositories/ArticleRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="49" column="1" lean-forward="true" selection-start-line="49" selection-start-column="1" selection-end-line="49" selection-end-column="1" />
+          <folding>
+            <element signature="e#0#48#1" expanded="true" />
+            <element signature="e#0#47#1" expanded="true" />
+            <element signature="e#0#45#1" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/models/VersionModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/models/visualization/details/DataType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="22" column="27" lean-forward="true" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/models/visualization/details/MapType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="22" column="26" lean-forward="true" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/models/visualization/details/VisAttributes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="22" column="31" lean-forward="true" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/models/visualization/details/VisTechnique.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="22" column="31" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/models/visualization/details/DataDimension.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/models/visualization/Visualization.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="17" column="52" lean-forward="true" selection-start-line="17" selection-start-column="52" selection-end-line="17" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/models/article/Article.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="723">
+          <caret line="81" selection-start-line="81" selection-end-line="94" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/models/literatureReview/LiteratureReview.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="55" selection-start-line="2" selection-start-column="55" selection-end-line="2" selection-end-column="55" />
         </state>
       </provider>
     </entry>

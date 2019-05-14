@@ -1,7 +1,6 @@
 package be.unamur.mdl_groupe2.root.models.article;
 
 import be.unamur.mdl_groupe2.root.models.author.Author;
-import be.unamur.mdl_groupe2.root.models.visualization.Visualization;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -80,8 +79,20 @@ public class Article implements Comparable<Article> {
 
     private Long pagerankscore;
 
-    @OneToMany(mappedBy = "article", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Set<Visualization> visualizations;
+    @Column(length = 65536)
+    private String[] visu_datadimension;
+
+    @Column(length = 65536)
+    private String[] visu_StringdataType;
+
+    @Column(length = 65536)
+    private String[] visu_mapType;
+
+    @Column(length = 65536)
+    private String[] visu_visAttribute;
+
+    @Column(length = 65536)
+    private String[] visu_visTechnique;
 
     @Override
     public int compareTo(Article o) {
