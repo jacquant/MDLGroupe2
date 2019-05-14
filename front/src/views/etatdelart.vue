@@ -287,7 +287,8 @@ export default {
 
       request.onload = function() {
         var data = JSON.parse(this.response);
-        if (request.status >= 200 && request.status < 400) {
+        console.log(data);
+        /*if (request.status >= 200 && request.status < 400) {
           refThis.title = data.title;
           refThis.the_abstract = data.abstractArticle;
           refThis.author = data.countries;
@@ -304,15 +305,13 @@ export default {
           refThis.bibliographyArticle=data.bibliographyArticle;
           refThis.ref=data.ref;
 
-          console.log("map "+refThis.visu_mapType);
-          console.log("biblio etat de lart "+refThis.bibliographyLiteratureReview);
-
           refThis.defaultWords.forEach(function(element, index) {
             refThis.defaultWords[index] = {
               name: element,
               value: Math.floor(Math.random() * 30) + 1
             };
           });
+          console.log(refThis.defaultWords);
           refThis.defaultWordsPieChart.forEach(function(element, index) {
             refThis.defaultWordsPieChart[index] = {
               value: 1,
@@ -320,13 +319,13 @@ export default {
             };
           });
 
-          /*refThis.info = null;
+          refThis.info = null;
           refThis.videoUrl = data.videoUrl;
           refThis.publisher = data.publisher;
           refThis.ref = data.ref;
           refThis.pagerankscore = data.pagerankscore;
-          refThis.matriceref = null;*/
-        }
+          refThis.matriceref = null;
+        }*/
       };
       request.send();
     },

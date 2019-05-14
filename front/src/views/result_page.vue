@@ -177,18 +177,8 @@
 </template>
 
 <script>
-const axios = require("axios");
-var id,
-  title,
-  author,
-  abstract,
-  keywords,
-  info,
-  videoUrl,
-  publisher,
-  ref,
-  pagerankscore,
-  matriceref;
+
+var id;
 
 export default {
   data: () => ({
@@ -341,7 +331,7 @@ export default {
         };
         request.send();
       } else if (type == "advancedSearch") {
-        var request = new XMLHttpRequest();
+        /*var request2 = new XMLHttpRequest();
         request.open(
           "GET",
                 "http://mdl-std02.info.fundp.ac.be:8181/MdlGroupe2-test/api/QuickSearch?params=" + parametres,
@@ -392,7 +382,7 @@ export default {
             }
           }
         };
-        request.send();
+        request.send();*/
       }
 
       return theRef.items;

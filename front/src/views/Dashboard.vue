@@ -84,7 +84,6 @@ export default {
       var refThis = this;
       var inputedText = refThis.searchedInput;
 
-
       setTimeout(() => {
         refThis.$router.push({
           path: "/result_page",
@@ -104,7 +103,7 @@ export default {
       }, 1000);
     },
     graphe3() {
-      this.loading=true;
+      this.loading = true;
       setTimeout(() => {
         this.$router.push("../graphe3");
       }, 1000);
@@ -127,26 +126,36 @@ export default {
       var refThis = this;
       var inputedText = refThis.searchedInput;
       var apiResponse = "";
-      axios
-        .get("http://localhost:8181/api/Synonyme?keyword=" + inputedText)
-        .then(response => {
-          if (response.request.status >= 200 && response.request.status < 400) {
-            apiResponse = response.data;
-            apiResponse.forEach(function(element, index) {
-              apiResponse[index] = {
-                name: element,
-                value: Math.floor(Math.random() * 30) + 1
-              };
-            });
-            refThis.defaultWords = apiResponse;
-            if (refThis.defaultWords.length > 0) {
-              refThis.logoHeight = 150;
-              document.getElementById("app").style.display = "block";
-            } else {
-              document.getElementById("app").style.display = "none";
-            }
+      var request = new XMLHttpRequest();
+
+      request.open(
+        "GET",
+        "http://localhost:8181/api/Synonym?keyword=" + inputedText,
+        false
+      );
+
+      request.onload = function() {
+        var data = JSON.parse(this.response);
+        console.log(data);
+        if (request.status >= 200 && request.status < 400) {
+          refThis.defaultWords=data.synonyms;
+          refThis.defaultWords.forEach(function(element, index) {
+            refThis.defaultWords[index] = {
+              name: element,
+              value: Math.floor(Math.random() * 30) + 1
+            };
+          });
+          refThis.defaultWords = apiResponse;
+          console.log(refThis.defaultWords);
+          if (refThis.defaultWords.length > 0) {
+            refThis.logoHeight = 150;
+            document.getElementById("app").style.display = "block";
+          } else {
+            document.getElementById("app").style.display = "none";
           }
-        });
+        }
+      };
+      request.send();
     }
   }
 };
