@@ -86,6 +86,16 @@ export default [
             )
   },
   {
+    path: "/addstateofart",
+    meta: { breadcrumb: true },
+    name: "addstateofart",
+    component: () =>
+        import(
+            /* webpackChunkName: "routes" */
+            `@/views/addstateofart.vue`
+            )
+  },
+  {
     path: "/etatdelart",
     meta: { breadcrumb: true },
     name: "etatdelart",
