@@ -3,11 +3,8 @@ package be.unamur.mdl_groupe2.root.api.article;
 
 import be.unamur.mdl_groupe2.root.models.article.Article;
 import be.unamur.mdl_groupe2.root.repositories.ArticleRepository;
-import org.jetbrains.annotations.Contract;
-import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -136,7 +133,7 @@ public class ArticleController {
      * @return the article
      */
     @PutMapping("/articles/{article_id}")
-    public Article update(@PathVariable("article_id") Long articleID, @NotNull @RequestBody Article articleObject) {
+    public Article update(@PathVariable("article_id") Long articleID,@RequestBody Article articleObject) {
         Article article = articleRepository.getOne(articleID);
         article.setAuthor(articleObject.getAuthor());
         article.setTitle(articleObject.getTitle());
@@ -165,7 +162,7 @@ public class ArticleController {
      * @return the article
      */
     @PutMapping("/article/metrics/{article_id}")
-    public Article SetMetrics(@PathVariable("article_id") Long articleID, @NotNull @RequestBody Article articleObject) {
+    public Article SetMetrics(@PathVariable("article_id") Long articleID, @RequestBody Article articleObject) {
         Article article = articleRepository.getOne(articleID);
         article.setMetric(articleObject.getMetric());
         return articleRepository.save(article);

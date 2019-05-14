@@ -5,10 +5,7 @@ import be.unamur.mdl_groupe2.root.models.article.Article;
 import be.unamur.mdl_groupe2.root.models.author.Author;
 import be.unamur.mdl_groupe2.root.repositories.ArticleRepository;
 import be.unamur.mdl_groupe2.root.repositories.AuthorRepository;
-import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
 import java.util.*;
 
 import static java.util.Collections.emptyList;
@@ -38,7 +35,7 @@ public class AdvancedSearchService {
      * @param list a list of article to sort
      * @return a sorted list based on the pagerank of each article
      */
-    public List<Article> SortResult(@NotNull List<Article> list) throws EmptyResultListException {
+    public List<Article> SortResult(List<Article> list) throws EmptyResultListException {
         if (list.isEmpty()) {
             throw new EmptyResultListException("No Result");
         } else {
