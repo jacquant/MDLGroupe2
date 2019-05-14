@@ -14,6 +14,8 @@ import java.awt.*;
 import java.util.*;
 import java.util.List;
 
+import static java.util.Collections.emptyList;
+
 @Component
 public class SearchService {
 
@@ -30,7 +32,11 @@ public class SearchService {
     public List<Article> Search(String params) {
         List<Long> result;
         result = FindResult(params);
-        return articleRepository.findAllById(result);
+        try {
+            return SortResult(articleRepository.findAllById(result));
+        } catch (EmptyResultListException e) {
+            return Collections.emptyList();
+        }
     }
 
 
@@ -38,7 +44,7 @@ public class SearchService {
      * @param list a list of article to sort
      * @return a sorted list based on the pagerank of each article
      */
-    List<Long> SortResult(@NotNull List<Long> list) throws EmptyResultListException {
+    private List<Article> SortResult(@NotNull List<Article> list) throws EmptyResultListException {
         if (list.isEmpty()) {
             throw new EmptyResultListException("No Result");
         } else {
@@ -53,29 +59,31 @@ public class SearchService {
      */
     private List<Long> FindResult(@NotNull String params) {
         List<Long> searchId = new ArrayList<>(Arrays.asList());
-        String[] split = params.split(" ");
+        if (params.isEmpty()) return emptyList();
+        else {
+            String[] split = params.split(" ");
 
-        for (int i = 0; i < split.length; i++) {
-            System.out.println("Au moins un élément");
-            for (Author author : (safeAuthor(authorRepository.findAuthorsBySurnameContains(split[i])))) {
-                for (Article article : safeArticle(articleRepository.findArticlesByAuthor(author))) {
+            for (int i = 0; i < split.length; i++) {
+                for (Author author : (safeAuthor(authorRepository.findAuthorsBySurnameContains(split[i])))) {
+                    for (Article article : safeArticle(articleRepository.findArticlesByAuthor(author))) {
+                        searchId.add(article.getId());
+                    }
+                }
+                for (Author author : safeAuthor(authorRepository.findAuthorsByFirstNameContains(split[i]))) {
+                    for (Article article : safeArticle(articleRepository.findArticlesByAuthor(author))) {
+                        searchId.add(article.getId());
+                    }
+                }
+    /*            for (Article article : safeArticle(articleRepository.findArticlesByTagContains(split[i].split("")))) {
+                    searchId.add(article.getId());
+                }*/
+                for (Article article : safeArticle(articleRepository.findArticlesByTitleContains(split[i]))) {
                     searchId.add(article.getId());
                 }
             }
-            for (Author author : safeAuthor(authorRepository.findAuthorsByFirstNameContains(split[i]))) {
-                for (Article article : safeArticle(articleRepository.findArticlesByAuthor(author))) {
-                    searchId.add(article.getId());
-                }
-            }
-/*            for (Article article : safeArticle(articleRepository.findArticlesByTagContains(split[i].split("")))) {
-                searchId.add(article.getId());
-            }*/
-            for (Article article : safeArticle(articleRepository.findArticlesByTitleContains(split[i]))) {
-                searchId.add(article.getId());
-            }
+            return new ArrayList<>(
+                    new HashSet<>(searchId));
         }
-        return new ArrayList<>(
-                new HashSet<>(searchId));
     }
     private static List<Long> safeId( List<Long> other ) {
         return other == null ? Collections.emptyList() : other;

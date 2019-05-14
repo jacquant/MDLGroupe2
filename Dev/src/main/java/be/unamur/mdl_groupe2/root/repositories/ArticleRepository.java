@@ -17,22 +17,20 @@ public interface ArticleRepository extends JpaRepository<Article, Long> {
     // List<Article> findArticlesByTagContains(String[] tags);
     List<Article> findArticlesByTitleContains(String title);
     List<Article> findArticlesByTitleLike(String title);
+    List<Article> findArticleByDomainIn(String string);
     /**
      * Find article write by list.
      *
-     * @param id the id
+     * @param author
      * @return the list
      */
-//TODO protect against SQL injection
-    @Query(value = "SELECT u FROM Article u WHERE u.author LIKE %?1%")
-    List<Article> findArticleWriteBy(Long id);
-
     List<Article> findArticlesByAuthor(Author author);
+
 
     /**
      * Find article with title list.
      *
-     * @param title the title
+     * @param title
      * @return the list
      */
 //TODO protect against SQL injection
@@ -50,5 +48,6 @@ public interface ArticleRepository extends JpaRepository<Article, Long> {
     //TODO Tag est stocké comme un tableau de string en BD
     @Query(value = "SELECT u FROM Article u WHERE u.tag LIKE %?1%")
     List<Article> findArticleWithTag(String tag);
+
 
 }

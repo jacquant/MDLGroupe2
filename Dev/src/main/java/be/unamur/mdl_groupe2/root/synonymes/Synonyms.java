@@ -1,5 +1,6 @@
 package be.unamur.mdl_groupe2.root.synonymes;
 
+import org.springframework.util.ResourceUtils;
 import rita.RiWordNet;
 
 import java.io.File;
@@ -28,7 +29,7 @@ public class Synonyms {
         List<String> textArray = Synonyms.StringToStringArray(text);
         String[] synonymsTab;
 
-        RiWordNet rw = new RiWordNet("WordNet-3.0/");
+        RiWordNet rw = new RiWordNet(ResourceUtils.getFile("classpath:synonyms/WordNet-3.0").getAbsolutePath());
         rw.randomizeResults(false);
 
         for (String s : textArray) {
@@ -45,10 +46,9 @@ public class Synonyms {
         return textArray;
     }
 
-    public static String removeStopWords(String text) throws FileNotFoundException {
-
+    private static String removeStopWords(String text) throws FileNotFoundException {
         List<String> ls = new ArrayList<>();
-        File file = new File("stopWords.txt");
+        File file = ResourceUtils.getFile("classpath:synonyms/stopWords.txt");
         Scanner input = new Scanner(file);
 
         while (input.hasNext()) {

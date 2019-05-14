@@ -46,16 +46,6 @@ public class ArticleController {
         return articleRepository.findAll();
     }
 
-    /**
-     * Find article write by list.
-     *
-     * @param author the author
-     * @return the list
-     */
-    @GetMapping("/articles/with_author/{author}")
-    public List<Article> findArticleWriteBy(@PathVariable("author") Long author) {
-        return this.articleRepository.findArticleWriteBy(author);
-    }
 
     /**
      * Find article with title list.
