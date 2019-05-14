@@ -2,9 +2,12 @@ package be.unamur.mdl_groupe2.root.api.synonym;
 
 
 import be.unamur.mdl_groupe2.root.synonymes.Synonyms;
+import org.infinispan.commons.hash.Hash;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -22,7 +25,10 @@ public class SynonymController {
      * @throws FileNotFoundException the file not found exception
      */
     @GetMapping("Synonym")
-    public List<String> synonyms(@RequestParam(value="keyword")String request) throws FileNotFoundException {
-        return Synonyms.getSynonyms(request);
+    public HashMap<String, List<String>> synonyms(@RequestParam(value="keyword")String request) throws FileNotFoundException {
+        List<String> tab = Synonyms.getSynonyms(request);
+        HashMap<String, List<String>> hashMap = new HashMap<>();
+        hashMap.put("synonym", tab);
+        return hashMap;
     }
 }

@@ -172,25 +172,13 @@
             <artifactId>rita</artifactId>
             <version>1.3.94</version>
             <scope>system</scope>
-            <systemPath>${basedir}/repo/com/rita/rita/1.3.94/rita-1.3.94.jar</systemPath>
+            <systemPath>${basedir}/src/main/resources/rita.jar</systemPath>
         </dependency>
         <!-- pagerank -->
         <dependency>
             <groupId>org.jgrapht</groupId>
             <artifactId>jgrapht-core</artifactId>
             <version>1.3.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.jetbrains</groupId>
-            <artifactId>annotations</artifactId>
-            <version>RELEASE</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.jetbrains</groupId>
-            <artifactId>annotations</artifactId>
-            <version>13.0</version>
-            <scope>compile</scope>
         </dependency>
     </dependencies>
 
