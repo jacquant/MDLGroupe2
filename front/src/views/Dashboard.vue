@@ -23,6 +23,7 @@
     <div class="text-xs-center">
       <v-btn class="titre" @click="advancedSearch">Advanced Search</v-btn>
       <v-btn class="titre" @click="validateResearch">Validate Search</v-btn>
+      <v-btn class="titre" @click="addArt">Add State Of Art</v-btn>
 
       <!--v-btn class="titre" @click="searchHistory"
       >Search History</v-btn
@@ -80,36 +81,16 @@ export default {
   name: "app",
   methods: {
     validateResearch: function(e) {
-      var inputedText = this.searchedInput; // la variable inputedText contient la phrase entrée dans la barre de recherche
-      setTimeout(() => {
-        this.$router.push({
-          path: "/result_page",
-          query: { data: inputedText }
-          //query: {...},
-          //moreData: {foo: 1}
-        });
-      }, 0.00001);
-      this.log += e.key;
-    },
-    getResults: function(e) {
       var refThis = this;
       var inputedText = refThis.searchedInput;
-      var apiResponse = "";
-      var request = new XMLHttpRequest();
-      request.open(
-        "GET",
-        "http://localhost:8181/api/QuickSearchJson?keyword=" + inputedText,
-        false
-      );
-      request.onload = function() {
-        if (request.status >= 200 && request.status > 400) {
-          apiResponse = JSON.parse(request.responseText);
-        }
-      };
-      request.send();
-      apiResponse.foreach(function(element, index) {
-        apiResponse[index] = {};
-      });
+
+
+      setTimeout(() => {
+        refThis.$router.push({
+          path: "/result_page",
+          query: { data: inputedText, type: "quickSearch" }
+        });
+      }, 0.00001);
     },
 
     wordClickHandler(name, value, vm) {
@@ -120,6 +101,12 @@ export default {
       this.loading = true;
       setTimeout(() => {
         this.$router.push("../AdvancedSearch");
+      }, 1000);
+    },
+    addArt() {
+      this.loading = true;
+      setTimeout(() => {
+        this.$router.push("../addstateofart");
       }, 1000);
     },
 

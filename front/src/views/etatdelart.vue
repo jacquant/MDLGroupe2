@@ -5,7 +5,7 @@
         <v-spacer></v-spacer>
         <v-btn color @click="classicView" class="titre">Classic</v-btn>
         <v-btn color @click="visualView" class="titre">Visual</v-btn>
-        <v-btn color @click="matriceView" class="titre">Matrice</v-btn>
+        <v-btn color @click="matriceView" class="titre">Matrix</v-btn>
       </v-card-actions>
 
       <div id="classicView">
@@ -16,17 +16,17 @@
                 <h2 style="vertical-align: top;" class="titre">State of art</h2>
 
                 <h3>
-                  <b>Title: {{ getTitle() }}</b>
+                  <b>Title: {{ title }}</b>
                 </h3>
                 <h5>
-                  <i> {{ getInfo() }}</i>
+                  <i> {{ info }}</i>
                 </h5>
-                <h4><b>Keywords:</b> {{ getKeywords() }}</h4>
+                <h4><b>Keywords:</b> {{ keywords }}</h4>
                 <br />
                 <h3>
                   Abstract &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   <a href class>PDF</a>
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Nb References: (8881)
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Nb References: {{ nbReferences }}
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   <a href target="_blank" class>
                     <img src="../assets/favoris.png" width="3%" />
@@ -44,7 +44,7 @@
                     textarea
                     rows="10"
                     cols="25"
-                    v-model="abstract"
+                    v-model="the_abstract"
                   ></v-text-field>
                 </div>
               </div>
@@ -102,7 +102,7 @@
                 <div slot="widget-content">
                   <e-chart
                     :path-option="[
-                      ['dataset.source', pieChartData],
+                      ['dataset.source', defaultWordsPieChart],
                       ['legend.bottom', '0'],
                       [
                         'color',
@@ -129,7 +129,7 @@
             </v-flex>
 
             <v-flex width="50%">
-              <v-widget title="Words appearing the most" content-bg="white">
+              <v-widget title="Tags" content-bg="white">
                 <div id="app" slot="widget-content">
                   <wordcloud
                     :data="defaultWords"
@@ -141,7 +141,6 @@
                     :fontSize="[50, 60]"
                     :showTooltip="true"
                     :margin="{ top: 15, right: 5, bottom: 15, left: 5 }"
-                    :wordClick="wordClickHandler"
                   >
                   </wordcloud>
                 </div>
@@ -157,26 +156,28 @@
         <v-container grid-list-xl fluid>
           <h2 class="titre">Reference's matrix</h2>
           <h3>
-            <b><u>Title:</u> {{ getTitle() }}</b>
+            <b><u>Title:</u> {{ title }}</b>
           </h3>
           <h5>
-            <i> {{ getInfo() }}</i>
+            <i> {{ info }}</i>
           </h5>
-          <h4><b>Keywords:</b> {{ getKeywords() }}</h4>
+          <h4><b>Keywords:</b> {{ keywords }}</h4>
 
           <div id="table_matrice">
             <br />
             <table cellpadding="5px" border="1" style="font-size:24px;">
               <tr style="background-color:lightgrey;">
                 <th>References</th>
-                <th>Criteria 1</th>
-                <th>Criteria 2</th>
-                <th>Criteria 3</th>
+                <th>DataDimension</th>
+                <th>DataType</th>
+                <th>VisAttributes</th>
+                <th>VisTechniques</th>
               </tr>
               <tr>
-                <td>ref 1</td>
+                <td>ref</td>
                 <td>v</td>
                 <td>v</td>
+                <td>x</td>
                 <td>x</td>
               </tr>
               <tr>
@@ -184,23 +185,16 @@
                 <td>v</td>
                 <td>v</td>
                 <td>v</td>
+                <td>x</td>
               </tr>
               <tr>
                 <td>ref 3</td>
                 <td>v</td>
                 <td>v</td>
                 <td>x</td>
+                <td>x</td>
               </tr>
             </table>
-
-            <!--template>
-                        <v-data-table
-                                :headers="headers"
-                                :items="results"
-                                :items-per-page="5"
-                                class="elevation-1"
-                        ></v-data-table>
-            </template-->
           </div>
         </v-container>
       </div>
@@ -214,17 +208,8 @@ import EChart from "@/components/chart/echart";
 import VWidget from "@/components/VWidget";
 import Material from "vuetify/es5/util/colors";
 import wordcloud from "vue-wordcloud";
-var id,
-  title,
-  author,
-  the_abstract,
-  keywords,
-  info,
-  videoUrl,
-  publisher,
-  ref,
-  pagerankscore,
-  matriceref;
+
+
 export default {
   components: {
     VWidget,
@@ -240,14 +225,17 @@ export default {
       ],
       color: Material,
       selectedTab: "tab-1",
-      defaultWords: [
-        { name: "car", value: Math.floor(Math.random() * 30) + 1 },
-        { name: "computer", value: Math.floor(Math.random() * 30) + 1 },
-        { name: "data", value: Math.floor(Math.random() * 30) + 1 },
-        { name: "vizualisation", value: Math.floor(Math.random() * 30) + 1 },
-        { name: "engineering", value: Math.floor(Math.random() * 30) + 1 },
-        { name: "IT", value: Math.floor(Math.random() * 30) + 1 }
-      ]
+      defaultWords: [],
+      defaultWordsPieChart: [],
+      id: "",
+      title: "",
+      nbReferences: "",
+      the_abstract: "",
+      domains: "",
+      keywords: "",
+      visualizations:"",
+      ref:[],
+
       /*headers: [
           {
             text: 'References',
@@ -285,41 +273,61 @@ export default {
         ]*/
     };
   },
-  computed: {
-    pieChartData() {
-      return API.getData;
-    }
+  created() {
+    this.setData();
   },
   model: {
     //paper: this.$route.query.data
   },
   methods: {
-    getTitle() {
-      this.abstract = this.$route.query.abstract;
-      id = this.$route.query.id;
-      title = this.$route.query.title;
-      author = this.$route.query.author;
-      the_abstract = this.abstract;
-      keywords = this.$route.query.keywords;
-      info = this.$route.query.info;
-      videoUrl = this.$route.query.videoUrl;
-      publisher = this.$route.query.publisher;
-      ref = this.$route.query.ref;
-      pagerankscore = this.$route.query.pagerankscore;
-      matriceref = this.$route.query.matriceref;
-      return this.$route.query.title;
-    },
-    getAuthor() {
-      return this.$route.query.author;
-    },
-    getInfo() {
-      return this.$route.query.info;
-    },
-    getPublish() {
-      return this.$route.query.id;
-    },
-    getKeywords() {
-      return this.$route.query.keywords;
+    setData() {
+      var refThis = this;
+      refThis.id = this.$route.query.id;
+      var request = new XMLHttpRequest();
+
+      request.open(
+        "GET",
+        "http://mdl-std02.info.fundp.ac.be:8181/MdlGroupe2-test/api/literature_reviews/" +
+          refThis.id,
+        false
+      );
+
+      request.onload = function() {
+        var data = JSON.parse(this.response);
+        if (request.status >= 200 && request.status < 400) {
+          refThis.title = data.title;
+          refThis.the_abstract = data.abstractArticle;
+          refThis.author = data.countries;
+          refThis.nbReferences = data.metric;
+          refThis.defaultWords = data.tag;
+          refThis.defaultWordsPieChart = data.domain;
+          refThis.keywords = data.tag.toString();
+          refThis.domains = data.domain.toString();
+          refThis.visualizations=data.visualizations;
+          refThis.ref=data.ref;
+
+          refThis.defaultWords.forEach(function(element, index) {
+            refThis.defaultWords[index] = {
+              name: element,
+              value: Math.floor(Math.random() * 30) + 1
+            };
+          });
+          refThis.defaultWordsPieChart.forEach(function(element, index) {
+            refThis.defaultWordsPieChart[index] = {
+              value: Math.floor(Math.random() * 30) + 1,
+              name: element
+            };
+          });
+
+          /*refThis.info = null;
+          refThis.videoUrl = data.videoUrl;
+          refThis.publisher = data.publisher;
+          refThis.ref = data.ref;
+          refThis.pagerankscore = data.pagerankscore;
+          refThis.matriceref = null;*/
+        }
+      };
+      request.send();
     },
     visualView() {
       document.getElementById("visualView").style.display = "block";
