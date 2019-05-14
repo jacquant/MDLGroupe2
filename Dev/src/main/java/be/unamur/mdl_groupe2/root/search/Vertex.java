@@ -1,8 +1,8 @@
 package be.unamur.mdl_groupe2.root.search;
 
 class Vertex {
-    String label;
-    Long score;
+    private String label;
+    private Long score;
 
     Vertex(String label, Long score) {
         this.label = label;

@@ -12,6 +12,7 @@ The ACM Website doesn't allow automated access and the other have not been teste
 The PageRank algorithm is explained on this website : <https://www.cs.princeton.edu/~chazelle/courses/BIB/pagerank.htm>
 
 ## Search Service
+
 ### Simple Search Service
 The keywords provided by the user are tested in each table of the database until a match is found. The result is sorted with the article's pagerank.
 ### Advanced Search Service

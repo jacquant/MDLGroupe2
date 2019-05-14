@@ -1,6 +1,5 @@
 package be.unamur.mdl_groupe2.root.config;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -9,16 +8,15 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.web.access.channel.ChannelProcessingFilter;
 
-import be.unamur.mdl_groupe2.root.identity.TokenUtil;
 
-
+/**
+ * The type Security config.
+ */
 @Configuration
 @EnableWebSecurity
 @Order(1)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Autowired
-    private TokenUtil tokenUtil;
 
     @Override
     public void configure(WebSecurity web) throws Exception {
@@ -38,23 +36,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 // Add CORS Filter
                 .addFilterBefore(new CorsFilter(), ChannelProcessingFilter.class)
-                // Custom Token based authentication based on the header previously given to the client
-                //.addFilterBefore(new VerifyTokenFilter(tokenUtil), UsernamePasswordAuthenticationFilter.class)
-                // custom JSON based authentication by POST of {"username":"<name>","password":"<password>"} which sets the token header upon authentication
-                //.addFilterBefore(new GenerateTokenForUserFilter("/session", authenticationManager(), tokenUtil), UsernamePasswordAuthenticationFilter.class)
                 .authorizeRequests()
                 .anyRequest().permitAll()
         ;
     }
 
-    /*
-    * If You want to store encoded password in your databases and authenticate user
-    * based on encoded password then uncomment the below method and provide an encoder
-    @Autowired
-    private UserDetailsService userDetailsService;
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder());
-    }
-    */
 }

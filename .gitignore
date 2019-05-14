@@ -1,4 +1,6 @@
 *.tmp
 .idea
 .vscode
+
 front/src/views/data.json
+
