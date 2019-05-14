@@ -7,11 +7,14 @@ import be.unamur.mdl_groupe2.root.repositories.ArticleRepository;
 import be.unamur.mdl_groupe2.root.repositories.AuthorRepository;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
+import be.unamur.mdl_groupe2.root.synonymes.Synonyms;
+import org.springframework.stereotype.Component;
 
 import java.awt.*;
 import java.util.*;
 import java.util.List;
 
+@Component
 public class SearchService {
 
     private final ArticleRepository articleRepository;
@@ -24,15 +27,10 @@ public class SearchService {
     }
 
 
-    public List<Long> Search(String params) {
+    public List<Article> Search(String params) {
         List<Long> result;
-        try {
-            result = SortResult(FindResult(params));
-        } catch (EmptyResultListException e) {
-            e.printStackTrace();
-        }
         result = FindResult(params);
-        return result;
+        return articleRepository.findAllById(result);
     }
 
 

@@ -45,7 +45,7 @@ public class Synonyms {
         return textArray;
     }
 
-    private static String removeStopWords(String text) throws FileNotFoundException {
+    public static String removeStopWords(String text) throws FileNotFoundException {
 
         List<String> ls = new ArrayList<>();
         File file = new File("stopWords.txt");
