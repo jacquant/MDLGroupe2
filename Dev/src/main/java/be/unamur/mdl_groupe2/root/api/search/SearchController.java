@@ -6,6 +6,7 @@ import java.util.Map;
 import be.unamur.mdl_groupe2.root.models.article.Article;
 import be.unamur.mdl_groupe2.root.repositories.ArticleRepository;
 import be.unamur.mdl_groupe2.root.repositories.AuthorRepository;
+import be.unamur.mdl_groupe2.root.search.AdvancedSearchService;
 import be.unamur.mdl_groupe2.root.search.SearchService;
 import com.google.gson.Gson;
 
@@ -46,40 +47,15 @@ public class SearchController {
     }
 
     /**
-     * Search controller json json array.
-     *
-     * @param params the params
-     * @return the json array
-     */
-    @GetMapping("/QuickSearchJson")
-    public JSONArray searchControllerJson(@RequestParam String params) {
-        return new JSONArray(new Gson().toJson(searchController(params)));
-    }
-
-
-    /**
      * Advanced search controller list.
      *
      * @param params the params
      * @return the list
      */
-/*
+
     @GetMapping("/AdvancedSearch")
-    public List<Long> AdvancedSearchController(@RequestParam Map<String, String> params) {
+    public List<Article> AdvancedSearchController(@RequestParam Map<String, String> params) {
         return new AdvancedSearchService(articleRepository, authorRepository).AdvancedSearch(params);
     }
-*/
-/*
-    *//**
-     * Advanced search controller json json array.
-     *
-     * @param params the params
-     * @return the json array
-     *//*
-    @GetMapping("/AdvancedSearchJson")
-    public JSONArray AdvancedSearchControllerJson(@RequestParam Map<String, String> params) {
-
-        return new JSONArray(new Gson().toJson(AdvancedSearchController(params)));
-    }*/
 
 }
