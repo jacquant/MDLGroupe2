@@ -213,7 +213,7 @@
                  else {
                      articlefield2=this.articlefield2.split(" ");
                  }
-                  //alert("article field2 "+articlefield2.length);
+                  
             }
 
                 //console.log("tableau:"+ authorfield1,authorfield2);
@@ -242,36 +242,10 @@
                     map.set("article", articlefield2[i]);
                 }
 
-   /*
-                axios.get(
-                    "http://mdl-std02.info.fundp.ac.be:8181/MdlGroupe2-test/api/AdvancedSearch?params=",
-                    {
-                        params: {
-                            params: map
-                        }
-                    })
-                    .then(function(response){
-                        console.log(response);
-                        setTimeout(() => {
-                            this.$router.push({
-                                path:"/result_page",
-                                query:{
-                                    data: response
-                                }
-                            })
-                        })
-                    })
-                    .catch(function(error){
-                        console.log(error)
-                    })
-                    */
-
                    setTimeout(() => {
                             this.$router.push({
                                 path:"/result_page",
-                                query:{
-                                    data: map
-                                }
+                                query: { data: map, type: "advancedSearch" }
                             })
                         })
             }

@@ -258,153 +258,107 @@ export default {
       var type = this.$route.query.type;
       var parametres = this.$route.query.data;
       var thedata;
+      var theRef=this;
 
+console.log("parametre "+parametres);
 
       if (type == "quickSearch") {
         var request = new XMLHttpRequest();
         request.open(
           "GET",
-          "http://mdl-std02.info.fundp.ac.be:8181/MdlGroupe2-test/api/literature_reviews/1",
+          "http://mdl-std02.info.fundp.ac.be:8181/MdlGroupe2-test/api/literature_reviews",
           false
         );
         request.onload = function() {
           var data = JSON.parse(this.response);
+         
           if (request.status >= 200 && request.status < 400) {
-            thedata = [
-              {
-                id: data.id,
-                author: data.author,
-                info: data.author + "--" + data.publisher,
-                year: data.year,
-                title: data.title,
-                abstract: data.abstractArticle,
-                keywords: data.tag,
-                videoUrl: data.videoUrl,
-                publisher: data.publisher,
-                ref: data.ref,
-                pagerankscore: data.pagerankscore,
-                matriceref: "matriceref 1"
-              }
-            ];
+             
+             var i,j,cpt=0;
+             var authors=[];
+             var lesAuthor="";
+             var allAuthor=[];
+
+             for(i=0;i<data.length;i++){
+               if (i==15) break;
+               authors=data[i].author;
+               console.log("taille "+this.response);
+               
+                  for(j=0;j<authors.length;j++){                 
+                   lesAuthor+=authors[j].firstName+" "+authors[j].surname+", ";
+                    allAuthor[cpt]=authors[j].firstName+" "+authors[j].surname;
+                    cpt++;
+                    
+                }
+
+                theRef.items.push({id: data[i].id,
+                author: lesAuthor,
+                info: lesAuthor + "--" + data[i].publisher,
+                year: data[i].year,
+                title: data[i].title,
+                abstract: data[i].abstractArticle,
+                keywords: data[i].tag,
+                videoUrl: data[i].videoUrl,
+                publisher: data[i].publisher,
+                ref: data[i].ref,
+                pagerankscore: data[i].pagerankscore,
+                matriceref: "matriceref 1"});               
+            }
+
           }
         };
         request.send();
-      } else if(type=="advancedSearch") {
-        // API ADVANCED SEARCH
       }
-      /*thedata = [
-        {
-          //avatar: '../assets/iconA.png',
-          id: 1,
-          author: "J.S. Yi, B. Shneiderman",
-          info: "J.S. Yi, B. Shneiderman - published 2011 and event 1",
-          year: "2011",
-          title:
-            "Lorem ipsum25662 dolor sit amet, consectetur adipiscing elit, seddo1 ",
-          abstract: "Voici le abstact 1 ",
-          keywords:
-            "Structural Analysis, Text Visualization, Relationships Visualization",
-          videoUrl: "lien video1",
-          publisher: "publisher  1",
-          ref: "ref 1",
-          pagerankscore: "ranking 1",
-          matriceref: "matriceref 1"
-        },
-        {
-          //avatar: '../assets/iconA.png',
-          id: 2,
-          author: "Paul LIYA, LOKo Ray",
-          info: "Paul LIYA, LOKo Ray - published 2005 and event 2",
-          year: "2005",
-          title:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo2",
-          abstract: "Voici le abstact 2",
-          keywords: "Text mining, Text Visualization",
-          videoUrl: "lien video 2",
-          publisher: "publisher 2",
-          ref: "ref 2",
-          pagerankscore: "ranking 2",
-          matriceref: "matriceref 2"
-        },
-        {
-          //avatar: '../assets/iconA.png',
-          id: 3,
-          author: "Rowlins.J",
-          info: "Rowlins.J - published 2015 and event 3",
-          year: "2015",
-          title:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo 3",
-          abstract: "Voici le abstact 3",
-          keywords: "Big data, mining algorithms, visualization",
-          videoUrl: "lien video 3",
-          publisher: "publisher 3",
-          ref: "ref 3",
-          pagerankscore: "ranking 3",
-          matriceref: "matriceref 3"
-        },
-        {
-          //avatar: '../assets/iconA.png',
-          id: 4,
-          author: "D.Keim",
-          info: "D.Keim- published 2015 and event 4",
-          year: "2015",
-          title:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo 4",
-          abstract: "Voici le abstact 4",
-          keywords: "Image visualization, Rendering algorithm",
-          videoUrl: "lien video 4",
-          publisher: "publisher 4",
-          ref: "ref 4",
-          pagerankscore: "ranking 4",
-          matriceref: "matriceref 4"
-        },
-        {
-          //avatar: '../assets/iconA.png',
-          id: 5,
-          author: "J.S. Yi, B. Shneiderman",
-          info: "J.S. Yi, B. Shneiderman - published 2018 and event 5",
-          year: "2018",
-          title:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo 5",
-          abstract: "Voici le abstact 5",
-          keywords: "IOT, Encryption",
-          videoUrl: "lien video 5",
-          publisher: "publisher 5",
-          ref: "ref 5",
-          pagerankscore: "ranking 5",
-          matriceref: "matriceref 5"
-        },
-        {
-          //avatar: '../assets/iconA.png',
-          id: 6,
-          author: "LAFONT Jane, Kucher K., Kerren A.",
-          info:
-            "LAFONT Jane, Kucher K., Kerren A. - published 2015 and event 6",
-          year: "2005",
-          title:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo 6",
-          abstract: "Voici le abstact 6",
-          keywords: "Concurency, Enbaded systems,Software architecture ",
-          videoUrl: "lien video 6",
-          publisher: "publisher 6",
-          ref: "ref 6",
-          pagerankscore: "ranking 6",
-          matriceref: "matriceref 6"
-        }
-      ];*/
+       else if(type=="advancedSearch") {
 
-      /*
-                var the_author = "";
-                var taille = this.items.length;
-                for (i = 0; i < taille; i++) {
-                    this.itemsTitle[i] = this.items[i].title; //get all the titles
-                    //this.itemsAuthor[i] = this.items[i].author;
-                    if (i == taille - 1) the_author = the_author + this.items[i].author;
-                    else the_author = the_author + this.items[i].author + ",";
+        var request = new XMLHttpRequest();
+        request.open(
+          "GET",
+          "http://mdl-std02.info.fundp.ac.be:8181/MdlGroupe2-test/api/literature_reviews",
+          false
+        );
+        request.onload = function() {
+          var data = JSON.parse(this.response);
+         
+          if (request.status >= 200 && request.status < 400) {
+             
+             var i,j,cpt=0;
+             var authors=[];
+             var lesAuthor="";
+             var allAuthor=[];
+
+             for(i=0;i<data.length;i++){
+               if (i==15) break;
+               authors=data[i].author;
+               console.log("taille "+this.response);
+               
+                  for(j=0;j<authors.length;j++){                 
+                   lesAuthor+=authors[j].firstName+" "+authors[j].surname+", ";
+                    allAuthor[cpt]=authors[j].firstName+" "+authors[j].surname;
+                    cpt++;
+                    
                 }
-                this.itemsAuthor = the_author.split(",");
-                */
-      return thedata;
+
+                theRef.items.push({id: data[i].id,
+                author: lesAuthor,
+                info: lesAuthor + "--" + data[i].publisher,
+                year: data[i].year,
+                title: data[i].title,
+                abstract: data[i].abstractArticle,
+                keywords: data[i].tag,
+                videoUrl: data[i].videoUrl,
+                publisher: data[i].publisher,
+                ref: data[i].ref,
+                pagerankscore: data[i].pagerankscore,
+                matriceref: "matriceref 1"});               
+            }
+
+          }
+        };
+        request.send();
+      }      
+                
+      return theRef.items;
     },
     selectTrack(item) {
       id = item.id;
