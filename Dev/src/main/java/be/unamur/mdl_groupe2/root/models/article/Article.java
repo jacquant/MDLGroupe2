@@ -1,74 +1,74 @@
 package be.unamur.mdl_groupe2.root.models.article;
 
-import be.unamur.mdl_groupe2.root.models.articleRef.ArticleRef;
-import be.unamur.mdl_groupe2.root.models.literatureReview.LiteratureReview;
-import be.unamur.mdl_groupe2.root.models.visualization.Visualization;
-import lombok.*;
+import be.unamur.mdl_groupe2.root.models.author.Author;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Proxy;
 
 import javax.persistence.*;
 import java.util.Set;
 
+/**
+ * The type Article.
+ */
 @Entity
 @Table(name = "Article")
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@Proxy(lazy=false)
-public class Article implements Comparable<Article>{
+@Proxy(lazy = false)
+public class Article implements Comparable<Article> {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    //List of author's id
-    private Long[] author;
-
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(name = "contribution_article", joinColumns = @JoinColumn(name = "article_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "author_id", referencedColumnName = "id"))
+    private Set<Author> author;
+    @Column(length = 65536)
     private String title;
 
     private String shortRef;
 
+    private String ref;
+
     private Integer year;
-
+    @Column(length = 65536)
     private String[] countries;
-
+    @Column(length = 65536)
     private String[] domain;
-
+    @Column(length = 65536)
     private String[] tag;
-
-    private Boolean published;
-
+    @Column(length = 65536)
     private String abstractArticle;
-
-    @OneToMany(mappedBy = "article", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Set<LiteratureReview> literatureReviews;
-    //private DBFile pdfFiles;
+    @Column(length = 65536)
+    private Long[] bibliographyArticle;
+    @Column(length = 65536)
+    private Long[] bibliographyLiteratureReview;
 
     private String videoUrl;
-
-    private String ref;
 
     private String journal;
 
     private String publisher;
 
+    private Boolean published;
+    @Column(length = 65536)
     private String[] targetUsers;
-
+    @Column(length = 65536)
     private String[] dataRealness;
-
+    @Column(length = 65536)
     private String[] dataSource;
-
+    @Column(length = 65536)
     private String[] dataAvailability;
-
+    @Column(length = 65536)
     private String[] interaction;
-
+    @Column(length = 65536)
     private String[] action;
 
     private int metric;
-
-    @OneToMany(mappedBy = "article", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Set<ArticleRef> bibliography;
 
     private Boolean open;
 
@@ -78,8 +78,20 @@ public class Article implements Comparable<Article>{
 
     private Long pagerankscore;
 
-    @OneToMany(mappedBy = "article", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Set<Visualization> visualizations;
+    @Column(length = 65536)
+    private String[] visu_datadimension;
+
+    @Column(length = 65536)
+    private String[] visu_StringdataType;
+
+    @Column(length = 65536)
+    private String[] visu_mapType;
+
+    @Column(length = 65536)
+    private String[] visu_visAttribute;
+
+    @Column(length = 65536)
+    private String[] visu_visTechnique;
 
     @Override
     public int compareTo(Article o) {

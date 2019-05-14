@@ -2,59 +2,130 @@ package be.unamur.mdl_groupe2.root.search;
 
 import be.unamur.mdl_groupe2.root.exception.EmptyResultListException;
 import be.unamur.mdl_groupe2.root.models.article.Article;
+import be.unamur.mdl_groupe2.root.models.author.Author;
 import be.unamur.mdl_groupe2.root.repositories.ArticleRepository;
 import be.unamur.mdl_groupe2.root.repositories.AuthorRepository;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.Hashtable;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
-@Component
-public class AdvancedSearchService extends SearchService {
+import static java.util.Collections.emptyList;
+
+public class AdvancedSearchService {
+
+    private final ArticleRepository articleRepository;
+    private final AuthorRepository authorRepository;
 
     @Autowired
-    private ArticleRepository articleRepository;
-    @Autowired
-    private AuthorRepository authorRepository;
-    private List<Article> searchRepository;
+    public AdvancedSearchService(ArticleRepository articleRepository, AuthorRepository authorRepository) {
+        this.articleRepository = articleRepository;
+        this.authorRepository = authorRepository;
+    }
 
     public List<Article> AdvancedSearch(Map<String, String> params) {
-        List<Article> result = null;
+        List<Long> result;
+        result = FindResult(params);
         try {
-            result = SortResult(FindResult(params));
+            return SortResult(articleRepository.findAllById(result));
         } catch (EmptyResultListException e) {
-            //TODO
-            e.printStackTrace();
+            return emptyList();
         }
-        return result;
+    }
+
+    /**
+     * @param list a list of article to sort
+     * @return a sorted list based on the pagerank of each article
+     */
+    public List<Article> SortResult(@NotNull List<Article> list) throws EmptyResultListException {
+        if (list.isEmpty()) {
+            throw new EmptyResultListException("No Result");
+        } else {
+            Collections.sort(list);
+        }
+        return list;
     }
 
 
-    private List<Article> FindResult(Map<String, String> params){
+    private List<Long> FindResult(Map<String, String> params) {
+        List<Long> searchId = new ArrayList<>(Arrays.asList(1L, 2L));
         params.forEach((k, v) -> {
-            switch (k) {
+            switch(k){
                 case "author":
-                    for(Long id:authorRepository.findAuthorIdWithSurname(v)) {
-                        searchRepository.addAll(articleRepository.findArticleWriteBy(id));
+                    if (v.isEmpty())emptyList();
+                    String[] splitAuthor = v.split(" ");
+                    for (int i = 0; i < splitAuthor.length; i++) {
+                        for (Author author : (safeAuthor(authorRepository.findAuthorsBySurnameContains(splitAuthor[i])))) {
+                            for (Article article : safeArticle(articleRepository.findArticlesByAuthor(author))) {
+                                searchId.add(article.getId());
+                            }
+                        }
                     }
                     break;
-                case "title":
-                    searchRepository.addAll(articleRepository.findArticleWithTitle(v));
+                case "notauthor":
+                    if (v.isEmpty())emptyList();
+                    String[] splitnoAuthor = v.split(" ");
+                    for (int i = 0; i < splitnoAuthor.length; i++) {
+                        for (Author author : (safeAuthor(authorRepository.findAuthorsBySurnameContains(splitnoAuthor[i])))) {
+                            for (Article article : safeArticle(articleRepository.findArticlesByAuthor(author))) {
+                                searchId.remove(article.getId());
+                            }
+                        }
+                    }
+
                     break;
-                case "keywords":
-                    searchRepository.addAll(articleRepository.findArticleWithTag(v));
+                case "title":
+                    if (v.isEmpty())emptyList();
+                    String[] splitTitle = v.split(" ");
+                    for (int i = 0; i < splitTitle.length; i++) {
+                        for(Article article : safeArticle(articleRepository.findArticleWithTitle(splitTitle[i]))){
+                            searchId.add(article.getId());
+                        }
+                    }
+                    break;
+                case "nottitle":
+                    if (v.isEmpty())emptyList();
+                    String[] splitnoTitle = v.split(" ");
+                    for (int i = 0; i < splitnoTitle.length; i++) {
+                        for(Article article : safeArticle(articleRepository.findArticleWithTitle(splitnoTitle[i]))){
+                            searchId.remove(article.getId());
+                        }
+                    }
+                    break;
+                case "domaine":
+                    if (v.isEmpty())emptyList();
+                    String[] splitDomain = v.split(" ");
+                    for (int i = 0; i < splitDomain.length; i++) {
+                        for(Article article: safeArticle(articleRepository.findArticleByDomainIn(splitDomain[i]))){
+                            searchId.add(article.getId());
+                        }
+
+                    }
+                    break;
+                case "nodomaine":
+                    if (v.isEmpty())emptyList();
+                    String[] splitnodomain = v.split(" ");
+                    for (int i = 0; i < splitnodomain.length; i++) {
+                        for(Article article: safeArticle(articleRepository.findArticleByDomainIn(splitnodomain[i]))){
+                            searchId.remove(article.getId());
+                        }
+                    }
                     break;
                 default:
-                    Map<String,String> tmp = new Hashtable();
-                    tmp.put(k,v);
-                    //TODO Get back result from search service and add it to searchRepository
-                    searchRepository.addAll(SearchService(tmp));
-                    break;
+                    if (v.isEmpty())emptyList();
             }
+
         });
 
-        return searchRepository;
+        return new ArrayList<>(new HashSet<>(searchId));
+    }
+
+    private static List<Article> safeArticle( List<Article> other ) {
+        return other == null ? emptyList() : other;
+    }
+
+    private static List<Author> safeAuthor( List<Author> other ) {
+        return other == null ? emptyList() : other;
     }
 }

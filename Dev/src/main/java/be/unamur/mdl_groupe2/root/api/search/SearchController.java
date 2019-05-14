@@ -3,6 +3,9 @@ package be.unamur.mdl_groupe2.root.api.search;
 import java.util.List;
 import java.util.Map;
 
+import be.unamur.mdl_groupe2.root.models.article.Article;
+import be.unamur.mdl_groupe2.root.repositories.ArticleRepository;
+import be.unamur.mdl_groupe2.root.repositories.AuthorRepository;
 import be.unamur.mdl_groupe2.root.search.AdvancedSearchService;
 import be.unamur.mdl_groupe2.root.search.SearchService;
 import com.google.gson.Gson;
@@ -10,36 +13,49 @@ import com.google.gson.Gson;
 import org.json.JSONArray;
 import org.springframework.web.bind.annotation.*;
 
-import be.unamur.mdl_groupe2.root.models.article.Article;
-
+/**
+ * The type Search controller.
+ */
 @RestController
 @RequestMapping("/api")
 public class SearchController {
 
-    private final List<Article> searchResult = null;
+    private final ArticleRepository articleRepository;
+    private final AuthorRepository authorRepository;
 
-    @GetMapping("QuickSearch")
-    public List<Article> searchController(@RequestParam Map<String, String> params) {
-
-        return new SearchService().SearchService(params);
+    /**
+     * Instantiates a new Search controller.
+     *
+     * @param articleRepository the article repository
+     * @param authorRepository  the author repository
+     */
+    public SearchController(ArticleRepository articleRepository, AuthorRepository authorRepository) {
+        this.articleRepository = articleRepository;
+        this.authorRepository = authorRepository;
     }
 
-    @GetMapping("QuickSearchJson")
-    public JSONArray searchControllerJson(@RequestParam Map<String, String> params){
-        return new JSONArray(new Gson().toJson(searchController(params)));
+
+    /**
+     * Search controller list.
+     *
+     * @param params the params
+     * @return the list
+     */
+    @GetMapping("/QuickSearch")
+    public List<Article> searchController(@RequestParam String params) {
+        return new SearchService(authorRepository, articleRepository).Search(params);
     }
 
+    /**
+     * Advanced search controller list.
+     *
+     * @param params the params
+     * @return the list
+     */
 
-    /* <!-- URL avec deux paramètres nommés 'lang' et 'admin', et ayant pour valeur respectivement 'fr' et 'true' --> /page.jsp?lang=fr&admin=true*/
-    @GetMapping("AdvancedSearch")
+    @GetMapping("/AdvancedSearch")
     public List<Article> AdvancedSearchController(@RequestParam Map<String, String> params) {
-
-        return new AdvancedSearchService().AdvancedSearch(params);
+        return new AdvancedSearchService(articleRepository, authorRepository).AdvancedSearch(params);
     }
 
-    @GetMapping("AdvancedSearchJson")
-    public JSONArray AdvancedSearchControllerJson(@RequestParam Map<String, String> params){
-
-        return new JSONArray(new Gson().toJson(AdvancedSearchController(params)));
-    }
 }
