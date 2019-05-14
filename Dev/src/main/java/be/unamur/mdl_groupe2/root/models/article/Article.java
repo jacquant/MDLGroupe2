@@ -23,7 +23,7 @@ import java.util.Set;
 @Proxy(lazy = false)
 public class Article implements Comparable<Article> {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.TABLE)
     private Long id;
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)

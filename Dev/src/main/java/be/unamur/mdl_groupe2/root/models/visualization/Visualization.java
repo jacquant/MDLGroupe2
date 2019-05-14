@@ -15,7 +15,7 @@ import java.util.Set;
 @AllArgsConstructor
 public class Visualization {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.TABLE)
     private Long id;
 
     @ManyToOne
