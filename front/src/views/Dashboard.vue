@@ -1,6 +1,6 @@
 <template>
   <div id="pageDashboard" width="100%">
-    <v-img id="logo" v-bind:position="centerX" src=static/logo.jpg
+    <v-img id="logo" v-bind:position="centerX" src=../static/logo.jpg
     :height="logoHeight" contain="true" alt="Logo ReSearch" />
     <br />
 

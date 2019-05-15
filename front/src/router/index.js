@@ -6,7 +6,7 @@ import "nprogress/nprogress.css";
 
 Vue.use(Router);
 const router = new Router({
-  base: "/",
+  base: "/MdlGroupe2-test/",
   mode: "hash",
   linkActiveClass: "active",
   routes: paths
