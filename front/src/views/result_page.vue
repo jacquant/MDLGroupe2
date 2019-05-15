@@ -9,7 +9,7 @@
 
       <v-card-actions>
         <v-spacer></v-spacer>
-        <v-btn @click="" class="titre">Visual</v-btn>
+        <v-btn @click="displayVisualEA" class="titre">Visual</v-btn>
       </v-card-actions>
 
       <table style=" position: absolute; width:100%; " cellspacing="10">
@@ -97,7 +97,7 @@
                                     ></v-text-field>
                                 </v-card-actions-->
 
-              <div class>
+              <!--<div class>
                 <b>Criteria on State of art</b>
                 <br />
                 <input type="checkbox" class />critere1
@@ -105,7 +105,7 @@
                 <br />
                 <input type="checkbox" class />critere3
                 <input type="checkbox" class />critere4
-              </div>
+              </div>-->
             </div>
           </td>
 
@@ -177,18 +177,8 @@
 </template>
 
 <script>
-const axios = require("axios");
-var id,
-  title,
-  author,
-  abstract,
-  keywords,
-  info,
-  videoUrl,
-  publisher,
-  ref,
-  pagerankscore,
-  matriceref;
+
+var id;
 
 export default {
   data: () => ({
@@ -203,7 +193,7 @@ export default {
 
     pagination: {
       sortBy: "",
-      rowsPerPage: 25
+      rowsPerPage: 5
     },
     selected: [],
     headers: [
@@ -217,11 +207,16 @@ export default {
       year: []
     },
 
-    items: []
+    items: [],
+    allkeywords: [],
+    alldomains: []
+
   }),
 
   created() {
     this.items = this.searchfound();
+    //this.allkeywords = this.getkeyword();
+    //this.alldomains - this.getdomain();
   },
 
   computed: {
@@ -234,6 +229,14 @@ export default {
     }
   },
   methods: {
+    getkeyword() {
+      //if (this.items.length == 0) return alert("No item found");
+      return this.items.keywords;
+   },
+    getdomain() {
+      //if (this.items.length == 0) return alert("No item found");
+      return this.items.domains;
+    },
     tailleResult() {
       //if (this.items.length == 0) return alert("No item found");
       return this.items.length;
@@ -254,110 +257,87 @@ export default {
       return this.items.map(d => d[val]);
     },
 
+    displayVisualEA() {
+      console.log("DISPLAYVISU KEY: " + this.allkeywords);
+      console.log("DISPLAYVISU DOMAINS: " + this.alldomains);
+      setTimeout(() => {
+        this.$router.push({
+          path: "/VisualEA",
+          query: {
+            allkeywords: this.allkeywords,
+            alldomains: this.alldomains
+          }
+        });
+      }, 1);
+    },
+
     searchfound() {
       var type = this.$route.query.type;
       var parametres = this.$route.query.data;
-      var thedata;
-      var theRef=this;
-
-console.log("parametre "+parametres);
+      var theRef = this;
 
       if (type == "quickSearch") {
         var request = new XMLHttpRequest();
         request.open(
           "GET",
-          "http://mdl-std02.info.fundp.ac.be:8181/MdlGroupe2-test/api/literature_reviews",
+          "http://mdl-std02.info.fundp.ac.be:8181/MdlGroupe2-test/api/QuickSearch?params=" + parametres,
           false
         );
         request.onload = function() {
           var data = JSON.parse(this.response);
-         
+          console.log(data);
+
           if (request.status >= 200 && request.status < 400) {
-             
-             var i,j,cpt=0;
-             var authors=[];
-             var lesAuthor="";
-             var allAuthor=[];
+            var i,
+              j,
+              cpt = 0;
+            var authors = [];
+            var lesAuthor = "";
+            var allAuthor = [];
 
-             for(i=0;i<data.length;i++){
-               if (i==15) break;
-               authors=data[i].author;
-               console.log("taille "+this.response);
-               
-                  for(j=0;j<authors.length;j++){                 
-                   lesAuthor+=authors[j].firstName+" "+authors[j].surname+", ";
-                    allAuthor[cpt]=authors[j].firstName+" "+authors[j].surname;
-                    cpt++;
-                    
-                }
+            for (i = 0; i < data.length; i++) {
+              authors = data[i].author;
+              console.log(authors);
+              lesAuthor= "";
+              for (j = 0; j < authors.length; j++) {
+                lesAuthor +=
+                  authors[j].firstName + " " + authors[j].surname + ", ";
+                allAuthor[cpt] =
+                  authors[j].firstName + " " + authors[j].surname;
+                cpt++;
+              }
 
-                theRef.items.push({id: data[i].id,
+              theRef.allkeywords[i]=data[i].tag;
+              theRef.alldomains[i]=data[i].domain;
+
+              theRef.items.push({
+                id: data[i].id,
                 author: lesAuthor,
                 info: lesAuthor + "--" + data[i].publisher,
                 year: data[i].year,
                 title: data[i].title,
                 abstract: data[i].abstractArticle,
                 keywords: data[i].tag,
+                domains: data[i].domain,
                 videoUrl: data[i].videoUrl,
                 publisher: data[i].publisher,
                 ref: data[i].ref,
                 pagerankscore: data[i].pagerankscore,
-                matriceref: "matriceref 1"});               
+                matriceref: "matriceref 1"
+              });
             }
-
           }
         };
         request.send();
-      }
-       else if(type=="advancedSearch") {
-
-        var request = new XMLHttpRequest();
+      } else if (type == "advancedSearch") {
+        /*var request2 = new XMLHttpRequest();
         request.open(
           "GET",
-          "http://mdl-std02.info.fundp.ac.be:8181/MdlGroupe2-test/api/literature_reviews",
+                "http://mdl-std02.info.fundp.ac.be:8181/MdlGroupe2-test/api/QuickSearch?params=" + parametres,
           false
-        );
-        request.onload = function() {
-          var data = JSON.parse(this.response);
-         
-          if (request.status >= 200 && request.status < 400) {
-             
-             var i,j,cpt=0;
-             var authors=[];
-             var lesAuthor="";
-             var allAuthor=[];
+        );*/
+      }
 
-             for(i=0;i<data.length;i++){
-               if (i==15) break;
-               authors=data[i].author;
-               console.log("taille "+this.response);
-               
-                  for(j=0;j<authors.length;j++){                 
-                   lesAuthor+=authors[j].firstName+" "+authors[j].surname+", ";
-                    allAuthor[cpt]=authors[j].firstName+" "+authors[j].surname;
-                    cpt++;
-                    
-                }
-
-                theRef.items.push({id: data[i].id,
-                author: lesAuthor,
-                info: lesAuthor + "--" + data[i].publisher,
-                year: data[i].year,
-                title: data[i].title,
-                abstract: data[i].abstractArticle,
-                keywords: data[i].tag,
-                videoUrl: data[i].videoUrl,
-                publisher: data[i].publisher,
-                ref: data[i].ref,
-                pagerankscore: data[i].pagerankscore,
-                matriceref: "matriceref 1"});               
-            }
-
-          }
-        };
-        request.send();
-      }      
-                
       return theRef.items;
     },
     selectTrack(item) {
@@ -371,7 +351,6 @@ console.log("parametre "+parametres);
           }
         });
       }, 1);
-
     }
   }
 };

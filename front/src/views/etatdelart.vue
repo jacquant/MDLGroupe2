@@ -40,6 +40,7 @@
                 <div id="textarea">
                   <v-text-field
                     label="abstract"
+                    readonly="true"
                     name="abstract"
                     textarea
                     rows="10"
@@ -88,9 +89,7 @@
                   <v-icon class="text--secondary">refresh</v-icon>
                 </v-btn>
                 <div slot="widget-content">
-                  <!--put  cloud graph here-->
-                  <artilceViewGraph></artilceViewGraph>
-                  <!--end of cloud graph-->
+                  <div v-html="index"></div>
                 </div>
               </v-widget>
             </v-flex>
@@ -173,26 +172,13 @@
                 <th>VisAttributes</th>
                 <th>VisTechniques</th>
               </tr>
-              <tr>
+              <tr v-for="dim in visu_datadimension, map in visu_mapType, attr in visu_visAttribute, tech in visu_visTechnique" >
                 <td>ref</td>
-                <td>v</td>
-                <td>v</td>
-                <td>x</td>
-                <td>x</td>
-              </tr>
-              <tr>
-                <td>ref 2</td>
-                <td>v</td>
-                <td>v</td>
-                <td>v</td>
-                <td>x</td>
-              </tr>
-              <tr>
-                <td>ref 3</td>
-                <td>v</td>
-                <td>v</td>
-                <td>x</td>
-                <td>x</td>
+                <td>{{ dim }}/td>
+                <td>{{ map }}</td>
+                <td> {{ attr }}</td>
+                <td> {{ tech }}</td>
+
               </tr>
             </table>
           </div>
@@ -208,6 +194,7 @@ import EChart from "@/components/chart/echart";
 import VWidget from "@/components/VWidget";
 import Material from "vuetify/es5/util/colors";
 import wordcloud from "vue-wordcloud";
+
 
 
 export default {
@@ -233,8 +220,13 @@ export default {
       the_abstract: "",
       domains: "",
       keywords: "",
-      visualizations:"",
-      ref:[],
+      visu_datadimension: [],
+      visu_mapType: [],
+      visu_visAttribute: [],
+      visu_visTechnique: [],
+      bibliographyLiteratureReview: [],
+      bibliographyArticle: [],
+      ref: []
 
       /*headers: [
           {
@@ -275,6 +267,7 @@ export default {
   },
   created() {
     this.setData();
+    this.classicView();
   },
   model: {
     //paper: this.$route.query.data
@@ -294,6 +287,7 @@ export default {
 
       request.onload = function() {
         var data = JSON.parse(this.response);
+        console.log(data);
         if (request.status >= 200 && request.status < 400) {
           refThis.title = data.title;
           refThis.the_abstract = data.abstractArticle;
@@ -303,7 +297,12 @@ export default {
           refThis.defaultWordsPieChart = data.domain;
           refThis.keywords = data.tag.toString();
           refThis.domains = data.domain.toString();
-          refThis.visualizations=data.visualizations;
+          refThis.visu_datadimension=data.visu_datadimension;
+          refThis.visu_mapType=data.visu_mapType;
+          refThis.visu_visAttribute=data.visu_visAttribute;
+          refThis.visu_visTechnique=data.visu_visTechnique;
+          refThis.bibliographyLiteratureReview=data.bibliographyLiteratureReview;
+          refThis.bibliographyArticle=data.bibliographyArticle;
           refThis.ref=data.ref;
 
           refThis.defaultWords.forEach(function(element, index) {
@@ -312,19 +311,20 @@ export default {
               value: Math.floor(Math.random() * 30) + 1
             };
           });
+          console.log(refThis.defaultWords);
           refThis.defaultWordsPieChart.forEach(function(element, index) {
             refThis.defaultWordsPieChart[index] = {
-              value: Math.floor(Math.random() * 30) + 1,
+              value: 1,
               name: element
             };
           });
 
-          /*refThis.info = null;
+          refThis.info = null;
           refThis.videoUrl = data.videoUrl;
           refThis.publisher = data.publisher;
           refThis.ref = data.ref;
           refThis.pagerankscore = data.pagerankscore;
-          refThis.matriceref = null;*/
+          refThis.matriceref = null;
         }
       };
       request.send();
@@ -354,5 +354,11 @@ export default {
 .titre {
   color:lightslategrey;
   font-weight: bold;
+}
+
+#container {
+  max-width: 1000px;
+  height: 1000px;
+  margin: auto;
 }
 </style>

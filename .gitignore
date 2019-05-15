@@ -1,4 +1,6 @@
 *.tmp
 .idea
 .vscode
-.idea/workspace.xml
+
+front/src/views/data.json
+

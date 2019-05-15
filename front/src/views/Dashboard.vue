@@ -1,6 +1,6 @@
 <template>
   <div id="pageDashboard" width="100%">
-    <v-img id="logo" v-bind:position="centerX" src=static/logo.jpg
+    <v-img id="logo" v-bind:position="centerX" src=../static/logo.jpg
     :height="logoHeight" contain="true" alt="Logo ReSearch" />
     <br />
 
@@ -30,7 +30,7 @@
       -->
     </div>
 
-    <div id="app" class="appClass" hidden>
+    <div id="app" class="appClass">
       <wordcloud
         :data="defaultWords"
         nameKey="name"
@@ -51,7 +51,6 @@
 import API from "@/api";
 import Material from "vuetify/es5/util/colors";
 import wordcloud from "vue-wordcloud";
-import axios from "axios";
 
 export default {
   components: {
@@ -83,7 +82,6 @@ export default {
     validateResearch: function(e) {
       var refThis = this;
       var inputedText = refThis.searchedInput;
-
 
       setTimeout(() => {
         refThis.$router.push({
@@ -120,27 +118,33 @@ export default {
     wordCloudDisplay: function(e) {
       var refThis = this;
       var inputedText = refThis.searchedInput;
-      var apiResponse = "";
-      axios
-        .get("http://localhost:8181/api/Synonyme?keyword=" + inputedText)
-        .then(response => {
-          if (response.request.status >= 200 && response.request.status < 400) {
-            apiResponse = response.data;
-            apiResponse.forEach(function(element, index) {
-              apiResponse[index] = {
-                name: element,
-                value: Math.floor(Math.random() * 30) + 1
-              };
-            });
-            refThis.defaultWords = apiResponse;
-            if (refThis.defaultWords.length > 0) {
-              refThis.logoHeight = 150;
-              document.getElementById("app").style.display = "block";
-            } else {
-              document.getElementById("app").style.display = "none";
-            }
+      var request = new XMLHttpRequest();
+
+      request.open(
+        "GET",
+        "http://localhost:8181/api/Synonym?keyword=" + inputedText,
+        false
+      );
+
+      request.onload = function() {
+        var data = JSON.parse(this.response);
+        if (request.status >= 200 && request.status < 400) {
+          refThis.defaultWords=data.synonym;
+          refThis.defaultWords.forEach(function(element, index) {
+            refThis.defaultWords[index] = {
+              name: element,
+              value: Math.floor(Math.random() * 30) + 1
+            };
+          });
+          if (refThis.defaultWords.length > 0) {
+            refThis.logoHeight = 150;
+            document.getElementById("app").style.display = "block";
+          } else {
+            document.getElementById("app").style.display = "none";
           }
-        });
+        }
+      };
+      request.send();
     }
   }
 };
