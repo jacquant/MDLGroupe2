@@ -172,7 +172,7 @@
             <artifactId>rita</artifactId>
             <version>1.3.94</version>
             <scope>system</scope>
-            <systemPath>${basedir}/src/main/resources/rita.jar</systemPath>
+            <systemPath>${basedir}/repo/com/rita/rita/1.3.94/rita-1.3.94.jar</systemPath>
         </dependency>
         <!-- pagerank -->
         <dependency>
@@ -188,6 +188,9 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <includeSystemScope>true</includeSystemScope>
+                </configuration>
             </plugin>
         </plugins>
     </build>
