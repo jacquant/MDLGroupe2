@@ -119,10 +119,10 @@ export default {
       var refThis = this;
       var inputedText = refThis.searchedInput;
       var request = new XMLHttpRequest();
-
+      
       request.open(
         "GET",
-        "http://localhost:8181/api/Synonym?keyword=" + inputedText,
+        "http://mdl-std02.info.fundp.ac.be:8181/MdlGroupe2-test/api/Synonym?keyword=" + inputedText,
         false
       );
 
