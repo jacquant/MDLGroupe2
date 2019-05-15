@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1665df2b-97e4-4167-b215-4f27df40fb8b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dev/src/main/resources/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Dev/src/main/resources/static/index.html" afterDir="false" />
-    </list>
+    <list default="true" id="1665df2b-97e4-4167-b215-4f27df40fb8b" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -89,9 +86,19 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Dev/src/main/resources/static/index.html">
           <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Dev/pom.xml">
+          <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3696">
+              <caret line="176" column="25" selection-start-line="176" selection-start-column="25" selection-end-line="176" selection-end-column="25" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -136,6 +143,7 @@
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
         <option value="jacquant &lt;antoine.jacques@student.unamur.be&gt;" />
+        <option value="Try deploy" />
       </list>
     </option>
     <option name="UPDATE_TYPE" value="REBASE" />
@@ -647,11 +655,18 @@
       <option name="project" value="LOCAL" />
       <updated>1557870723587</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Try deploy">
+      <created>1557875177568</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1557875177568</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="190649000" />
+    <option name="totallyTimeSpent" value="195146000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -664,7 +679,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-3" y="31" width="1926" height="1052" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49511003" visible="true" weight="0.22896698" />
       <window_info id="Structure" order="1" sideWeight="0.50488997" side_tool="true" weight="0.17252396" />
@@ -677,7 +691,7 @@
       <window_info anchor="bottom" id="Thumbnails" weight="0.32968238" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32858709" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49947312" weight="0.4381161" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49947312" visible="true" weight="0.44468784" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -793,7 +807,8 @@
     <MESSAGE value="SYnonyms" />
     <MESSAGE value="SYnonyms v2" />
     <MESSAGE value="Try fix synonym" />
-    <option name="LAST_COMMIT_MESSAGE" value="Try fix synonym" />
+    <MESSAGE value="Try deploy" />
+    <option name="LAST_COMMIT_MESSAGE" value="Try deploy" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -1023,14 +1038,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dev/pom.xml">
-      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="176" column="25" selection-start-line="176" selection-start-column="25" selection-end-line="176" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Dev/src/main/java/be/unamur/mdl_groupe2/root/search/SearchCrawler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="418">
@@ -1127,6 +1134,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Dev/src/main/resources/static/index.html">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dev/pom.xml">
+      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3696">
+          <caret line="176" column="25" selection-start-line="176" selection-start-column="25" selection-end-line="176" selection-end-column="25" />
+        </state>
+      </provider>
     </entry>
   </component>
   <component name="masterDetails">
