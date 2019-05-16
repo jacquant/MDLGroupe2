@@ -46,7 +46,7 @@ public class AdvancedSearchService {
 
 
     private List<Long> FindResult(Map<String, String> params) {
-        List<Long> searchId = new ArrayList<>(Arrays.asList(1L, 2L));
+        List<Long> searchId = new ArrayList<>(Arrays.asList());
         params.forEach((k, v) -> {
             switch(k){
                 case "author":
